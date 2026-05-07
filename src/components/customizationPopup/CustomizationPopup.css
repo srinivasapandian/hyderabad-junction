@@ -1,0 +1,228 @@
+/* ── Backdrop ── */
+.cpop-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.52);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+}
+
+/* ── Sheet ── */
+.cpop {
+  position: relative;
+  background: #fff;
+  border-radius: 18px;
+  width: 100%;
+  max-width: 460px;
+  padding: 20px 18px 16px;
+  box-shadow: 0 8px 48px rgba(0, 0, 0, 0.22);
+  animation: cpop-scale-in 0.24s cubic-bezier(0.22, 1, 0.36, 1) both;
+  max-height: 60dvh;
+  display: flex;
+  flex-direction: column;
+  overflow: visible;
+}
+
+@keyframes cpop-scale-in {
+  from { transform: scale(0.9); opacity: 0; }
+  to   { transform: scale(1);   opacity: 1; }
+}
+
+/* ── Header row: title only ── */
+.cpop__header {
+  margin-bottom: 20px;
+}
+
+.cpop__title {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--primary-color, #00271c);
+  margin: 0;
+  text-align: center;
+}
+
+.cpop__close {
+  position: absolute;
+  top: -14px;
+  right: -14px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: none;
+  background: var(--primary-color, #00271c);
+  color: #fff;
+  font-size: 0.9rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.22);
+  transition: opacity 0.15s;
+  z-index: 1;
+}
+
+/* ── Lines list — scrollable body ── */
+.cpop__lines {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 16px;
+  min-height: 50px;
+  flex: 1;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding-right: 4px;
+}
+
+.cpop__lines::-webkit-scrollbar {
+  width: 4px;
+}
+
+.cpop__lines::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.cpop__lines::-webkit-scrollbar-thumb {
+  background: rgba(0, 39, 28, 0.18);
+  border-radius: 9999px;
+}
+
+/* ── Individual line card ── */
+.cpop__line-card {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  background: rgba(0, 39, 28, 0.04);
+  border: 1px solid rgba(0, 39, 28, 0.08);
+  border-radius: 14px;
+  padding: 12px 14px;
+}
+
+/* ── Row inside a line card (name+stepper / mods+edit) ── */
+.cpop__line-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.cpop__line-row--end {
+  justify-content: flex-end;
+}
+
+.cpop__line-name {
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--primary-color, #00271c);
+  margin: 0;
+  flex: 1;
+  min-width: 0;
+}
+
+.cpop__line-mods-wrap {
+  flex: 1;
+  min-width: 0;
+}
+
+.cpop__line-mods {
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--black);
+  margin: 0;
+  word-break: break-word;
+}
+
+.cpop__line-mods-options {
+  font-weight: 400;
+  color: var(--text);
+}
+
+/* ── Stepper — mirrors cart dark pill ── */
+.cpop__stepper {
+  display: flex;
+  align-items: center;
+  background: var(--primary-color, #00271c);
+  border-radius: var(--radius-full, 9999px);
+  overflow: hidden;
+}
+
+.cpop__step-btn {
+  width: 34px;
+  height: 34px;
+  border: none;
+  background: transparent;
+  color: var(--secondary-color, #c8a96e);
+  font-size: 1.05rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.15s;
+}
+
+.cpop__step-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.cpop__step-val {
+  min-width: 2.2rem;
+  text-align: center;
+  font-family: var(--font-heading);
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--secondary-color, #c8a96e);
+  user-select: none;
+}
+
+/* ── Edit link ── */
+.cpop__edit-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  border: none;
+  background: none;
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--primary-color, #00271c);
+  cursor: pointer;
+  padding: 0;
+  transition: opacity 0.15s;
+}
+
+.cpop__edit-btn:hover {
+  opacity: 0.65;
+}
+
+/* ── Add New CTA ── */
+.cpop__add-new {
+  width: 100%;
+  padding: 15px 16px;
+  border-radius: 14px;
+  border: none;
+  background: var(--primary-color, #00271c);
+  color: var(--secondary-color, #c8a96e);
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  transition: opacity 0.15s, transform 0.12s;
+}
+
+.cpop__add-new:hover {
+  opacity: 0.88;
+}
+
+.cpop__add-new:active {
+  transform: scale(0.98);
+}

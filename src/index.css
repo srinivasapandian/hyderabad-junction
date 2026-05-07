@@ -1,0 +1,221 @@
+/* ═══════════════════════════════════════════
+   SELF-HOSTED FONTS
+═══════════════════════════════════════════ */
+
+/* Causten Round ─────────────────────────── */
+@font-face { font-family: 'Causten'; src: url('./assets/font/Causten-Round/Causten-Thin.otf') format('opentype'); font-weight: 100; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Causten'; src: url('./assets/font/Causten-Round/Causten-ThinOblique.otf') format('opentype'); font-weight: 100; font-style: oblique; font-display: swap; }
+@font-face { font-family: 'Causten'; src: url('./assets/font/Causten-Round/Causten-ExtraLight.otf') format('opentype'); font-weight: 200; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Causten'; src: url('./assets/font/Causten-Round/Causten-ExtraLightOblique.otf') format('opentype'); font-weight: 200; font-style: oblique; font-display: swap; }
+@font-face { font-family: 'Causten'; src: url('./assets/font/Causten-Round/Causten-Light.otf') format('opentype'); font-weight: 300; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Causten'; src: url('./assets/font/Causten-Round/Causten-LightOblique.otf') format('opentype'); font-weight: 300; font-style: oblique; font-display: swap; }
+@font-face { font-family: 'Causten'; src: url('./assets/font/Causten-Round/Causten-Regular.otf') format('opentype'); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Causten'; src: url('./assets/font/Causten-Round/Causten-RegularOblique.otf') format('opentype'); font-weight: 400; font-style: oblique; font-display: swap; }
+@font-face { font-family: 'Causten'; src: url('./assets/font/Causten-Round/Causten-Medium.otf') format('opentype'); font-weight: 500; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Causten'; src: url('./assets/font/Causten-Round/Causten-MediumOblique.otf') format('opentype'); font-weight: 500; font-style: oblique; font-display: swap; }
+@font-face { font-family: 'Causten'; src: url('./assets/font/Causten-Round/Causten-SemiBold.otf') format('opentype'); font-weight: 600; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Causten'; src: url('./assets/font/Causten-Round/Causten-SemiBoldOblique.otf') format('opentype'); font-weight: 600; font-style: oblique; font-display: swap; }
+@font-face { font-family: 'Causten'; src: url('./assets/font/Causten-Round/Causten-Bold.otf') format('opentype'); font-weight: 700; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Causten'; src: url('./assets/font/Causten-Round/Causten-BoldOblique.otf') format('opentype'); font-weight: 700; font-style: oblique; font-display: swap; }
+@font-face { font-family: 'Causten'; src: url('./assets/font/Causten-Round/Causten-ExtraBold.otf') format('opentype'); font-weight: 800; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Causten'; src: url('./assets/font/Causten-Round/Causten-ExtraBoldOblique.otf') format('opentype'); font-weight: 800; font-style: oblique; font-display: swap; }
+@font-face { font-family: 'Causten'; src: url('./assets/font/Causten-Round/Causten-Black.otf') format('opentype'); font-weight: 900; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Causten'; src: url('./assets/font/Causten-Round/Causten-BlackOblique.otf') format('opentype'); font-weight: 900; font-style: oblique; font-display: swap; }
+
+/* Blinka Serif ──────────────────────────── */
+@font-face { font-family: 'Blinka Serif'; src: url('./assets/font/Blinka Font/blinka.ttf') format('truetype'); font-weight: 400; font-style: normal; font-display: swap; }
+
+:root {
+  /* ── Brand colours ──────────────────────────────── */
+  --primary-color:      #002724;
+  --primary-surface:    #002422;
+  --primary-card:       #013531;
+  --primary-tertiary:   #083339;
+  --primary-blob:       #02534C;
+  --secondary-color:    #E0C0AB;
+
+  /* ── Extended palette ───────────────────────────── */
+  --black-color:   #111111;
+  --gray-color:    #444444;
+  --gray-color-1:  #525252;
+  --gray-color-2:  #C6C6C6;
+  --gray-color-3:  #6F6F6F;
+  --white-color:   #ffffff;
+
+  /* ── Status bar colours ────────────────────────────────────────────────── */
+  --bar-closed:       #d32f2f;  /* ClosedBar — restaurant is closed          */
+  --bar-closing-soon: #f57c00;  /* ClosedBar — restaurant is closing soon    */
+
+  /* ── Legacy accent (kept for backward-compat across existing components) */
+  --red:         #CD4143;
+  --red-dark:    #9A1B1F;
+  --red-soft:    rgba(205, 65, 67, 0.06);
+  --red-glow:    rgba(205, 65, 67, 0.2);
+
+  /* ── Neutrals ───────────────────────────────────── */
+  --black:       #111111;
+  --white:       #ffffff;
+  --bg:          #ffffff;
+  --surface:     #f7f7f7;
+  --surface-alt: #efefef;
+  --border:      #e5e5e5;
+  --border-md:   #d0d0d0;
+  --border-accent: rgba(224, 192, 171, 0.3);
+
+  /* ── Text ───────────────────────────────────────── */
+  --text:              #1a1a1a;
+  --text-muted:        #666666;
+  --text-muted-light:  #999999;
+  --text-muted-accent: rgba(228, 192, 171, 0.55);
+
+  /* ── Radii ──────────────────────────────────────── */
+  --radius-xs:   10px;
+  --radius-sm:   12px;
+  --radius-md:   16px;
+  --radius-lg:   24px;
+  --radius-xl:   32px;
+  --radius-full: 999px;
+
+  /* ── Shadows ────────────────────────────────────── */
+  --shadow-card:  0 4px 32px rgba(0, 0, 0, 0.08);
+  --shadow-red:   0 6px 24px rgba(0, 39, 36, 0.18);
+  --shadow-float: 0 20px 60px rgba(0, 0, 0, 0.14);
+
+  /* ── Transition ─────────────────────────────────── */
+  --transition:        0.18s ease;
+  --transition-medium: 0.3s ease;
+
+  /* ── Typography ─────────────────────────────────── */
+  --font-heading: 'Causten', sans-serif;
+  --font-body:    'Montserrat', sans-serif;
+  --font-accent:  'Montserrat', sans-serif;
+
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  overflow-x: hidden;
+  background: #ffffff;
+  color: var(--text);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+#root {
+  overflow-x: clip;
+}
+
+/* Layout container */
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+@media (max-width: 576px) {
+  .container { padding: 0 24px; }
+}
+
+/*
+ * Prevent iOS / Android zoom-on-focus.
+ * Browsers zoom when a focused input's computed font-size < 16px.
+ * `max(16px, 1em)` floors at 16 px but never shrinks a larger value.
+ * Trigger on either a coarse pointer (phones, most tablets) OR a
+ * mobile-sized viewport — some iOS/iPad modes report `pointer: fine`
+ * but still zoom, so the viewport guard catches those.
+ * `!important` is required so it wins over component-level class selectors.
+ */
+@media (pointer: coarse), (any-pointer: coarse), (max-width: 1024px) {
+  input,
+  input[type],
+  select,
+  textarea {
+    font-size: max(16px, 1em) !important;
+  }
+}
+
+/* ─────────────────────────────────────────────────────────────────
+   SHARED DARK-PAGE UTILITIES  (used by Home + About)
+───────────────────────────────────────────────────────────────── */
+
+/* Section kicker label */
+.section-label {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--secondary-color);
+  display: block;
+  margin: 0 0 10px;
+}
+
+/* Section heading */
+.section-title {
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  font-weight: 900;
+  color: var(--white-color);
+  line-height: 1.05;
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+  margin: 0 0 1.2rem;
+}
+
+/* Section body text */
+.section-desc {
+  font-size: 0.95rem;
+  color: var(--white-color);
+  line-height: 1.85;
+  max-width: 560px;
+}
+
+/* Accent divider line */
+.divider {
+  width: 48px;
+  height: 3px;
+  background: var(--secondary-color);
+  border-radius: 2px;
+  opacity: 0.5;
+  margin: 14px 0;
+}
+
+/* Glass card backdrop */
+.glass {
+  background: rgba(0, 39, 36, 0.82);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(228, 196, 172, 0.12);
+}
+
+/* Section texture (Home · About shared) */
+.hb-pattern {
+  position: relative;
+}
+.hb-pattern::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url('./assets/pattern/section-bg-pattern.png');
+  background-repeat: repeat;
+  background-size: 550px;
+  opacity: 0.4;
+  pointer-events: none;
+  z-index: 0;
+}
+.hb-pattern > * { position: relative; z-index: 1; }
+

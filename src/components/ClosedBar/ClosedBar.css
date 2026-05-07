@@ -1,0 +1,56 @@
+.cb-root {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1050;
+  display: flex;
+  align-items: center;
+  padding: 0.5rem 1.4rem;
+  background: var(--bar-closed);
+  color: #ffffff;
+  font-size: 0.8rem;
+  line-height: 1.4;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  width: 97%;
+  margin: 0 auto;
+}
+
+/* Text span — holds both the icon and the message inline */
+.cb-text {
+  flex: 1;
+  display: inline;
+}
+
+/* Disclaimer SVG — inline-linked with the text */
+.cb-disclaimer-icon {
+  display: inline;
+  vertical-align: middle;
+  position: relative;
+  top: -1px;
+  margin-right: 0.35rem;
+  flex-shrink: 0;
+}
+
+.cb-text strong {
+  font-weight: 700;
+}
+
+@media (max-width: 640px) {
+  .cb-root {
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    width: 96%;
+  }
+}
+
+@media (max-width: 576px) {
+  .cb-root {
+    font-size: 0.75rem;
+    padding: 0.4rem 1rem;
+    line-height: 1.6;
+    border-radius: 12px 12px 0 0;
+    width: 96%;
+  }
+}

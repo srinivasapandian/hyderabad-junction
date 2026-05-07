@@ -1,0 +1,34 @@
+/* ═══════════════════════════════════════════
+   MENU PAGE — WHITE THEME
+═══════════════════════════════════════════ */
+
+.mn-page {
+  min-height: 100vh;
+  background: var(--primary-color);
+}
+
+/* ═══════════════════════════════════════════
+   BG WRAPPER — primary theme + pattern
+═══════════════════════════════════════════ */
+.mn-bg {
+  position: relative;
+  background-color: var(--primary-color);
+}
+
+/* Scrim not used */
+.mn-bg-scrim {
+  display: none;
+}
+
+/* No hero above — account for fixed header height */
+.mn-bg--no-hero {
+  padding-top: 98px;
+}
+
+/* ═══════════════════════════════════════════
+   RESPONSIVE
+═══════════════════════════════════════════ */
+/* Smaller mobile header */
+@media (max-width: 480px) {
+  .mn-bg--no-hero { padding-top: 83px; }
+}

@@ -1,0 +1,96 @@
+/* ── Bottom Nav — mobile only (≤576px) ─────────────────────────────────────── */
+.bnav {
+  display: none; /* hidden on desktop */
+}
+
+@media (max-width: 576px) {
+  .bnav {
+    display: flex;
+    align-items: stretch;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 58px;
+    background: #ffffff;
+    border-top: 1px solid rgba(0, 0, 0, 0.08);
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.08);
+    z-index: 1200;  /* above active orders bar (1100) */
+    padding-bottom: env(safe-area-inset-bottom, 0px); /* iPhone home-bar */
+  }
+
+  /* ── Each tab item ── */
+  .bnav__item {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 3px;
+    text-decoration: none;
+    color: #94a3b8;
+    transition: color 0.18s;
+    position: relative;
+    padding: 6px 0 4px;
+  }
+
+  .bnav__item--active {
+    color: var(--red); /* brand red */
+  }
+
+  /* ── Icon wrapper (holds icon + badge) ── */
+  .bnav__icon-wrap {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 26px;
+    height: 26px;
+  }
+
+  .bnav__icon-wrap i {
+    font-size: 1.1rem;
+    line-height: 1;
+  }
+
+  /* ── Active tab — pill indicator on top ── */
+  .bnav__item--active::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 28px;
+    height: 3px;
+    border-radius: 0 0 4px 4px;
+    background: var(--red);
+  }
+
+  /* ── Label ── */
+  .bnav__label {
+    font-size: 0.62rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    line-height: 1;
+  }
+
+  /* ── Cart badge ── */
+  .bnav__badge {
+    position: absolute;
+    top: -4px;
+    right: -6px;
+    min-width: 16px;
+    height: 16px;
+    padding: 0 3px;
+    border-radius: 999px;
+    background: var(--red);
+    color: #fff;
+    font-size: 0.55rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+    border: 1.5px solid #fff;
+  }
+}

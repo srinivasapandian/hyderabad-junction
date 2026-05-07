@@ -1,0 +1,100 @@
+/* ═══════════════════════════════════════════
+   ADDRESS CARD — SHIMMER SKELETON (dark theme)
+═══════════════════════════════════════════ */
+
+@keyframes shim-addr-sweep {
+  from { background-position: 200% 0; }
+  to   { background-position: -200% 0; }
+}
+
+.shim-addr-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.shim-addr-card {
+  background: rgba(0, 0, 0, 0.18);
+  border: 1px solid rgba(224, 192, 171, 0.15);
+  border-radius: var(--radius-sm);
+  min-height: 165px;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.shim-addr {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.07);
+}
+
+.shim-addr::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  transform: translateX(-100%);
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0),
+    rgba(224, 192, 171, 0.12),
+    rgba(255, 255, 255, 0)
+  );
+  animation: shim-addr-sweep 1.1s infinite;
+}
+
+/* Tag strip at top-left (matches .sa-card__tag positioning) */
+.shim-addr--tag {
+  position: absolute;
+  top: 0.01rem;
+  left: 0.01rem;
+  width: 92px;
+  height: 24px;
+  border-radius: 0 0 10px 0;
+}
+
+/* Body lines */
+.shim-addr-body {
+  margin-top: 1.85rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.42rem;
+  flex: 1;
+}
+
+.shim-addr--line {
+  height: 12px;
+  border-radius: 8px;
+  width: 100%;
+}
+
+.shim-addr--line-lg { width: 88%; }
+
+/* Action buttons */
+.shim-addr-actions {
+  margin-top: auto;
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.45rem;
+}
+
+.shim-addr--btn {
+  height: 28px;
+  width: 68px;
+  border-radius: 999px;
+}
+
+/* ── Responsive ── */
+@media (max-width: 1024px) {
+  .shim-addr-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (max-width: 640px) {
+  .shim-addr-grid  { grid-template-columns: 1fr; }
+  .shim-addr-card  { min-height: 150px; }
+}

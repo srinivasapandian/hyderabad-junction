@@ -1,0 +1,17 @@
+/* ═══════════════════════════════════════════
+   CATEGORY FILTER — SHIMMER SKELETON
+═══════════════════════════════════════════ */
+
+.shim-pill {
+  height: 36px;
+  border-radius: 999px;
+  flex-shrink: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(0, 39, 36, 0.12) 25%,
+    rgba(0, 39, 36, 0.22) 50%,
+    rgba(0, 39, 36, 0.12) 75%
+  );
+  background-size: 200% 100%;
+  animation: shim-sweep 1.6s linear infinite;
+}

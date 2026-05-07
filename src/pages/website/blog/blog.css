@@ -1,0 +1,115 @@
+.blog-page {
+  min-height: 100vh;
+  background: var(--primary-color);
+  display: flex;
+  flex-direction: column;
+}
+
+.blog-soon {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 6rem 1.25rem;
+  gap: 1rem;
+  position: relative;
+  z-index: 1;
+}
+
+.blog-soon__icon {
+  width: 68px;
+  height: 68px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--secondary-color);
+  font-size: 2.4rem;
+  margin-bottom: 0.5rem;
+}
+
+.blog-soon__overline {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: 1.35rem;
+  font-weight: 700;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--secondary-color);
+}
+
+.blog-soon__title {
+  margin: 0.4rem 0 0.6rem;
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  font-weight: 900;
+  color: #ffffff;
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+  line-height: 1.1;
+  max-width: 640px;
+}
+
+.blog-soon__desc {
+  margin: 0 0 1.75rem;
+  max-width: 480px;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.75;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.blog-soon__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.85rem 2.2rem;
+  border-radius: 999px;
+  border: 1.5px solid rgba(224, 192, 171, 0.45);
+  background: transparent;
+  color: #ffffff;
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: background var(--transition), border-color var(--transition), color var(--transition), transform var(--transition);
+}
+
+.blog-soon__cta:hover {
+  background: var(--secondary-color);
+  border-color: var(--secondary-color);
+  color: var(--primary-color);
+  transform: translateY(-2px);
+}
+
+.blog-soon__cta i {
+  font-size: 0.85rem;
+  transition: transform 0.2s;
+}
+
+.blog-soon__cta:hover i {
+  transform: translateX(-3px);
+}
+
+@media (max-width: 576px) {
+  .blog-soon {
+    padding: 4rem 1rem;
+  }
+
+  .blog-soon__icon {
+    font-size: 2rem;
+  }
+
+  .blog-soon__overline {
+    font-size: 1.1rem;
+    letter-spacing: 0.2em;
+  }
+
+  .blog-soon__cta {
+    padding: 0.75rem 1.75rem;
+    font-size: 0.8rem;
+  }
+}

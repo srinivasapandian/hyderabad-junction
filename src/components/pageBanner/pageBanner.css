@@ -1,0 +1,76 @@
+.page-banner {
+  position: relative;
+  width: 100%;
+  height: 65vh;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 88px;
+  overflow: hidden;
+}
+
+.page-banner__scrim {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  pointer-events: none;
+}
+
+.page-banner__crumbs {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.page-banner__crumb {
+  color: #ffffff;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.page-banner__crumb:hover {
+  color: var(--secondary-color);
+}
+
+.page-banner__crumb--active {
+  color: var(--secondary-color);
+  cursor: default;
+}
+
+.page-banner__slash {
+  color: rgba(255, 255, 255, 0.55);
+}
+
+@media (max-width: 768px) {
+  .page-banner {
+    height: 65vh;
+    padding-top: 72px;
+  }
+
+  .page-banner__crumbs {
+    font-size: 0.82rem;
+    letter-spacing: 0.15em;
+    gap: 0.5rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .page-banner {
+    height: 50vh;
+  }
+
+  .page-banner__crumbs {
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+  }
+}

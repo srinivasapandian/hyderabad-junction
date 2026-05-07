@@ -1,0 +1,106 @@
+/* ═══════════════════════════════════════════
+   ORDER CARD — SHIMMER SKELETON (dark theme)
+═══════════════════════════════════════════ */
+
+@keyframes shim-order-sweep {
+  from { background-position: 200% 0; }
+  to   { background-position: -200% 0; }
+}
+
+.shim-order-card {
+  background: var(--primary-surface);
+  border: 1px solid rgba(224, 192, 171, 0.1);
+  border-radius: 12px;
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  height: 100%;
+  min-height: 180px;
+}
+
+.shim-order {
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.05) 25%,
+    rgba(224, 192, 171, 0.08) 50%,
+    rgba(255, 255, 255, 0.05) 75%
+  );
+  background-size: 200% 100%;
+  animation: shim-order-sweep 1.4s linear infinite;
+  border-radius: 6px;
+}
+
+/* Header row */
+.shim-order-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.shim-order-ref {
+  height: 14px;
+  width: 38%;
+  border-radius: 6px;
+}
+
+.shim-order-badge {
+  height: 22px;
+  width: 22%;
+  border-radius: 999px;
+}
+
+/* Meta row */
+.shim-order-meta {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.shim-order-meta-item {
+  height: 11px;
+  border-radius: 6px;
+}
+
+.shim-order-meta-item:nth-child(1) { width: 18%; }
+.shim-order-meta-item:nth-child(2) { width: 28%; }
+.shim-order-meta-item:nth-child(3) { width: 14%; }
+
+/* Item chips */
+.shim-order-chips {
+  display: flex;
+  gap: 0.4rem;
+  flex: 1;
+  align-content: flex-start;
+  flex-wrap: wrap;
+}
+
+.shim-order-chip {
+  height: 24px;
+  border-radius: 6px;
+}
+
+.shim-order-chip:nth-child(1) { width: 90px; }
+.shim-order-chip:nth-child(2) { width: 120px; }
+
+/* Footer */
+.shim-order-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 0.75rem;
+  border-top: 1px solid rgba(224, 192, 171, 0.08);
+  margin-top: auto;
+}
+
+.shim-order-total {
+  height: 16px;
+  width: 20%;
+  border-radius: 6px;
+}
+
+.shim-order-cta {
+  height: 12px;
+  width: 22%;
+  border-radius: 6px;
+}

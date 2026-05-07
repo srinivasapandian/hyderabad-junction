@@ -1,0 +1,196 @@
+/* ── Root — fixed bottom ───────────────────────────────── */
+.aob-root {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1100;
+  display: flex;
+  flex-direction: column;
+  pointer-events: none;   /* let clicks pass through the gap above the bar */
+}
+
+/* ── Collapsed bar ─────────────────────────────────────── */
+.aob-collapsed {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  height: 40px;
+  background: #ffffff;
+  border: 1px solid var(--border);
+  border-bottom: none;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  pointer-events: all;    /* restore clicks on the bar itself */
+}
+
+/* ── Left section — icon + count + divider ─────────────── */
+.aob-collapsed__left {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-shrink: 0;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text);
+  white-space: nowrap;
+}
+
+/* Vertical divider after left section */
+.aob-collapsed__left::after {
+  content: '';
+  display: inline-block;
+  width: 1px;
+  height: 16px;
+  background: var(--border);
+  margin-left: 0.75rem;
+}
+
+.aob-delivery-icon {
+  width: 18px;
+  height: 18px;
+  display: block;
+  background-color: currentColor;
+  -webkit-mask: url('../../assets/svg/delivery.svg') no-repeat center / contain;
+  mask: url('../../assets/svg/delivery.svg') no-repeat center / contain;
+  flex-shrink: 0;
+}
+
+/* ── Pills row ─────────────────────────────────────────── */
+.aob-pills {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  flex: 1;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scrollbar-width: none;
+}
+.aob-pills::-webkit-scrollbar {
+  display: none;
+}
+
+/* ── Base pill ─────────────────────────────────────────── */
+.aob-pill {
+  font-size: 0.7rem;
+  font-weight: 600;
+  padding: 0.25rem 0.85rem;
+  border-radius: 100px;
+  border: 1px solid currentColor;
+  white-space: nowrap;
+  letter-spacing: 0.01em;
+  line-height: 1.5;
+}
+
+.aob-pill--btn {
+  cursor: pointer;
+  font-family: inherit;
+  background: transparent;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  transition: filter 0.15s, transform 0.15s;
+}
+.aob-pill--btn:hover {
+  filter: brightness(0.92);
+}
+
+.aob-pill__id {
+  font-weight: 700;
+}
+.aob-pill__dot {
+  opacity: 0.45;
+  font-weight: 400;
+}
+.aob-pill__total {
+  font-weight: 500;
+  opacity: 0.85;
+}
+
+/* Status variants */
+.pill--recv {
+  background: rgba(148, 163, 184, 0.12);
+  color: #64748b;
+  border: 1px solid var(--primary-color);
+}
+.pill--prep {
+  background: rgba(251, 146, 60, 0.1);
+  color: #ea580c;
+  border: 1px solid rgba(251, 146, 60, 0.28);
+}
+.pill--ready,
+.pill--done {
+  background: rgba(22, 163, 74, 0.08);
+  color: #16a34a;
+  border: 1px solid rgba(22, 163, 74, 0.22);
+}
+
+/* Confirmed */
+.pill--confirmed {
+  background: rgba(205, 65, 67, 0.08);
+  color: var(--red);
+  border: 1px solid rgba(205, 65, 67, 0.22);
+}
+
+/* Cancelled */
+.pill--cancel {
+  background: rgba(229, 62, 62, 0.07);
+  color: #e53e3e;
+  border: 1px solid rgba(229, 62, 62, 0.2);
+}
+
+/* ── Mobile ────────────────────────────────────────────── */
+@media (max-width: 640px) {
+  .aob-collapsed {
+    padding: 0 1rem;
+    gap: 0.5rem;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    height: 40px;
+  }
+  .aob-count { display: none; }
+  .aob-collapsed__left::after { display: none; }
+  .aob-pill {
+    font-size: 0.65rem;
+    padding: 0.15rem 0.5rem;
+  }
+}
+
+/* ── Mobile — flush at bottom ──────────────────────────── */
+@media (max-width: 576px) {
+  .aob-root,
+  .aob-root--no-bnav {
+    bottom: 0;
+  }
+
+  .aob-collapsed,
+  .aob-root--no-bnav .aob-collapsed {
+    border-bottom: none;
+    border-radius: 12px 12px 0 0;
+    width: 100%;
+    box-shadow: none;
+  }
+}
+
+/* Retained for future bottom-nav re-enablement
+@media (max-width: 576px) {
+  .aob-root {
+    bottom: 60px;
+  }
+  .aob-root--no-bnav {
+    bottom: 0;
+  }
+  .aob-collapsed {
+    border-bottom: none;
+    border-radius: 15px 15px 0 0;
+    width: 99%;
+    box-shadow: none;
+  }
+  .aob-root--no-bnav .aob-collapsed {
+    border-radius: 15px 15px 0 0;
+  }
+}
+*/

@@ -1,0 +1,284 @@
+{
+  "termsOfUse": {
+    "effectiveDate": "October 1, 2025",
+    "intro": "Welcome to the online ordering platform Maghil, provided on behalf of and under the brand of Amudham Cafe, San Jose and operated by its technology partner Maghil Etabl Inc. (\u201cTechnology Provider,\u201d \u201cwe,\u201d \u201cus,\u201d or \u201cour\u201d). By using this Platform to browse menus, place pickup or delivery orders, or make card payments, you agree to these Terms of Use.",
+    "sections": [
+      {
+        "heading": "1. Platform Provider and Scope",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "While the Platform is branded and operated under Amudham Cafe, San Jose, the technology, infrastructure, and payment processing are provided by [Maghil Inc.], a registered technology vendor acting on behalf of the Restaurant."
+          }
+        ]
+      },
+      {
+        "heading": "2. Acceptance of Terms",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "By accessing the Platform, you agree to acknowledge and be legally bound by these Terms. If you do not agree, you may not access or use the Platform."
+          }
+        ]
+      },
+      {
+        "heading": "3. Account and Use",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "You may place an order with or without creating an account. You agree to provide true, accurate, currant information and not misuse the Platform by misrepresenting your identity or your payment method information."
+          }
+        ]
+      },
+      {
+        "heading": "4. Order Placement and Fulfillment",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "Orders placed through the Platform are transmitted to Amudham Cafe, San Jose, who is solely responsible for fulfilling the order. You acknowledge that the Technology Provider is not the merchant of record and does not prepare or deliver food."
+          }
+        ]
+      },
+      {
+        "heading": "5. Payment Processing",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "Payments are processed securely through a third-party payment processor. By using this Platform, you authorize the processor to charge your payment method for the total order amount on behalf of the Restaurant."
+          }
+        ]
+      },
+      {
+        "heading": "6. Disclaimers and Limitation of Liability",
+        "blocks": [
+          { "type": "paragraph", "text": "The Restaurant is solely responsible for food safety, preparation, and service." },
+          { "type": "paragraph", "text": "The Technology Provider disclaims all liability for errors in orders, allergen information, or delivery delays." },
+          { "type": "paragraph", "text": "The Platform and its services are provided \u201cAS IS\u201d and \u201cAS AVAILABLE\u201d without warranties of any kind, either express or implied, including implied warranties of merchantability, fitness for a particular purpose, or non-infringement." },
+          { "type": "paragraph", "text": "To the maximum extent permitted by law, neither the Restaurant nor the Technology Provider shall be liable for indirect, incidental, or consequential damages." }
+        ]
+      },
+      {
+        "heading": "7. Intellectual Property",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "All content, including restaurant menus, logos, and system design, is owned either by the Restaurant or the Technology Provider and is protected by applicable laws."
+          }
+        ]
+      },
+      {
+        "heading": "8. Termination",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "We may suspend access to the Platform for violations of these Terms or misuse of the service."
+          }
+        ]
+      },
+      {
+        "heading": "9. Governing Law",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "These Terms shall be governed by the laws of the State of New Jersey unless otherwise required by local laws applicable to the Restaurant\u2019s location."
+          }
+        ]
+      }
+    ]
+  },
+  "cancellationRefundPolicy": {
+    "effectiveDate": "October 1, 2025",
+    "intro": "This Cancellation and Refund Policy applies to orders placed by customers through this online ordering platform powered by Maghil Inc on behalf of Amudham Cafe, San Jose.",
+    "sections": [
+      {
+        "heading": "1. Order Confirmations",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "Orders are transmitted directly to Amudham Cafe, San Jose upon confirmation. Cancellation requests must be made immediately after placing the order by contacting the restaurant directly. The ability to cancel is subject to the restaurant\u2019s acceptance and preparation status."
+          }
+        ]
+      },
+      {
+        "heading": "2. Refund Policy",
+        "blocks": [
+          { "type": "paragraph", "text": "Refunds may be provided under the following circumstances:" },
+          {
+            "type": "list",
+            "items": [
+              "Incorrect, missing, or damaged items",
+              "Restaurant was unable to fulfill the order"
+            ]
+          },
+          {
+            "type": "paragraph",
+            "text": "Refunds are issued by Amudham Cafe, San Jose or its authorized designee. Inquiries may be routed through the Platform, but final decision rests with the Restaurant."
+          }
+        ]
+      },
+      {
+        "heading": "3. Non-Refundable Scenarios",
+        "blocks": [
+          { "type": "paragraph", "text": "Refunds are typically not issued for:" },
+          {
+            "type": "list",
+            "items": [
+              "Order cancellations after food preparation",
+              "Delays due to traffic, weather, or third-party delivery partners",
+              "Personal preferences or taste issues"
+            ]
+          }
+        ]
+      },
+      {
+        "heading": "4. How to Request a Refund",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "Contact Amudham Cafe, San Jose directly or use the contact link on your digital receipt. Refunds, if approved, will be returned to your original payment method within 5\u201310 business days."
+          }
+        ]
+      },
+      {
+        "heading": "5. Compliance with Consumer Protection Laws",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "Nothing in this Policy is intended to limit your rights under applicable consumer protection laws, including but not limited to:"
+          },
+          {
+            "type": "list",
+            "items": [
+              "The California Consumer Rights Act (CCPA/CPRA), which grants additional rights to California residents.",
+              "The New Jersey Consumer Fraud Act, which prohibits deceptive or misleading practices."
+            ]
+          },
+          {
+            "type": "paragraph",
+            "text": "If you are entitled to a refund under applicable law, such rights will apply in addition to this Policy."
+          }
+        ]
+      }
+    ]
+  },
+  "privacyPolicy": {
+    "effectiveDate": "October 1, 2025",
+    "intro": "This Privacy Policy explains how personal information is collected, used, and shared when you interact with the online food ordering platform operated under the Amudham Cafe, San Jose brand and powered by Maghil Inc.",
+    "sections": [
+      {
+        "heading": "1. Information Collected",
+        "blocks": [
+          { "type": "paragraph", "text": "We collect the following information:" },
+          {
+            "type": "list",
+            "items": [
+              "Personal identifiers (e.g., name, phone number, email)",
+              "Order and delivery information",
+              "Payment data (processed securely by third-party providers)",
+              "Device and usage data (browser type, IP address, etc.)"
+            ]
+          }
+        ]
+      },
+      {
+        "heading": "2. Use of Information",
+        "blocks": [
+          { "type": "paragraph", "text": "Your data is used to:" },
+          {
+            "type": "list",
+            "items": [
+              "Process and fulfill your order",
+              "Communicate order status",
+              "Support customer service",
+              "Improve our technical and user experience",
+              "Supporting customer service and resolving disputes"
+            ]
+          }
+        ]
+      },
+      {
+        "heading": "3. Data Sharing",
+        "blocks": [
+          { "type": "paragraph", "text": "Your information may be shared with:" },
+          {
+            "type": "list",
+            "items": [
+              "Amudham Cafe, San Jose to fulfill your order",
+              "Third-party payment processors and delivery services",
+              "Technology Provider (Maghil Inc.) for platform maintenance",
+              "Legal authorities if required by law"
+            ]
+          },
+          { "type": "paragraph", "text": "We do not sell your personal data." }
+        ]
+      },
+      {
+        "heading": "4. Data Security",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "We use industry-standard practices to protect your information. However, no system is completely secure, and we cannot guarantee absolute protection."
+          }
+        ]
+      },
+      {
+        "heading": "5. Your Rights",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "Depending on your location, you may have rights under privacy laws such as the California Consumer Privacy Act (as amended by CPRA) or the New Jersey Data Privacy Act (effective Jan 2025). These rights may include:"
+          },
+          {
+            "type": "list",
+            "items": [
+              "The right to know what personal data we collect and how it is used.",
+              "The right to request access to, or deletion of, your personal data.",
+              "The right to correct inaccurate data.",
+              "The right to opt out of the sale or sharing of personal information (we do not sell personal information).",
+              "The right to limit the use of sensitive personal information.",
+              "The right to appeal if your request is denied (under NJDPA)."
+            ]
+          },
+          {
+            "type": "paragraph",
+            "text": "You may exercise these rights by contacting us at [Insert Contact Info]. We will verify your identity before fulfilling your request and will respond within the timelines required by applicable law."
+          }
+        ]
+      },
+      {
+        "heading": "6. Data Retention",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "We retain your personal data only as long as necessary to provide the services described in this Policy, comply with legal obligations, resolve disputes, or enforce agreements."
+          }
+        ]
+      },
+      {
+        "heading": "7. Additional Disclosures for California Residents (CCPA/CPRA)",
+        "blocks": [
+          {
+            "type": "list",
+            "items": [
+              "We do not sell or share your personal information for cross-context behavioral advertising.",
+              "We may disclose your personal information to service providers for business purposes (e.g., payment processing, delivery).",
+              "You have the right to designate an authorized agent to submit privacy requests on your behalf."
+            ]
+          }
+        ]
+      },
+      {
+        "heading": "8. Additional Disclosures for New Jersey Residents (NJDPA 2025)",
+        "blocks": [
+          {
+            "type": "list",
+            "items": [
+              "You have the right to opt out of targeted advertising, the sale of personal data, or profiling that has legal or similarly significant effects.",
+              "You may appeal our response to any privacy request by contacting us again with \u201cAppeal\u201d in the subject line."
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

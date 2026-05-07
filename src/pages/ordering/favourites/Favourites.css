@@ -1,0 +1,178 @@
+/* ═══════════════════════════════════════════════
+   FAVOURITES PAGE — WHITE THEME
+   ═══════════════════════════════════════════════ */
+
+.fav-page {
+  min-height: 100vh;
+  background: var(--primary-color);
+  display: flex;
+  flex-direction: column;
+}
+
+.fav-inner {
+  flex: 1;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 120px 1.25rem 4rem;
+  width: 100%;
+  min-height: 92vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── Header row ──────────────────────────────── */
+.fav-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  position: sticky;
+  top: 100px;
+  z-index: 20;
+  background: var(--primary-color);
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  padding-left: max(1.25rem, calc((100% - 1200px) / 2 + 1.25rem));
+  padding-right: max(1.25rem, calc((100% - 1200px) / 2 + 1.25rem));
+  margin-bottom: 1rem;
+  border-bottom: 1px solid color-mix(in srgb, var(--secondary-color) 15%, transparent);
+}
+
+.fav-back {
+  border: none;
+  background: transparent;
+  color: var(--secondary-color);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  flex-shrink: 0;
+  padding: 0;
+}
+
+.fav-back .back-icon {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  background-color: currentColor;
+  -webkit-mask: url('../../../assets/svg/back-btn.svg') no-repeat center / contain;
+  mask: url('../../../assets/svg/back-btn.svg') no-repeat center / contain;
+}
+
+.fav-title {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--secondary-color);
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+}
+
+.fav-title__icon {
+  color: var(--red);
+  font-size: 0.85em;
+}
+
+.fav-count {
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 0.2rem 0.75rem;
+  white-space: nowrap;
+}
+
+/* ── Grid — matches MenuGrid layout ─────────── */
+.fav-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  align-items: stretch;
+}
+
+@media (max-width: 1100px) {
+  .fav-grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+@media (max-width: 640px) {
+  .fav-grid { grid-template-columns: repeat(2, 1fr); column-gap: 7px; row-gap: 18px; }
+  .fav-inner { padding: 100px 11px 3rem; }
+}
+
+@media (max-width: 576px) {
+  .fav-grid { grid-template-columns: 1fr; column-gap: 0; row-gap: 12px; }
+}
+
+/* ── Empty state ──────────────────────────────── */
+.fav-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  min-height: calc(100vh - 320px);
+  gap: 0.75rem;
+  padding: 5rem 1rem;
+  text-align: center;
+}
+
+.fav-empty > i {
+  font-size: 3.5rem;
+  color: rgba(205,65,67,0.18);
+}
+
+.fav-empty p {
+  font-family: var(--font-heading);
+  font-size: 1.2rem;
+  color: var(--text);
+  margin: 0;
+}
+
+.fav-empty__sub {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  max-width: 280px;
+  line-height: 1.5;
+}
+
+.fav-empty__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 0.5rem;
+  padding: 10px 22px;
+  background: var(--secondary-color);
+  border: 1.5px solid var(--secondary-color);
+  border-radius: var(--radius-full);
+  color: var(--primary-color);
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: background var(--transition), border-color var(--transition), transform var(--transition);
+}
+.fav-empty__cta:hover {
+  background: color-mix(in srgb, var(--secondary-color) 85%, var(--white-color));
+  border-color: color-mix(in srgb, var(--secondary-color) 85%, var(--white-color));
+  transform: translateY(-1px);
+}
+
+@media (max-width: 900px) {
+  .fav-title { font-size: 1.2rem; }
+}
+
+@media (max-width: 576px) {
+  .fav-header { top: 98px; }
+  .fav-title { font-size: 0.97rem; }
+}
+
+@media (max-width: 480px) {
+  .fav-header { top: 80px; }
+}

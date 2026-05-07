@@ -1,0 +1,488 @@
+/* ═══════════════════════════════════════
+   MENU ITEM CARD — DARK THEME
+═══════════════════════════════════════ */
+
+.mic-card {
+  display: flex;
+  flex-direction: column;
+  background: var(--primary-card);
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid rgba(224, 192, 171, 0.15);
+  transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
+  height: 100%;
+}
+
+.mic-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.18);
+  border-color: rgba(224, 192, 171, 0.45);
+}
+
+.mic-card--clickable {
+  cursor: pointer;
+}
+
+.mic-card.mic-unavailable {
+  opacity: 0.72;
+}
+
+.mic-card.mic-unavailable:hover {
+  transform: none;
+  box-shadow: none;
+  border-color: rgba(224, 192, 171, 0.15);
+  cursor: default;
+}
+
+/* ── Image ── */
+.mic-img-wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  background: rgba(0, 0, 0, 0.25);
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+@media (max-width: 640px) {
+  .mic-img-wrap {
+    aspect-ratio: 4 / 3;
+  }
+}
+
+.mic-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.mic-img-placeholder {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.08) 100%);
+}
+
+/* ── Unavailability overlay ── */
+.mic-unavail-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  background: rgba(1, 53, 49, 0.82);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+  padding: 12px;
+  text-align: center;
+}
+
+.mic-unavail-icon {
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.5);
+  margin-bottom: 2px;
+}
+
+.mic-unavail-label {
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.5);
+  letter-spacing: 0.02em;
+  line-height: 1.3;
+}
+
+.mic-unavail-time {
+  font-family: var(--font-accent);
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: var(--red);
+  letter-spacing: 0.01em;
+  line-height: 1.2;
+}
+
+/* ── Heart (favourite) button ── */
+.mic-heart-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: rgba(1, 53, 49, 0.75);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border: 1px solid rgba(224, 192, 171, 0.2);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 0.82rem;
+  transition: background 0.18s ease, color 0.18s ease, border-color 0.18s ease;
+}
+
+.mic-heart-btn:hover {
+  background: rgba(1, 53, 49, 0.9);
+  color: var(--red);
+  border-color: var(--red);
+}
+
+.mic-heart-btn.active {
+  color: var(--red);
+  background: rgba(205, 65, 67, 0.15);
+  border-color: var(--red);
+}
+
+/* ── ADD button ── */
+.mic-add-btn {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  height: 26px;
+  padding: 0 14px;
+  border-radius: 20px;
+  background: var(--secondary-color);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border: none;
+  cursor: pointer;
+  font-family: var(--font-body);
+  font-size: 0.70rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--primary-color);
+  transition: background var(--transition);
+}
+
+.mic-add-btn:hover {
+  /* background: var(--btn-grad-hover); */
+}
+
+/* ── Quantity spinner ── */
+.mic-qty-ctrl {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  height: 26px;
+  display: flex;
+  align-items: center;
+  border-radius: 20px;
+  background: var(--secondary-color);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  overflow: hidden;
+}
+
+.mic-qty-btn {
+  width: 26px;
+  height: 26px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  color: var(--primary-color);
+  font-size: 1rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background var(--transition);
+  flex-shrink: 0;
+}
+
+.mic-qty-btn:hover {
+  background: rgba(0,0,0,0.12);
+}
+
+.mic-qty-count {
+  font-family: var(--font-accent);
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  min-width: 20px;
+  text-align: center;
+  line-height: 1;
+}
+
+/* ── Body ── */
+.mic-body {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 14px 14px 16px;
+  gap: 8px;
+  border-top: 1px solid rgba(224, 192, 171, 0.12);
+}
+
+/* ── Name + Price row ── */
+.mic-name-price-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 10px;
+  min-height: 1.7em;
+}
+
+.mic-name {
+  font-family: var(--font-accent);
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.9);
+  margin: 0;
+  line-height: 1.4;
+  flex: 1;
+  min-width: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.mic-price {
+  font-family: var(--font-accent);
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--secondary-color);
+  white-space: nowrap;
+  flex-shrink: 0;
+  padding-top: 1px;
+}
+
+/* ── Description ── */
+.mic-desc {
+  font-family: var(--font-accent);
+  font-size: 0.76rem;
+  color: rgba(255, 255, 255, 0.5);
+  line-height: 1.55;
+  margin: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  min-height: calc(1.55em * 2);
+}
+
+.mic-desc--empty {
+  visibility: hidden;
+}
+
+/* ── Badges stack (bottom-left of image) — note on top, modifier below ── */
+.mic-badges {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  z-index: 2;
+}
+
+/* The body-variant is only used in the LIST layout (see media block below). */
+.mic-badges--body { display: none; }
+
+.mic-modifier-badge {
+  position: static;
+  width: 20px;
+  height: 20px;
+  border-radius: 4px;
+  background: var(--primary-color, #013531);
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--secondary-color);
+  pointer-events: none;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Dot on the note icon — signals that this line has a user note */
+.mic-note-indicator {
+  position: absolute;
+  top: -3px;
+  right: -3px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--red);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.35);
+}
+
+/* ── Item-Note button (shown only when item is in cart) ──
+   Menu-listing card only: cream pill with a dark (primary) icon
+   so it inverts the modifier badge's dark-on-cream pairing. */
+.mic-note-btn {
+  position: relative;
+  width: 20px;
+  height: 20px;
+  border-radius: 4px;
+  background: var(--secondary-color);
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  transition: transform 0.18s ease;
+}
+
+.mic-note-btn:hover {
+  transform: translateY(-1px);
+}
+
+.mic-note-icon {
+  width: 12px;
+  height: 13px;
+  display: block;
+  /* The shipped SVG is baked with secondary-color; darken it to primary
+     via a filter so it reads correctly on the cream button. */
+  filter: brightness(0);
+}
+
+.mic-note-plus {
+  position: absolute;
+  top: -3px;
+  right: -3px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--red, #cd4143);
+  color: #fff;
+  font-size: 0.4rem;
+  font-weight: 700;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.35);
+}
+
+@media (max-width: 640px) {
+  .mic-body {
+    padding: 12px 10px;
+  }
+}
+
+
+@media (max-width: 576px) {
+  /* Heart button */
+  .mic-heart-btn {
+    width: 26px;
+    height: 26px;
+    font-size: 0.7rem;
+    top: 7px;
+    right: 7px;
+  }
+
+  /* ADD button */
+  .mic-add-btn {
+    bottom: 7px;
+    right: 7px;
+    height: 22px;
+    padding: 0 10px;
+    font-size: 0.6rem;
+    letter-spacing: 0.09em;
+  }
+
+  /* Quantity controller */
+  .mic-qty-ctrl {
+    bottom: 7px;
+    right: 7px;
+    height: 22px;
+  }
+
+  .mic-qty-btn {
+    width: 22px;
+    height: 22px;
+    font-size: 0.8rem;
+  }
+
+  .mic-qty-count {
+    font-size: 0.7rem;
+    min-width: 16px;
+  }
+
+  .mic-name  { font-size: 0.78rem; }
+  .mic-price { font-size: 0.8rem;  }
+  .mic-desc  { font-size: 0.68rem; }
+}
+
+/* ═══════════════════════════════════════════
+   LIST VIEW (mobile ≤576px) — text on left,
+   image on right. Controlled by slug config.
+═══════════════════════════════════════════ */
+@media (max-width: 576px) {
+  .mic-card--list {
+    flex-direction: row;
+    align-items: stretch;
+    height: 140px;
+  }
+
+  .mic-card--list .mic-img-wrap {
+    order: 2;
+    flex-shrink: 0;
+    width: 42%;
+    max-width: 170px;
+    height: 100%;
+    aspect-ratio: auto;
+    align-self: stretch;
+  }
+
+  .mic-card--list .mic-img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+
+  .mic-card--list .mic-body {
+    order: 1;
+    flex: 1;
+    min-width: 0;
+    border-top: none;
+    padding: 12px 12px 12px 14px;
+    justify-content: flex-start;
+    gap: 6px;
+  }
+
+  .mic-card--list .mic-name-price-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+    min-height: 0;
+  }
+
+  .mic-card--list .mic-name {
+    -webkit-line-clamp: 2;
+    line-height: 1.3;
+  }
+
+  .mic-card--list .mic-price {
+    padding-top: 0;
+  }
+
+  .mic-card--list .mic-desc {
+    min-height: 0;
+    -webkit-line-clamp: 2;
+  }
+
+  /* In LIST layout split the badges:
+       • Customization icon stays on the image, anchored to its left edge.
+       • Note button sits at the bottom-left of the body. */
+  .mic-card--list .mic-badges--img {
+    display: flex;
+  }
+  .mic-card--list .mic-badges--img .mic-note-btn { display: none; }
+
+  .mic-card--list .mic-badges--body {
+    display: flex;
+    position: absolute;
+    bottom: 10px;
+    left: 14px;
+  }
+  .mic-card--list .mic-badges--body .mic-modifier-badge { display: none; }
+}
+

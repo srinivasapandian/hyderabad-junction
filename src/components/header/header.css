@@ -1,0 +1,465 @@
+/* ═══════════════════════════════════════════
+   HEADER — DARK PRIMARY THEME
+═══════════════════════════════════════════ */
+
+.header {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 3000;
+  overflow: visible;
+  background: var(--primary-color);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 12px 10px;
+  overflow: visible;
+}
+
+/* ── Logo ─────────────────────────────────── */
+.header-logo {
+  position: relative;
+  z-index: 1000;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px;
+  border-radius: 18px;
+  flex-shrink: 0;
+}
+
+.header-logo img {
+  height: 62px;
+  width: auto;
+  object-fit: contain;
+  display: block;
+}
+
+/* ── Nav (plain text links only) ─────────── */
+.header-nav {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  flex: 1;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+/* Diamond separator between nav links */
+.header-nav > a:not(:last-of-type)::after {
+  content: '◆';
+  font-size: 0.38rem;
+  color: var(--secondary-color);
+  margin-left: 10px;
+  vertical-align: middle;
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+.header-nav > a {
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #ffffff;
+  padding: 10px 10px;
+  white-space: nowrap;
+  transition: color 0.2s ease;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+}
+
+.header-nav > a:hover,
+.header-nav > a.active {
+  color: var(--secondary-color);
+  background: transparent;
+}
+
+/* Mobile button group — hidden on desktop */
+.header-nav-mobile-btns {
+  display: none;
+}
+
+/* ── Right-side buttons (desktop only) ────── */
+.header-right-wrap {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-shrink: 0;
+}
+
+/* ORDER NOW — filled secondary pill (primary CTA) */
+.header-order-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 18px;
+  border: 1.5px solid var(--secondary-color);
+  border-radius: 999px;
+  background: var(--secondary-color);
+  color: var(--primary-color);
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background 0.2s, border-color 0.2s, transform 0.2s, color 0.2s;
+}
+.header-order-btn:hover,
+.header-order-btn.active {
+  background: #f0d4bf;
+  border-color: #f0d4bf;
+  color: var(--primary-color);
+  transform: translateY(-1px);
+}
+
+/* RESERVE A TABLE — outlined secondary pill (secondary CTA) */
+.header-reservation-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 18px;
+  border: 1.5px solid var(--secondary-color);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--secondary-color);
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background 0.2s, color 0.2s, transform 0.2s;
+}
+.header-reservation-btn:hover,
+.header-reservation-btn.active {
+  background: var(--secondary-color);
+  color: var(--primary-color);
+  transform: translateY(-1px);
+}
+
+.header-right-divider {
+  width: 1px;
+  height: 34px;
+  background: rgba(255, 255, 255, 0.15);
+  opacity: 0.9;
+}
+
+/* User icon button */
+.header-user-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 0;
+  border: none;
+  background: transparent;
+  color: #ffffff;
+  cursor: pointer;
+  font-family: var(--font-body);
+  transition: color 0.2s;
+  flex-shrink: 0;
+}
+.header-user-btn__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 8px;
+  border: 1.5px solid rgba(255, 255, 255, 0.25);
+  background: rgba(255, 255, 255, 0.08);
+  font-size: 0.85rem;
+  transition: border-color 0.2s, background 0.2s, color 0.2s;
+}
+.header-user-btn__label {
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  line-height: 1;
+  white-space: nowrap;
+  max-width: 80px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.header-user-btn:hover .header-user-btn__icon,
+.header-user-btn.active .header-user-btn__icon {
+  border-color: var(--secondary-color);
+  background: rgba(224, 192, 171, 0.12);
+  color: var(--secondary-color);
+}
+.header-user-btn:hover,
+.header-user-btn.active {
+  color: var(--secondary-color);
+}
+.header-user-btn.logged-in .header-user-btn__icon {
+  border-color: var(--secondary-color);
+  color: var(--secondary-color);
+}
+.header-user-btn.logged-in {
+  color: var(--secondary-color);
+}
+
+/* ── Hamburger ───────────────────────────── */
+.header-hamburger {
+  display: none;
+  position: relative;
+  z-index: 3003;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 46px;
+  height: 46px;
+  padding: 10px;
+  border: none;
+  border-radius: 14px;
+  background: transparent;
+  cursor: pointer;
+}
+
+.header-hamburger span {
+  width: 100%;
+  height: 2px;
+  border-radius: 999px;
+  background: #ffffff;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.header-hamburger.open span {
+  background: var(--secondary-color);
+}
+.header-hamburger.open span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+.header-hamburger.open span:nth-child(2) {
+  opacity: 0;
+}
+.header-hamburger.open span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* ── Overlay ─────────────────────────────── */
+.header-nav-overlay {
+  display: none;
+}
+
+/* ══════════════════════════════════════════
+   RESPONSIVE — tablet
+══════════════════════════════════════════ */
+@media (max-width: 1024px) {
+  .header-inner {
+    padding: 12px 24px;
+  }
+
+  .header-nav > a {
+    padding: 10px 8px;
+    font-size: 0.76rem;
+  }
+
+  .header-order-btn,
+  .header-reservation-btn {
+    padding: 6px 12px;
+    font-size: 0.76rem;
+    gap: 5px;
+  }
+  .header-user-btn {
+    padding: 5px 8px;
+  }
+}
+
+/* ══════════════════════════════════════════
+   RESPONSIVE — mobile
+══════════════════════════════════════════ */
+@media (max-width: 991px) {
+  .header-inner {
+    position: relative;
+    padding: 12px 20px;
+  }
+
+  /* Hide desktop right buttons */
+  .header-right-wrap {
+    display: none;
+  }
+
+  /* Show hamburger */
+  .header-hamburger {
+    display: flex;
+    margin-left: auto;
+  }
+
+  /* Dim overlay */
+  .header-nav-overlay {
+    display: block;
+    position: fixed !important;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s ease;
+    z-index: 3001;
+  }
+  .header-nav-overlay.open {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  /* Slide-in drawer — dark theme */
+  .header-nav {
+    position: fixed !important;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: auto;
+    width: min(80vw, 320px);
+    max-width: 320px;
+    height: 100dvh;
+    min-height: 100dvh;
+    padding: 100px 22px 28px;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+    gap: 0;
+    background: var(--primary-color);
+    border-left: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: -18px 0 38px rgba(0, 0, 0, 0.35);
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+    z-index: 3002;
+    overflow-y: auto;
+    overflow-x: hidden;
+    visibility: hidden;
+    opacity: 0;
+  }
+  .header-nav.open {
+    transform: translateX(0);
+    visibility: visible;
+    opacity: 1;
+  }
+
+  /* Hamburger sticks in top-right when open */
+  .header-hamburger.open {
+    position: fixed;
+    top: 12px;
+    right: 16px;
+  }
+
+  /* Remove diamond separators in drawer */
+  .header-nav > a:not(:last-of-type)::after {
+    display: none;
+  }
+
+  /* Plain nav links inside drawer */
+  .header-nav > a {
+    width: 100%;
+    padding: 14px 18px;
+    border-radius: 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    background: transparent;
+    color: rgba(255, 255, 255, 0.85);
+    text-align: left;
+    font-size: 0.9rem;
+    letter-spacing: 0.12em;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-weight: 700;
+  }
+  .header-nav > a:hover,
+  .header-nav > a.active {
+    background: rgba(224, 192, 171, 0.08);
+    color: var(--secondary-color);
+    border-radius: 0;
+  }
+
+  /* Mobile button group — shown in drawer */
+  .header-nav-mobile-btns {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 22px;
+    padding-top: 18px;
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+  }
+
+  .header-nav-mobile-btn {
+    display: block;
+    width: 100%;
+    padding: 13px 18px;
+    border-radius: 12px;
+    text-align: center;
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-decoration: none;
+    box-sizing: border-box;
+    transition: background 0.2s, color 0.2s, border-color 0.2s;
+  }
+
+  /* My Account — outlined */
+  .header-nav-mobile-btn--outline {
+    border: 1.5px solid rgba(255, 255, 255, 0.25);
+    color: rgba(255, 255, 255, 0.85);
+    background: transparent;
+  }
+  .header-nav-mobile-btn--outline:hover,
+  .header-nav-mobile-btn--outline.active {
+    border-color: var(--secondary-color);
+    color: var(--secondary-color);
+    background: rgba(224, 192, 171, 0.08);
+  }
+
+  /* Order Online — filled secondary */
+  .header-nav-mobile-btn--filled {
+    border: 1.5px solid var(--secondary-color);
+    background: var(--secondary-color);
+    color: var(--primary-color);
+  }
+  .header-nav-mobile-btn--filled:hover,
+  .header-nav-mobile-btn--filled.active {
+    background: #f0d4bf;
+    border-color: #f0d4bf;
+  }
+
+  /* Reservation — outlined secondary */
+  .header-nav-mobile-btn--outline-red {
+    border: 1.5px solid var(--secondary-color);
+    color: var(--secondary-color);
+    background: transparent;
+  }
+  .header-nav-mobile-btn--outline-red:hover,
+  .header-nav-mobile-btn--outline-red.active {
+    background: var(--secondary-color);
+    color: var(--primary-color);
+  }
+}
+
+@media (max-width: 480px) {
+  .header-inner {
+    padding: 10px 16px;
+  }
+  .header-logo img {
+    height: 52px;
+  }
+  .header-logo {
+    padding: 5px;
+    border-radius: 16px;
+  }
+  .header-nav {
+    width: min(78vw, 300px);
+    padding: 92px 16px 24px;
+  }
+}

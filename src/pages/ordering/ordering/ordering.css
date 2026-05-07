@@ -1,0 +1,60 @@
+/* ═══════════════════════════════════════════
+   ORDERING PAGE — WHITE THEME
+═══════════════════════════════════════════ */
+
+.mn-page {
+  min-height: 100vh;
+  background: var(--primary-color);
+}
+
+/* ═══════════════════════════════════════════
+   BG WRAPPER — primary theme + pattern
+═══════════════════════════════════════════ */
+.mn-bg {
+  position: relative;
+  background-color: var(--primary-color);
+}
+
+/* Scrim not used */
+.mn-bg-scrim {
+  display: none;
+}
+
+/* No hero above — account for fixed header height */
+.mn-bg--no-hero {
+  padding-top: 98px;
+}
+
+/* Override CategoryFilter sticky top — ordering bar sits between header and filter */
+/* Desktop: single-row bar ~54px */
+.mn-bg--no-hero .mn-filter-outer {
+  top: 152px; /* header 98px + ordering bar 54px */
+}
+
+/* Mobile: two-row bar ~102px */
+@media (max-width: 768px) {
+  .mn-bg--no-hero .mn-filter-outer {
+    top: 195px; /* header 98px + ordering bar 102px */
+  }
+}
+
+/* ═══════════════════════════════════════════
+   RESPONSIVE
+═══════════════════════════════════════════ */
+/* Smaller mobile header */
+@media (max-width: 480px) {
+  .mn-bg--no-hero { padding-top: 83px; }
+  .mn-bg--no-hero .mn-filter-outer { top: 180px; }
+}
+
+/* ── Unavailable items banner ───────────────────────── */
+.ordering-unavailable-banner {
+  background: #fff3cd;
+  color: #856404;
+  border: 1px solid #ffc107;
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  margin: 0 1rem 1rem;
+  font-size: 0.9rem;
+  text-align: center;
+}

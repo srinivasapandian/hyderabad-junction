@@ -1,0 +1,183 @@
+/* ═══════════════════════════════════════════
+   TERMS & POLICIES PAGES — DARK BRAND THEME
+═══════════════════════════════════════════ */
+.policies-page {
+  min-height: 100vh;
+  background: var(--primary-color);
+  display: flex;
+  flex-direction: column;
+}
+
+.policies-inner {
+  flex: 1;
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 140px 1.5rem 4rem;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── Tab navigation ───────────────────────── */
+.policies-tabs {
+  display: flex;
+  gap: 0;
+  border-bottom: 1px solid rgba(224, 192, 171, 0.18);
+  margin-bottom: 2rem;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.policies-tabs::-webkit-scrollbar {
+  display: none;
+}
+
+.policies-tab {
+  flex: 1;
+  min-width: 200px;
+  text-align: center;
+  padding: 1rem 1.25rem;
+  font-family: var(--font-body);
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.55);
+  text-decoration: none;
+  border-bottom: 2px solid transparent;
+  transition: color 0.2s, border-color 0.2s;
+  white-space: nowrap;
+}
+
+.policies-tab:hover {
+  color: var(--secondary-color);
+}
+
+.policies-tab.is-active {
+  color: var(--secondary-color);
+  border-bottom-color: var(--secondary-color);
+}
+
+/* ── Content card ─────────────────────────── */
+.policies-content {
+  background: var(--primary-surface);
+  border: 1px solid rgba(224, 192, 171, 0.15);
+  border-radius: 16px;
+  padding: 2.5rem 2.75rem;
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.75;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+}
+
+.policies-effective {
+  color: var(--secondary-color);
+  font-weight: 700;
+  margin: 0 0 0.5rem;
+  letter-spacing: 0.02em;
+}
+
+.policies-intro {
+  margin: 0 0 2rem;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.policies-section {
+  margin: 1.75rem 0 0;
+}
+
+.policies-section:first-of-type {
+  margin-top: 0;
+}
+
+.policies-section h3 {
+  font-family: var(--font-heading);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: 0.02em;
+  margin: 0 0 0.6rem;
+}
+
+.policies-section p {
+  margin: 0 0 0.75rem;
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.policies-section p:last-child {
+  margin-bottom: 0;
+}
+
+.policies-list {
+  margin: 0.4rem 0 0.9rem;
+  padding-left: 1.4rem;
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.policies-list li {
+  margin-bottom: 0.35rem;
+}
+
+.policies-list li::marker {
+  color: var(--secondary-color);
+}
+
+.policies-content a {
+  color: var(--secondary-color);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+}
+
+.policies-content a:hover {
+  color: #ffffff;
+}
+
+/* ── Responsive ───────────────────────────── */
+@media (max-width: 768px) {
+  .policies-inner {
+    padding: 120px 1rem 3rem;
+  }
+
+  .policies-tabs {
+    gap: 0.25rem;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x mandatory;
+  }
+
+  .policies-tab {
+    flex: 0 0 auto;
+    min-width: 0;
+    font-size: 0.82rem;
+    padding: 0.85rem 0.85rem;
+    scroll-snap-align: start;
+  }
+
+  .policies-content {
+    padding: 1.75rem 1.5rem;
+    font-size: 0.9rem;
+  }
+
+  .policies-section h3 {
+    font-size: 0.98rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .policies-inner {
+    padding: 100px 0.75rem 2.5rem;
+  }
+
+  .policies-tabs {
+    margin-bottom: 1.5rem;
+  }
+
+  .policies-tab {
+    font-size: 0.76rem;
+    padding: 0.7rem 0.7rem;
+    letter-spacing: 0.01em;
+  }
+
+  .policies-content {
+    padding: 1.25rem 1.1rem;
+  }
+}

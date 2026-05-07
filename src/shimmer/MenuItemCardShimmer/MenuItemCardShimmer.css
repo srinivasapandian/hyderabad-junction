@@ -1,0 +1,102 @@
+/* ═══════════════════════════════════════════
+   MENU ITEM CARD — SHIMMER SKELETON
+═══════════════════════════════════════════ */
+
+.shim-card {
+  display: flex;
+  flex-direction: column;
+  background: var(--primary-card);
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid rgba(224, 192, 171, 0.15);
+  height: 100%;
+}
+
+.shim-card-img {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  border-radius: 0;
+}
+
+.shim-card-body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 14px 14px 16px;
+  gap: 10px;
+  border-top: 1px solid rgba(224, 192, 171, 0.12);
+}
+
+.shim-card-name-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.shim-card-name {
+  height: 14px;
+  width: 62%;
+  border-radius: 6px;
+}
+
+.shim-card-price {
+  height: 14px;
+  width: 20%;
+  border-radius: 6px;
+  flex-shrink: 0;
+}
+
+.shim-card-desc {
+  height: 11px;
+  width: 90%;
+  border-radius: 6px;
+}
+
+.shim-card-desc--short {
+  width: 58%;
+}
+
+@media (max-width: 640px) {
+  .shim-card-img  { aspect-ratio: 4 / 3; }
+  .shim-card-body { padding: 12px 10px; }
+}
+
+/* ═══════════════════════════════════════════
+   LIST VARIANT — mirrors .mic-card--list
+═══════════════════════════════════════════ */
+@media (max-width: 576px) {
+  .shim-card--list {
+    flex-direction: row;
+    align-items: stretch;
+    height: 140px;
+  }
+
+  .shim-card--list .shim-card-img {
+    order: 2;
+    flex-shrink: 0;
+    width: 42%;
+    max-width: 170px;
+    height: 100%;
+    aspect-ratio: auto;
+  }
+
+  .shim-card--list .shim-card-body {
+    order: 1;
+    flex: 1;
+    min-width: 0;
+    border-top: none;
+    padding: 12px 12px 12px 14px;
+    gap: 8px;
+    justify-content: flex-start;
+  }
+
+  .shim-card--list .shim-card-name-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+
+  .shim-card--list .shim-card-name  { width: 78%; }
+  .shim-card--list .shim-card-price { width: 32%; }
+}

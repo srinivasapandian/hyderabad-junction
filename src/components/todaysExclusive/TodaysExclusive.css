@@ -1,0 +1,51 @@
+/* ═══════════════════════════════════════
+   TODAY'S EXCLUSIVE SLIDER
+═══════════════════════════════════════ */
+
+.te-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* ── Header ── */
+.te-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+/* .te-title badge styles → CategoryTitle component */
+
+
+/* ── Slider ── */
+.te-slider {
+  display: flex;
+  gap: 18px;
+  overflow-x: auto;
+  padding-bottom: 8px;
+  padding-top: 4px;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+  scroll-snap-type: x mandatory;
+}
+
+.te-slider::-webkit-scrollbar {
+  display: none;
+}
+
+/* ── Slide (card wrapper) ── */
+.te-slide {
+  flex: 0 0 280px;
+  height: 200px;
+  scroll-snap-align: start;
+}
+
+/* ── Responsive ── */
+@media (max-width: 640px) {
+  .te-slider { gap: 12px; }
+  .te-slider { gap: 12px; }
+}
+
+@media (max-width: 480px) {
+}
