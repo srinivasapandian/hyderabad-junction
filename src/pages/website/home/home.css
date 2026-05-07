@@ -5,6 +5,7 @@
 .hj-home {
   width: 100%;
   background: #fff;
+  margin-top: 86px;
 }
 
 /* ──────────────────────────────────────────
@@ -34,8 +35,8 @@
 
 .hj-hero-copy-right {
   position: absolute;
-  top: 5.5%;
-  right: 3.8%;
+  top: 10%;
+  right: 5.5%;
   text-align: center;
   color: #4e1f1d;
   font-family: Georgia, 'Times New Roman', serif;
@@ -67,14 +68,14 @@
 .hj-hero-copy-left {
   position: absolute;
   left: 50%;
-  bottom: 24.9%;
+  bottom: 22.5%;
   transform: translateX(-50%);
-  width: min(38vw, 460px);
+  width: min(42vw, 520px);
   color: #1f1a18;
   font-family: Georgia, 'Times New Roman', serif;
   text-align: center;
   z-index: 2;
-  display: none;
+  display: block;
 }
 
 .hj-hero-copy-left p {
@@ -102,7 +103,14 @@
 }
 
 .hj-hero-gap-card {
-  display: none;
+  display: block;
+  position: absolute;
+  bottom: 12%;
+  left: 6%;
+  width: clamp(140px, 12vw, 240px);
+  z-index: 3;
+  transform: rotate(-3deg);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.2);
 }
 
 .hj-hero-gap-img {
@@ -143,7 +151,7 @@
     background-position: center -10px;
     height: 76vh;
     min-height: 940px;
-    margin-top: 56px;
+    margin-top: 0;
     background-repeat: no-repeat;
     background-size: contain;
   }
@@ -243,6 +251,8 @@
   gap: 1.2rem;
   align-items: start;
   background: #fff;
+  position: relative;
+  z-index: 5;
 }
 
 .hj-flavor-left {
@@ -260,7 +270,7 @@
 }
 
 .hj-flavor-main-card {
-  margin-top: -300px;
+  margin-top: -240px;
 }
 
 .hj-flavor-center {
@@ -831,6 +841,19 @@
 /* ──────────────────────────────────────────
    RESPONSIVE
 ────────────────────────────────────────── */
+
+@media (max-width: 991px) {
+  .hj-home {
+    margin-top: 72px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hj-home {
+    margin-top: 66px;
+  }
+}
+
 
 @media (max-width: 1200px) {
   .hj-flavor {
