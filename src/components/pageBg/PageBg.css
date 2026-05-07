@@ -8,7 +8,7 @@
   content: '';
   position: absolute;
   inset: 0;
-  background-image: url('../../assets/pattern/amudham-bg-pattern.png');
+  background-image: url('../../assets/pattern.png');
   background-repeat: repeat;
   background-size: 820px;
   opacity: 0.07;
