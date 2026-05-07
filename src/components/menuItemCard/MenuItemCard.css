@@ -1,184 +1,230 @@
 /* ═══════════════════════════════════════
-   MENU ITEM CARD — DARK THEME
+   MENU ITEM CARD — RESTAURANT ROW STYLE
 ═══════════════════════════════════════ */
 
 .mic-card {
   display: flex;
   flex-direction: column;
-  background: var(--primary-card);
-  border-radius: 14px;
-  overflow: hidden;
-  border: 1px solid rgba(224, 192, 171, 0.15);
-  transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
-  height: 100%;
+  padding: 14px 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  background: transparent;
+  cursor: pointer;
+  transition: background 0.15s;
 }
 
 .mic-card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.18);
-  border-color: rgba(224, 192, 171, 0.45);
-}
-
-.mic-card--clickable {
-  cursor: pointer;
+  background: rgba(0, 0, 0, 0.02);
 }
 
 .mic-card.mic-unavailable {
-  opacity: 0.72;
+  opacity: 0.55;
 }
 
 .mic-card.mic-unavailable:hover {
-  transform: none;
-  box-shadow: none;
-  border-color: rgba(224, 192, 171, 0.15);
+  background: transparent;
   cursor: default;
 }
 
-/* ── Image ── */
-.mic-img-wrap {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 16 / 10;
-  background: rgba(0, 0, 0, 0.25);
-  flex-shrink: 0;
-  overflow: hidden;
-}
-
-@media (max-width: 640px) {
-  .mic-img-wrap {
-    aspect-ratio: 4 / 3;
-  }
-}
-
-.mic-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-
-.mic-img-placeholder {
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(135deg, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.08) 100%);
-}
-
-/* ── Unavailability overlay ── */
-.mic-unavail-overlay {
-  position: absolute;
-  inset: 0;
+/* ── Main row: name · dots · price + actions ── */
+.mic-row {
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
+  gap: 0;
+  width: 100%;
+}
+
+/* Item name */
+.mic-name {
+  font-family: var(--font-accent);
+  font-size: 0.97rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin: 0;
+  white-space: nowrap;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  flex-shrink: 0;
+}
+
+/* Dotted fill line */
+.mic-dots {
+  flex: 1;
+  min-width: 24px;
+  height: 1px;
+  border-bottom: 2px dotted rgba(0, 0, 0, 0.18);
+  margin: 0 10px;
+  align-self: center;
+}
+
+/* Right cluster: price + actions */
+.mic-row-right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.mic-price {
+  font-family: var(--font-accent);
+  font-size: 0.97rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  white-space: nowrap;
+}
+
+/* ── Unavailability badge ── */
+.mic-unavail-badge {
+  display: inline-flex;
+  align-items: center;
   gap: 5px;
-  background: rgba(1, 53, 49, 0.82);
-  backdrop-filter: blur(2px);
-  -webkit-backdrop-filter: blur(2px);
-  padding: 12px;
-  text-align: center;
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  color: rgba(0, 0, 0, 0.45);
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  border-radius: 999px;
+  padding: 3px 10px;
+  white-space: nowrap;
 }
 
 .mic-unavail-icon {
-  font-size: 1.1rem;
-  color: rgba(255, 255, 255, 0.5);
-  margin-bottom: 2px;
-}
-
-.mic-unavail-label {
-  font-family: var(--font-body);
-  font-size: 0.78rem;
-  font-weight: 400;
-  color: rgba(255, 255, 255, 0.5);
-  letter-spacing: 0.02em;
-  line-height: 1.3;
-}
-
-.mic-unavail-time {
-  font-family: var(--font-accent);
-  font-size: 0.92rem;
-  font-weight: 700;
-  color: var(--red);
-  letter-spacing: 0.01em;
-  line-height: 1.2;
+  font-size: 0.72rem;
+  color: rgba(0, 0, 0, 0.4);
 }
 
 /* ── Heart (favourite) button ── */
 .mic-heart-btn {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  width: 32px;
-  height: 32px;
+  width: 28px;
+  height: 28px;
   border-radius: 50%;
-  background: rgba(1, 53, 49, 0.75);
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
-  border: 1px solid rgba(224, 192, 171, 0.2);
+  background: transparent;
+  border: 1px solid rgba(0, 0, 0, 0.12);
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: rgba(255, 255, 255, 0.5);
-  font-size: 0.82rem;
-  transition: background 0.18s ease, color 0.18s ease, border-color 0.18s ease;
+  color: rgba(0, 0, 0, 0.35);
+  font-size: 0.78rem;
+  transition: background 0.18s, color 0.18s, border-color 0.18s;
+  flex-shrink: 0;
 }
 
 .mic-heart-btn:hover {
-  background: rgba(1, 53, 49, 0.9);
+  background: rgba(205, 65, 67, 0.08);
   color: var(--red);
   border-color: var(--red);
 }
 
 .mic-heart-btn.active {
   color: var(--red);
-  background: rgba(205, 65, 67, 0.15);
+  background: rgba(205, 65, 67, 0.1);
   border-color: var(--red);
 }
 
-/* ── ADD button ── */
-.mic-add-btn {
+/* ── Note button ── */
+.mic-note-btn {
+  position: relative;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: transparent;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  transition: background 0.18s, border-color 0.18s;
+  flex-shrink: 0;
+}
+
+.mic-note-btn:hover {
+  background: rgba(0, 0, 0, 0.05);
+  border-color: rgba(0, 0, 0, 0.25);
+}
+
+.mic-note-icon {
+  width: 13px;
+  height: 13px;
+  display: block;
+  filter: brightness(0) opacity(0.45);
+}
+
+.mic-note-indicator {
   position: absolute;
-  bottom: 10px;
-  right: 10px;
-  height: 26px;
-  padding: 0 14px;
-  border-radius: 20px;
-  background: var(--secondary-color);
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
+  top: -2px;
+  right: -2px;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--red);
+}
+
+.mic-note-plus {
+  position: absolute;
+  top: -2px;
+  right: -2px;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--red);
+  color: #fff;
+  font-size: 0.38rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ── Modifier badge ── */
+.mic-modifier-badge {
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  background: rgba(0, 0, 0, 0.06);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  flex-shrink: 0;
+}
+
+/* ── ADD / VIEW button ── */
+.mic-add-btn {
+  height: 28px;
+  padding: 0 16px;
+  border-radius: 999px;
+  background: var(--primary-color);
   border: none;
   cursor: pointer;
   font-family: var(--font-body);
-  font-size: 0.70rem;
+  font-size: 0.72rem;
   font-weight: 700;
-  letter-spacing: 0.12em;
-  color: var(--primary-color);
-  transition: background var(--transition);
+  letter-spacing: 0.1em;
+  color: #ffffff;
+  transition: background 0.18s, transform 0.18s;
+  flex-shrink: 0;
 }
 
 .mic-add-btn:hover {
-  /* background: var(--btn-grad-hover); */
+  background: color-mix(in srgb, var(--primary-color) 85%, #000);
+  transform: translateY(-1px);
 }
 
 /* ── Quantity spinner ── */
 .mic-qty-ctrl {
-  position: absolute;
-  bottom: 10px;
-  right: 10px;
-  height: 26px;
   display: flex;
   align-items: center;
-  border-radius: 20px;
-  background: var(--secondary-color);
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
+  height: 28px;
+  border-radius: 999px;
+  border: 1.5px solid var(--primary-color);
   overflow: hidden;
+  flex-shrink: 0;
 }
 
 .mic-qty-btn {
-  width: 26px;
-  height: 26px;
+  width: 28px;
+  height: 28px;
   border: none;
   background: transparent;
   cursor: pointer;
@@ -188,301 +234,59 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: background var(--transition);
+  transition: background 0.15s;
   flex-shrink: 0;
 }
 
-.mic-qty-btn:hover {
-  background: rgba(0,0,0,0.12);
-}
+.mic-qty-btn:hover { background: rgba(0, 0, 0, 0.06); }
 
 .mic-qty-count {
   font-family: var(--font-accent);
-  font-size: 0.8rem;
+  font-size: 0.82rem;
   font-weight: 700;
   color: var(--primary-color);
-  min-width: 20px;
+  min-width: 22px;
   text-align: center;
-  line-height: 1;
-}
-
-/* ── Body ── */
-.mic-body {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-  padding: 14px 14px 16px;
-  gap: 8px;
-  border-top: 1px solid rgba(224, 192, 171, 0.12);
-}
-
-/* ── Name + Price row ── */
-.mic-name-price-row {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 10px;
-  min-height: 1.7em;
-}
-
-.mic-name {
-  font-family: var(--font-accent);
-  font-size: 0.88rem;
-  font-weight: 700;
-  color: rgba(255, 255, 255, 0.9);
-  margin: 0;
-  line-height: 1.4;
-  flex: 1;
-  min-width: 0;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-}
-
-.mic-price {
-  font-family: var(--font-accent);
-  font-size: 0.9rem;
-  font-weight: 700;
-  color: var(--secondary-color);
-  white-space: nowrap;
-  flex-shrink: 0;
-  padding-top: 1px;
 }
 
 /* ── Description ── */
 .mic-desc {
   font-family: var(--font-accent);
-  font-size: 0.76rem;
-  color: rgba(255, 255, 255, 0.5);
-  line-height: 1.55;
-  margin: 0;
+  font-style: italic;
+  font-size: 0.82rem;
+  color: rgba(0, 0, 0, 0.5);
+  line-height: 1.5;
+  margin: 5px 0 0;
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
-  min-height: calc(1.55em * 2);
 }
 
-.mic-desc--empty {
-  visibility: hidden;
-}
+.mic-desc--empty { display: none; }
 
-/* ── Badges stack (bottom-left of image) — note on top, modifier below ── */
-.mic-badges {
-  position: absolute;
-  bottom: 10px;
-  left: 10px;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 8px;
-  z-index: 2;
-}
+/* Card-mode elements hidden in row layout */
+.mic-img-wrap       { display: none; }
+.mic-body           { display: none; }
+.mic-name-price-row { display: none; }
+.mic-badges         { display: none; }
+.mic-badges--img    { display: none; }
+.mic-badges--body   { display: none; }
 
-/* The body-variant is only used in the LIST layout (see media block below). */
-.mic-badges--body { display: none; }
-
-.mic-modifier-badge {
-  position: static;
-  width: 20px;
-  height: 20px;
-  border-radius: 4px;
-  background: var(--primary-color, #013531);
-  border: none;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--secondary-color);
-  pointer-events: none;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
-}
-
-/* Dot on the note icon — signals that this line has a user note */
-.mic-note-indicator {
-  position: absolute;
-  top: -3px;
-  right: -3px;
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: var(--red);
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.35);
-}
-
-/* ── Item-Note button (shown only when item is in cart) ──
-   Menu-listing card only: cream pill with a dark (primary) icon
-   so it inverts the modifier badge's dark-on-cream pairing. */
-.mic-note-btn {
-  position: relative;
-  width: 20px;
-  height: 20px;
-  border-radius: 4px;
-  background: var(--secondary-color);
-  border: none;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
-  transition: transform 0.18s ease;
-}
-
-.mic-note-btn:hover {
-  transform: translateY(-1px);
-}
-
-.mic-note-icon {
-  width: 12px;
-  height: 13px;
-  display: block;
-  /* The shipped SVG is baked with secondary-color; darken it to primary
-     via a filter so it reads correctly on the cream button. */
-  filter: brightness(0);
-}
-
-.mic-note-plus {
-  position: absolute;
-  top: -3px;
-  right: -3px;
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: var(--red, #cd4143);
-  color: #fff;
-  font-size: 0.4rem;
-  font-weight: 700;
-  line-height: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.35);
-}
-
+/* ─── Responsive ─── */
 @media (max-width: 640px) {
-  .mic-body {
-    padding: 12px 10px;
-  }
+  .mic-name  { font-size: 0.85rem; }
+  .mic-price { font-size: 0.85rem; }
+  .mic-desc  { font-size: 0.76rem; }
+  .mic-heart-btn, .mic-note-btn { width: 24px; height: 24px; font-size: 0.7rem; }
+  .mic-add-btn { height: 24px; padding: 0 12px; font-size: 0.66rem; }
+  .mic-qty-ctrl { height: 24px; }
+  .mic-qty-btn  { width: 24px; height: 24px; font-size: 0.85rem; }
+  .mic-qty-count { font-size: 0.75rem; min-width: 18px; }
 }
 
-
-@media (max-width: 576px) {
-  /* Heart button */
-  .mic-heart-btn {
-    width: 26px;
-    height: 26px;
-    font-size: 0.7rem;
-    top: 7px;
-    right: 7px;
-  }
-
-  /* ADD button */
-  .mic-add-btn {
-    bottom: 7px;
-    right: 7px;
-    height: 22px;
-    padding: 0 10px;
-    font-size: 0.6rem;
-    letter-spacing: 0.09em;
-  }
-
-  /* Quantity controller */
-  .mic-qty-ctrl {
-    bottom: 7px;
-    right: 7px;
-    height: 22px;
-  }
-
-  .mic-qty-btn {
-    width: 22px;
-    height: 22px;
-    font-size: 0.8rem;
-  }
-
-  .mic-qty-count {
-    font-size: 0.7rem;
-    min-width: 16px;
-  }
-
-  .mic-name  { font-size: 0.78rem; }
-  .mic-price { font-size: 0.8rem;  }
-  .mic-desc  { font-size: 0.68rem; }
+@media (max-width: 480px) {
+  .mic-name { font-size: 0.78rem; }
+  .mic-dots { min-width: 12px; margin: 0 6px; }
+  .mic-row-right { gap: 6px; }
 }
-
-/* ═══════════════════════════════════════════
-   LIST VIEW (mobile ≤576px) — text on left,
-   image on right. Controlled by slug config.
-═══════════════════════════════════════════ */
-@media (max-width: 576px) {
-  .mic-card--list {
-    flex-direction: row;
-    align-items: stretch;
-    height: 140px;
-  }
-
-  .mic-card--list .mic-img-wrap {
-    order: 2;
-    flex-shrink: 0;
-    width: 42%;
-    max-width: 170px;
-    height: 100%;
-    aspect-ratio: auto;
-    align-self: stretch;
-  }
-
-  .mic-card--list .mic-img {
-    height: 100%;
-    width: 100%;
-    object-fit: cover;
-  }
-
-  .mic-card--list .mic-body {
-    order: 1;
-    flex: 1;
-    min-width: 0;
-    border-top: none;
-    padding: 12px 12px 12px 14px;
-    justify-content: flex-start;
-    gap: 6px;
-  }
-
-  .mic-card--list .mic-name-price-row {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 4px;
-    min-height: 0;
-  }
-
-  .mic-card--list .mic-name {
-    -webkit-line-clamp: 2;
-    line-height: 1.3;
-  }
-
-  .mic-card--list .mic-price {
-    padding-top: 0;
-  }
-
-  .mic-card--list .mic-desc {
-    min-height: 0;
-    -webkit-line-clamp: 2;
-  }
-
-  /* In LIST layout split the badges:
-       • Customization icon stays on the image, anchored to its left edge.
-       • Note button sits at the bottom-left of the body. */
-  .mic-card--list .mic-badges--img {
-    display: flex;
-  }
-  .mic-card--list .mic-badges--img .mic-note-btn { display: none; }
-
-  .mic-card--list .mic-badges--body {
-    display: flex;
-    position: absolute;
-    bottom: 10px;
-    left: 14px;
-  }
-  .mic-card--list .mic-badges--body .mic-modifier-badge { display: none; }
-}
-
