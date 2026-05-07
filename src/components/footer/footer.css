@@ -115,7 +115,7 @@
   align-items: center;
   justify-content: center;
   padding: 8px 18px;
-  border-radius: 999px;
+  transform: skew(-21deg);
   background: #efe2b1;
   color: #20160a;
   font-family: Georgia, 'Times New Roman', serif;

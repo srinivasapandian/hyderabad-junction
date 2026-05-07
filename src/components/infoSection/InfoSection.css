@@ -27,7 +27,7 @@
   align-items: center;
   justify-content: center;
   padding: 13px 36px;
-  border-radius: 999px;
+  transform: skew(-21deg);
   font-size: 0.9rem;
   font-weight: 700;
   letter-spacing: 0.08em;
@@ -42,11 +42,19 @@
   background: #ffffff;
   color: #c7773f;
   border: 1.5px solid #ffffff;
+  
+  
+   
+  transform: skew(-21deg);
 }
 
 .info__btn--filled:hover {
   background: rgba(255, 255, 255, 0.9);
   transform: translateY(-2px);
+   
+  transform: translateY(-1px);
+   
+ 
 }
 
 .info__btn--outline {

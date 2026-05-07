@@ -272,7 +272,7 @@
   display: inline-block;
   margin-top: 1.4rem;
   border: 0;
-  border-radius: 999px;
+  transform: skew(-21deg);
   background: #5d1f1f;
   color: #fff;
   font-family: Georgia, 'Times New Roman', serif;
@@ -286,6 +286,10 @@
 .hj-story-btn:hover {
   background: #7a2828;
   color: #fff;
+  
+  border-color: #f0d4bf;
+ 
+  transform: translateY(-1px);
 }
 
 .hj-flavor-right {
@@ -455,7 +459,7 @@
 .hj-menu-card-btn {
   display: inline-block;
   border: 0;
-  border-radius: 999px;
+  transform: skew(-21deg);
   background: #5d1f1f;
   color: #fff;
   font-family: Georgia, 'Times New Roman', serif;
@@ -469,6 +473,8 @@
 .hj-menu-card-btn:hover {
   background: #7a2828;
   color: #fff;
+  
+  transform: translateY(-1px);
 }
 
 .hj-menu-card img {
