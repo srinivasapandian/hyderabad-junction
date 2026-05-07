@@ -307,10 +307,8 @@
 .hj-story-btn:hover {
   background: #7a2828;
   color: #fff;
-  
   border-color: #f0d4bf;
- 
-  transform: translateY(-1px);
+  transform: skew(-21deg) translateY(-1px);
 }
 
 .hj-flavor-right {
@@ -496,8 +494,7 @@
 .hj-menu-card-btn:hover {
   background: #7a2828;
   color: #fff;
-  
-  transform: translateY(-1px);
+  transform: skew(-21deg) translateY(-1px);
 }
 
 .hj-menu-card img {
