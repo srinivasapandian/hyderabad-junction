@@ -2,14 +2,33 @@ import React, { useState, useEffect, useMemo, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useDispatch, useSelector } from 'react-redux';
-import type { RootState } from '../../../types';
+import type { RootState, WorkingHour } from '../../../types';
 import './Home.css';
 import { useInView } from '../../../hooks/useInView';
-import CtaStrip from '../../../components/ctaStrip/CtaStrip';
 import ExclusiveItemCard from '../../../components/exclusiveItemCard/ExclusiveItemCard';
 import { getMenuRequest } from '../../../redux/menu/menuActions';
 import { transformMenuResponse } from '../../../utils/menuTransformer';
-import { LOCATION_SLUG } from '../../../utils/branchConfig';
+import { isReservationEnabledByBranch, LOCATION_SLUG } from '../../../utils/branchConfig';
+
+const DAY_ORDER = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+
+function formatHourTime(t: string): string {
+  if (!t) return '';
+  const [h, m] = t.split(':').map(Number);
+  const date = new Date();
+  date.setHours(h, m, 0, 0);
+  return date.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit', hour12: true });
+}
+
+function buildHoursDisplay(hours: WorkingHour[]): { day: string; time: string }[] {
+  const map: Record<string, WorkingHour> = {};
+  hours.forEach((h) => { map[h.weekday] = h; });
+  return DAY_ORDER.map((day) => {
+    const entry = map[day];
+    if (!entry || String(entry.isEnabled) === '0') return { day, time: 'Closed' };
+    return { day, time: `${formatHourTime(entry.openingTime)} – ${formatHourTime(entry.closingTime)}` };
+  });
+}
 
 import heroBg       from '../../../assets/hero-bg.png';
 import designImg    from '../../../assets/design.png';
@@ -103,6 +122,13 @@ function Home(_props: HomeProps) {
   // ── Redux – live menu ─────────────────────────────────────────────────────
 
   const dispatch = useDispatch();
+  const slugData = useSelector((s: RootState) => s.slug.data);
+  const isReservationEnabled = isReservationEnabledByBranch(slugData);
+  const storeHours = slugData?.workingHours as WorkingHour[] | undefined;
+  const onlineHours = slugData?.onlineWorkingHours as WorkingHour[] | undefined;
+  const activeHours = storeHours ?? onlineHours ?? [];
+  const hoursRows = activeHours.length > 0 ? buildHoursDisplay(activeHours) : null;
+
   const {
     data: rawMenuData,
     loading: menuLoading,
@@ -469,15 +495,43 @@ function Home(_props: HomeProps) {
         )}
       </AnimatePresence>
 
-      <CtaStrip
-        overline="Ready to Order?"
-        heading="Order Your Favorites Online"
-        btnLabel="Order Online"
-        btnHref={`/order-online/${LOCATION_SLUG}/pickup`}
-        btn2Label="Reserve a Table"
-        btn2Href="/reservation"
-        btn2RequiresReservation
-      />
+      {/* ═══════════════════════════════════════════════════════════════════
+          CTA BAR — buttons left, business hours right
+      ═══════════════════════════════════════════════════════════════════ */}
+      <section className="hj-cta-bar">
+        <div className="hj-cta-bar__inner">
+
+          {/* Left — action buttons */}
+          <div className="hj-cta-bar__btns">
+            {isReservationEnabled && (
+              <Link to="/reservation" className="hj-cta-bar__btn hj-cta-bar__btn--outline">
+                Reserve a Table
+              </Link>
+            )}
+            <Link to={`/order-online/${LOCATION_SLUG}/pickup`} className="hj-cta-bar__btn hj-cta-bar__btn--filled">
+              Order Online
+            </Link>
+          </div>
+
+          {/* Right — business hours */}
+          {hoursRows && (
+            <div className="hj-cta-bar__hours">
+              <p className="hj-cta-bar__hours-label">
+                <i className="fas fa-clock" /> Business Hours
+              </p>
+              <div className="hj-cta-bar__hours-grid">
+                {hoursRows.map(({ day, time }) => (
+                  <p key={day} className="hj-cta-bar__hours-row">
+                    <span className="hj-cta-bar__hours-day">{day}</span>
+                    <span className={`hj-cta-bar__hours-time${time === 'Closed' ? ' hj-cta-bar__hours-time--closed' : ''}`}>{time}</span>
+                  </p>
+                ))}
+              </div>
+            </div>
+          )}
+
+        </div>
+      </section>
 
     </section>
   );
