@@ -1,7 +1,7 @@
 /* ═══════════════════════════════════════════
    HEADER — DARK PRIMARY THEME
 ═══════════════════════════════════════════ */
-
+ 
 .header {
   width: 100%;
   position: fixed;
@@ -9,10 +9,10 @@
   left: 0;
   z-index: 3000;
   overflow: visible;
-  background: var(--primary-color);
+  background: #4a231f;
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
-
+ 
 .header-inner {
   display: flex;
   align-items: center;
@@ -24,6 +24,14 @@
   overflow: visible;
 }
 
+.header-brand-group {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+ 
 /* ── Logo ─────────────────────────────────── */
 .header-logo {
   position: relative;
@@ -35,7 +43,7 @@
   border-radius: 18px;
   flex-shrink: 0;
 }
-
+ 
 .header-logo img {
   height: 62px;
   width: auto;
@@ -43,6 +51,35 @@
   display: block;
 }
 
+.header-brand-copy {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+}
+
+.header-brand-title {
+  font-family: var(--font-body);
+  font-size: clamp(20px, 1.95vw, 40px);
+  font-weight: 700;
+  line-height: 0.95;
+  letter-spacing: 0.01em;
+  color: #ff2d2d;
+}
+
+.header-brand-tagline {
+  display: inline-block;
+  padding: 6px 12px;
+  border-radius: 5px;
+  background: #d9c88f;
+  color: #5d1f1f;
+  font-family: var(--font-body);
+  font-size: clamp(8px, 0.65vw, 12px);
+  font-weight: 700;
+  letter-spacing: 0.42em;
+  line-height: 1;
+}
+ 
 /* ── Nav (plain text links only) ─────────── */
 .header-nav {
   display: flex;
@@ -52,44 +89,39 @@
   justify-content: center;
   box-sizing: border-box;
 }
-
-/* Diamond separator between nav links */
-.header-nav > a:not(:last-of-type)::after {
-  content: '◆';
-  font-size: 0.38rem;
-  color: var(--secondary-color);
-  margin-left: 10px;
-  vertical-align: middle;
-  opacity: 0.7;
-  pointer-events: none;
-}
-
+ 
 .header-nav > a {
   font-family: var(--font-body);
-  font-size: 0.82rem;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
+  font-size: 0.88rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  text-transform: none;
   color: #ffffff;
-  padding: 10px 10px;
+  padding: 6px 14px;
   white-space: nowrap;
-  transition: color 0.2s ease;
+  transition: color 0.2s ease, border-color 0.2s ease;
   text-decoration: none;
   display: inline-flex;
   align-items: center;
+  border: 1.5px solid transparent;
+  border-radius: 6px;
 }
 
-.header-nav > a:hover,
+.header-nav > a:hover {
+  color: #d9c88f;
+}
+
 .header-nav > a.active {
-  color: var(--secondary-color);
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.6);
   background: transparent;
 }
-
+ 
 /* Mobile button group — hidden on desktop */
 .header-nav-mobile-btns {
   display: none;
 }
-
+ 
 /* ── Right-side buttons (desktop only) ────── */
 .header-right-wrap {
   display: flex;
@@ -97,7 +129,7 @@
   gap: 12px;
   flex-shrink: 0;
 }
-
+ 
 /* ORDER NOW — filled secondary pill (primary CTA) */
 .header-order-btn {
   display: inline-flex;
@@ -124,7 +156,7 @@
   color: var(--primary-color);
   transform: translateY(-1px);
 }
-
+ 
 /* RESERVE A TABLE — outlined secondary pill (secondary CTA) */
 .header-reservation-btn {
   display: inline-flex;
@@ -150,14 +182,14 @@
   color: var(--primary-color);
   transform: translateY(-1px);
 }
-
+ 
 .header-right-divider {
   width: 1px;
   height: 34px;
   background: rgba(255, 255, 255, 0.15);
   opacity: 0.9;
 }
-
+ 
 /* User icon button */
 .header-user-btn {
   display: flex;
@@ -212,7 +244,7 @@
 .header-user-btn.logged-in {
   color: var(--secondary-color);
 }
-
+ 
 /* ── Hamburger ───────────────────────────── */
 .header-hamburger {
   display: none;
@@ -229,7 +261,7 @@
   background: transparent;
   cursor: pointer;
 }
-
+ 
 .header-hamburger span {
   width: 100%;
   height: 2px;
@@ -237,7 +269,7 @@
   background: #ffffff;
   transition: transform 0.3s ease, opacity 0.3s ease;
 }
-
+ 
 .header-hamburger.open span {
   background: var(--secondary-color);
 }
@@ -250,12 +282,12 @@
 .header-hamburger.open span:nth-child(3) {
   transform: translateY(-7px) rotate(-45deg);
 }
-
+ 
 /* ── Overlay ─────────────────────────────── */
 .header-nav-overlay {
   display: none;
 }
-
+ 
 /* ══════════════════════════════════════════
    RESPONSIVE — tablet
 ══════════════════════════════════════════ */
@@ -264,11 +296,25 @@
     padding: 12px 24px;
   }
 
+  .header-brand-group {
+    gap: 10px;
+  }
+
+  .header-brand-title {
+    font-size: 1.9rem;
+  }
+
+  .header-brand-tagline {
+    font-size: 0.74rem;
+    letter-spacing: 0.28em;
+    padding: 5px 9px;
+  }
+ 
   .header-nav > a {
     padding: 10px 8px;
     font-size: 0.76rem;
   }
-
+ 
   .header-order-btn,
   .header-reservation-btn {
     padding: 6px 12px;
@@ -279,7 +325,7 @@
     padding: 5px 8px;
   }
 }
-
+ 
 /* ══════════════════════════════════════════
    RESPONSIVE — mobile
 ══════════════════════════════════════════ */
@@ -289,17 +335,27 @@
     padding: 12px 20px;
   }
 
+  .header-brand-title {
+    font-size: 1.3rem;
+  }
+
+  .header-brand-tagline {
+    font-size: 0.64rem;
+    letter-spacing: 0.2em;
+    padding: 4px 8px;
+  }
+ 
   /* Hide desktop right buttons */
   .header-right-wrap {
     display: none;
   }
-
+ 
   /* Show hamburger */
   .header-hamburger {
     display: flex;
     margin-left: auto;
   }
-
+ 
   /* Dim overlay */
   .header-nav-overlay {
     display: block;
@@ -315,7 +371,7 @@
     opacity: 1;
     pointer-events: auto;
   }
-
+ 
   /* Slide-in drawer — dark theme */
   .header-nav {
     position: fixed !important;
@@ -348,19 +404,19 @@
     visibility: visible;
     opacity: 1;
   }
-
+ 
   /* Hamburger sticks in top-right when open */
   .header-hamburger.open {
     position: fixed;
     top: 12px;
     right: 16px;
   }
-
+ 
   /* Remove diamond separators in drawer */
   .header-nav > a:not(:last-of-type)::after {
     display: none;
   }
-
+ 
   /* Plain nav links inside drawer */
   .header-nav > a {
     width: 100%;
@@ -382,7 +438,7 @@
     color: var(--secondary-color);
     border-radius: 0;
   }
-
+ 
   /* Mobile button group — shown in drawer */
   .header-nav-mobile-btns {
     display: flex;
@@ -392,7 +448,7 @@
     padding-top: 18px;
     border-top: 1px solid rgba(255, 255, 255, 0.12);
   }
-
+ 
   .header-nav-mobile-btn {
     display: block;
     width: 100%;
@@ -408,7 +464,7 @@
     box-sizing: border-box;
     transition: background 0.2s, color 0.2s, border-color 0.2s;
   }
-
+ 
   /* My Account — outlined */
   .header-nav-mobile-btn--outline {
     border: 1.5px solid rgba(255, 255, 255, 0.25);
@@ -421,7 +477,7 @@
     color: var(--secondary-color);
     background: rgba(224, 192, 171, 0.08);
   }
-
+ 
   /* Order Online — filled secondary */
   .header-nav-mobile-btn--filled {
     border: 1.5px solid var(--secondary-color);
@@ -433,7 +489,7 @@
     background: #f0d4bf;
     border-color: #f0d4bf;
   }
-
+ 
   /* Reservation — outlined secondary */
   .header-nav-mobile-btn--outline-red {
     border: 1.5px solid var(--secondary-color);
@@ -446,13 +502,27 @@
     color: var(--primary-color);
   }
 }
-
+ 
 @media (max-width: 480px) {
   .header-inner {
     padding: 10px 16px;
   }
   .header-logo img {
     height: 52px;
+  }
+  .header-brand-group {
+    gap: 8px;
+  }
+  .header-brand-title {
+    font-size: 1.04rem;
+  }
+  .header-brand-tagline {
+    font-size: 0.56rem;
+    letter-spacing: 0.14em;
+    padding: 4px 6px;
+  }
+  .header-brand-copy {
+    gap: 4px;
   }
   .header-logo {
     padding: 5px;

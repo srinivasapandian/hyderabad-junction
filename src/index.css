@@ -27,11 +27,11 @@
 
 :root {
   /* ── Brand colours ──────────────────────────────── */
-  --primary-color:      #002724;
-  --primary-surface:    #002422;
-  --primary-card:       #013531;
-  --primary-tertiary:   #083339;
-  --primary-blob:       #02534C;
+  --primary-color:      #6f1d1b;
+  --primary-surface:    #5d1f1f;
+  --primary-card:       #c7773f;
+  --primary-tertiary:   #e5c98d;
+  --primary-blob:       #212325;
   --secondary-color:    #E0C0AB;
 
   /* ── Extended palette ───────────────────────────── */
@@ -63,8 +63,8 @@
   --border-accent: rgba(224, 192, 171, 0.3);
 
   /* ── Text ───────────────────────────────────────── */
-  --text:              #1a1a1a;
-  --text-muted:        #666666;
+  --text:              #6b6375;
+  --text-muted:        #f4f4f4;
   --text-muted-light:  #999999;
   --text-muted-accent: rgba(228, 192, 171, 0.55);
 
@@ -107,6 +107,12 @@ body {
 html {
   -webkit-text-size-adjust: 100%;
   text-size-adjust: 100%;
+}
+
+html,
+body,
+#root {
+  background-color: #ffffff;
 }
 
 *,

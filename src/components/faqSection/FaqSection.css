@@ -1,11 +1,11 @@
 .faq-section {
   position: relative;
-  background: var(--primary-color);
-  color: rgba(255, 255, 255, 0.88);
+  background: #ffffff;
+  color: rgba(0, 0, 0, 0.88);
 }
 
 .faq-section--with-bg {
-  background-color: var(--primary-color);
+  background-color: #ffffff;
   background-size: cover;
   background-position: center;
 }
@@ -14,7 +14,7 @@
   display: block;
   position: absolute;
   inset: 0;
-  background: rgba(0, 36, 34, 0.78);
+  background: rgba(255, 255, 255, 0.78);
   pointer-events: none;
   z-index: 0;
 }
@@ -68,7 +68,7 @@
   font-size: clamp(2rem, 3vw, 3rem);
   font-weight: 700;
   line-height: 1.08;
-  color: rgba(255, 255, 255, 0.95);
+  color: #111111;
 }
 
 .faq-intro {
@@ -76,7 +76,7 @@
   font-family: var(--font-body);
   font-size: 1rem;
   line-height: 1.8;
-  color: rgba(255, 255, 255, 0.62);
+  color: rgba(0, 0, 0, 0.62);
 }
 
 .faq-list {
@@ -86,14 +86,14 @@
 
 .faq-item {
   border-radius: var(--radius-md);
-  background: var(--primary-surface);
-  border: 1px solid rgba(224, 192, 171, 0.15);
+  background: #e5c98d;
+  border: 1px solid rgba(0, 0, 0, 0.08);
   overflow: hidden;
   transition: border-color 0.2s, box-shadow 0.2s;
 }
 
 .faq-item.is-open {
-  border-color: rgba(224, 192, 171, 0.4);
+  border-color: rgba(0, 0, 0, 0.2);
 }
 
 .faq-question {
@@ -105,7 +105,7 @@
   padding: 24px 26px;
   border: 0;
   background: transparent;
-  color: rgba(255, 255, 255, 0.92);
+  color: #111111;
   font-family: var(--font-heading);
   font-size: 1.3rem;
   font-weight: 700;
@@ -122,9 +122,9 @@
   align-items: center;
   justify-content: center;
   border-radius: 14px;
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(224, 192, 171, 0.22);
-  color: var(--secondary-color);
+  background: rgba(255, 255, 255, 0.4);
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  color: #5d1f1f;
   font-size: 0.92rem;
 }
 
@@ -137,7 +137,7 @@
   font-family: var(--font-body);
   font-size: 0.98rem;
   line-height: 1.8;
-  color: rgba(255, 255, 255, 0.65);
+  color: rgba(0, 0, 0, 0.75);
 }
 
 .faq-answer-link {

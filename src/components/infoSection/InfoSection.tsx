@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import logoImg from '../../assets/logo/amudham-peach.png';
+import logoImg from '../../assets/logo.png';
 import './InfoSection.css';
 import type { RootState, WorkingHour } from '../../types';
 
@@ -55,7 +55,7 @@ export default function InfoSection() {
   const showToggle = storeHours && storeHours.length > 0 && onlineHours && onlineHours.length > 0;
 
   return (
-    <section className="info">
+    <section className="info" id="contact">
       <div className="container info__inner">
 
         {/* Logo + tagline */}
