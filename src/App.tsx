@@ -9,6 +9,7 @@ import Home from './pages/website/home/Home';
 import Menu from './pages/website/menu/menu';
 import Ordering from './pages/ordering/ordering/ordering';
 import Contact from './pages/website/contact/contact';
+import ServicesPage from './pages/website/services/Services';
 import Account from './pages/ordering/account/Account';
 import Cart from './pages/ordering/cart/Cart';
 import MenuCategoryRouter from './pages/website/menuCategory/MenuCategoryRouter';
@@ -77,6 +78,7 @@ function App(): React.JSX.Element {
           {/* ── Static pages ── */}
           <Route path="/about-us"      element={<Navigate to="/#about" replace />} />
           <Route path="/blog"          element={<Blog />} />
+          <Route path="/services"      element={<ServicesPage />} />
           <Route path="/contact"       element={<Contact />} />
           <Route path="/account"       element={<Account onSignInClick={openAuthModal} />} />
           <Route path="/cart"          element={<Cart onSignInClick={openAuthModal} />} />
@@ -99,7 +101,6 @@ function App(): React.JSX.Element {
 
           {/* ── Legacy redirects (backward compat) ── */}
           <Route path="/about"                   element={<Navigate to="/#about" replace />} />
-          <Route path="/services"                element={<Navigate to="/#services" replace />} />
           <Route path="/gallery"                 element={<Navigate to="/#gallery" replace />} />
           <Route path="/contact"                 element={<Navigate to="/#contact" replace />} />
           <Route path="/menu"                    element={<Navigate to="/indian-restaurant-menu" replace />} />

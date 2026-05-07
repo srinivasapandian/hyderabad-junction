@@ -2,14 +2,9 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import logoImg from '../../assets/logo.png';
 import './InfoSection.css';
 import type { RootState, WorkingHour } from '../../types';
-
-const SOCIALS = [
-  { icon: 'fab fa-instagram', label: 'Instagram', href: 'https://www.instagram.com/amudhamcafe.usa/' },
-  { icon: 'fab fa-facebook',  label: 'Facebook',  href: 'https://www.facebook.com/amudhamcafeusa' },
-];
+import { LOCATION_SLUG, isReservationEnabledByBranch } from '../../utils/branchConfig';
 
 const DAY_ORDER = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
 
@@ -40,6 +35,7 @@ function buildHoursDisplay(hours: WorkingHour[]): { day: string; time: string }[
 export default function InfoSection() {
   const slugData = useSelector((s: RootState) => s.slug.data);
   const [hoursTab, setHoursTab] = useState<'store' | 'online'>('store');
+  const isReservationEnabled = isReservationEnabledByBranch(slugData);
 
   const storeHours  = slugData?.workingHours  as WorkingHour[] | undefined;
   const onlineHours = slugData?.onlineWorkingHours as WorkingHour[] | undefined;
@@ -58,44 +54,19 @@ export default function InfoSection() {
     <section className="info" id="contact">
       <div className="container info__inner">
 
-        {/* Logo + tagline */}
-        <motion.div
-          className="info__brand"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-        >
-          <Link to="/"><img src={logoImg} alt="Amudham" className="info__logo-img" /></Link>
-          <p className="info__tagline">Soulful Indian, Served Fast</p>
-        </motion.div>
+        {/* Left side: Order Online button */}
+        <div className="info__btns">
+          {isReservationEnabled && (
+            <Link to="/reservation" className="info__btn info__btn--outline">
+              Reserve a Table
+            </Link>
+          )}
+          <Link to={`/order-online/${LOCATION_SLUG}/pickup`} className="info__btn info__btn--filled">
+            Order Online
+          </Link>
+        </div>
 
-        <div className="info__divider" />
-
-        {/* Contact details */}
-        <motion.div
-          className="info__details"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.1, duration: 0.6 }}
-        >
-          <p><i className="fas fa-map-marker-alt" /> Amudham Cafe, 4130 N First St</p>
-          <p style={{ paddingLeft: '1.3rem' }}>San Jose, CA 95134</p>
-          <p style={{ marginTop: '0.6rem' }}><i className="fas fa-phone" /> 609-635-4723</p>
-          <p><i className="fas fa-envelope" /> amudhamcafe.usa@gmail.com</p>
-          <div className="info__social-icons" style={{ marginTop: '1rem' }}>
-            {SOCIALS.map(({ icon, label, href }) => (
-              <a key={label} href={href} className="info__social-icon" aria-label={label} target="_blank" rel="noopener noreferrer">
-                <i className={icon} />
-              </a>
-            ))}
-          </div>
-        </motion.div>
-
-        <div className="info__divider" />
-
-        {/* Business hours */}
+        {/* Right side: Business hours */}
         <motion.div
           className="info__hours"
           initial={{ opacity: 0, y: 20 }}
@@ -125,12 +96,14 @@ export default function InfoSection() {
             )}
           </div>
 
-          {rows && rows.map(({ day, time }) => (
-            <p key={day} className="info__hours-row">
-              <span className="info__hours-day">{day}</span>
-              <span className={`info__hours-time${time === 'Closed' ? ' info__hours-time--closed' : ''}`}>{time}</span>
-            </p>
-          ))}
+          <div className="info__hours-grid">
+            {rows && rows.map(({ day, time }) => (
+              <p key={day} className="info__hours-row">
+                <span className="info__hours-day">{day}</span>
+                <span className={`info__hours-time${time === 'Closed' ? ' info__hours-time--closed' : ''}`}>{time}</span>
+              </p>
+            ))}
+          </div>
         </motion.div>
 
       </div>

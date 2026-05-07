@@ -1,0 +1,117 @@
+.services-page {
+  padding-top: 100px;
+  padding-bottom: 60px;
+  background: #fff;
+  min-height: 80vh;
+}
+
+.services-page .hj-services {
+  background: #fff;
+  padding: 1rem 1.2rem 2.4rem;
+}
+
+.services-page .hj-services-grid {
+  width: min(100%, 1460px);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1.2rem;
+  justify-items: center;
+}
+
+.services-page .hj-service-card {
+  position: relative;
+  background: #c7773f;
+  border-radius: 1rem;
+  box-shadow: 0 12px 18px rgba(0, 0, 0, 0.2);
+  padding: 0.85rem 1rem 0.95rem;
+  width: 250px;
+  height: 207px;
+  min-height: 207px;
+}
+
+.services-page .hj-service-card::before,
+.services-page .hj-service-card::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 6px;
+  height: 28px;
+  border-radius: 4px;
+  background: #5d1f1f;
+}
+
+.services-page .hj-service-card::before { left: -6px; }
+.services-page .hj-service-card::after  { right: -6px; }
+
+.services-page .hj-service-icon {
+  width: 44px;
+  height: 44px;
+  object-fit: contain;
+  display: block;
+  margin-bottom: 0.55rem;
+}
+
+.services-page .hj-service-card h3 {
+  margin: 0 0 0.5rem;
+  color: #fff;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: clamp(1rem, 1.3vw, 1.5rem);
+  font-weight: 500;
+}
+
+.services-page .hj-service-card p {
+  margin: 0;
+  color: #fff;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: clamp(0.8rem, 0.95vw, 1rem);
+  line-height: 1.2;
+  max-width: 92%;
+}
+
+/* Reusing ribbon styles */
+.services-page .hj-section-title-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  min-height: clamp(56px, 7.4vw, 98px);
+  padding: 0.2rem 0.7rem;
+  margin-bottom: 3rem;
+}
+
+.services-page .hj-ribbon {
+  background-color: transparent;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  color: #ffffff;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: clamp(1.35rem, 2vw, 2.4rem);
+  line-height: 1;
+  padding: 0.85rem 2.85rem 0.85rem 2.25rem;
+  min-width: clamp(190px, 23vw, 320px);
+  text-align: center;
+}
+
+.services-page .hj-ribbon-train {
+  width: clamp(62px, 7vw, 108px);
+  height: auto;
+}
+
+@media (max-width: 1200px) {
+  .services-page .hj-services-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 560px) {
+  .services-page .hj-services-grid {
+    grid-template-columns: 1fr;
+  }
+  .services-page .hj-service-card {
+    width: 250px;
+    height: 207px;
+  }
+}

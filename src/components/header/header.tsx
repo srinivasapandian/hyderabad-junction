@@ -71,7 +71,7 @@ function Header() {
           <Link to="/"                        className={isActive('/')}                        onClick={closeMenu}>Home</Link>
           <a href="/#about"                   className={isActive('/about-us')}                onClick={closeMenu}>About Us</a>
           <Link to="/indian-restaurant-menu"  className={isActive('/indian-restaurant-menu')}  onClick={closeMenu}>Menu</Link>
-          <a href="/#services"               className={isActive('/services')}                onClick={closeMenu}>Services</a>
+          <Link to="/services"                className={isActive('/services')}                onClick={closeMenu}>Services</Link>
           <a href="/#gallery"                className={isActive('/gallery')}                 onClick={closeMenu}>Gallery</a>
           <a href="/#contact"               className={isActive('/contact')}                 onClick={closeMenu}>Contact Us</a>
 

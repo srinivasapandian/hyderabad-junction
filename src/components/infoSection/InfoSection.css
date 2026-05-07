@@ -1,216 +1,139 @@
 .info {
-  padding: 5rem 0;
-  background: #ffffff;
-  border-top: 1px solid rgba(0, 0, 0, 0.08);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  background: #c7773f;
+  padding: 48px 56px;
+  color: #fff;
 }
 
 .info__inner {
+  max-width: 1180px;
+  margin: 0 auto;
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 70px 25px;
+  justify-content: space-between;
+  gap: 40px;
+}
+
+/* Left side: Buttons */
+.info__btns {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-shrink: 0;
   flex-wrap: wrap;
 }
 
-.info__divider {
-  width: 1px;
-  height: 80px;
-  background: rgba(0, 0, 0, 0.12);
-  margin: 0 4rem;
-  flex-shrink: 0;
-}
-
-/* Brand */
-.info__brand {
-  text-align: center;
-}
-
-.info__logo-img {
-  height: 100px;
-  width: auto;
-  object-fit: contain;
-  display: block;
-  margin: 0 auto 0.75rem;
-}
-
-.info__tagline {
-  font-family: var(--font-body);
-  font-size: 0.72rem;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: #111111;
-  margin: 0;
-}
-
-/* Details */
-.info__details {
-  text-align: center;
-}
-
-.info__details p {
-  font-family: var(--font-body);
-  font-size: 0.88rem;
-  color: rgba(0, 0, 0, 0.65);
-  line-height: 1.8;
-  margin: 0;
-}
-
-.info__details p i {
+.info__btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 13px 36px;
+  border-radius: 999px;
   font-size: 0.9rem;
-  color: #111111;
-  margin-right: 0.4rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
 }
 
-/* Hours */
+.info__btn--filled {
+  background: #ffffff;
+  color: #c7773f;
+  border: 1.5px solid #ffffff;
+}
+
+.info__btn--filled:hover {
+  background: rgba(255, 255, 255, 0.9);
+  transform: translateY(-2px);
+}
+
+.info__btn--outline {
+  border: 1.5px solid #ffffff;
+  background: transparent;
+  color: #ffffff;
+}
+
+.info__btn--outline:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateY(-2px);
+}
+
+/* Right side: Hours */
 .info__hours {
-  text-align: left;
+  flex: 0 1 auto;
 }
 
 .info__hours-label {
-  font-family: var(--font-body);
-  font-size: 0.68rem;
-  letter-spacing: 0.15em;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: #111111;
-  margin: 0 0 0.75rem;
+  color: rgba(255, 255, 255, 0.75);
+  margin: 0 0 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
-.info__hours-label i {
-  margin-right: 0.4rem;
+.info__hours-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4px 24px;
 }
 
 .info__hours-row {
+  margin: 0;
   display: flex;
   justify-content: space-between;
-  gap: 1.5rem;
-  font-family: var(--font-body);
-  font-size: 0.82rem;
-  color: rgba(0, 0, 0, 0.6);
-  line-height: 1.9;
-  margin: 0;
+  gap: 12px;
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.9);
 }
 
 .info__hours-day {
-  color: rgba(0, 0, 0, 0.8);
+  font-weight: 600;
   white-space: nowrap;
 }
 
 .info__hours-time {
+  color: rgba(255, 255, 255, 0.85);
   white-space: nowrap;
-}
-
-/* Social */
-.info__social {
-  text-align: center;
-}
-
-.info__social-label {
-  font-family: var(--font-body);
-  font-size: 0.68rem;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: var(--secondary-color);
-  margin: 0 0 1rem;
-}
-
-.info__social-icons {
-  display: flex;
-  gap: 0.8rem;
-  justify-content: center;
-}
-
-.info__social-icon {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  border: 1px solid rgba(0, 0, 0, 0.2);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.1rem;
-  color: rgba(0, 0, 0, 0.6);
-  text-decoration: none;
-  transition: all 0.3s;
-}
-
-.info__social-icon:hover {
-  border-color: #5d1f1f;
-  color: #5d1f1f;
-  background: rgba(93, 31, 31, 0.06);
-  transform: translateY(-3px);
-}
-
-/* Hours header — title + toggle on one line */
-.info__hours-header {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  margin-bottom: 0.85rem;
-  flex-wrap: wrap;
-}
-
-.info__hours-header .info__hours-label {
-  margin: 0;
-}
-
-/* Hours toggle (Store / Online) */
-.info__hours-toggle {
-  display: flex;
-  align-items: center;
-  background: rgba(0, 0, 0, 0.04);
-  border: 1px solid rgba(0, 0, 0, 0.12);
-  border-radius: 999px;
-  padding: 3px;
-  gap: 2px;
-  width: fit-content;
-}
-
-.info__hours-tab {
-  padding: 5px 14px;
-  border-radius: 999px;
-  border: none;
-  background: transparent;
-  color: rgba(0, 0, 0, 0.5);
-  font-family: var(--font-body);
-  font-size: 0.76rem;
-  font-weight: 700;
-  letter-spacing: 0.04em;
-  cursor: pointer;
-  transition: background 0.2s, color 0.2s;
-  white-space: nowrap;
-}
-
-.info__hours-tab:hover {
-  color: rgba(0, 0, 0, 0.85);
-}
-
-.info__hours-tab.active {
-  background: var(--secondary-color);
-  color: var(--primary-color);
 }
 
 .info__hours-time--closed {
-  color: rgba(255, 100, 100, 0.75);
+  color: rgba(255, 255, 255, 0.45);
 }
 
-/* ── Responsive ── */
-
-@media (max-width: 1024px) {
-  .info__divider { margin: 0 2.5rem; }
+.info__hours-toggle {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 12px;
 }
 
-@media (max-width: 768px) {
-  .info        { padding: 3.5rem 1.25rem; }
-  .info__inner { flex-direction: column; gap: 2rem; }
-  .info__divider { width: 60px; height: 1px; margin: 0 auto; }
-  .info__logo-img { height: 80px; }
+.info__hours-tab {
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  color: #fff;
+  padding: 4px 12px;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  cursor: pointer;
+}
+
+.info__hours-tab.active {
+  background: #fff;
+  color: #c7773f;
+}
+
+@media (max-width: 991px) {
+  .info { padding: 40px 24px; }
+  .info__inner { flex-direction: column; align-items: flex-start; gap: 24px; }
+  .info__hours-grid { grid-template-columns: 1fr 1fr; }
 }
 
 @media (max-width: 480px) {
-  .info        { padding: 2.5rem 1rem; }
-  .info__inner { gap: 1.5rem; }
-  .info__logo-img { height: 68px; }
-  .info__details p { font-size: 0.82rem; }
-  .info__divider { width: 40px; }
+  .info { padding: 28px 16px; }
+  .info__hours-grid { grid-template-columns: 1fr; }
 }

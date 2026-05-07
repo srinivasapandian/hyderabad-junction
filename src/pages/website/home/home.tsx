@@ -224,10 +224,6 @@ function Home(_props: HomeProps) {
           <p>From aromatic biryanis to refreshing sides and indulgent desserts — every dish is made with passion and authenticity.</p>
           <Link to={`/order-online/${LOCATION_SLUG}/pickup`} className="hj-hero-btn">EXPLORE MENU</Link>
         </div>
-
-        <div className="hj-hero-gap-card" aria-label="Featured dish">
-          <img src={menu1} alt="Naan with curry" className="hj-hero-gap-img" />
-        </div>
       </div>
 
       {/* ═══════════════════════════════════════════════════════════════════
@@ -495,47 +491,8 @@ function Home(_props: HomeProps) {
         )}
       </AnimatePresence>
 
-      {/* ═══════════════════════════════════════════════════════════════════
-          CTA BAR — buttons left, business hours right
-      ═══════════════════════════════════════════════════════════════════ */}
-      <section className="hj-cta-bar">
-        <div className="hj-cta-bar__inner">
-
-          {/* Left — action buttons */}
-          <div className="hj-cta-bar__btns">
-            {isReservationEnabled && (
-              <Link to="/reservation" className="hj-cta-bar__btn hj-cta-bar__btn--outline">
-                Reserve a Table
-              </Link>
-            )}
-            <Link to={`/order-online/${LOCATION_SLUG}/pickup`} className="hj-cta-bar__btn hj-cta-bar__btn--filled">
-              Order Online
-            </Link>
-          </div>
-
-          {/* Right — business hours */}
-          {hoursRows && (
-            <div className="hj-cta-bar__hours">
-              <p className="hj-cta-bar__hours-label">
-                <i className="fas fa-clock" /> Business Hours
-              </p>
-              <div className="hj-cta-bar__hours-grid">
-                {hoursRows.map(({ day, time }) => (
-                  <p key={day} className="hj-cta-bar__hours-row">
-                    <span className="hj-cta-bar__hours-day">{day}</span>
-                    <span className={`hj-cta-bar__hours-time${time === 'Closed' ? ' hj-cta-bar__hours-time--closed' : ''}`}>{time}</span>
-                  </p>
-                ))}
-              </div>
-            </div>
-          )}
-
-        </div>
-      </section>
-
     </section>
   );
 }
 
 export default Home;
-
