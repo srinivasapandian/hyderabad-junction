@@ -32,8 +32,6 @@ function buildHoursDisplay(hours: WorkingHour[]): { day: string; time: string }[
 
 import heroBg       from '../../../assets/hero-bg.png';
 import designImg    from '../../../assets/design.png';
-import biryaniImg   from '../../../assets/biryani.png';
-import bgTrainImg   from '../../../assets/bg-train.png';
 import menu1        from '../../../assets/menu1.png';
 import menu2        from '../../../assets/menu2.png';
 import menu3        from '../../../assets/menu3.png';
@@ -62,6 +60,7 @@ import googleImg6   from '../../../assets/google-img6.png';
 import googleImg7   from '../../../assets/google-img7.png';
 import googleImg8   from '../../../assets/google-img8.png';
 import googleImg9   from '../../../assets/google-img9.png';
+import mobileBg    from '../../../assets/mobile-bg.png';
 
 // ─── DATA ────────────────────────────────────────────────────────────────────
 
@@ -193,6 +192,18 @@ function Home(_props: HomeProps) {
           HERO
       ═══════════════════════════════════════════════════════════════════ */}
       <div className="hj-hero-shell">
+        {/* Mobile hero */}
+        <div className="hj-mobile-hero-top" aria-label="Mobile hero top">
+          <h1>
+            <span className="hj-mobile-orange">SERVED HOT TRAVELLED</span>
+            <br />
+            <span className="hj-mobile-orange">FAR,</span>
+            <br />
+            <span className="hj-mobile-blue">LOVED EVERYWHERE</span>
+          </h1>
+          <img src={designImg} alt="" aria-hidden="true" className="hj-hero-divider-img" />
+        </div>
+
         <div className="hj-hero-wrap">
           <img src={heroBg} alt="Hyderabad Junction biryani hero" className="hj-hero-image" />
 
@@ -206,23 +217,16 @@ function Home(_props: HomeProps) {
             </h1>
             <img src={designImg} alt="" aria-hidden="true" className="hj-hero-divider-img" />
           </div>
-
-          {/* Mobile hero */}
-          <div className="hj-mobile-hero-top" aria-label="Mobile hero top">
-            <h1>
-              <span className="hj-mobile-line-one">SERVED HOT <span>TRAVELLED FAR,</span></span>
-              <br />
-              LOVED EVERYWHERE
-            </h1>
-            <img src={designImg} alt="" aria-hidden="true" className="hj-hero-divider-img" />
-            <img src={bgTrainImg} alt="Train illustration" className="hj-mobile-train" />
-            <img src={biryaniImg} alt="Biryani platter" className="hj-mobile-biryani" />
-          </div>
         </div>
 
         <div className="hj-hero-copy-left" aria-label="Hero description">
           <p>From aromatic biryanis to refreshing sides and indulgent desserts — every dish is made with passion and authenticity.</p>
           <Link to={`/order-online/${LOCATION_SLUG}/pickup`} className="hj-hero-btn">EXPLORE MENU</Link>
+        </div>
+
+        {/* Mobile decorative bottom image */}
+        <div className="hj-mobile-hero-bottom" aria-hidden="true">
+          <img src={mobileBg} alt="" className="hj-mobile-bottom-img" />
         </div>
       </div>
 

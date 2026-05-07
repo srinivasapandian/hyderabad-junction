@@ -176,17 +176,80 @@
   }
 }
 
-@media (max-width: 640px) {
+@media (max-width: 768px) {
+  .footer {
+    padding-bottom: 24px;
+  }
+
   .footer__brand-row {
     flex-direction: column;
     text-align: center;
+    gap: 8px;
+    padding: 24px 0 16px;
   }
 
-  .footer__brand-copy span {
-    letter-spacing: 0.2em;
+  .footer__brand-logo {
+    width: 64px;
+    height: 64px;
+  }
+
+  .footer__brand-copy {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .footer__line {
+    width: 80%;
+    margin: 0 auto;
+    height: 1px;
+    background: linear-gradient(to right, transparent, rgba(224, 192, 171, 0.5), transparent);
   }
 
   .footer__grid {
     grid-template-columns: 1fr;
+    text-align: center;
+    gap: 32px;
+    padding: 32px 20px;
+  }
+
+  .footer__train-card {
+    margin: 0 auto;
+    width: 120px;
+    height: 110px;
+  }
+
+  .footer__col h3 {
+    margin-bottom: 12px;
+    display: inline-block;
+  }
+
+  .footer__col ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .footer__touch {
+    align-items: center;
+  }
+
+  .footer__order-btn {
+    width: 80%;
+    max-width: 280px;
+    padding: 12px 24px;
+    font-size: 0.9rem;
+    margin: 4px auto 8px;
+  }
+
+  .footer__legal {
+    justify-content: center;
+    gap: 8px;
+    padding: 16px 20px 8px;
+  }
+
+  .footer__powered {
+    padding-top: 12px;
   }
 }
