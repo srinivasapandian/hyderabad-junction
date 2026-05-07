@@ -1,7 +1,7 @@
 /* ═══════════════════════════════════════════
    HEADER — DARK PRIMARY THEME
 ═══════════════════════════════════════════ */
- 
+
 .header {
   width: 100%;
   position: fixed;
@@ -9,10 +9,11 @@
   left: 0;
   z-index: 3000;
   overflow: visible;
-  background: #6f1719; /* Matched to footer background */
+  background: #6f1719;
+  /* Matched to footer background */
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
- 
+
 .header-inner {
   display: flex;
   align-items: center;
@@ -31,7 +32,7 @@
   text-decoration: none;
   flex-shrink: 0;
 }
- 
+
 /* ── Logo ─────────────────────────────────── */
 .header-logo {
   position: relative;
@@ -40,12 +41,14 @@
   align-items: center;
   justify-content: center;
   padding: 8px;
-  border-radius: 50%; /* Circular as in screenshot */
+  border-radius: 50%;
+  /* Circular as in screenshot */
   flex-shrink: 0;
-  background: #d9c88f; /* Gold background from screenshot */
-  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  background: #d9c88f;
+  /* Gold background from screenshot */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
- 
+
 .header-logo img {
   height: 62px;
   width: auto;
@@ -81,7 +84,7 @@
   letter-spacing: 0.42em;
   line-height: 1;
 }
- 
+
 /* ── Nav (plain text links only) ─────────── */
 .header-nav {
   display: flex;
@@ -91,8 +94,8 @@
   justify-content: center;
   box-sizing: border-box;
 }
- 
-.header-nav > a {
+
+.header-nav>a {
   font-family: var(--font-body);
   font-size: 0.88rem;
   font-weight: 500;
@@ -109,21 +112,21 @@
   border-radius: 6px;
 }
 
-.header-nav > a:hover {
+.header-nav>a:hover {
   color: #d9c88f;
 }
 
-.header-nav > a.active {
+.header-nav>a.active {
   color: #ffffff;
   border-color: rgba(255, 255, 255, 0.6);
   background: transparent;
 }
- 
+
 /* Mobile button group — hidden on desktop */
 .header-nav-mobile-btns {
   display: none;
 }
- 
+
 /* ── Right-side buttons (desktop only) ────── */
 .header-right-wrap {
   display: flex;
@@ -131,7 +134,7 @@
   gap: 12px;
   flex-shrink: 0;
 }
- 
+
 /* ORDER NOW — filled secondary pill (primary CTA) */
 .header-order-btn {
   display: inline-flex;
@@ -151,6 +154,7 @@
   white-space: nowrap;
   transition: background 0.2s, border-color 0.2s, transform 0.2s, color 0.2s;
 }
+
 .header-order-btn:hover,
 .header-order-btn.active {
   background: #f0d4bf;
@@ -158,7 +162,7 @@
   color: var(--primary-color);
   transform: translateY(-1px);
 }
- 
+
 /* RESERVE A TABLE — outlined secondary pill (secondary CTA) */
 .header-reservation-btn {
   display: inline-flex;
@@ -178,20 +182,21 @@
   white-space: nowrap;
   transition: background 0.2s, color 0.2s, transform 0.2s;
 }
+
 .header-reservation-btn:hover,
 .header-reservation-btn.active {
   background: var(--secondary-color);
   color: var(--primary-color);
   transform: translateY(-1px);
 }
- 
+
 .header-right-divider {
   width: 1px;
   height: 34px;
   background: rgba(255, 255, 255, 0.15);
   opacity: 0.9;
 }
- 
+
 /* User icon button */
 .header-user-btn {
   display: flex;
@@ -207,6 +212,7 @@
   transition: color 0.2s;
   flex-shrink: 0;
 }
+
 .header-user-btn__icon {
   display: flex;
   align-items: center;
@@ -219,6 +225,7 @@
   font-size: 0.85rem;
   transition: border-color 0.2s, background 0.2s, color 0.2s;
 }
+
 .header-user-btn__label {
   font-size: 0.62rem;
   font-weight: 600;
@@ -229,24 +236,28 @@
   overflow: hidden;
   text-overflow: ellipsis;
 }
+
 .header-user-btn:hover .header-user-btn__icon,
 .header-user-btn.active .header-user-btn__icon {
   border-color: var(--secondary-color);
   background: rgba(224, 192, 171, 0.12);
   color: var(--secondary-color);
 }
+
 .header-user-btn:hover,
 .header-user-btn.active {
   color: var(--secondary-color);
 }
+
 .header-user-btn.logged-in .header-user-btn__icon {
   border-color: var(--secondary-color);
   color: var(--secondary-color);
 }
+
 .header-user-btn.logged-in {
   color: var(--secondary-color);
 }
- 
+
 /* ── Hamburger ───────────────────────────── */
 .header-hamburger {
   display: none;
@@ -254,42 +265,67 @@
   z-index: 3003;
   flex-direction: column;
   justify-content: center;
-  gap: 5px;
-  width: 46px;
-  height: 46px;
+  gap: 5.5px;
+  width: 44px;
+  height: 44px;
   padding: 10px;
-  border: none;
-  border-radius: 14px;
-  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.05);
   cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
- 
+
 .header-hamburger span {
   width: 100%;
-  height: 2px;
-  border-radius: 999px;
+  height: 2.5px;
+  border-radius: 4px;
   background: #ffffff;
-  transition: transform 0.3s ease, opacity 0.3s ease;
+  transition: transform 0.4s cubic-bezier(0.68, -0.6, 0.32, 1.6), 
+              opacity 0.3s ease, 
+              background-color 0.4s ease,
+              width 0.3s ease;
+  transform-origin: center;
+}
+
+/* Morphing effect */
+.header-hamburger span:nth-child(2) {
+  width: 75%;
+  align-self: flex-end;
+}
+
+.header-hamburger:hover span:nth-child(2) {
+  width: 100%;
 }
  
-.header-hamburger.open span {
+.header-hamburger.open {
   background: var(--secondary-color);
+  border-color: var(--secondary-color);
 }
+
+.header-hamburger.open span {
+  background: var(--primary-color);
+  width: 100% !important;
+}
+
 .header-hamburger.open span:nth-child(1) {
-  transform: translateY(7px) rotate(45deg);
+  transform: translateY(8.5px) rotate(45deg);
 }
+
 .header-hamburger.open span:nth-child(2) {
   opacity: 0;
+  transform: translateX(-20px);
 }
+
 .header-hamburger.open span:nth-child(3) {
-  transform: translateY(-7px) rotate(-45deg);
+  transform: translateY(-8.5px) rotate(-45deg);
 }
- 
+
 /* ── Overlay ─────────────────────────────── */
 .header-nav-overlay {
   display: none;
 }
- 
+
 /* ══════════════════════════════════════════
    RESPONSIVE — tablet
 ══════════════════════════════════════════ */
@@ -311,23 +347,24 @@
     letter-spacing: 0.28em;
     padding: 5px 9px;
   }
- 
-  .header-nav > a {
+
+  .header-nav>a {
     padding: 10px 8px;
     font-size: 0.76rem;
   }
- 
+
   .header-order-btn,
   .header-reservation-btn {
     padding: 6px 12px;
     font-size: 0.76rem;
     gap: 5px;
   }
+
   .header-user-btn {
     padding: 5px 8px;
   }
 }
- 
+
 /* ══════════════════════════════════════════
    RESPONSIVE — mobile
 ══════════════════════════════════════════ */
@@ -349,27 +386,29 @@
     color: #3c1b12;
     font-weight: 800;
   }
- 
+
   /* Hide desktop right buttons */
   .header-right-wrap {
     display: none;
   }
- 
+
   /* Show hamburger */
   .header-hamburger {
     display: flex;
     margin-left: auto;
   }
- 
-  /* Dim overlay */
+
+  /* Dim overlay with glass effect */
   .header-nav-overlay {
     display: block;
     position: fixed !important;
     inset: 0;
-    background: rgba(0, 0, 0, 0.45);
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
     opacity: 0;
     pointer-events: none;
-    transition: opacity 0.25s ease;
+    transition: opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1);
     z-index: 3001;
   }
   .header-nav-overlay.open {
@@ -377,38 +416,65 @@
     pointer-events: auto;
   }
  
-  /* Slide-in drawer — dark theme */
+  /* Full-Screen Top-Down Menu — Royal Theme */
   .header-nav {
     position: fixed !important;
     top: 0;
+    left: 0;
     right: 0;
-    bottom: 0;
-    left: auto;
-    width: min(80vw, 320px);
-    max-width: 320px;
-    height: 100dvh;
-    min-height: 100dvh;
-    padding: 100px 22px 28px;
+    bottom: auto;
+    width: 100%;
+    height: auto;
+    min-height: fit-content;
+    max-height: 100dvh;
+    padding: 110px 30px 60px;
     flex-direction: column;
-    align-items: stretch;
+    align-items: center; /* Centered links for top-view */
     justify-content: flex-start;
     gap: 0;
-    background: var(--primary-color);
-    border-left: 1px solid rgba(255, 255, 255, 0.08);
-    box-shadow: -18px 0 38px rgba(0, 0, 0, 0.35);
-    transform: translateX(100%);
-    transition: transform 0.3s ease;
+    background: linear-gradient(180deg, #1a1a1a 0%, #2c0a0b 100%);
+    border-bottom: 3px solid #d9c88f; /* Gold accent border at bottom */
+    box-shadow: 0 15px 60px rgba(0, 0, 0, 0.8);
+    transform: translateY(-100%); /* Start above screen */
+    transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1), 
+                opacity 0.4s ease,
+                visibility 0.4s;
     z-index: 3002;
     overflow-y: auto;
-    overflow-x: hidden;
     visibility: hidden;
     opacity: 0;
   }
   .header-nav.open {
-    transform: translateX(0);
+    transform: translateY(0);
     visibility: visible;
     opacity: 1;
   }
+
+  /* Staggered link animations (sliding up from below) */
+  .header-nav>a,
+  .header-nav-mobile-btns {
+    opacity: 0;
+    transform: translateY(20px); 
+    transition: opacity 0.5s ease, transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    text-align: center;
+    width: fit-content;
+    border-bottom: none !important;
+  }
+
+  .header-nav.open>a,
+  .header-nav.open .header-nav-mobile-btns {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Stagger delays for links */
+  .header-nav.open>a:nth-child(1) { transition-delay: 0.1s; }
+  .header-nav.open>a:nth-child(2) { transition-delay: 0.18s; }
+  .header-nav.open>a:nth-child(3) { transition-delay: 0.26s; }
+  .header-nav.open>a:nth-child(4) { transition-delay: 0.34s; }
+  .header-nav.open>a:nth-child(5) { transition-delay: 0.42s; }
+  .header-nav.open>a:nth-child(6) { transition-delay: 0.5s; }
+  .header-nav.open .header-nav-mobile-btns { transition-delay: 0.6s; }
  
   /* Hamburger sticks in top-right when open */
   .header-hamburger.open {
@@ -416,14 +482,14 @@
     top: 12px;
     right: 16px;
   }
- 
+
   /* Remove diamond separators in drawer */
-  .header-nav > a:not(:last-of-type)::after {
+  .header-nav>a:not(:last-of-type)::after {
     display: none;
   }
- 
+
   /* Plain nav links inside drawer */
-  .header-nav > a {
+  .header-nav>a {
     width: 100%;
     padding: 14px 18px;
     border-radius: 0;
@@ -437,13 +503,14 @@
     text-decoration: none;
     font-weight: 700;
   }
-  .header-nav > a:hover,
-  .header-nav > a.active {
+
+  .header-nav>a:hover,
+  .header-nav>a.active {
     background: rgba(224, 192, 171, 0.08);
     color: var(--secondary-color);
     border-radius: 0;
   }
- 
+
   /* Mobile button group — shown in drawer */
   .header-nav-mobile-btns {
     display: flex;
@@ -453,7 +520,7 @@
     padding-top: 18px;
     border-top: 1px solid rgba(255, 255, 255, 0.12);
   }
- 
+
   .header-nav-mobile-btn {
     display: block;
     width: 100%;
@@ -469,70 +536,80 @@
     box-sizing: border-box;
     transition: background 0.2s, color 0.2s, border-color 0.2s;
   }
- 
+
   /* My Account — outlined */
   .header-nav-mobile-btn--outline {
     border: 1.5px solid rgba(255, 255, 255, 0.25);
     color: rgba(255, 255, 255, 0.85);
     background: transparent;
   }
+
   .header-nav-mobile-btn--outline:hover,
   .header-nav-mobile-btn--outline.active {
     border-color: var(--secondary-color);
     color: var(--secondary-color);
     background: rgba(224, 192, 171, 0.08);
   }
- 
+
   /* Order Online — filled secondary */
   .header-nav-mobile-btn--filled {
     border: 1.5px solid var(--secondary-color);
     background: var(--secondary-color);
     color: var(--primary-color);
   }
+
   .header-nav-mobile-btn--filled:hover,
   .header-nav-mobile-btn--filled.active {
     background: #f0d4bf;
     border-color: #f0d4bf;
   }
- 
+
   /* Reservation — outlined secondary */
   .header-nav-mobile-btn--outline-red {
     border: 1.5px solid var(--secondary-color);
     color: var(--secondary-color);
     background: transparent;
   }
+
   .header-nav-mobile-btn--outline-red:hover,
   .header-nav-mobile-btn--outline-red.active {
     background: var(--secondary-color);
     color: var(--primary-color);
   }
 }
- 
+
 @media (max-width: 480px) {
   .header-inner {
     padding: 10px 16px;
   }
+
   .header-logo img {
     height: 52px;
   }
+
   .header-brand-group {
     gap: 8px;
   }
+
   .header-brand-title {
     font-size: 1.04rem;
   }
+
   .header-brand-tagline {
     font-size: 0.56rem;
     letter-spacing: 0.14em;
     padding: 4px 6px;
   }
+
   .header-brand-copy {
     gap: 4px;
   }
+
   .header-logo {
     padding: 5px;
     border-radius: 16px;
   }
+
   .header-nav {
     width: min(78vw, 300px);
     padding: 92px 16px 24px;
