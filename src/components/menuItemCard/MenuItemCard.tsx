@@ -153,30 +153,38 @@ function MenuItemCard({ item, categorySlug = 'menu' }: MenuItemCardProps) {
             </span>
           )}
 
-          {/* Heart */}
-          {!showOverlay && isLoggedIn && (
+          {/* Heart — always visible */}
+          {!showOverlay && (
             <button
               className={`mic-heart-btn${isFavourite ? ' active' : ''}`}
               onClick={(e) => {
                 e.stopPropagation();
+                if (!isLoggedIn) return;
                 if (isFavourite) dispatch(removeFavouriteRequest(itemId));
                 else dispatch(addFavouriteRequest(itemId, item));
               }}
               aria-label={isFavourite ? 'Remove from favourites' : 'Add to favourites'}
+              title={!isLoggedIn ? 'Login to save favourites' : undefined}
             >
               <i className={isFavourite ? 'fa-solid fa-heart' : 'fa-regular fa-heart'} />
             </button>
           )}
 
-          {/* Modifier badge */}
+          {/* Customisation button — always visible when item has modifiers */}
           {!showOverlay && hasModifiers && (
-            <span className="mic-modifier-badge" aria-label="Customisable">
+            <button
+              type="button"
+              className="mic-modifier-btn"
+              onClick={(e) => { e.stopPropagation(); handleCardClick(); }}
+              aria-label="Customise item"
+              title="Customisable"
+            >
               <img src={customizationSvg} alt="" width={13} height={13} />
-            </span>
+            </button>
           )}
 
-          {/* Note button */}
-          {!showOverlay && !isRestaurantClosed && qty > 0 && (
+          {/* Note button — always visible when restaurant is open */}
+          {!showOverlay && !isRestaurantClosed && (
             <button
               type="button"
               className="mic-note-btn"

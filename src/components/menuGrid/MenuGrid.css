@@ -134,7 +134,7 @@
   .mn-main      { padding: 56px 0 80px; }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 900px) {
   .mn-card-grid { grid-template-columns: 1fr; column-gap: 0; }
 }
 
