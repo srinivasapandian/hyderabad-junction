@@ -10,7 +10,11 @@
   content: '';
   position: absolute;
   inset: 0;
+<<<<<<< HEAD
   background-image: url('../../assets/pattern/patt.png');
+=======
+  background-image: url('../../assets/pattern.png');
+>>>>>>> f1496943d344d03900e979c5c3445cc7b56221c4
   background-repeat: repeat;
   background-size: 600px;
   /* Reduced size to ensure the pattern is visible and tiles correctly */
