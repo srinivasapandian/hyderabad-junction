@@ -9,7 +9,7 @@
   left: 0;
   z-index: 3000;
   overflow: visible;
-  background: #4a231f;
+  background: #6f1719; /* Matched to footer background */
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
  
@@ -39,9 +39,11 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 6px;
-  border-radius: 18px;
+  padding: 8px;
+  border-radius: 50%; /* Circular as in screenshot */
   flex-shrink: 0;
+  background: #d9c88f; /* Gold background from screenshot */
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
 }
  
 .header-logo img {
@@ -340,9 +342,12 @@
   }
 
   .header-brand-tagline {
-    font-size: 0.64rem;
-    letter-spacing: 0.2em;
-    padding: 4px 8px;
+    font-size: 0.6rem;
+    letter-spacing: 0.12em;
+    padding: 3px 6px;
+    background: #d9c88f;
+    color: #3c1b12;
+    font-weight: 800;
   }
  
   /* Hide desktop right buttons */
