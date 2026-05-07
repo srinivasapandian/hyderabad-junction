@@ -73,7 +73,7 @@
 .mn-item-count {
   font-family: var(--font-body);
   font-size: 0.75rem;
-  color: rgba(255, 255, 255, 0.5);
+  color: rgba(0, 0, 0, 0.4);
   white-space: nowrap;
   letter-spacing: 0.04em;
 }
@@ -88,12 +88,12 @@
   opacity: 0.5;
 }
 
-/* ── Card grid ── */
+/* ── Card grid — 2 column row-style ── */
 .mn-card-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
-  align-items: stretch;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0;
+  column-gap: 48px;
 }
 
 /* ── Loading / Error states ── */
@@ -129,23 +129,19 @@
    RESPONSIVE
 ═══════════════════════════════════════════ */
 
-/* Tablet: 3 columns */
-@media (max-width: 1100px) {
-  .mn-card-grid { grid-template-columns: repeat(3, 1fr); }
-}
-
 @media (max-width: 900px) {
   .mn-container { padding: 0 24px; gap: 44px; }
   .mn-main      { padding: 56px 0 80px; }
 }
 
-/* Mobile: 2 columns */
+@media (max-width: 900px) {
+  .mn-card-grid { grid-template-columns: 1fr; column-gap: 0; }
+}
+
 @media (max-width: 640px) {
   .mn-container { padding: 0 11px; gap: 36px; }
   .mn-main      { padding: 44px 0 72px; }
-  .mn-card-grid { grid-template-columns: repeat(2, 1fr); column-gap: 7px; row-gap: 18px; }
   .mn-group     { gap: 28px; }
-  .mn-group-header { gap: 10px; }
   .mn-group-header { gap: 10px; }
 }
 
@@ -156,14 +152,3 @@
   .mn-card-grid { column-gap: 8px; row-gap: 16px; }
 }
 
-/* ═══════════════════════════════════════════
-   LIST VIEW (mobile ≤576px) — driven by
-   slug.uiFeatureFlags.customerAppViewType
-═══════════════════════════════════════════ */
-@media (max-width: 576px) {
-  .mn-card-grid--list {
-    grid-template-columns: 1fr;
-    column-gap: 0;
-    row-gap: 12px;
-  }
-}

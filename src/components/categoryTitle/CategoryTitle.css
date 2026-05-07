@@ -1,28 +1,37 @@
 .category-title {
   display: inline-block;
+  position: relative;
   font-family: 'Blinka Serif', serif;
-  font-size: 1.05rem;
-  font-weight: 600;
-  color: var(--primary-color);
-  background: var(--secondary-color);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #ffffff;
+  background-image: url('../../assets/style.png');
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
   border: none;
-  border-top-left-radius: 14px;
-  border-top-right-radius: 0px;
-  border-bottom-right-radius: 14px;
-  border-bottom-left-radius: 0px;
-  outline: 1.5px dashed var(--secondary-color);
-  outline-offset: 5px;
-  padding: 8px 28px;
+  outline: none;
+  padding: 14px 52px;
   text-transform: uppercase;
-  letter-spacing: 0.09em;
+  letter-spacing: 0.1em;
   white-space: nowrap;
   margin: 0;
+  min-width: 180px;
+  text-align: center;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
 }
 
 @media (max-width: 640px) {
-  .category-title { font-size: 0.88rem; padding: 6px 20px; outline: 1px dashed var(--secondary-color); outline-offset: 4px; }
+  .category-title {
+    font-size: 0.95rem;
+    padding: 12px 40px;
+    min-width: 140px;
+  }
 }
 
 @media (max-width: 480px) {
-  .category-title { font-size: 0.76rem; }
+  .category-title {
+    font-size: 0.82rem;
+    padding: 10px 32px;
+    min-width: 120px;
+  }
 }

@@ -131,142 +131,95 @@ function MenuItemCard({ item, categorySlug = 'menu' }: MenuItemCardProps) {
 
   return (
     <div
-      className={`mic-card mic-card--clickable${showOverlay ? ' mic-unavailable' : ''}${isListView ? ' mic-card--list' : ''}`}
+      className={`mic-card mic-card--clickable${showOverlay ? ' mic-unavailable' : ''}`}
       onClick={handleCardClick}
       role="button"
       tabIndex={0}
       onKeyDown={(e) => { if (e.key === 'Enter') handleCardClick(); }}
     >
-      {/* ── Image ── */}
-      <div className="mic-img-wrap">
-        <img
-          src={imageUrl || placeholderImg}
-          alt={itemName}
-          className="mic-img"
-          loading="lazy"
-        />
+      {/* ── Main row ── */}
+      <div className="mic-row">
+        <h3 className="mic-name">{itemName}</h3>
+        <span className="mic-dots" aria-hidden="true" />
 
-        {/* ── Unavailability overlay (item-specific only) ── */}
-        {showOverlay && (
-          <div className="mic-unavail-overlay">
-            {overlayIcon}
-            <span className="mic-unavail-label">{overlayLabel}</span>
-            {overlayTime && (
-              <span className="mic-unavail-time">{overlayTime}</span>
-            )}
-          </div>
-        )}
-
-        {/* ── Heart (favourite) — hidden when item overlay is showing or not logged in ── */}
-        {!showOverlay && isLoggedIn && (
-          <button
-            className={`mic-heart-btn${isFavourite ? ' active' : ''}`}
-            onClick={(e) => {
-              e.stopPropagation();
-              if (isFavourite) {
-                dispatch(removeFavouriteRequest(itemId));
-              } else {
-                dispatch(addFavouriteRequest(itemId, item));
-              }
-            }}
-            aria-label={isFavourite ? 'Remove from favourites' : 'Add to favourites'}
-          >
-            <i className={isFavourite ? 'fa-solid fa-heart' : 'fa-regular fa-heart'} />
-          </button>
-        )}
-
-        {/* ── Badges — note btn hidden when closed, modifier badge always shown ── */}
-        {!showOverlay && ((!isRestaurantClosed && qty > 0) || hasModifiers) && (
-          <div className="mic-badges mic-badges--img">
-            {!isRestaurantClosed && qty > 0 && (
-              <button
-                type="button"
-                className="mic-note-btn"
-                onClick={openNoteModal}
-                aria-label={hasNote ? 'Edit item note' : 'Add note to this item'}
-              >
-                <img src={itemNoteSvg} alt="" className="mic-note-icon" />
-                {hasNote
-                  ? <span className="mic-note-indicator" aria-hidden="true" />
-                  : <span className="mic-note-plus" aria-hidden="true">+</span>}
-              </button>
-            )}
-            {hasModifiers && (
-              <span className="mic-modifier-badge" aria-label="Customisable item">
-                <img src={customizationSvg} alt="" width={14} height={14} />
-              </span>
-            )}
-          </div>
-        )}
-
-        {/* ── Add / VIEW / Quantity spinner ── */}
-        {!showOverlay && (
-          isRestaurantClosed ? (
-            <button className="mic-add-btn" onClick={(e) => { e.stopPropagation(); handleCardClick(); }}>
-              VIEW
-            </button>
-          ) : qty === 0 ? (
-            <button className="mic-add-btn" onClick={handleAddClick}>
-              ADD
-            </button>
-          ) : (
-            <div className="mic-qty-ctrl">
-              <button
-                className="mic-qty-btn"
-                onClick={(e) => { e.stopPropagation(); dispatch(updateQtyAction(lineId, -1)); }}
-                aria-label="Decrease quantity"
-              >
-                −
-              </button>
-              <span className="mic-qty-count">{qty}</span>
-              <button
-                className="mic-qty-btn"
-                onClick={(e) => { e.stopPropagation(); hasModifiers ? setPopupOpen(true) : dispatch(updateQtyAction(lineId, 1)); }}
-                aria-label="Increase quantity"
-              >
-                +
-              </button>
-            </div>
-          )
-        )}
-      </div>
-
-      {/* ── Body ── */}
-      <div className="mic-body">
-        <div className="mic-name-price-row">
-          <h3 className="mic-name">{itemName}</h3>
+        <div className="mic-row-right" onClick={(e) => e.stopPropagation()}>
           <span className="mic-price">{currencySymbol}{safePrice.toFixed(2)}</span>
-        </div>
-        {description ? (
-          <p className="mic-desc">{description}</p>
-        ) : (
-          <p className="mic-desc mic-desc--empty" />
-        )}
 
-        {/* ── Badges (LIST layout) — note btn hidden when closed ── */}
-        {!showOverlay && ((!isRestaurantClosed && qty > 0) || hasModifiers) && (
-          <div className="mic-badges mic-badges--body">
-            {!isRestaurantClosed && qty > 0 && (
-              <button
-                type="button"
-                className="mic-note-btn"
-                onClick={openNoteModal}
-                aria-label={hasNote ? 'Edit item note' : 'Add note to this item'}
-              >
-                <img src={itemNoteSvg} alt="" className="mic-note-icon" />
-                {hasNote
-                  ? <span className="mic-note-indicator" aria-hidden="true" />
-                  : <span className="mic-note-plus" aria-hidden="true">+</span>}
-              </button>
-            )}
-            {hasModifiers && (
-              <span className="mic-modifier-badge" aria-label="Customisable item">
-                <img src={customizationSvg} alt="" width={14} height={14} />
-              </span>
-            )}
-          </div>
-        )}
+          {/* Unavailability badge */}
+          {showOverlay && (
+            <span className="mic-unavail-badge">
+              {overlayIcon}
+              <span>{overlayLabel}{overlayTime ? ` ${overlayTime}` : ''}</span>
+            </span>
+          )}
+
+          {/* Heart — always visible */}
+          {!showOverlay && (
+            <button
+              className={`mic-heart-btn${isFavourite ? ' active' : ''}`}
+              onClick={(e) => {
+                e.stopPropagation();
+                if (!isLoggedIn) return;
+                if (isFavourite) dispatch(removeFavouriteRequest(itemId));
+                else dispatch(addFavouriteRequest(itemId, item));
+              }}
+              aria-label={isFavourite ? 'Remove from favourites' : 'Add to favourites'}
+              title={!isLoggedIn ? 'Login to save favourites' : undefined}
+            >
+              <i className={isFavourite ? 'fa-solid fa-heart' : 'fa-regular fa-heart'} />
+            </button>
+          )}
+
+          {/* Customisation button — always visible when item has modifiers */}
+          {!showOverlay && hasModifiers && (
+            <button
+              type="button"
+              className="mic-modifier-btn"
+              onClick={(e) => { e.stopPropagation(); handleCardClick(); }}
+              aria-label="Customise item"
+              title="Customisable"
+            >
+              <img src={customizationSvg} alt="" width={13} height={13} />
+            </button>
+          )}
+
+          {/* Note button — always visible when restaurant is open */}
+          {!showOverlay && !isRestaurantClosed && (
+            <button
+              type="button"
+              className="mic-note-btn"
+              onClick={(e) => { e.stopPropagation(); openNoteModal(e); }}
+              aria-label={hasNote ? 'Edit item note' : 'Add note'}
+            >
+              <img src={itemNoteSvg} alt="" className="mic-note-icon" />
+              {hasNote
+                ? <span className="mic-note-indicator" aria-hidden="true" />
+                : <span className="mic-note-plus" aria-hidden="true">+</span>}
+            </button>
+          )}
+
+          {/* Add / VIEW / Qty */}
+          {!showOverlay && (
+            isRestaurantClosed ? (
+              <button className="mic-add-btn" onClick={(e) => { e.stopPropagation(); handleCardClick(); }}>VIEW</button>
+            ) : qty === 0 ? (
+              <button className="mic-add-btn" onClick={handleAddClick}>ADD</button>
+            ) : (
+              <div className="mic-qty-ctrl">
+                <button className="mic-qty-btn" onClick={(e) => { e.stopPropagation(); dispatch(updateQtyAction(lineId, -1)); }} aria-label="Decrease">−</button>
+                <span className="mic-qty-count">{qty}</span>
+                <button className="mic-qty-btn" onClick={(e) => { e.stopPropagation(); hasModifiers ? setPopupOpen(true) : dispatch(updateQtyAction(lineId, 1)); }} aria-label="Increase">+</button>
+              </div>
+            )
+          )}
+        </div>
       </div>
+
+      {/* ── Description ── */}
+      {description
+        ? <p className="mic-desc">{description}</p>
+        : <p className="mic-desc mic-desc--empty" />
+      }
 
       <ItemNoteModal
         isOpen={noteOpen}
