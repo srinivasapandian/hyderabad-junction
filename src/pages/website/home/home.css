@@ -155,12 +155,13 @@
     overflow-wrap: anywhere;
   }
 
-  .hj-mobile-hero-top h1 .hj-mobile-orange { 
-    color: #c77a42 !important; 
+  .hj-mobile-hero-top h1 .hj-mobile-orange {
+    color: #c77a42 !important;
     display: inline-block;
   }
-  .hj-mobile-hero-top h1 .hj-mobile-blue { 
-    color: #0b1d43 !important; 
+
+  .hj-mobile-hero-top h1 .hj-mobile-blue {
+    color: #0b1d43 !important;
     display: inline-block;
   }
 
@@ -997,11 +998,13 @@
   }
 
   .hj-flavor-left {
-    display: none; /* Hide secondary images on mobile */
+    display: none;
+    /* Hide secondary images on mobile */
   }
 
   .hj-google-panel {
-    display: none; /* Hide google grid on mobile to save space */
+    display: none;
+    /* Hide google grid on mobile to save space */
   }
 
   .hj-flavor-main-card {

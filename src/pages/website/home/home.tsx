@@ -30,37 +30,37 @@ function buildHoursDisplay(hours: WorkingHour[]): { day: string; time: string }[
   });
 }
 
-import heroBg       from '../../../assets/hero-bg.png';
-import designImg    from '../../../assets/design.png';
-import menu1        from '../../../assets/menu1.png';
-import menu2        from '../../../assets/menu2.png';
-import menu3        from '../../../assets/menu3.png';
+import heroBg from '../../../assets/hero-bg.png';
+import designImg from '../../../assets/design.png';
+import menu1 from '../../../assets/menu1.png';
+import menu2 from '../../../assets/menu2.png';
+import menu3 from '../../../assets/menu3.png';
 import appetizersImg from '../../../assets/appitizers.png';
-import entreesImg   from '../../../assets/entrees.png';
-import dessertsImg  from '../../../assets/desserts.png';
-import trainImg     from '../../../assets/train.png';
-import styleImg     from '../../../assets/style.png';
-import service1     from '../../../assets/service1.png';
-import service2     from '../../../assets/service2.png';
-import service3     from '../../../assets/service3.png';
-import service4     from '../../../assets/service4.png';
-import gallery1     from '../../../assets/gallery1.png';
-import gallery2     from '../../../assets/gallery2.png';
-import gallery3     from '../../../assets/gallery3.png';
-import gallery4     from '../../../assets/gallery4.png';
-import gallery5     from '../../../assets/gallery5.png';
-import starImg      from '../../../assets/star.png';
-import userImg      from '../../../assets/user.png';
-import googleImg1   from '../../../assets/google-img1.png';
-import googleImg2   from '../../../assets/google-img2.png';
-import googleImg3   from '../../../assets/google-img3.png';
-import googleImg4   from '../../../assets/google-img4.png';
-import googleImg5   from '../../../assets/google-img5.png';
-import googleImg6   from '../../../assets/google-img6.png';
-import googleImg7   from '../../../assets/google-img7.png';
-import googleImg8   from '../../../assets/google-img8.png';
-import googleImg9   from '../../../assets/google-img9.png';
-import mobileBg    from '../../../assets/mobile-bg.png';
+import entreesImg from '../../../assets/entrees.png';
+import dessertsImg from '../../../assets/desserts.png';
+import trainImg from '../../../assets/train.png';
+import styleImg from '../../../assets/style.png';
+import service1 from '../../../assets/service1.png';
+import service2 from '../../../assets/service2.png';
+import service3 from '../../../assets/service3.png';
+import service4 from '../../../assets/service4.png';
+import gallery1 from '../../../assets/gallery1.png';
+import gallery2 from '../../../assets/gallery2.png';
+import gallery3 from '../../../assets/gallery3.png';
+import gallery4 from '../../../assets/gallery4.png';
+import gallery5 from '../../../assets/gallery5.png';
+import starImg from '../../../assets/star.png';
+import userImg from '../../../assets/user.png';
+import googleImg1 from '../../../assets/google-img1.png';
+import googleImg2 from '../../../assets/google-img2.png';
+import googleImg3 from '../../../assets/google-img3.png';
+import googleImg4 from '../../../assets/google-img4.png';
+import googleImg5 from '../../../assets/google-img5.png';
+import googleImg6 from '../../../assets/google-img6.png';
+import googleImg7 from '../../../assets/google-img7.png';
+import googleImg8 from '../../../assets/google-img8.png';
+import googleImg9 from '../../../assets/google-img9.png';
+import mobileBg from '../../../assets/mobile-bg.png';
 
 // ─── DATA ────────────────────────────────────────────────────────────────────
 
@@ -72,15 +72,15 @@ const GOOGLE_IMAGES = [
 
 const MENU_CARDS = [
   { title: 'APPETIZERS', likes: '243k Likes', image: appetizersImg },
-  { title: 'ENTREES',    likes: '233k Likes', image: entreesImg },
-  { title: 'DESSERTS',   likes: '314k Likes', image: dessertsImg },
+  { title: 'ENTREES', likes: '233k Likes', image: entreesImg },
+  { title: 'DESSERTS', likes: '314k Likes', image: dessertsImg },
 ];
 
 const SERVICE_CARDS = [
-  { title: 'DINE IN',        image: service1, desc: 'Expert chefs preparing authentic and flavorful dishes.' },
-  { title: 'HOME DELIVERY',  image: service2, desc: 'Expert chefs preparing authentic and flavorful dishes.' },
+  { title: 'DINE IN', image: service1, desc: 'Expert chefs preparing authentic and flavorful dishes.' },
+  { title: 'HOME DELIVERY', image: service2, desc: 'Expert chefs preparing authentic and flavorful dishes.' },
   { title: 'FRESHLY SERVED', image: service3, desc: 'Expert chefs preparing authentic and flavorful dishes.' },
-  { title: 'EVENT HOSTING',  image: service4, desc: 'Expert chefs preparing authentic and flavorful dishes.' },
+  { title: 'EVENT HOSTING', image: service4, desc: 'Expert chefs preparing authentic and flavorful dishes.' },
 ];
 
 const GALLERY_IMAGES = [
@@ -107,15 +107,15 @@ function Home(_props: HomeProps) {
 
   // ── Scroll refs ───────────────────────────────────────────────────────────
 
-  const menuTrackRef    = useRef<HTMLDivElement>(null);
+  const menuTrackRef = useRef<HTMLDivElement>(null);
   const galleryTrackRef = useRef<HTMLDivElement>(null);
 
   // ── InView refs ───────────────────────────────────────────────────────────
 
-  const [flavorRef,   flavorInView]   = useInView() as [React.RefObject<HTMLElement>, boolean];
-  const [menuRef,     menuInView]     = useInView() as [React.RefObject<HTMLElement>, boolean];
-  const [serviceRef,  serviceInView]  = useInView() as [React.RefObject<HTMLElement>, boolean];
-  const [galleryRef,  galleryInView]  = useInView() as [React.RefObject<HTMLElement>, boolean];
+  const [flavorRef, flavorInView] = useInView() as [React.RefObject<HTMLElement>, boolean];
+  const [menuRef, menuInView] = useInView() as [React.RefObject<HTMLElement>, boolean];
+  const [serviceRef, serviceInView] = useInView() as [React.RefObject<HTMLElement>, boolean];
+  const [galleryRef, galleryInView] = useInView() as [React.RefObject<HTMLElement>, boolean];
   const [specialsRef, specialsInView] = useInView() as [React.RefObject<HTMLElement>, boolean];
 
   // ── Redux – live menu ─────────────────────────────────────────────────────
@@ -168,16 +168,16 @@ function Home(_props: HomeProps) {
 
   // ── Gallery lightbox ──────────────────────────────────────────────────────
 
-  const openGallery  = (idx: number) => setGalleryIndex(idx);
+  const openGallery = (idx: number) => setGalleryIndex(idx);
   const closeGallery = () => setGalleryIndex(null);
-  const prevGallery  = () => setGalleryIndex(i => i !== null ? (i - 1 + GALLERY_IMAGES.length) % GALLERY_IMAGES.length : null);
-  const nextGallery  = () => setGalleryIndex(i => i !== null ? (i + 1) % GALLERY_IMAGES.length : null);
+  const prevGallery = () => setGalleryIndex(i => i !== null ? (i - 1 + GALLERY_IMAGES.length) % GALLERY_IMAGES.length : null);
+  const nextGallery = () => setGalleryIndex(i => i !== null ? (i + 1) % GALLERY_IMAGES.length : null);
 
   useEffect(() => {
     if (galleryIndex === null) return;
     const onKey = (e: KeyboardEvent) => {
-      if (e.key === 'Escape')     setGalleryIndex(null);
-      if (e.key === 'ArrowLeft')  prevGallery();
+      if (e.key === 'Escape') setGalleryIndex(null);
+      if (e.key === 'ArrowLeft') prevGallery();
       if (e.key === 'ArrowRight') nextGallery();
     };
     window.addEventListener('keydown', onKey);
@@ -472,17 +472,17 @@ function Home(_props: HomeProps) {
             >
               <button className="hj-modal-close" onClick={closeGallery} aria-label="Close">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-                  <path d="M18 6L6 18M6 6l12 12"/>
+                  <path d="M18 6L6 18M6 6l12 12" />
                 </svg>
               </button>
               <button className="hj-modal-nav hj-modal-prev" onClick={prevGallery} aria-label="Previous">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-                  <path d="M15 18l-6-6 6-6"/>
+                  <path d="M15 18l-6-6 6-6" />
                 </svg>
               </button>
               <button className="hj-modal-nav hj-modal-next" onClick={nextGallery} aria-label="Next">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-                  <path d="M9 18l6-6-6-6"/>
+                  <path d="M9 18l6-6-6-6" />
                 </svg>
               </button>
               <img src={GALLERY_IMAGES[galleryIndex].src} alt={GALLERY_IMAGES[galleryIndex].alt} />
