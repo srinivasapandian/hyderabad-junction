@@ -3,11 +3,12 @@ import banner31 from '../../assets/banner/banner-31.jpg';
 import ohImg2   from '../../assets/images/openingHours/002.jpg';
 import ohImg3   from '../../assets/images/openingHours/003.png';
 import ohImg7   from '../../assets/images/openingHours/007.jpg';
-import event2   from '../../assets/event2.png';
+import event2      from '../../assets/event2.png';
+import menuBanner from '../../assets/menu-banner.jpg';
 
 export const BANNER_IMAGES = {
   about:   banner11,
-  menu:    event2,
+  menu:    menuBanner,
   contact: banner31,
   account: event2,
   blog:    ohImg2,
