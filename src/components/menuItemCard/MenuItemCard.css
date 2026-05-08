@@ -110,11 +110,9 @@
   display: block;
   width: 100%;
   height: 1.5px;
-  background: linear-gradient(
-    to right,
-    var(--secondary-color) 0%,
-    rgba(0, 0, 0, 0.06) 80%
-  );
+  background: linear-gradient(to right,
+      var(--secondary-color) 0%,
+      rgba(0, 0, 0, 0.06) 80%);
   border-radius: 2px;
 }
 
@@ -281,7 +279,9 @@
   transform: scale(1.1);
 }
 
-.mic-modifier-btn { border-radius: 8px; }
+.mic-modifier-btn {
+  border-radius: 8px;
+}
 
 .mic-note-icon {
   width: 13px;
@@ -322,7 +322,9 @@
   border: 1.5px solid #fff;
 }
 
-.mic-note-btn { position: relative; }
+.mic-note-btn {
+  position: relative;
+}
 
 /* ── ADD / VIEW button ── */
 .mic-add-btn {
@@ -375,7 +377,9 @@
   flex-shrink: 0;
 }
 
-.mic-qty-btn:hover { background: rgba(0, 0, 0, 0.05); }
+.mic-qty-btn:hover {
+  background: rgba(0, 0, 0, 0.05);
+}
 
 .mic-qty-count {
   font-family: var(--font-accent);
@@ -388,23 +392,40 @@
 
 /* ── Mobile image bottom bar (customise + add) ── */
 .mic-img-bottom {
-  display: none; /* hidden on desktop */
+  display: none;
+  /* hidden on desktop */
 }
 
 /* ── Mobile note button (below description) ── */
-.mic-note-btn--mobile { display: none; }
-.mic-note-btn--desktop { display: flex; }
+.mic-note-btn--mobile {
+  display: none;
+}
+
+.mic-note-btn--desktop {
+  display: flex;
+}
 
 /* ════════════════════════════════════
    RESPONSIVE
 ════════════════════════════════════ */
 @media (max-width: 900px) {
-  .mic-card     { gap: 16px; padding: 14px 8px; }
-  .mic-img-wrap { width: 90px; height: 90px; }
-  .mic-name     { font-size: 0.97rem; }
+  .mic-card {
+    gap: 16px;
+    padding: 14px 8px;
+  }
+
+  .mic-img-wrap {
+    width: 90px;
+    height: 90px;
+  }
+
+  .mic-name {
+    font-size: 0.97rem;
+  }
 }
 
 @media (max-width: 600px) {
+
   /* Row layout: content left, image right */
   .mic-card {
     flex-direction: row;
@@ -414,7 +435,11 @@
   }
 
   /* Content on left */
-  .mic-content { order: 1; flex: 1; min-width: 0; }
+  .mic-content {
+    order: 1;
+    flex: 1;
+    min-width: 0;
+  }
 
   /* Image on right */
   .mic-img-wrap {
@@ -434,12 +459,24 @@
   }
 
   /* Name wraps on mobile */
-  .mic-name { font-size: 0.9rem; white-space: normal; }
-  .mic-desc { font-size: 0.79rem; min-height: unset; }
-  .mic-price { font-size: 0.9rem; }
+  .mic-name {
+    font-size: 0.9rem;
+    white-space: normal;
+  }
+
+  .mic-desc {
+    font-size: 0.79rem;
+    min-height: unset;
+  }
+
+  .mic-price {
+    font-size: 0.9rem;
+  }
 
   /* Hide desktop actions row on mobile */
-  .mic-actions { display: none !important; }
+  .mic-actions {
+    display: none !important;
+  }
 
   /* Show mobile note btn below description */
   .mic-note-btn--mobile {
@@ -448,7 +485,10 @@
     height: 26px;
     margin-top: 6px;
   }
-  .mic-note-btn--desktop { display: none; }
+
+  .mic-note-btn--desktop {
+    display: none;
+  }
 
   /* Bottom bar: inside the image, bottom corners */
   .mic-img-bottom {
@@ -475,7 +515,7 @@
     align-items: center;
     justify-content: center;
     padding: 0;
-    box-shadow: 0 1px 4px rgba(0,0,0,0.18);
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.18);
     flex-shrink: 0;
   }
 
@@ -491,14 +531,14 @@
     padding: 0 12px;
     font-size: 0.62rem;
     letter-spacing: 0.08em;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
   }
 
   /* Qty control inside image — white frosted */
   .mic-img-bottom .mic-qty-ctrl {
     height: 26px;
-    background: rgba(255,255,255,0.9);
-    border-color: rgba(255,255,255,0.9);
+    background: rgba(255, 255, 255, 0.9);
+    border-color: rgba(255, 255, 255, 0.9);
     backdrop-filter: blur(4px);
     border-radius: 999px;
     overflow: hidden;
@@ -519,8 +559,20 @@
 }
 
 @media (max-width: 420px) {
-  .mic-img-wrap { width: 110px; height: 110px; }
-  .mic-name     { font-size: 0.84rem; }
-  .mic-price    { font-size: 0.84rem; }
-  .mic-desc     { font-size: 0.74rem; }
+  .mic-img-wrap {
+    width: 110px;
+    height: 110px;
+  }
+
+  .mic-name {
+    font-size: 0.84rem;
+  }
+
+  .mic-price {
+    font-size: 0.84rem;
+  }
+
+  .mic-desc {
+    font-size: 0.74rem;
+  }
 }

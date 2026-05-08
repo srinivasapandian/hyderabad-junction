@@ -242,12 +242,12 @@
 }
 
 @media screen and (max-width : 576px) {
-  .eic-name{
-     font-size: 0.77em;
-     font-weight: 500;
+  .eic-name {
+    font-size: 0.77em;
+    font-weight: 500;
   }
 
-  .eic-price{
+  .eic-price {
     font-size: 0.75em;
     font-weight: 500;
   }
