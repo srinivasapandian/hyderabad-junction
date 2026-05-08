@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom';
 import logoImg from '../../assets/logo.png';
 import trainImg from '../../assets/train.png';
-import { LOCATION_SLUG } from '../../utils/branchConfig';
 import './footer.css';
 
 const QUICK_LINKS = [
@@ -67,9 +66,6 @@ function Footer() {
 
         <div className="footer__col footer__touch">
           <h3>GET IN TOUCH</h3>
-          <Link to={`/order-online/${LOCATION_SLUG}/pickup`} className="footer__order-btn">
-            ORDER ONLINE
-          </Link>
           <a href="mailto:info@thehyderabadjunction.com">@info@thehyderabadjunction.com</a>
           <a href="tel:+1000000000">+1 000-000-0000</a>
         </div>

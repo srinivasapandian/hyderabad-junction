@@ -5,6 +5,9 @@
   background-color: #faf3f0;
   /* Base background color matching the new premium brand theme */
 }
+.pg-bg.mn-page {
+  background-color: #ffffff;
+}
 
 .pg-bg::before {
   content: '';
@@ -14,8 +17,8 @@
   background-repeat: repeat;
   background-size: 600px;
   /* Reduced size to ensure the pattern is visible and tiles correctly */
-  opacity:1;
-  /* Subtle but clear visibility */
+  opacity: 0.6;
+  /* Subtle visibility matching the menu page style */
   pointer-events: none;
   z-index: -1;
 }
@@ -33,9 +36,17 @@
 
 /* ── Floating decorative images ── */
 @keyframes pg-float {
-  0%   { transform: translateY(0px) rotate(0deg); }
-  50%  { transform: translateY(-28px) rotate(3deg); }
-  100% { transform: translateY(0px) rotate(0deg); }
+  0% {
+    transform: translateY(0px) rotate(0deg);
+  }
+
+  50% {
+    transform: translateY(-28px) rotate(3deg);
+  }
+
+  100% {
+    transform: translateY(0px) rotate(0deg);
+  }
 }
 
 .pg-deco {
@@ -43,7 +54,7 @@
   width: 340px;
   opacity: 0.08;
   pointer-events: none;
-  z-index: 0;
+  z-index: 5;
   animation: pg-float 7s ease-in-out infinite;
   user-select: none;
 }
@@ -62,7 +73,16 @@
 }
 
 @media (max-width: 768px) {
-  .pg-deco { width: 220px; opacity: 0.06; }
-  .pg-deco--left  { left: -60px; }
-  .pg-deco--right { right: -60px; }
+  .pg-deco {
+    width: 220px;
+    opacity: 0.06;
+  }
+
+  .pg-deco--left {
+    left: -60px;
+  }
+
+  .pg-deco--right {
+    right: -60px;
+  }
 }

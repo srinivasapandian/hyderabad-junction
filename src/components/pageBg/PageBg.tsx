@@ -9,13 +9,9 @@ interface PageBgProps {
 export default function PageBg({ className = '', children }: PageBgProps) {
   return (
     <div className={`pg-bg${className ? ` ${className}` : ''}`}>
-      {/* Blobs removed to eliminate the dark gradient effect */}
-
-
+      {children}
       <img src={designImg} className="pg-deco pg-deco--left"  aria-hidden="true" alt="" />
       <img src={designImg} className="pg-deco pg-deco--right" aria-hidden="true" alt="" />
-
-      {children}
     </div>
   );
 }
