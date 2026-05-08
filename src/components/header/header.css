@@ -393,125 +393,114 @@
     margin-left: auto;
   }
 
-  /* Dim overlay with glass effect */
+  /* Dim overlay */
   .header-nav-overlay {
     display: block;
     position: fixed !important;
     inset: 0;
-    background: rgba(0, 0, 0, 0.4);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
     opacity: 0;
     pointer-events: none;
-    transition: none;
+    transition: opacity 0.35s ease;
     z-index: 3001;
   }
   .header-nav-overlay.open {
     opacity: 1;
     pointer-events: auto;
   }
- 
-  /* Full-Screen Top-Down Menu — Royal Theme */
+
+  /* Side drawer — slides in from left */
   .header-nav {
     position: fixed !important;
     top: 0;
     left: 0;
-    right: 0;
-    bottom: auto;
-    width: 100%;
-    height: auto;
-    min-height: fit-content;
-    max-height: 100dvh;
-    padding: 110px 30px 60px;
+    bottom: 0;
+    right: auto;
+    width: min(82vw, 300px);
+    height: 100dvh;
+    padding: 96px 0 40px;
     flex-direction: column;
-    align-items: center; /* Centered links for top-view */
+    align-items: stretch;
     justify-content: flex-start;
     gap: 0;
-    background: linear-gradient(180deg, #1a1a1a 0%, #2c0a0b 100%);
-    border-bottom: 3px solid #d9c88f; /* Gold accent border at bottom */
-    box-shadow: 0 15px 60px rgba(0, 0, 0, 0.8);
-    transform: translateY(-100%); /* Start above screen */
-    transition: none;
+    background: var(--primary-color);
+    border-right: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 6px 0 40px rgba(0, 0, 0, 0.35);
+    transform: translateX(-100%);
+    transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
     z-index: 3002;
     overflow-y: auto;
-    visibility: hidden;
-    opacity: 0;
-  }
-  .header-nav.open {
-    transform: translateY(0);
     visibility: visible;
     opacity: 1;
   }
+  .header-nav.open {
+    transform: translateX(0);
+  }
 
-  /* Staggered link animations (sliding up from below) */
-  .header-nav>a,
+  /* Staggered link fade-in */
+  .header-nav > a,
   .header-nav-mobile-btns {
     opacity: 0;
-    transform: translateY(20px); 
-    transition: none;
-    text-align: center;
-    width: fit-content;
-    border-bottom: none !important;
+    transform: translateX(-16px);
+    transition: opacity 0.28s ease, transform 0.28s ease;
   }
-
-  .header-nav.open>a,
+  .header-nav.open > a,
   .header-nav.open .header-nav-mobile-btns {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateX(0);
   }
+  .header-nav.open > a:nth-child(1) { transition-delay: 0.08s; }
+  .header-nav.open > a:nth-child(2) { transition-delay: 0.14s; }
+  .header-nav.open > a:nth-child(3) { transition-delay: 0.20s; }
+  .header-nav.open > a:nth-child(4) { transition-delay: 0.26s; }
+  .header-nav.open > a:nth-child(5) { transition-delay: 0.32s; }
+  .header-nav.open > a:nth-child(6) { transition-delay: 0.38s; }
+  .header-nav.open .header-nav-mobile-btns { transition-delay: 0.44s; }
 
-  /* Stagger delays for links */
-  .header-nav.open>a:nth-child(1) { transition-delay: 0.1s; }
-  .header-nav.open>a:nth-child(2) { transition-delay: 0.18s; }
-  .header-nav.open>a:nth-child(3) { transition-delay: 0.26s; }
-  .header-nav.open>a:nth-child(4) { transition-delay: 0.34s; }
-  .header-nav.open>a:nth-child(5) { transition-delay: 0.42s; }
-  .header-nav.open>a:nth-child(6) { transition-delay: 0.5s; }
-  .header-nav.open .header-nav-mobile-btns { transition-delay: 0.6s; }
- 
-  /* Hamburger remains in place when open */
-  .header-hamburger.open {
-    position: relative;
-  }
+  .header-hamburger.open { position: relative; }
 
-  /* Remove diamond separators in drawer */
-  .header-nav>a:not(:last-of-type)::after {
-    display: none;
-  }
+  .header-nav > a:not(:last-of-type)::after { display: none; }
 
-  /* Plain nav links inside drawer */
-  .header-nav>a {
+  /* Nav links inside drawer */
+  .header-nav > a {
     width: 100%;
-    padding: 14px 18px;
+    padding: 15px 28px;
     border-radius: 0;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
     background: transparent;
-    color: rgba(255, 255, 255, 0.85);
-    text-align: center;
-    justify-content: center;
-    font-size: 0.9rem;
-    letter-spacing: 0.12em;
+    color: rgba(255, 255, 255, 0.82);
+    text-align: left;
+    justify-content: flex-start;
+    font-size: 0.92rem;
+    letter-spacing: 0.08em;
     box-sizing: border-box;
     text-decoration: none;
-    font-weight: 700;
+    font-weight: 600;
+    transition: background 0.2s, color 0.2s, padding-left 0.2s, opacity 0.28s ease, transform 0.28s ease;
   }
-
-  .header-nav>a:hover,
-  .header-nav>a.active {
-    background: rgba(224, 192, 171, 0.08);
+  .header-nav > a:hover {
+    background: rgba(255, 255, 255, 0.06);
     color: var(--secondary-color);
-    border-radius: 0;
+    padding-left: 36px;
+  }
+  .header-nav > a.active {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--secondary-color);
+    border-left: 3px solid var(--secondary-color);
+    padding-left: 25px;
   }
 
-  /* Mobile button group — shown in drawer */
+  /* Mobile button group */
   .header-nav-mobile-btns {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: stretch;
     gap: 10px;
-    margin-top: 22px;
-    padding-top: 18px;
-    border-top: 1px solid rgba(255, 255, 255, 0.12);
+    margin-top: 24px;
+    padding: 20px 20px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
   }
 
   .header-nav-mobile-btn {
@@ -524,20 +513,18 @@
     font-family: var(--font-body);
     font-size: 0.85rem;
     font-weight: 700;
-    letter-spacing: 0.08em;
+    letter-spacing: 0.06em;
     text-transform: uppercase;
     text-decoration: none;
     box-sizing: border-box;
     transition: background 0.2s, color 0.2s, border-color 0.2s;
   }
 
-  /* My Account — outlined */
   .header-nav-mobile-btn--outline {
-    border: 1.5px solid rgba(255, 255, 255, 0.25);
-    color: rgba(255, 255, 255, 0.85);
+    border: 1.5px solid rgba(255, 255, 255, 0.3);
+    color: rgba(255, 255, 255, 0.88);
     background: transparent;
   }
-
   .header-nav-mobile-btn--outline:hover,
   .header-nav-mobile-btn--outline.active {
     border-color: var(--secondary-color);
@@ -545,26 +532,22 @@
     background: rgba(224, 192, 171, 0.08);
   }
 
-  /* Order Online — filled secondary */
   .header-nav-mobile-btn--filled {
     border: 1.5px solid var(--secondary-color);
     background: var(--secondary-color);
     color: var(--primary-color);
   }
-
   .header-nav-mobile-btn--filled:hover,
   .header-nav-mobile-btn--filled.active {
     background: #f0d4bf;
     border-color: #f0d4bf;
   }
 
-  /* Reservation — outlined secondary */
   .header-nav-mobile-btn--outline-red {
     border: 1.5px solid var(--secondary-color);
     color: var(--secondary-color);
     background: transparent;
   }
-
   .header-nav-mobile-btn--outline-red:hover,
   .header-nav-mobile-btn--outline-red.active {
     background: var(--secondary-color);
@@ -605,7 +588,15 @@
   }
 
   .header-nav {
-    width: min(78vw, 300px);
-    padding: 92px 16px 24px;
+    width: min(85vw, 280px);
+    padding: 88px 0 24px;
   }
+}
+
+/* Hide floating cart when mobile menu is open */
+body.menu-open .floating-cart {
+  opacity: 0;
+  pointer-events: none;
+  transform: scale(0.8);
+  transition: opacity 0.2s ease, transform 0.2s ease;
 }

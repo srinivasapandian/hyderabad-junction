@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import './header.css';
@@ -30,6 +30,11 @@ function Header() {
   );
 
   const closeMenu = () => setMenuOpen(false);
+
+  useEffect(() => {
+    document.body.classList.toggle('menu-open', menuOpen);
+    return () => document.body.classList.remove('menu-open');
+  }, [menuOpen]);
 
   const isActive = (path: string): string => {
     if (path === '/') return pathname === '/' ? 'active' : '';
