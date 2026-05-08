@@ -8,7 +8,7 @@
   /* ── Brand colours ──────────────────────────────── */
   --primary-color:      #6f1719;
   --primary-surface:    #5d1f1f;
-  --primary-card:       #c7773f;
+  --primary-card:       #c5a059;
   --primary-tertiary:   #e5c98d;
   --primary-blob:       #212325;
   --secondary-color:    #E0C0AB;
@@ -34,7 +34,7 @@
   /* ── Neutrals ───────────────────────────────────── */
   --black:       #111111;
   --white:       #ffffff;
-  --bg:          #ffffff;
+  --bg:          #faf3f0;
   --surface:     #f7f7f7;
   --surface-alt: #efefef;
   --border:      #e5e5e5;
@@ -92,7 +92,7 @@ body {
   min-width: 320px;
   min-height: 100vh;
   overflow-x: hidden;
-  background: #ffffff;
+  background: #faf3f0;
   color: var(--text);
 }
 
@@ -104,7 +104,7 @@ html {
 html,
 body,
 #root {
-  background-color: #ffffff;
+  background-color: #faf3f0;
 }
 
 *,

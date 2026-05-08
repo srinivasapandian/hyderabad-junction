@@ -2,8 +2,8 @@
   position: relative;
   overflow: clip;
   isolation: isolate;
-  background-color: #ffffff;
-  /* Base background color */
+  background-color: #faf3f0;
+  /* Base background color matching the new premium brand theme */
 }
 
 .pg-bg::before {

@@ -1,9 +1,9 @@
 /* ═══════════════════════════════════════════
-   ACCOUNT PAGE — DARK BRAND THEME
+   ACCOUNT PAGE — PREMIUM LIGHT THEME
 ═══════════════════════════════════════════ */
 .ac-page {
   min-height: 100vh;
-  background: #ffffff;
+  background: #faf3f0;
   font-family: var(--font-body);
   display: flex;
   flex-direction: column;
@@ -12,28 +12,30 @@
 /* ── Shared tokens ── */
 .ac-overline {
   font-family: var(--font-body);
-  font-size: 0.82rem;
+  font-size: 0.85rem;
   font-weight: 700;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: var(--secondary-color);
-  margin: 0 0 12px;
+  color: var(--primary-color);
+  margin: 0 0 14px;
+  opacity: 0.85;
 }
 
 .ac-overline--sm {
-  font-size: 0.7rem;
+  font-size: 0.72rem;
   letter-spacing: 0.16em;
-  margin-bottom: 6px;
-  color: rgba(224, 192, 171, 0.65);
+  margin-bottom: 8px;
+  color: var(--primary-color);
+  opacity: 0.6;
 }
 
 .ac-h2 {
   font-family: var(--font-heading);
-  font-size: clamp(1.6rem, 2.6vw, 2.1rem);
-  font-weight: 700;
-  color: #ffffff;
+  font-size: clamp(1.8rem, 3vw, 2.4rem);
+  font-weight: 800;
+  color: var(--primary-color);
   text-transform: uppercase;
-  letter-spacing: 0.03em;
+  letter-spacing: -0.01em;
   margin: 0;
   line-height: 1.1;
 }
@@ -42,13 +44,13 @@
 .ac-ctr {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 1rem;
+  padding: 0 2rem;
   width: 100%;
 }
 
 /* ── Section ── */
 .ac-sec {
-  padding: 100px 0 90px;
+  padding: 120px 0 100px;
   position: relative;
   z-index: 1;
   background: transparent;
@@ -56,14 +58,18 @@
 }
 
 .ac-sec-head {
-  margin: 48px 0 28px;
+  margin: 64px 0 32px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
 }
 
 .ac-sec-head__bar {
-  display: none;
+  width: 60px;
+  height: 4px;
+  background: var(--secondary-color);
+  margin-top: 16px;
+  border-radius: 2px;
 }
 
 /* ═══════════════════════════════════════════
@@ -88,34 +94,46 @@
   align-items: center;
   justify-content: space-between;
   gap: 2rem;
-  padding: 1.75rem 2rem;
-  background: var(--primary-surface);
-  border: 1px solid rgba(224, 192, 171, 0.15);
-  border-radius: 16px;
+  padding: 2.5rem;
+  background: #ffffff;
+  border: 1px solid rgba(111, 23, 25, 0.08);
+  border-radius: 24px;
   position: relative;
   overflow: hidden;
-  transition: border-color 0.3s;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.03);
+  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.ac-profile-card::after {
+  content: '';
+  position: absolute;
+  top: 0; right: 0;
+  width: 200px; height: 200px;
+  background: radial-gradient(circle at top right, rgba(224, 192, 171, 0.15), transparent 70%);
+  pointer-events: none;
 }
 
 .ac-profile-card:hover {
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.18);
-  border-color: rgba(224, 192, 171, 0.45);
+  transform: translateY(-5px);
+  box-shadow: 0 20px 50px rgba(111, 23, 25, 0.08);
+  border-color: rgba(111, 23, 25, 0.15);
 }
 
 .ac-profile-card__left {
   display: flex;
   align-items: center;
-  gap: 1.25rem;
+  gap: 1.75rem;
   flex: 1;
   min-width: 0;
 }
 
 .ac-avatar {
-  width: 68px;
-  height: 68px;
+  width: 80px;
+  height: 80px;
   border-radius: 50%;
-  background: var(--primary-card);
-  border: 1px solid rgba(224, 192, 171, 0.2);
+  background: #f8f1ed;
+  border: 2px solid #ffffff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -123,8 +141,8 @@
 }
 
 .ac-avatar i {
-  font-size: 1.5rem;
-  color: var(--secondary-color);
+  font-size: 1.75rem;
+  color: var(--primary-color);
 }
 
 .ac-profile-info {
@@ -134,18 +152,18 @@
 
 .ac-profile-name {
   font-family: var(--font-heading);
-  font-size: 1.3rem;
-  font-weight: 700;
-  color: #ffffff;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
-  margin: 0 0 4px;
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: var(--primary-color);
+  letter-spacing: -0.02em;
+  margin: 0 0 6px;
 }
 
 .ac-profile-sub {
   font-family: var(--font-body);
-  font-size: 0.85rem;
-  color: rgba(255, 255, 255, 0.55);
+  font-size: 0.95rem;
+  color: var(--text);
+  opacity: 0.7;
   margin: 0;
   white-space: nowrap;
   overflow: hidden;
@@ -153,81 +171,78 @@
 }
 
 .ac-profile-sub__sep {
-  margin: 0 0.3rem;
-  color: rgba(224, 192, 171, 0.35);
+  margin: 0 0.5rem;
+  color: var(--secondary-color);
 }
 
 /* ── Buttons ── */
 .ac-btn {
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
-  padding: 0.62rem 1.35rem;
+  gap: 0.6rem;
+  padding: 0.8rem 1.6rem;
   border-radius: 999px;
   font-family: var(--font-body);
-  font-size: 0.82rem;
+  font-size: 0.85rem;
   font-weight: 700;
   letter-spacing: 0.06em;
   text-transform: uppercase;
   cursor: pointer;
-  transition: transform var(--transition), background var(--transition), color var(--transition), border-color var(--transition);
+  transition: all 0.3s ease;
   white-space: nowrap;
 }
 
 .ac-btn--solid {
-  background: var(--secondary-color);
-  border: 1.5px solid var(--secondary-color);
-  color: var(--primary-color);
+  background: var(--primary-color);
+  border: 2px solid var(--primary-color);
+  color: #ffffff;
+  box-shadow: 0 4px 15px rgba(111, 23, 25, 0.2);
 }
 
 .ac-btn--solid:hover {
-  background: color-mix(in srgb, var(--secondary-color) 85%, var(--white-color));
-  border-color: color-mix(in srgb, var(--secondary-color) 85%, var(--white-color));
-  transform: translateY(-1px);
+  background: var(--primary-surface);
+  border-color: var(--primary-surface);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(111, 23, 25, 0.3);
 }
 
 .ac-guest-actions {
   display: flex;
-  gap: 0.75rem;
+  gap: 1rem;
   flex-wrap: wrap;
 }
 
 .ac-btn--outline {
   background: transparent;
-  border: 1.5px solid var(--secondary-color);
-  color: var(--secondary-color);
+  border: 2px solid var(--primary-color);
+  color: var(--primary-color);
 }
 
 .ac-btn--outline:hover {
-  background: var(--secondary-color);
-  border-color: var(--secondary-color);
-  color: var(--primary-color);
-  transform: translateY(-1px);
+  background: var(--primary-color);
+  color: #ffffff;
+  transform: translateY(-2px);
 }
 
 .ac-btn--create {
-  background: transparent;
   border-color: var(--secondary-color);
-  color: var(--secondary-color);
+  color: var(--primary-color);
 }
 
 .ac-btn--create:hover {
   background: var(--secondary-color);
   border-color: var(--secondary-color);
-  color: var(--primary-color);
-  transform: translateY(-1px);
 }
 
 .ac-btn--signout {
-  border-color: var(--secondary-color);
-  color: var(--secondary-color);
+  border-color: #eeeeee;
+  color: var(--gray-color);
 }
 
 .ac-btn--signout:hover {
-  background: var(--secondary-color);
-  border-color: var(--secondary-color);
-  color: var(--primary-color);
-  transform: translateY(-1px);
+  background: #f5f5f5;
+  border-color: #dddddd;
+  color: var(--black-color);
 }
 
 /* ═══════════════════════════════════════════
@@ -235,52 +250,69 @@
 ═══════════════════════════════════════════ */
 .ac-tiles {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 18px;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 24px;
 }
 
 .ac-tile {
   display: flex;
   align-items: center;
-  gap: 1.1rem;
-  padding: 1.35rem 1.5rem;
-  background: var(--primary-surface);
-  border: 1px solid rgba(224, 192, 171, 0.15);
-  border-radius: 14px;
+  gap: 1.25rem;
+  padding: 1.75rem 2rem;
+  background: #ffffff;
+  border: 1px solid rgba(111, 23, 25, 0.06);
+  border-radius: 20px;
   text-decoration: none;
-  transition: background 0.25s, border-color 0.25s, transform 0.25s;
+  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
   position: relative;
   overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
 }
 
 .ac-tile:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.18);
-  border-color: rgba(224, 192, 171, 0.45);
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(111, 23, 25, 0.06);
+  border-color: rgba(111, 23, 25, 0.15);
 }
 
 .ac-tile__icon {
-  width: 50px;
-  height: 50px;
-  border-radius: 12px;
-  background: var(--primary-card);
-  border: 1px solid rgba(224, 192, 171, 0.18);
+  width: 56px;
+  height: 56px;
+  border-radius: 14px;
+  background: #f8f1ed;
+  border: 1px solid rgba(111, 23, 25, 0.05);
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
+  transition: all 0.3s ease;
+}
+
+.ac-tile:hover .ac-tile__icon {
+  background: var(--primary-color);
 }
 
 .ac-tile__icon i {
-  font-size: 1rem;
-  color: var(--secondary-color);
+  font-size: 1.25rem;
+  color: var(--primary-color);
+  transition: color 0.3s ease;
+}
+
+.ac-tile:hover .ac-tile__icon i {
+  color: #ffffff;
 }
 
 .ac-tile__svg {
-  width: 22px;
+  width: 26px;
   height: auto;
   display: block;
-  filter: brightness(0) saturate(100%) invert(84%) sepia(14%) saturate(473%) hue-rotate(340deg) brightness(96%) contrast(89%);
+  /* Filter to make SVG maroon: #6f1719 */
+  filter: brightness(0) saturate(100%) invert(13%) sepia(45%) saturate(3665%) hue-rotate(343deg) brightness(88%) contrast(92%);
+  transition: all 0.3s ease;
+}
+
+.ac-tile:hover .ac-tile__svg {
+  filter: brightness(0) saturate(100%) invert(100%);
 }
 
 .ac-tile__body {
@@ -290,87 +322,38 @@
 
 .ac-tile__label {
   font-family: var(--font-heading);
-  font-size: 0.98rem;
+  font-size: 1.15rem;
   font-weight: 700;
-  color: #ffffff;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
+  color: var(--primary-color);
   margin: 0 0 4px;
 }
 
 .ac-tile__desc {
   font-family: var(--font-body);
-  font-size: 0.8rem;
-  color: rgba(255, 255, 255, 0.55);
+  font-size: 0.88rem;
+  color: var(--text);
+  opacity: 0.7;
   line-height: 1.5;
   margin: 0;
 }
 
 .ac-tile__arrow {
-  font-size: 0.78rem;
-  color: rgba(224, 192, 171, 0.4);
+  font-size: 0.85rem;
+  color: rgba(111, 23, 25, 0.2);
   flex-shrink: 0;
-  transition: color 0.2s, transform 0.2s;
+  transition: all 0.3s ease;
 }
 
 .ac-tile:hover .ac-tile__arrow {
-  color: var(--secondary-color);
-  transform: translateX(3px);
+  color: var(--primary-color);
+  transform: translateX(5px);
 }
 
 /* ═══════════════════════════════════════════
    CTA STRIP (scoped fallbacks — component owns its own styles)
 ═══════════════════════════════════════════ */
-.ac-cta-strip {
-  position: relative;
-  z-index: 1;
-  background: var(--primary-card);
-  padding: 64px 1rem;
-}
-
-.ac-cta-inner {
-  max-width: 1180px;
-  margin: 0 auto;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 40px;
-}
-
-.ac-cta-h2 {
-  font-family: var(--font-heading);
-  font-size: clamp(1.4rem, 2.4vw, 1.9rem);
-  font-weight: 700;
-  color: #ffffff;
-  text-transform: uppercase;
-  letter-spacing: 0.03em;
-  margin: 8px 0 0;
-}
-
-.ac-cta-btn {
-  display: inline-flex;
-  align-items: center;
-  padding: 13px 36px;
-  border: 1.5px solid var(--secondary-color);
-  border-radius: var(--radius-full);
-  background: var(--secondary-color);
-  color: var(--primary-color);
-  font-family: var(--font-body);
-  font-size: 0.9rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  white-space: nowrap;
-  flex-shrink: 0;
-  cursor: pointer;
-  transition: background var(--transition), border-color var(--transition), transform var(--transition);
-}
-
-.ac-cta-btn:hover {
-  background: color-mix(in srgb, var(--secondary-color) 85%, var(--white-color));
-  border-color: color-mix(in srgb, var(--secondary-color) 85%, var(--white-color));
-  transform: translateY(-2px);
-}
+/* Note: The component CtaStrip.css already handles its colors, 
+   but we can add some refinements here if needed. */
 
 /* ═══════════════════════════════════════════
    RESPONSIVE
@@ -380,74 +363,34 @@
 }
 
 @media (max-width: 860px) {
-  .ac-sec { padding: 100px 0 56px; }
+  .ac-sec { padding: 100px 0 64px; }
   .ac-ctr { padding: 0 1.25rem; }
-  .ac-profile-card { flex-direction: column; align-items: flex-start; padding: 1.5rem; }
+  .ac-profile-card { flex-direction: column; align-items: flex-start; padding: 2rem; gap: 1.5rem; }
   .ac-profile-card__right { width: 100%; }
-  .ac-guest-actions { width: 100%; flex-wrap: nowrap; }
+  .ac-guest-actions { width: 100%; }
   .ac-btn { width: 100%; justify-content: center; }
-  .ac-guest-actions .ac-btn { flex: 1; width: auto; }
   .ac-tiles { grid-template-columns: 1fr; }
-  .ac-cta-strip { padding: 48px 1.25rem; }
-  .ac-cta-inner { flex-direction: column; align-items: flex-start; gap: 24px; }
 }
 
 @media (max-width: 576px) {
   .ac-ctr { padding: 0 1rem; }
-  .ac-sec { padding: 90px 0 56px; }
-  .ac-sec-head { margin: 32px 0 20px; }
+  .ac-sec { padding: 80px 0 60px; }
+  .ac-sec-head { margin: 40px 0 24px; }
 
-  .ac-overline { font-size: 0.72rem; letter-spacing: 0.14em; margin-bottom: 6px; }
-  .ac-h2 { font-size: 1.35rem; }
+  .ac-overline { font-size: 0.75rem; letter-spacing: 0.15em; }
+  .ac-h2 { font-size: 1.5rem; }
 
-  .ac-profile-card {
-    padding: 1rem;
-    border-radius: 14px;
-    gap: 0.75rem;
-  }
-  .ac-profile-card__left { gap: 0.85rem; }
-  .ac-avatar { width: 50px; height: 50px; }
-  .ac-avatar i { font-size: 1.15rem; }
-  .ac-profile-name { font-size: 0.98rem; letter-spacing: 0.03em; }
-  .ac-profile-sub { font-size: 0.75rem; }
+  .ac-profile-card { padding: 1.5rem; border-radius: 20px; }
+  .ac-avatar { width: 64px; height: 64px; }
+  .ac-avatar i { font-size: 1.4rem; }
+  .ac-profile-name { font-size: 1.4rem; }
+  .ac-profile-sub { font-size: 0.85rem; }
 
-  .ac-btn {
-    font-size: 0.72rem;
-    padding: 0.5rem 1rem;
-    letter-spacing: 0.04em;
-  }
-
-  .ac-tiles { gap: 12px; }
-  .ac-tile {
-    padding: 1rem 1.1rem;
-    border-radius: 12px;
-    gap: 0.85rem;
-  }
-  .ac-tile__icon {
-    width: 42px;
-    height: 42px;
-    border-radius: 10px;
-  }
-  .ac-tile__icon i { font-size: 0.85rem; }
-  .ac-tile__svg { width: 18px; }
-  .ac-tile__label { font-size: 0.85rem; margin-bottom: 2px; }
-  .ac-tile__desc { font-size: 0.72rem; line-height: 1.45; }
-  .ac-tile__arrow { font-size: 0.7rem; }
+  .ac-tiles { gap: 16px; }
+  .ac-tile { padding: 1.25rem 1.5rem; border-radius: 16px; gap: 1rem; }
+  .ac-tile__icon { width: 48px; height: 48px; }
+  .ac-tile__svg { width: 22px; }
+  .ac-tile__label { font-size: 1rem; }
+  .ac-tile__desc { font-size: 0.8rem; }
 }
 
-@media (max-width: 480px) {
-  .ac-avatar { width: 48px; height: 48px; }
-  .ac-avatar i { font-size: 1.05rem; }
-  .ac-profile-name { font-size: 0.95rem; }
-  .ac-profile-sub {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.08rem;
-    white-space: normal;
-    overflow: visible;
-    text-overflow: unset;
-    line-height: 1.45;
-  }
-  .ac-profile-sub__sep { display: none; }
-}

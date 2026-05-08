@@ -60,7 +60,7 @@ import googleImg6 from '../../../assets/google-img6.png';
 import googleImg7 from '../../../assets/google-img7.png';
 import googleImg8 from '../../../assets/google-img8.png';
 import googleImg9 from '../../../assets/google-img9.png';
-import mobileBg from '../../../assets/mobile-bg.png';
+import mobileBg from '../../../assets/mobile-bg2.png';
 
 // ─── DATA ────────────────────────────────────────────────────────────────────
 

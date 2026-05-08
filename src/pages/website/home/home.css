@@ -116,10 +116,12 @@
 @media (max-width: 767px) {
   .hj-hero-shell {
     position: relative;
-    padding-bottom: 0;
+    padding-bottom: 2rem;
     min-height: 0;
-    display: block;
+    display: flex;
+    flex-direction: column;
     background: #fff;
+    overflow: hidden;
   }
 
   .hj-hero-wrap {
@@ -137,82 +139,74 @@
   .hj-mobile-hero-top {
     display: block !important;
     visibility: visible !important;
+    order: 1;
+    position: relative;
+    z-index: 5;
     text-align: center;
-    padding: 2.5rem 1rem 1.2rem;
+    padding: 2.5rem 1.5rem 1rem;
     background: transparent;
-    height: 400px;
     width: 100%;
   }
 
   .hj-mobile-hero-top h1 {
     margin: 0;
     font-family: var(--heading);
-    font-size: clamp(1.4rem, 6.5vw, 2.1rem);
-    line-height: 1.2;
-    font-weight: 500;
-    letter-spacing: 0.01em;
+    font-size: clamp(1.8rem, 8vw, 2.6rem);
+    line-height: 1.15;
+    font-weight: 800;
+    letter-spacing: -0.02em;
     text-align: center;
-    overflow-wrap: anywhere;
+    color: var(--primary-color);
+    text-shadow: 0 2px 10px rgba(255, 255, 255, 0.4);
   }
 
   .hj-mobile-hero-top h1 .hj-mobile-orange {
-    color: #c77a42 !important;
+    color: var(--primary-color) !important;
     display: inline-block;
   }
 
   .hj-mobile-hero-top h1 .hj-mobile-blue {
-    color: #0b1d43 !important;
+    color: var(--primary-color) !important;
     display: inline-block;
   }
 
-
+  .hj-hero-divider-img {
+    margin: 1.2rem auto 0;
+    filter: brightness(0.2);
+    opacity: 0.6;
+  }
 
   .hj-hero-copy-left {
-    display: block;
-    position: relative;
-    top: auto;
-    left: auto;
-    transform: none;
-    width: min(90%, 560px);
-    min-width: 0;
-    background: #f4eee7;
-    border-radius: 24px;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
-    padding: 1.5rem 1.5rem 0.5rem;
-    margin: 0.5rem auto -2rem;
-    z-index: 3;
-    text-align: center;
-    height: fit-content;
-    bottom: auto;
+    display: none;
   }
 
   .hj-hero-copy-left p {
-    font-size: 1.15rem;
-    line-height: 1.45;
-    color: #2e100f;
-    max-width: 100%;
-    margin-bottom: 1.2rem;
-    font-family: var(--heading);
+    font-size: 1.05rem;
+    line-height: 1.55;
+    color: var(--text);
+    margin-bottom: 1.5rem;
+    font-family: var(--font-body);
   }
 
   .hj-hero-btn {
     margin-top: 0;
-    background: #4a1313;
+    background: var(--primary-color);
     color: #fff;
-    font-size: 1.25rem;
-    padding: 0.8rem 2rem;
+    font-size: 1rem;
+    padding: 0.9rem 2.2rem;
     font-weight: 700;
-    letter-spacing: 0.02em;
+    letter-spacing: 0.08em;
     border-radius: 999px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 10px 25px rgba(111, 23, 25, 0.25);
     text-transform: uppercase;
   }
 
   .hj-mobile-hero-bottom {
     display: block;
-    width: 100%;
-    margin-top: -25rem;
+    order: 2;
     position: relative;
+    width: 100%;
+    height: 320px;
     z-index: 1;
     overflow: hidden;
     line-height: 0;
@@ -220,10 +214,11 @@
 
   .hj-mobile-bottom-img {
     width: 100%;
-    height: auto;
+    height: 100%;
     display: block;
     object-fit: cover;
-    object-position: bottom;
+    object-position: center;
+    opacity: 1; /* Reset opacity for direct content image */
   }
 
 }
@@ -317,7 +312,7 @@
 }
 
 .hj-customer-pill {
-  background: #c7773f;
+  background: var(--primary-card);
   color: #fff;
   border-radius: 999px;
   padding: 0.85rem 1.45rem;
@@ -355,7 +350,7 @@
 }
 
 .hj-google-panel {
-  background: #c7773f;
+  background: var(--primary-card);
   border-radius: 2rem;
   padding: 1.4rem 1.2rem;
   box-shadow: 0 12px 22px rgba(0, 0, 0, 0.16);
@@ -430,7 +425,7 @@
 .hj-menu-shell {
   width: min(100%, 1460px);
   margin: 0 auto;
-  background: #c7773f;
+  background: var(--primary-card);
   border-radius: 1.8rem;
   padding: 2.3rem 4.5rem;
   position: relative;
@@ -598,7 +593,7 @@
 
 .hj-service-card {
   position: relative;
-  background: #c7773f;
+  background: var(--primary-card);
   border-radius: 1rem;
   box-shadow: 0 12px 18px rgba(0, 0, 0, 0.2);
   padding: 0.85rem 1rem 0.95rem;
@@ -1197,7 +1192,7 @@
 ────────────────────────────────────────── */
 
 .hj-cta-bar {
-  background: #c7773f;
+  background: var(--primary-card);
   padding: 48px 56px;
 }
 
@@ -1238,7 +1233,7 @@
 .hj-cta-bar__btn--filled {
   border: 1.5px solid #ffffff;
   background: #ffffff;
-  color: #c7773f;
+  color: var(--primary-card);
 }
 
 .hj-cta-bar__btn--filled:hover {

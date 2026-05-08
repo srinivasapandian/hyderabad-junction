@@ -21,7 +21,7 @@
 
 .services-page .hj-service-card {
   position: relative;
-  background: #c7773f;
+  background: var(--primary-card);
   border-radius: 1rem;
   box-shadow: 0 12px 18px rgba(0, 0, 0, 0.2);
   padding: 0.85rem 1rem 0.95rem;

@@ -1,7 +1,8 @@
 .info {
-  background: #c7773f;
-  padding: 48px 56px;
-  color: #fff;
+  background: var(--primary-card);
+  padding: 56px;
+  color: var(--primary-color);
+  border-bottom: 1px solid rgba(111, 23, 25, 0.1);
 }
 
 .info__inner {
@@ -27,46 +28,41 @@
   align-items: center;
   justify-content: center;
   padding: 13px 36px;
-  <<<<<<< HEAD transform: skew(-21deg);
-  =======>>>>>>>d5c3fc681e5091ec893fd581796865512a10c046 font-size: 0.9rem;
+  font-size: 0.9rem;
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   white-space: nowrap;
   text-decoration: none;
   cursor: pointer;
-  transition: background 0.2s, transform 0.2s;
+  transition: all 0.3s ease;
   transform: skew(-21deg);
 }
 
 .info__btn--filled {
-  background: #ffffff;
-  color: #c7773f;
-  border: 1.5px solid #ffffff;
-
-
-
-  transform: skew(-21deg);
+  background: var(--primary-color);
+  color: #ffffff;
+  border: 1.5px solid var(--primary-color);
+  box-shadow: 0 4px 15px rgba(111, 23, 25, 0.2);
 }
 
 .info__btn--filled:hover {
-  background: rgba(255, 255, 255, 0.9);
-  transform: translateY(-2px);
-
-  transform: translateY(-1px);
-
-
+  background: var(--primary-surface);
+  border-color: var(--primary-surface);
+  transform: skew(-21deg) translateY(-2px);
+  box-shadow: 0 8px 20px rgba(111, 23, 25, 0.3);
 }
 
 .info__btn--outline {
-  border: 1.5px solid #ffffff;
+  border: 1.5px solid var(--primary-color);
   background: transparent;
-  color: #ffffff;
+  color: var(--primary-color);
 }
 
 .info__btn--outline:hover {
-  background: rgba(255, 255, 255, 0.1);
-  transform: translateY(-2px);
+  background: var(--primary-color);
+  color: #ffffff;
+  transform: skew(-21deg) translateY(-2px);
 }
 
 /* Right side: Hours */
@@ -75,21 +71,22 @@
 }
 
 .info__hours-label {
-  font-size: 0.78rem;
+  font-size: 0.85rem;
   font-weight: 700;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.75);
-  margin: 0 0 12px;
+  color: var(--primary-color);
+  margin: 0 0 16px;
   display: flex;
   align-items: center;
   gap: 8px;
+  opacity: 0.8;
 }
 
 .info__hours-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 4px 24px;
+  gap: 6px 32px;
 }
 
 .info__hours-row {
@@ -97,22 +94,23 @@
   display: flex;
   justify-content: space-between;
   gap: 12px;
-  font-size: 0.8rem;
-  color: rgba(255, 255, 255, 0.9);
+  font-size: 0.88rem;
+  color: var(--primary-color);
 }
 
 .info__hours-day {
-  font-weight: 600;
+  font-weight: 700;
   white-space: nowrap;
 }
 
 .info__hours-time {
-  color: rgba(255, 255, 255, 0.85);
+  color: var(--primary-color);
+  opacity: 0.8;
   white-space: nowrap;
 }
 
 .info__hours-time--closed {
-  color: rgba(255, 255, 255, 0.45);
+  opacity: 0.45;
 }
 
 .info__hours-toggle {
@@ -122,18 +120,20 @@
 }
 
 .info__hours-tab {
-  background: rgba(255, 255, 255, 0.1);
-  border: none;
-  color: #fff;
-  padding: 4px 12px;
-  border-radius: 4px;
+  background: rgba(111, 23, 25, 0.08);
+  border: 1px solid rgba(111, 23, 25, 0.1);
+  color: var(--primary-color);
+  padding: 6px 14px;
+  border-radius: 6px;
   font-size: 0.75rem;
+  font-weight: 600;
   cursor: pointer;
+  transition: all 0.2s;
 }
 
 .info__hours-tab.active {
-  background: #fff;
-  color: #c7773f;
+  background: var(--primary-color);
+  color: #ffffff;
 }
 
 @media (max-width: 991px) {

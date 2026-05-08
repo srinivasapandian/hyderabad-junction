@@ -2,10 +2,11 @@
    CTA STRIP — secondary-color bg, primary text
 ═══════════════════════════════════════════ */
 .cta-strip {
-  background: #c7773f;
-  padding: 72px 56px;
+  background: var(--primary-card);
+  padding: 80px 56px;
   position: relative;
   z-index: 1;
+  border-top: 1px solid rgba(111, 23, 25, 0.1);
 }
 
 .cta-strip__inner {
@@ -19,23 +20,24 @@
 
 .cta-strip__overline {
   font-family: var(--font-body);
-  font-size: 0.82rem;
+  font-size: 0.85rem;
   font-weight: 700;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.75);
-  margin: 0 0 8px;
+  color: var(--primary-color);
+  margin: 0 0 10px;
+  opacity: 0.8;
 }
 
 .cta-strip__heading {
   font-family: var(--font-heading);
-  font-size: clamp(1.6rem, 2.8vw, 2.2rem);
-  font-weight: 700;
-  color: #ffffff;
+  font-size: clamp(1.8rem, 3vw, 2.4rem);
+  font-weight: 800;
+  color: var(--primary-color);
   text-transform: uppercase;
-  letter-spacing: 0.03em;
+  letter-spacing: -0.01em;
   margin: 0;
-  line-height: 1.15;
+  line-height: 1.1;
 }
 
 .cta-strip__actions {
@@ -51,10 +53,10 @@
   align-items: center;
   justify-content: center;
   padding: 13px 36px;
-  border: 1.5px solid #ffffff;
+  border: 1.5px solid var(--primary-color);
   border-radius: var(--radius-full);
-  background: #ffffff;
-  color: #c7773f;
+  background: var(--primary-color);
+  color: #ffffff;
   font-family: var(--font-body);
   font-size: 0.9rem;
   font-weight: 700;
@@ -64,24 +66,26 @@
   flex-shrink: 0;
   text-decoration: none;
   cursor: pointer;
-  transition: background var(--transition), border-color var(--transition), transform var(--transition);
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(111, 23, 25, 0.2);
 }
 
 .cta-strip__btn:hover {
-  background: rgba(255, 255, 255, 0.88);
-  border-color: rgba(255, 255, 255, 0.88);
+  background: var(--primary-surface);
+  border-color: var(--primary-surface);
   transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(111, 23, 25, 0.3);
 }
 
 /* Outline variant — second button */
 .cta-strip__btn--outline {
   background: transparent;
-  color: #ffffff;
+  color: var(--primary-color);
 }
 
 .cta-strip__btn--outline:hover {
-  background: rgba(255, 255, 255, 0.12);
-  border-color: #ffffff;
+  background: var(--primary-color);
+  color: #ffffff;
   transform: translateY(-2px);
 }
 
