@@ -1,10 +1,10 @@
-.category-title {
+﻿.category-title {
   display: inline-block;
   position: relative;
   font-family: 'Blinka Serif', serif;
   font-size: 1.15rem;
   font-weight: 700;
-  color: #ffffff;
+  color: var(--white-color);
   background-image: url('../../assets/style.png');
   background-repeat: no-repeat;
   background-size: 100% 100%;

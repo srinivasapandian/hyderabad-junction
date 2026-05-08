@@ -1,4 +1,4 @@
-/* ═══════════════════════════════════════════
+﻿/* ═══════════════════════════════════════════
    PAGE BANNER — SPLIT DESIGN
    Left: dark brand content | Right: food image
 ═══════════════════════════════════════════ */
@@ -16,7 +16,7 @@
 /* ── Left panel ── */
 .page-banner__left {
   position: relative;
-  background: linear-gradient(135deg, #2a0608 0%, var(--primary-color) 70%);
+  background: linear-gradient(135deg, var(--banner-dark) 0%, var(--primary-color) 70%);
   display: flex;
   align-items: center;
   padding: 0 56px;
@@ -64,7 +64,7 @@
   font-family: var(--font-heading);
   font-size: 2.6rem;
   font-weight: 900;
-  color: #ffffff;
+  color: var(--white-color);
   line-height: 1;
   letter-spacing: 0.04em;
   text-transform: uppercase;

@@ -85,6 +85,88 @@
   --font-heading: var(--heading);
   --font-body:    var(--sans);
   --font-accent:  var(--sans);
+
+  /* ── Brand accent ───────────────────────────── */
+  --brand-gold:          #d9c88f;
+  --brand-gold-light:    #f0d4bf;
+  --brand-title-red:     #ff2d2d;
+  --brand-tagline-dark:  #3c1b12;
+  --brand-dark:          #1a1a1a;
+  --brand-dark-maroon:   #2c0a0b;
+  --banner-dark:         #2a0608;
+
+  /* ── Status / feedback ──────────────────────── */
+  --error:               #e53e3e;
+  --error-bg:            #fee2e2;
+  --error-surface:       #fef2f2;
+  --success:             #059669;
+  --success-light:       #4ade80;
+  --success-bg:          #ecfdf5;
+  --warning:             #ea580c;
+  --warning-bg:          #fff7ed;
+  --warning-yellow:      #fbbf24;
+  --info-blue:           #64748b;
+  --info-blue-light:     #94a3b8;
+  --info-slate:          #f1f5f9;
+
+  /* ── Warm neutrals ──────────────────────────── */
+  --card-bg-warm:        #f8f1ed;
+  --warm-off-white:      #f7fafc;
+  --light-gray:          #f0f0f0;
+  --divider-gray:        #dddddd;
+  --divider-light:       #eeeeee;
+  --muted-gray:          #ccc;
+  --dark-gray:           #333;
+
+  /* ── Typography ─────────────────────────────── */
+  --font-serif:          'Georgia', 'Times New Roman', serif;
+
+  /* ── Footer specific ────────────────────────── */
+  --footer-dark:         #20160a;
+  --footer-red-1:        #ff2a2a;
+  --footer-red-2:        #ff2b2b;
+  --footer-footer-dark:  #7c1b1d;
+  --footer-gold-1:       #ddbf82;
+  --footer-gold-2:       #ddcb95;
+  --footer-gold-3:       #efe2b1;
+  --footer-gold-4:       #f4ddb0;
+  --footer-gold-5:       #f7e6bb;
+  --footer-gold-6:       #f8e3b8;
+  --footer-gold-7:       #f9e6bd;
+  --footer-gold-8:       #fdeec4;
+
+  /* ── Primary hover ──────────────────────────── */
+  --primary-hover:       #7a2828;
+
+  /* ── Misc brand ─────────────────────────────── */
+  --brand-green-dark:    #00271c;
+  --brand-teal:          #002724;
+  --brand-teal-dark:     #012220;
+  --home-dark-1:         #130f0e;
+  --home-dark-2:         #151515;
+  --home-dark-3:         #1f1a18;
+  --home-dark-4:         #181312;
+  --home-dark-5:         #4e1f1d;
+  --home-amber:          #c77a42;
+  --home-muted:          #c7b3b3;
+  --card-gold:           #c8a96e;
+  --home-green-deep:     #083339;
+  --status-green-dark:   #16a34a;
+  --status-red-dark:     #b91c1c;
+  --status-red-soft:     #fca5a5;
+  --status-orange:       #f57c00;
+  --status-yellow:       #856404;
+  --status-yellow-bg:    #fff3cd;
+  --status-yellow-2:     #ffc107;
+  --accent-peach:        #a8f0cc;
+  --accent-salmon:       #ff6b7a;
+  --accent-orange:       #ff4500;
+  --accent-green-success:#28a745;
+  --accent-orange-red:   #e3a768;
+  --accent-red-soft:     #f87171;
+  --accent-dc:           #dc2626;
+  --accent-ef:           #ef4444;
+  --font-icon:           'Font Awesome 6 Free';
 }
 
 body {
@@ -92,7 +174,7 @@ body {
   min-width: 320px;
   min-height: 100vh;
   overflow-x: hidden;
-  background: #faf3f0;
+  background: var(--bg);
   color: var(--text);
 }
 
@@ -115,7 +197,7 @@ section[id] {
 html,
 body,
 #root {
-  background-color: #faf3f0;
+  background-color: var(--bg);
 }
 
 *,

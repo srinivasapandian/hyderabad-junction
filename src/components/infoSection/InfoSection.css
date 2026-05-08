@@ -1,4 +1,4 @@
-.info {
+﻿.info {
   background: var(--primary-card);
   padding: 56px;
   color: var(--primary-color);
@@ -41,7 +41,7 @@
 
 .info__btn--filled {
   background: var(--primary-color);
-  color: #ffffff;
+  color: var(--white-color);
   border: 1.5px solid var(--primary-color);
   box-shadow: 0 4px 15px rgba(111, 23, 25, 0.2);
 }
@@ -61,7 +61,7 @@
 
 .info__btn--outline:hover {
   background: var(--primary-color);
-  color: #ffffff;
+  color: var(--white-color);
   transform: skew(-21deg) translateY(-2px);
 }
 
@@ -133,7 +133,7 @@
 
 .info__hours-tab.active {
   background: var(--primary-color);
-  color: #ffffff;
+  color: var(--white-color);
 }
 
 @media (max-width: 991px) {

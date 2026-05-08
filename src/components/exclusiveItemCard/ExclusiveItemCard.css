@@ -1,4 +1,4 @@
-/* ═══════════════════════════════════════
+﻿/* ═══════════════════════════════════════
    EXCLUSIVE ITEM CARD — menu dark theme
 ═══════════════════════════════════════ */
 
@@ -54,7 +54,7 @@
   font-family: var(--font-accent);
   font-size: 0.88rem;
   font-weight: 700;
-  color: #ffffff;
+  color: var(--white-color);
   line-height: 1.35;
   min-width: 0;
   display: -webkit-box;
@@ -231,7 +231,7 @@
   height: 8px;
   border-radius: 50%;
   background: var(--red, #cd4143);
-  color: #fff;
+  color: var(--white-color);
   font-size: 0.4rem;
   font-weight: 700;
   line-height: 1;

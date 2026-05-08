@@ -1,4 +1,4 @@
-/* ── Backdrop ── */
+﻿/* ── Backdrop ── */
 .cpop-backdrop {
   position: fixed;
   inset: 0;
@@ -15,7 +15,7 @@
 /* ── Sheet ── */
 .cpop {
   position: relative;
-  background: #fff;
+  background: var(--white-color);
   border-radius: 18px;
   width: 100%;
   max-width: 460px;
@@ -42,7 +42,7 @@
   font-family: var(--font-heading);
   font-size: 1.25rem;
   font-weight: 700;
-  color: var(--primary-color, #00271c);
+  color: var(--primary-color, var(--brand-green-dark));
   margin: 0;
   text-align: center;
 }
@@ -55,8 +55,8 @@
   height: 36px;
   border-radius: 50%;
   border: none;
-  background: var(--primary-color, #00271c);
-  color: #fff;
+  background: var(--primary-color, var(--brand-green-dark));
+  color: var(--white-color);
   font-size: 0.9rem;
   cursor: pointer;
   display: flex;
@@ -120,7 +120,7 @@
   font-family: var(--font-body);
   font-size: 0.9rem;
   font-weight: 600;
-  color: var(--primary-color, #00271c);
+  color: var(--primary-color, var(--brand-green-dark));
   margin: 0;
   flex: 1;
   min-width: 0;
@@ -149,7 +149,7 @@
 .cpop__stepper {
   display: flex;
   align-items: center;
-  background: var(--primary-color, #00271c);
+  background: var(--primary-color, var(--brand-green-dark));
   border-radius: var(--radius-full, 9999px);
   overflow: hidden;
 }
@@ -159,7 +159,7 @@
   height: 34px;
   border: none;
   background: transparent;
-  color: var(--secondary-color, #c8a96e);
+  color: var(--secondary-color, var(--card-gold));
   font-size: 1.05rem;
   font-weight: 700;
   cursor: pointer;
@@ -179,7 +179,7 @@
   font-family: var(--font-heading);
   font-size: 0.9rem;
   font-weight: 700;
-  color: var(--secondary-color, #c8a96e);
+  color: var(--secondary-color, var(--card-gold));
   user-select: none;
 }
 
@@ -193,7 +193,7 @@
   font-family: var(--font-body);
   font-size: 0.8rem;
   font-weight: 600;
-  color: var(--primary-color, #00271c);
+  color: var(--primary-color, var(--brand-green-dark));
   cursor: pointer;
   padding: 0;
   transition: opacity 0.15s;
@@ -209,8 +209,8 @@
   padding: 15px 16px;
   border-radius: 14px;
   border: none;
-  background: var(--primary-color, #00271c);
-  color: var(--secondary-color, #c8a96e);
+  background: var(--primary-color, var(--brand-green-dark));
+  color: var(--secondary-color, var(--card-gold));
   font-family: var(--font-body);
   font-size: 0.95rem;
   font-weight: 700;

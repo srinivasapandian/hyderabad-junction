@@ -1,4 +1,4 @@
-.contact-page {
+﻿.contact-page {
   padding: 0 0 80px;
   min-height: 100vh;
 }
@@ -87,8 +87,8 @@
   margin-top: 10px;
   border: 0;
   transform: skew(-21deg);
-  background: #5d1f1f;
-  color: #fff;
+  background: var(--primary-color);
+  color: var(--white-color);
   font-family: var(--heading);
   font-size: 16px;
   font-weight: 700;
@@ -101,14 +101,14 @@
 }
 
 .contact-submit-btn:hover {
-  background: #7a2828;
-  color: #fff;
+  background: var(--primary-hover);
+  color: var(--white-color);
   transform: skew(-21deg) translateY(-2px);
   box-shadow: 0 12px 20px rgba(0, 0, 0, 0.24);
 }
 
 .contact-submit-btn:disabled {
-  background: #7a2828;
+  background: var(--primary-hover);
   opacity: 0.6;
   cursor: not-allowed;
   transform: skew(-21deg);
@@ -178,7 +178,7 @@
 }
 
 .contact-info-content a:hover {
-  color: #ff4500;
+  color: var(--accent-orange);
 }
 
 /* --- Success Message --- */
@@ -193,7 +193,7 @@
 
 .contact-success-message i {
   font-size: 64px;
-  color: #28a745;
+  color: var(--accent-green-success);
   margin-bottom: 24px;
 }
 

@@ -1,6 +1,6 @@
 .menu-category-page {
   min-height: 100vh;
-  background: #ffffff;
+  background: var(--white-color);
 }
 
 .menu-category-stage {
@@ -58,7 +58,7 @@
   font-size: clamp(2rem, 3vw, 3rem);
   font-weight: 700;
   line-height: 1.08;
-  color: #ffffff;
+  color: var(--white-color);
   text-transform: uppercase;
   letter-spacing: 0.02em;
 }
@@ -162,7 +162,7 @@
   margin: 0 0 18px;
   font-family: var(--font-heading);
   font-size: 1.35rem;
-  color: #ffffff;
+  color: var(--white-color);
   text-transform: uppercase;
   letter-spacing: 0.03em;
 }
@@ -220,7 +220,7 @@
 }
 
 .menu-category-inline-link:hover {
-  color: #ffffff;
+  color: var(--white-color);
   transform: translateY(-2px);
 }
 
@@ -263,7 +263,7 @@
   margin: 0;
   font-family: var(--font-heading);
   font-size: 1.4rem;
-  color: #ffffff;
+  color: var(--white-color);
   text-transform: uppercase;
   letter-spacing: 0.03em;
 }

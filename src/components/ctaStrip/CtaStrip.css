@@ -1,4 +1,4 @@
-/* ═══════════════════════════════════════════
+﻿/* ═══════════════════════════════════════════
    CTA STRIP — secondary-color bg, primary text
 ═══════════════════════════════════════════ */
 .cta-strip {
@@ -56,7 +56,7 @@
   border: 1.5px solid var(--primary-color);
   border-radius: var(--radius-full);
   background: var(--primary-color);
-  color: #ffffff;
+  color: var(--white-color);
   font-family: var(--font-body);
   font-size: 0.9rem;
   font-weight: 700;
@@ -85,7 +85,7 @@
 
 .cta-strip__btn--outline:hover {
   background: var(--primary-color);
-  color: #ffffff;
+  color: var(--white-color);
   transform: translateY(-2px);
 }
 

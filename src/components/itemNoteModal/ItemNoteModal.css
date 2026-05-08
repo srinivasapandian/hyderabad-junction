@@ -1,4 +1,4 @@
-/* ═══════════════════════════════════════════════
+﻿/* ═══════════════════════════════════════════════
    ITEM NOTE MODAL — dark brand theme
    ═══════════════════════════════════════════════ */
 
@@ -55,7 +55,7 @@
   font-family: var(--font-heading, var(--font-body));
   font-size: 1.15rem;
   font-weight: 700;
-  color: #ffffff;
+  color: var(--white-color);
   line-height: 1.2;
 }
 
@@ -177,7 +177,7 @@
 
 .inm-btn--ghost:hover {
   background: rgba(224, 192, 171, 0.08);
-  color: #ffffff;
+  color: var(--white-color);
   border-color: rgba(224, 192, 171, 0.55);
 }
 
@@ -188,8 +188,8 @@
 }
 
 .inm-btn--primary:hover:not(:disabled) {
-  background: color-mix(in srgb, var(--secondary-color) 85%, var(--white-color, #ffffff));
-  border-color: color-mix(in srgb, var(--secondary-color) 85%, var(--white-color, #ffffff));
+  background: color-mix(in srgb, var(--secondary-color) 85%, var(--white-color, var(--white-color)));
+  border-color: color-mix(in srgb, var(--secondary-color) 85%, var(--white-color, var(--white-color)));
 }
 
 .inm-btn--primary:disabled {

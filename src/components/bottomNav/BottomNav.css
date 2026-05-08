@@ -1,4 +1,4 @@
-/* ── Bottom Nav — mobile only (≤576px) ─────────────────────────────────────── */
+﻿/* ── Bottom Nav — mobile only (≤576px) ─────────────────────────────────────── */
 .bnav {
   display: none; /* hidden on desktop */
 }
@@ -12,7 +12,7 @@
     left: 0;
     right: 0;
     height: 58px;
-    background: #ffffff;
+    background: var(--white-color);
     border-top: 1px solid rgba(0, 0, 0, 0.08);
     box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.08);
     z-index: 1200;  /* above active orders bar (1100) */
@@ -28,7 +28,7 @@
     justify-content: center;
     gap: 3px;
     text-decoration: none;
-    color: #94a3b8;
+    color: var(--info-blue-light);
     transition: color 0.18s;
     position: relative;
     padding: 6px 0 4px;
@@ -84,13 +84,13 @@
     padding: 0 3px;
     border-radius: 999px;
     background: var(--red);
-    color: #fff;
+    color: var(--white-color);
     font-size: 0.55rem;
     font-weight: 700;
     display: flex;
     align-items: center;
     justify-content: center;
     line-height: 1;
-    border: 1.5px solid #fff;
+    border: 1.5px solid var(--white-color);
   }
 }

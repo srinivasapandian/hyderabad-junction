@@ -1,4 +1,4 @@
-/* ═══════════════════════════════════════════════
+﻿/* ═══════════════════════════════════════════════
    ORDERS (HISTORY) PAGE — PREMIUM THEME
    ═══════════════════════════════════════════════ */
 
@@ -43,7 +43,7 @@
   height: 42px;
   border-radius: 50%;
   border: 1.5px solid rgba(111, 23, 25, 0.1);
-  background: #ffffff;
+  background: var(--white-color);
   color: var(--primary-color);
   display: inline-flex;
   align-items: center;
@@ -55,7 +55,7 @@
 
 .orders-back:hover {
   background: var(--primary-color);
-  color: #ffffff;
+  color: var(--white-color);
   border-color: var(--primary-color);
   transform: translateX(-3px);
 }
@@ -90,7 +90,7 @@
 
 /* ── Card ─────────────────────────────────────── */
 .orders-card {
-  background: #ffffff;
+  background: var(--white-color);
   border: 1px solid rgba(111, 23, 25, 0.08);
   border-radius: 20px;
   padding: 1.5rem;
@@ -136,15 +136,15 @@
   letter-spacing: 0.08em;
   padding: 0.35rem 0.85rem;
   border-radius: 999px;
-  background: #f8f1ed;
+  background: var(--card-bg-warm);
   color: var(--primary-color);
 }
-.orders-card__status.is-done      { background: #ecfdf5; color: #059669; }
-.orders-card__status.is-ready     { background: #ecfdf5; color: #059669; }
-.orders-card__status.is-prep      { background: #fff7ed; color: #ea580c; }
-.orders-card__status.is-confirmed { background: #fef2f2; color: #dc2626; }
-.orders-card__status.is-recv      { background: #f1f5f9; color: #64748b; }
-.orders-card__status.is-cancelled { background: #fee2e2; color: #b91c1c; }
+.orders-card__status.is-done      { background: var(--success-bg); color: var(--success); }
+.orders-card__status.is-ready     { background: var(--success-bg); color: var(--success); }
+.orders-card__status.is-prep      { background: var(--warning-bg); color: var(--warning); }
+.orders-card__status.is-confirmed { background: var(--error-surface); color: var(--accent-dc); }
+.orders-card__status.is-recv      { background: var(--info-slate); color: var(--info-blue); }
+.orders-card__status.is-cancelled { background: var(--error-bg); color: var(--status-red-dark); }
 
 /* Meta row */
 .orders-card__meta {
@@ -176,7 +176,7 @@
 .orders-card__item {
   font-family: var(--font-body);
   font-size: 0.8rem;
-  background: #f8f1ed;
+  background: var(--card-bg-warm);
   border-radius: 8px;
   padding: 0.3rem 0.65rem;
   color: var(--primary-color);
@@ -252,7 +252,7 @@
   background: var(--primary-color);
   border: none;
   border-radius: 999px;
-  color: #ffffff;
+  color: var(--white-color);
   font-family: var(--font-body);
   font-size: 0.9rem;
   font-weight: 700;
@@ -272,7 +272,7 @@
 
 .orders-empty__cta i {
   font-size: 0.85rem;
-  color: #ffffff;
+  color: var(--white-color);
 }
 
 /* ── Error ─────────────────────────────────────── */
@@ -280,9 +280,9 @@
   text-align: center;
   padding: 3rem;
   font-family: var(--font-body);
-  color: #dc2626;
+  color: var(--accent-dc);
   font-size: 1rem;
-  background: #fef2f2;
+  background: var(--error-surface);
   border-radius: 16px;
   margin: 2rem 0;
 }

@@ -49,9 +49,9 @@
 
 /* ── Unavailable items banner ───────────────────────── */
 .ordering-unavailable-banner {
-  background: #fff3cd;
-  color: #856404;
-  border: 1px solid #ffc107;
+  background: var(--status-yellow-bg);
+  color: var(--status-yellow);
+  border: 1px solid var(--status-yellow-2);
   border-radius: 8px;
   padding: 0.75rem 1rem;
   margin: 0 1rem 1rem;

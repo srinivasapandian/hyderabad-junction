@@ -1,4 +1,4 @@
-/* ═══════════════════════════════════════════════
+﻿/* ═══════════════════════════════════════════════
    SAVED ADDRESS PAGE — PREMIUM THEME
    ═══════════════════════════════════════════════ */
 
@@ -51,7 +51,7 @@
   height: 42px;
   border-radius: 50%;
   border: 1.5px solid rgba(111, 23, 25, 0.1);
-  background: #ffffff;
+  background: var(--white-color);
   color: var(--primary-color);
   display: inline-flex;
   align-items: center;
@@ -63,7 +63,7 @@
 
 .sa-back:hover {
   background: var(--primary-color);
-  color: #ffffff;
+  color: var(--white-color);
   border-color: var(--primary-color);
   transform: translateX(-3px);
 }
@@ -118,7 +118,7 @@
 
 .sa-btn--solid {
   background: var(--primary-color);
-  color: #ffffff;
+  color: var(--white-color);
   box-shadow: 0 8px 20px rgba(111, 23, 25, 0.2);
 }
 
@@ -129,7 +129,7 @@
 }
 
 .sa-btn--add {
-  background: #ffffff;
+  background: var(--white-color);
   border: 1.5px solid rgba(111, 23, 25, 0.15);
   color: var(--primary-color);
 }
@@ -137,7 +137,7 @@
 .sa-btn--add:hover:not(:disabled) {
   background: var(--primary-color);
   border-color: var(--primary-color);
-  color: #ffffff;
+  color: var(--white-color);
 }
 
 .sa-list {
@@ -150,7 +150,7 @@
 }
 
 .sa-card {
-  background: #ffffff;
+  background: var(--white-color);
   border: 1px solid rgba(111, 23, 25, 0.08);
   border-radius: 20px;
   padding: 1.5rem;
@@ -225,7 +225,7 @@
   padding: 0.45rem 1rem;
   border-radius: 999px;
   border: 1px solid rgba(111, 23, 25, 0.1);
-  background: #f8f1ed;
+  background: var(--card-bg-warm);
   color: var(--primary-color);
   font-family: var(--font-body);
   font-size: 0.78rem;
@@ -236,7 +236,7 @@
 
 .sa-action-btn:hover:not(:disabled) {
   background: var(--primary-color);
-  color: #ffffff;
+  color: var(--white-color);
   border-color: var(--primary-color);
 }
 
@@ -267,8 +267,8 @@
 .sa-error {
   border-radius: 12px;
   border: 1px solid rgba(220, 38, 38, 0.2);
-  background: #fef2f2;
-  color: #dc2626;
+  background: var(--error-surface);
+  color: var(--accent-dc);
   font-family: var(--font-body);
   font-size: 0.9rem;
   display: flex;
@@ -294,7 +294,7 @@
   width: 80px;
   height: 80px;
   border-radius: 24px;
-  background: #f8f1ed;
+  background: var(--card-bg-warm);
   display: flex;
   align-items: center;
   justify-content: center;

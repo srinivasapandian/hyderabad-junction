@@ -3,7 +3,7 @@
 ═══════════════════════════════════════════ */
 .policies-page {
   min-height: 100vh;
-  background: #ffffff;
+  background: var(--white-color);
   display: flex;
   flex-direction: column;
 }
@@ -92,7 +92,7 @@
   font-family: var(--font-heading);
   font-size: 1.05rem;
   font-weight: 700;
-  color: #ffffff;
+  color: var(--white-color);
   letter-spacing: 0.02em;
   margin: 0 0 0.6rem;
 }
@@ -128,7 +128,7 @@
 }
 
 .policies-content a:hover {
-  color: #ffffff;
+  color: var(--white-color);
 }
 
 /* ── Responsive ───────────────────────────── */

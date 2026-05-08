@@ -1,4 +1,4 @@
-/* ══════════════════════════════════════════════════════════
+﻿/* ══════════════════════════════════════════════════════════
    ITEM DETAIL PAGE — DARK BRAND THEME
    Desktop : split (left detail · right image)
    Mobile  : hero image top → details → sticky bar
@@ -6,7 +6,7 @@
 
 .idp-page {
   min-height: 100vh;
-  background: #ffffff;
+  background: var(--white-color);
 }
 
 .idp {
@@ -53,7 +53,7 @@
 
 .idp__back-btn:hover {
   background: var(--primary-color);
-  color: #ffffff;
+  color: var(--white-color);
 }
 
 /* ══════════════════════════════════════════════════════════
@@ -106,13 +106,13 @@
 .idp__badge--special {
   background: rgba(194, 122, 42, 0.12);
   border: 1px solid rgba(194, 122, 42, 0.3);
-  color: #e3a768;
+  color: var(--accent-orange-red);
 }
 
 .idp__badge--kids {
   background: rgba(74, 222, 128, 0.08);
   border: 1px solid rgba(74, 222, 128, 0.28);
-  color: #4ade80;
+  color: var(--success-light);
   padding: 6px 8px;
 }
 
@@ -136,11 +136,11 @@
   border-radius: 999px;
   background: rgba(251, 146, 60, 0.12);
   border: 1px solid rgba(251, 146, 60, 0.35);
-  color: #fbbf24;
+  color: var(--warning-yellow);
 }
 
 .idp__chip i {
-  color: #fbbf24;
+  color: var(--warning-yellow);
   font-size: 0.72rem;
 }
 
@@ -223,11 +223,11 @@
 }
 
 .idp__allergy-sub--safe {
-  color: #4ade80;
+  color: var(--success-light);
 }
 
 .idp__allergy-sub--warn {
-  color: #fbbf24;
+  color: var(--warning-yellow);
 }
 
 .idp__allergy-list {
@@ -258,13 +258,13 @@
 .idp__allergy-card--safe {
   background: rgba(74, 222, 128, 0.08);
   border-color: rgba(74, 222, 128, 0.3);
-  color: #4ade80;
+  color: var(--success-light);
 }
 
 .idp__allergy-card--warn {
   background: rgba(251, 191, 36, 0.08);
   border-color: rgba(251, 191, 36, 0.3);
-  color: #fbbf24;
+  color: var(--warning-yellow);
 }
 
 
@@ -284,13 +284,13 @@
 .idp__allergy--safe {
   background: rgba(74, 222, 128, 0.08);
   border: 1px solid rgba(74, 222, 128, 0.25);
-  color: #4ade80;
+  color: var(--success-light);
 }
 
 .idp__allergy--warn {
   background: rgba(251, 191, 36, 0.08);
   border: 1px solid rgba(251, 191, 36, 0.3);
-  color: #fbbf24;
+  color: var(--warning-yellow);
 }
 
 
@@ -302,7 +302,7 @@
   font-family: var(--font-body);
   font-size: 0.84rem;
   font-weight: 600;
-  color: #ef4444;
+  color: var(--accent-ef);
   padding: 10px 16px;
   background: rgba(239, 68, 68, 0.08);
   border: 1px solid rgba(239, 68, 68, 0.24);
@@ -329,7 +329,7 @@
   border-radius: var(--radius-full);
   border: 1.5px solid var(--primary-color);
   background: var(--primary-color);
-  color: #ffffff;
+  color: var(--white-color);
   font-family: var(--font-body);
   font-size: 0.95rem;
   font-weight: 700;
@@ -434,14 +434,14 @@
 }
 
 .idp__fav-btn:hover {
-  color: #ff6b7a;
-  border-color: #ff6b7a;
+  color: var(--accent-salmon);
+  border-color: var(--accent-salmon);
   background: rgba(255, 107, 122, 0.08);
 }
 
 .idp__fav-btn--on {
-  color: #ff6b7a;
-  border-color: #ff6b7a;
+  color: var(--accent-salmon);
+  border-color: var(--accent-salmon);
   background: rgba(255, 107, 122, 0.1);
 }
 
@@ -531,13 +531,13 @@
 }
 
 .idp__img-fav:hover {
-  color: #ff6b7a;
-  border-color: #ff6b7a;
+  color: var(--accent-salmon);
+  border-color: var(--accent-salmon);
 }
 
 .idp__img-fav--on {
-  color: #ff6b7a;
-  border-color: #ff6b7a;
+  color: var(--accent-salmon);
+  border-color: var(--accent-salmon);
   background: rgba(255, 107, 122, 0.15);
 }
 
@@ -553,7 +553,7 @@
   border-radius: 50%;
   background: rgba(111, 23, 25, 0.75);
   border: 1px solid rgba(224, 192, 171, 0.3);
-  color: #ffffff;
+  color: var(--white-color);
   font-size: 0.82rem;
   align-items: center;
   justify-content: center;
@@ -625,7 +625,7 @@
   height: 40px;
   border-radius: var(--radius-full);
   background: var(--primary-color);
-  color: #ffffff;
+  color: var(--white-color);
   border: 1.5px solid var(--primary-color);
   font-family: var(--font-body);
   font-size: 0.84rem;
@@ -707,7 +707,7 @@
 }
 
 .idp__custom-card {
-  background: #ffffff;
+  background: var(--white-color);
   border: 1px solid rgba(0, 0, 0, 0.08);
   border-radius: 16px;
   overflow: hidden;
@@ -727,7 +727,7 @@
   font-family: var(--font-heading);
   font-size: 0.88rem;
   font-weight: 700;
-  color: #ffffff;
+  color: var(--white-color);
 }
 
 .idp__custom-rule {
@@ -792,7 +792,7 @@
   align-items: center;
   gap: 12px;
   padding: 14px 16px;
-  background: #ffffff;
+  background: var(--white-color);
   border: 1px solid rgba(0, 0, 0, 0.08);
   border-radius: 16px;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
@@ -890,7 +890,7 @@
   align-items: flex-start;
   gap: 12px;
   padding: 14px 16px;
-  background: #ffffff;
+  background: var(--white-color);
   border: 1px solid rgba(0, 0, 0, 0.08);
   border-radius: 14px;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
@@ -1197,7 +1197,7 @@
     left: 0;
     right: 0;
     z-index: 200;
-    background: #ffffff;
+    background: var(--white-color);
     border-top: 1px solid rgba(224, 192, 171, 0.1);
     padding: 0.75rem 1rem;
     box-shadow: 0 -6px 24px rgba(0, 0, 0, 0.35);
@@ -1222,7 +1222,7 @@
   height: 48px;
   border-radius: var(--radius-full);
   background: var(--primary-color);
-  color: #ffffff;
+  color: var(--white-color);
   border: 1.5px solid var(--primary-color);
   font-family: var(--font-body);
   font-size: 0.9rem;
@@ -1271,7 +1271,7 @@
   font-family: var(--font-body);
   font-size: 0.9rem;
   font-weight: 700;
-  color: #ffffff;
+  color: var(--white-color);
 }
 
 .idp__mobile-fav {
@@ -1291,13 +1291,13 @@
 }
 
 .idp__mobile-fav:hover {
-  color: #ff6b7a;
-  border-color: #ff6b7a;
+  color: var(--accent-salmon);
+  border-color: var(--accent-salmon);
 }
 
 .idp__mobile-fav--on {
-  color: #ff6b7a;
-  border-color: #ff6b7a;
+  color: var(--accent-salmon);
+  border-color: var(--accent-salmon);
   background: rgba(255, 107, 122, 0.1);
 }
 
@@ -1332,7 +1332,7 @@
 }
 
 .idp__mod-group {
-  background: #ffffff;
+  background: var(--white-color);
   border: 1px solid rgba(0, 0, 0, 0.08);
   border-radius: 16px;
   overflow: hidden;
@@ -1370,13 +1370,13 @@
 }
 
 .idp__mod-badge--required {
-  color: #ff6b7a;
+  color: var(--accent-salmon);
   background: rgba(255, 107, 122, 0.08);
   border-color: rgba(255, 107, 122, 0.28);
 }
 
 .idp__mod-badge--met {
-  color: #4ade80;
+  color: var(--success-light);
   background: rgba(74, 222, 128, 0.08);
   border-color: rgba(74, 222, 128, 0.28);
 }
@@ -1406,7 +1406,7 @@
   padding: 8px 14px;
   border-radius: 999px;
   border: 1.5px solid rgba(0, 0, 0, 0.08);
-  background: #ffffff;
+  background: var(--white-color);
   font-family: var(--font-body);
   font-size: 0.82rem;
   cursor: pointer;
@@ -1439,7 +1439,7 @@
 }
 
 .idp__mod-pill--selected .idp__mod-pill-name {
-  color: #ffffff;
+  color: var(--white-color);
 }
 
 .idp__mod-pill-sep {
@@ -1454,7 +1454,7 @@
 }
 
 .idp__mod-pill--selected .idp__mod-pill-price {
-  color: #ffffff;
+  color: var(--white-color);
 }
 
 .idp__mod-validation {
@@ -1462,7 +1462,7 @@
   align-items: center;
   gap: 8px;
   margin-top: 10px;
-  color: #ff6b7a;
+  color: var(--accent-salmon);
   font-family: var(--font-body);
   font-size: 0.82rem;
 }

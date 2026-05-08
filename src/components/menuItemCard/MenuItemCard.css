@@ -1,4 +1,4 @@
-/* ═══════════════════════════════════════
+﻿/* ═══════════════════════════════════════
    MENU ITEM CARD — TRANSPARENT / LIGHT BG
 ═══════════════════════════════════════ */
 
@@ -96,7 +96,7 @@
   font-family: var(--font-heading);
   font-size: 1.05rem;
   font-weight: 700;
-  color: #1a1a1a;
+  color: var(--brand-dark);
   margin: 0;
   letter-spacing: 0.02em;
   white-space: nowrap;
@@ -159,7 +159,7 @@
 
 .mic-customise-tag:hover {
   background: var(--primary-color);
-  color: #fff;
+  color: var(--white-color);
 }
 
 .mic-customise-tag:hover img {
@@ -235,14 +235,14 @@
 }
 
 .mic-heart-btn:hover {
-  background: #fff;
-  color: #cd4143;
+  background: var(--white-color);
+  color: var(--red);
   transform: scale(1.1);
 }
 
 .mic-heart-btn.active {
-  color: #cd4143;
-  background: #fff;
+  color: var(--red);
+  background: var(--white-color);
 }
 
 /* ── Other icon buttons ── */
@@ -301,8 +301,8 @@
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: #cd4143;
-  border: 1.5px solid #fff;
+  background: var(--red);
+  border: 1.5px solid var(--white-color);
 }
 
 .mic-note-plus {
@@ -312,14 +312,14 @@
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: #cd4143;
-  color: #fff;
+  background: var(--red);
+  color: var(--white-color);
   font-size: 0.38rem;
   font-weight: 700;
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 1.5px solid #fff;
+  border: 1.5px solid var(--white-color);
 }
 
 .mic-note-btn {
@@ -338,7 +338,7 @@
   font-size: 0.72rem;
   font-weight: 800;
   letter-spacing: 0.1em;
-  color: #ffffff;
+  color: var(--white-color);
   transition: background 0.18s, transform 0.18s, box-shadow 0.18s;
   flex-shrink: 0;
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);

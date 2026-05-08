@@ -9,7 +9,6 @@ import Home from './pages/website/home/Home';
 import Menu from './pages/website/menu/menu';
 import Ordering from './pages/ordering/ordering/ordering';
 import Contact from './pages/website/contact/contact';
-import ServicesPage from './pages/website/services/Services';
 import Account from './pages/ordering/account/Account';
 import Cart from './pages/ordering/cart/Cart';
 import MenuCategoryRouter from './pages/website/menuCategory/MenuCategoryRouter';
@@ -29,7 +28,6 @@ import ItemDetailPage from './pages/ordering/itemDetail/ItemDetailPage';
 import PoliciesLayout from './pages/ordering/policies/PoliciesLayout';
 import PolicyPage from './pages/ordering/policies/PolicyPage';
 import { POLICY_TABS } from './utils/policiesConfig';
-import Blog from './pages/website/blog/Blog';
 import { isReservationEnabledByBranch, LOCATION_SLUG } from './utils/branchConfig';
 // import BottomNav from './components/bottomNav/BottomNav';
 
@@ -77,8 +75,6 @@ function App(): React.JSX.Element {
 
           {/* ── Static pages ── */}
           <Route path="/about-us"      element={<Navigate to="/#about" replace />} />
-          <Route path="/blog"          element={<Blog />} />
-          <Route path="/services"      element={<ServicesPage />} />
           <Route path="/contact"       element={<Contact />} />
           <Route path="/account"       element={<Account onSignInClick={openAuthModal} />} />
           <Route path="/cart"          element={<Cart onSignInClick={openAuthModal} />} />

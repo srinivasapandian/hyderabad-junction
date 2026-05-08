@@ -1,4 +1,4 @@
-/* ═══════════════════════════════════════════
+﻿/* ═══════════════════════════════════════════
    ORDERING BAR — DARK PRIMARY THEME
 ═══════════════════════════════════════════ */
 
@@ -182,7 +182,7 @@
 }
 
 .ob-search-clear:hover {
-  color: #fff;
+  color: var(--white-color);
 }
 
 /* ── Suggestions dropdown ── */
@@ -194,7 +194,7 @@
   min-width: 280px;
   height: 380px;        /* fixed — same whether 1 result or 30 */
   overflow-y: auto;
-  background: #fff;
+  background: var(--white-color);
   border-radius: 12px;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.18);
   z-index: 200;
@@ -223,7 +223,7 @@
   font-family: var(--font-body);
   font-size: 1rem;
   font-weight: 700;
-  color: var(--primary-color, #00271c);
+  color: var(--primary-color, var(--brand-green-dark));
   margin: 0;
 }
 
@@ -267,7 +267,7 @@
   font-family: var(--font-body);
   font-size: 0.88rem;
   font-weight: 500;
-  color: var(--primary-color, #00271c);
+  color: var(--primary-color, var(--brand-green-dark));
   text-align: left;
 }
 

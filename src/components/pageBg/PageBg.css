@@ -1,12 +1,12 @@
-.pg-bg {
+﻿.pg-bg {
   position: relative;
   overflow: clip;
   isolation: isolate;
-  background-color: #faf3f0;
+  background-color: var(--bg);
   /* Base background color matching the new premium brand theme */
 }
 .pg-bg.mn-page {
-  background-color: #ffffff;
+  background-color: var(--white-color);
 }
 
 .pg-bg::before {

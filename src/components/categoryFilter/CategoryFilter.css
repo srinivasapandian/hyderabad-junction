@@ -1,4 +1,4 @@
-/* ═══════════════════════════════════════════
+﻿/* ═══════════════════════════════════════════
    FILTER BAR — SECONDARY COLOUR THEME
 ═══════════════════════════════════════════ */
 .mn-filter-outer {
@@ -34,7 +34,7 @@
 
 .mn-search-input {
   width: 100%;
-  background: #ffffff;
+  background: var(--white-color);
   border: none;
   border-radius: var(--radius-full);
   padding: 11px 40px 11px 40px;
@@ -113,7 +113,7 @@
 .mn-pill.active {
   background: var(--primary-color);
   border-color: transparent;
-  color: #ffffff;
+  color: var(--white-color);
 }
 
 .mn-pill-count {

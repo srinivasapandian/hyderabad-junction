@@ -1,4 +1,4 @@
-/* ── Overlay backdrop ── */
+﻿/* ── Overlay backdrop ── */
 .item-detail__overlay {
   position: fixed;
   inset: 0;
@@ -17,7 +17,7 @@
   width: 100%;
   max-width: 480px;
   max-height: 92vh;
-  background: #ffffff;
+  background: var(--white-color);
   border-radius: 28px 28px 0 0;
   display: flex;
   flex-direction: column;
@@ -31,7 +31,7 @@
   align-items: center;
   padding: 18px 20px 12px;
   flex-shrink: 0;
-  background: #ffffff;
+  background: var(--white-color);
   border-bottom: 1px solid var(--border);
 }
 
@@ -83,7 +83,7 @@
   padding: 6px 14px;
   border-radius: 999px;
   background: var(--red);
-  color: #ffffff;
+  color: var(--white-color);
   font-family: var(--font-body);
   font-size: 0.72rem;
   font-weight: 700;
@@ -153,7 +153,7 @@
 .item-detail__footer {
   padding: 16px 22px 24px;
   flex-shrink: 0;
-  background: #ffffff;
+  background: var(--white-color);
   border-top: 1px solid var(--border);
 }
 

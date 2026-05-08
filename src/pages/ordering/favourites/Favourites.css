@@ -1,4 +1,4 @@
-/* ═══════════════════════════════════════════════
+﻿/* ═══════════════════════════════════════════════
    FAVOURITES PAGE — PREMIUM THEME
    ═══════════════════════════════════════════════ */
 
@@ -44,7 +44,7 @@
   height: 42px;
   border-radius: 50%;
   border: 1.5px solid rgba(111, 23, 25, 0.1);
-  background: #ffffff;
+  background: var(--white-color);
   color: var(--primary-color);
   display: inline-flex;
   align-items: center;
@@ -56,7 +56,7 @@
 
 .fav-back:hover {
   background: var(--primary-color);
-  color: #ffffff;
+  color: var(--white-color);
   border-color: var(--primary-color);
   transform: translateX(-3px);
 }
@@ -94,7 +94,7 @@
   font-family: var(--font-body);
   font-size: 0.8rem;
   color: var(--primary-color);
-  background: #f8f1ed;
+  background: var(--card-bg-warm);
   border: 1px solid rgba(111, 23, 25, 0.1);
   border-radius: 999px;
   padding: 0.25rem 0.85rem;
@@ -169,7 +169,7 @@
   background: var(--primary-color);
   border: none;
   border-radius: 999px;
-  color: #ffffff;
+  color: var(--white-color);
   font-family: var(--font-body);
   font-size: 0.9rem;
   font-weight: 700;

@@ -1,4 +1,4 @@
-.ph-hero {
+﻿.ph-hero {
   position: relative;
   height: 100vh;
   min-height: 560px;
@@ -54,7 +54,7 @@
   font-weight: 700;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: #a8f0cc;
+  color: var(--accent-peach);
   margin: 0;
 }
 
@@ -62,7 +62,7 @@
   font-family: var(--font-heading);
   font-size: clamp(4rem, 10vw, 7.5rem);
   font-weight: 700;
-  color: #fff;
+  color: var(--white-color);
   text-transform: uppercase;
   letter-spacing: 0.06em;
   line-height: 0.95;

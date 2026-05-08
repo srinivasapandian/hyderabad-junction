@@ -1,4 +1,4 @@
-/* ═══════════════════════════════════════════
+﻿/* ═══════════════════════════════════════════
    ADDRESS MODAL — dark theme
 ═══════════════════════════════════════════ */
 
@@ -108,7 +108,7 @@
   font-family: var(--font-body);
   font-size: 0.88rem;
   padding: 0.72rem 0;
-  color: #ffffff;
+  color: var(--white-color);
   background: transparent;
 }
 .addr-modal__search-input::placeholder { color: rgba(255, 255, 255, 0.32); }
@@ -175,7 +175,7 @@
   top: calc(100% + 4px);
   left: 0;
   right: 0;
-  background: #012220;
+  background: var(--brand-teal-dark);
   border: 1px solid rgba(224, 192, 171, 0.15);
   border-radius: var(--radius-md);
   box-shadow: 0 16px 48px rgba(0, 0, 0, 0.4);
@@ -208,7 +208,7 @@
   padding: 0.72rem 0.85rem;
   font-family: var(--font-body);
   font-size: 0.88rem;
-  color: #ffffff;
+  color: var(--white-color);
   outline: none;
   transition: border-color 0.18s, background 0.18s;
   background: rgba(0, 0, 0, 0.28);
@@ -233,7 +233,7 @@
 }
 .addr-modal__field-error:not(:empty)::before {
   content: '\f06a';
-  font-family: 'Font Awesome 6 Free';
+  font-family: var(--font-icon);
   font-weight: 900;
   font-size: 0.72rem;
   flex-shrink: 0;
@@ -330,7 +330,7 @@
 }
 .addr-modal__btn--cancel:hover {
   border-color: rgba(224, 192, 171, 0.45);
-  color: #ffffff;
+  color: var(--white-color);
 }
 
 .addr-modal__btn--save {
@@ -390,7 +390,7 @@
   color: rgba(255, 255, 255, 0.4);
   font-size: 0.9rem;
 }
-.addr-modal__geo-close:hover { color: #ffffff; }
+.addr-modal__geo-close:hover { color: var(--white-color); }
 
 .addr-modal__geo-icon {
   font-size: 1.6rem;
@@ -401,7 +401,7 @@
   font-family: var(--font-heading);
   font-size: 1.05rem;
   font-weight: 700;
-  color: #ffffff;
+  color: var(--white-color);
   margin: 0;
   text-transform: uppercase;
 }
