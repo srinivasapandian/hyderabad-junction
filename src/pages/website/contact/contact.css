@@ -1,11 +1,11 @@
 .contact-page {
-  padding: 140px 0 80px;
+  padding: 0 0 80px;
   min-height: 100vh;
 }
 
 .contact-container {
   max-width: 1200px;
-  margin: 0 auto;
+  margin: 60px auto 0;
   padding: 0 2rem;
 }
 

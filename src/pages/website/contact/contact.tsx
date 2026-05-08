@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import './contact.css';
 import PageBg from '../../../components/pageBg/PageBg';
+import PageBanner from '../../../components/pageBanner/PageBanner';
+import { BANNER_IMAGES } from '../../../components/pageBanner/bannerImages';
 
 interface ContactForm {
   name: string;
@@ -37,6 +39,7 @@ export default function Contact() {
 
   return (
     <PageBg className="contact-page">
+      <PageBanner title="Contact Us" backgroundImage={BANNER_IMAGES.contact} />
       <div className="contact-container container">
         <div className="contact-grid">
           
