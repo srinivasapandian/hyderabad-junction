@@ -1,39 +1,90 @@
+/* ═══════════════════════════════════════════
+   PAGE BANNER — SPLIT DESIGN
+   Left: dark brand content | Right: food image
+═══════════════════════════════════════════ */
+
 .page-banner {
-  position: relative;
+  display: grid;
+  grid-template-columns: 52% 48%;
   width: 100%;
-  height: 65vh;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+  height: 300px;
+  overflow: hidden;
+  margin-top: 88px;
+  background: var(--primary-color);
+}
+
+/* ── Left panel ── */
+.page-banner__left {
+  position: relative;
+  background: linear-gradient(135deg, #2a0608 0%, var(--primary-color) 70%);
   display: flex;
   align-items: center;
-  justify-content: center;
-  padding-top: 88px;
-  overflow: hidden;
+  padding: 0 56px;
+  /* Curved right edge — wave effect */
+  border-top-right-radius: 60% 50%;
+  border-bottom-right-radius: 60% 50%;
+  z-index: 2;
 }
 
-.page-banner__scrim {
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.7);
-  pointer-events: none;
+.page-banner__content {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
 }
 
-.page-banner__crumbs {
-  position: relative;
-  z-index: 1;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.75rem;
+.page-banner__eyebrow {
   font-family: var(--font-body);
-  font-size: 1rem;
-  font-weight: 700;
+  font-size: 0.78rem;
+  font-weight: 600;
   letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--secondary-color);
+  margin: 0;
+  opacity: 0.85;
+}
+
+.page-banner__heading {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin: 0;
+}
+
+.page-banner__heading--script {
+  font-family: var(--font-heading);
+  font-size: 1.6rem;
+  font-weight: 400;
+  font-style: italic;
+  color: var(--secondary-color);
+  line-height: 1.1;
+  letter-spacing: 0.02em;
+}
+
+.page-banner__heading--bold {
+  font-family: var(--font-heading);
+  font-size: 2.6rem;
+  font-weight: 900;
+  color: #ffffff;
+  line-height: 1;
+  letter-spacing: 0.04em;
   text-transform: uppercase;
 }
 
+/* Breadcrumb */
+.page-banner__crumbs {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin-top: 8px;
+}
+
 .page-banner__crumb {
-  color: #ffffff;
+  color: rgba(255, 255, 255, 0.65);
   text-decoration: none;
   transition: color 0.2s;
 }
@@ -48,29 +99,78 @@
 }
 
 .page-banner__slash {
-  color: rgba(255, 255, 255, 0.55);
+  color: rgba(255, 255, 255, 0.35);
 }
 
-@media (max-width: 768px) {
+/* ── Right panel ── */
+.page-banner__right {
+  position: relative;
+  overflow: hidden;
+  margin-left: -80px;
+}
+
+.page-banner__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+.page-banner__img-scrim {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, var(--primary-color) 0%, transparent 40%);
+  pointer-events: none;
+}
+
+/* ═══════════════════════════════════════════
+   RESPONSIVE
+═══════════════════════════════════════════ */
+@media (max-width: 900px) {
   .page-banner {
-    height: 65vh;
-    padding-top: 72px;
+    height: 260px;
+    margin-top: 72px;
   }
 
-  .page-banner__crumbs {
-    font-size: 0.82rem;
-    letter-spacing: 0.15em;
-    gap: 0.5rem;
+  .page-banner__left {
+    padding: 0 36px;
+  }
+
+  .page-banner__heading--bold {
+    font-size: 2rem;
+  }
+
+  .page-banner__heading--script {
+    font-size: 1.3rem;
   }
 }
 
-@media (max-width: 576px) {
+@media (max-width: 640px) {
   .page-banner {
-    height: 50vh;
+    grid-template-columns: 60% 40%;
+    height: 220px;
+    margin-top: 64px;
   }
 
-  .page-banner__crumbs {
-    font-size: 0.72rem;
-    letter-spacing: 0.12em;
+  .page-banner__left {
+    padding: 0 24px;
+    border-top-right-radius: 50% 50%;
+    border-bottom-right-radius: 50% 50%;
   }
+
+  .page-banner__heading--bold  { font-size: 1.55rem; }
+  .page-banner__heading--script { font-size: 1.1rem; }
+  .page-banner__eyebrow { font-size: 0.65rem; }
+}
+
+@media (max-width: 480px) {
+  .page-banner {
+    grid-template-columns: 65% 35%;
+    height: 190px;
+  }
+
+  .page-banner__heading--bold  { font-size: 1.3rem; }
+  .page-banner__heading--script { font-size: 0.95rem; }
+  .page-banner__crumbs { font-size: 0.65rem; margin-top: 6px; }
 }
