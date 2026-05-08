@@ -1,9 +1,8 @@
 .pg-bg {
   position: relative;
-  overflow: clip;
+  overflow-x: hidden;
   isolation: isolate;
   background-color: #faf3f0;
-  /* Base background color matching the new premium brand theme */
 }
 .pg-bg.mn-page {
   background-color: #ffffff;
@@ -36,53 +35,37 @@
 
 /* ── Floating decorative images ── */
 @keyframes pg-float {
-  0% {
-    transform: translateY(0px) rotate(0deg);
-  }
-
-  50% {
-    transform: translateY(-28px) rotate(3deg);
-  }
-
-  100% {
-    transform: translateY(0px) rotate(0deg);
-  }
+  0%   { transform: translateY(0px)   rotate(0deg); }
+  50%  { transform: translateY(-28px) rotate(3deg); }
+  100% { transform: translateY(0px)   rotate(0deg); }
 }
 
-.pg-deco {
+/* Wrapper handles parallax X translation */
+.pg-deco-wrap {
   position: absolute;
-  width: 340px;
-  opacity: 0.08;
   pointer-events: none;
   z-index: 5;
-  animation: pg-float 7s ease-in-out infinite;
+  will-change: transform;
+}
+
+.pg-deco-wrap--left  { left: 10px; }
+.pg-deco-wrap--right { right: 10px; }
+
+/* Image handles the float animation */
+.pg-deco {
+  display: block;
+  width: 300px;
+  opacity: 0.12;
   user-select: none;
+  animation: pg-float 7s ease-in-out infinite;
 }
 
-.pg-deco--left {
-  left: -80px;
-  top: 18vh;
-  animation-delay: 0s;
-}
-
-.pg-deco--right {
-  right: -80px;
-  top: 55vh;
+.pg-deco-wrap--right .pg-deco {
   animation-delay: -3.5s;
-  transform-origin: center center;
 }
 
 @media (max-width: 768px) {
-  .pg-deco {
-    width: 220px;
-    opacity: 0.06;
-  }
-
-  .pg-deco--left {
-    left: -60px;
-  }
-
-  .pg-deco--right {
-    right: -60px;
-  }
+  .pg-deco { width: 180px; opacity: 0.1; }
+  .pg-deco-wrap--left  { left: 0px; }
+  .pg-deco-wrap--right { right: 0px; }
 }
