@@ -13,6 +13,7 @@ import { LOCATION_SLUG } from '../../../utils/branchConfig';
 import type { OrderType } from '../../../types';
 import ClosedBar from '../../../components/ClosedBar/ClosedBar';
 import ClosingSoonBar from '../../../components/ClosingSoonBar/ClosingSoonBar';
+import PageBg from '../../../components/pageBg/PageBg';
 
 const VALID_ORDER_TYPES: Record<string, string> = { pickup: 'Pickup', delivery: 'Delivery' };
 
@@ -72,7 +73,7 @@ function Ordering() {
     : 'No items available.';
 
   return (
-    <div className="mn-page">
+    <PageBg className="mn-page">
       <div className="mn-bg mn-bg--no-hero">
         <div className="mn-bg-scrim" />
         <OrderingBar
@@ -109,7 +110,7 @@ function Ordering() {
       {/* ETA switches with orderType: Pickup → defaultPickUpETA, Delivery → defaultDeliveryETA */}
       <ClosingSoonBar orderType={orderType} />
       <ClosedBar />
-    </div>
+    </PageBg>
   );
 }
 

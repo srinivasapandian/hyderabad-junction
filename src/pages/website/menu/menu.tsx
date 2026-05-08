@@ -13,6 +13,8 @@ import { toSlug } from '../../../utils/slugify';
 import ClosedBar from '../../../components/ClosedBar/ClosedBar';
 import ClosingSoonBar from '../../../components/ClosingSoonBar/ClosingSoonBar';
 
+import PageBg from '../../../components/pageBg/PageBg';
+
 function Menu() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -59,7 +61,7 @@ function Menu() {
   }, [scrollToSection, sectionCats, navigate]);
 
   return (
-    <div className="mn-page">
+    <PageBg className="mn-page">
       <PageBanner title="Our Menu" backgroundImage={BANNER_IMAGES.menu} />
       <div className="mn-bg">
         <div className="mn-bg-scrim" />
@@ -97,7 +99,7 @@ function Menu() {
       {/* Menu page is Pickup-only — always use Pickup ETA for closing-soon window */}
       <ClosingSoonBar orderType="Pickup" />
       <ClosedBar />
-    </div>
+    </PageBg>
   );
 }
 

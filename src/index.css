@@ -1,29 +1,8 @@
 /* ═══════════════════════════════════════════
-   SELF-HOSTED FONTS
-═══════════════════════════════════════════ */
+   GLOBAL STYLES
+   ═══════════════════════════════════════════ */
 
-/* Causten Round ─────────────────────────── */
-@font-face { font-family: 'Causten'; src: url('./assets/font/Causten-Round/Causten-Thin.otf') format('opentype'); font-weight: 100; font-style: normal; font-display: swap; }
-@font-face { font-family: 'Causten'; src: url('./assets/font/Causten-Round/Causten-ThinOblique.otf') format('opentype'); font-weight: 100; font-style: oblique; font-display: swap; }
-@font-face { font-family: 'Causten'; src: url('./assets/font/Causten-Round/Causten-ExtraLight.otf') format('opentype'); font-weight: 200; font-style: normal; font-display: swap; }
-@font-face { font-family: 'Causten'; src: url('./assets/font/Causten-Round/Causten-ExtraLightOblique.otf') format('opentype'); font-weight: 200; font-style: oblique; font-display: swap; }
-@font-face { font-family: 'Causten'; src: url('./assets/font/Causten-Round/Causten-Light.otf') format('opentype'); font-weight: 300; font-style: normal; font-display: swap; }
-@font-face { font-family: 'Causten'; src: url('./assets/font/Causten-Round/Causten-LightOblique.otf') format('opentype'); font-weight: 300; font-style: oblique; font-display: swap; }
-@font-face { font-family: 'Causten'; src: url('./assets/font/Causten-Round/Causten-Regular.otf') format('opentype'); font-weight: 400; font-style: normal; font-display: swap; }
-@font-face { font-family: 'Causten'; src: url('./assets/font/Causten-Round/Causten-RegularOblique.otf') format('opentype'); font-weight: 400; font-style: oblique; font-display: swap; }
-@font-face { font-family: 'Causten'; src: url('./assets/font/Causten-Round/Causten-Medium.otf') format('opentype'); font-weight: 500; font-style: normal; font-display: swap; }
-@font-face { font-family: 'Causten'; src: url('./assets/font/Causten-Round/Causten-MediumOblique.otf') format('opentype'); font-weight: 500; font-style: oblique; font-display: swap; }
-@font-face { font-family: 'Causten'; src: url('./assets/font/Causten-Round/Causten-SemiBold.otf') format('opentype'); font-weight: 600; font-style: normal; font-display: swap; }
-@font-face { font-family: 'Causten'; src: url('./assets/font/Causten-Round/Causten-SemiBoldOblique.otf') format('opentype'); font-weight: 600; font-style: oblique; font-display: swap; }
-@font-face { font-family: 'Causten'; src: url('./assets/font/Causten-Round/Causten-Bold.otf') format('opentype'); font-weight: 700; font-style: normal; font-display: swap; }
-@font-face { font-family: 'Causten'; src: url('./assets/font/Causten-Round/Causten-BoldOblique.otf') format('opentype'); font-weight: 700; font-style: oblique; font-display: swap; }
-@font-face { font-family: 'Causten'; src: url('./assets/font/Causten-Round/Causten-ExtraBold.otf') format('opentype'); font-weight: 800; font-style: normal; font-display: swap; }
-@font-face { font-family: 'Causten'; src: url('./assets/font/Causten-Round/Causten-ExtraBoldOblique.otf') format('opentype'); font-weight: 800; font-style: oblique; font-display: swap; }
-@font-face { font-family: 'Causten'; src: url('./assets/font/Causten-Round/Causten-Black.otf') format('opentype'); font-weight: 900; font-style: normal; font-display: swap; }
-@font-face { font-family: 'Causten'; src: url('./assets/font/Causten-Round/Causten-BlackOblique.otf') format('opentype'); font-weight: 900; font-style: oblique; font-display: swap; }
 
-/* Blinka Serif ──────────────────────────── */
-@font-face { font-family: 'Blinka Serif'; src: url('./assets/font/Blinka Font/blinka.ttf') format('truetype'); font-weight: 400; font-style: normal; font-display: swap; }
 
 :root {
   /* ── Brand colours ──────────────────────────────── */
@@ -86,10 +65,26 @@
   --transition-medium: 0.3s ease;
 
   /* ── Typography ─────────────────────────────────── */
-  --font-heading: 'Causten', sans-serif;
-  --font-body:    'Montserrat', sans-serif;
-  --font-accent:  'Montserrat', sans-serif;
+  --sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --heading: 'Playfair Display', serif;
+  --mono: ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Consolas, monospace;
 
+  /* Global Font Settings */
+  font: 18px/145% var(--sans);
+  letter-spacing: 0.18px;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Responsive Font Size */
+  @media (max-width: 1024px) {
+    font-size: 16px;
+  }
+
+  /* Legacy variable mapping (for backward compatibility) */
+  --font-heading: var(--heading);
+  --font-body:    var(--sans);
+  --font-accent:  var(--sans);
 }
 
 body {
@@ -99,9 +94,6 @@ body {
   overflow-x: hidden;
   background: #ffffff;
   color: var(--text);
-  font-family: var(--font-body);
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 
 html {
@@ -123,6 +115,34 @@ body,
 
 #root {
   overflow-x: clip;
+}
+
+/* Applying Font to Headings */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--heading);
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+h1 {
+  font-size: 56px;
+  letter-spacing: -1.68px;
+  @media (max-width: 1024px) {
+    font-size: 36px;
+  }
+}
+
+h2 {
+  font-size: 24px;
+  letter-spacing: -0.24px;
+  @media (max-width: 1024px) {
+    font-size: 20px;
+  }
+}
+
+/* Monospace Helper */
+code, .monospace {
+  font-family: var(--mono);
 }
 
 /* Layout container */

@@ -3,7 +3,7 @@
 ═══════════════════════════════════════════ */
 .ct-page {
   min-height: 100vh;
-  background: var(--primary-color);
+  background: #ffffff;
 }
 
 /* ── Shared tokens ── */

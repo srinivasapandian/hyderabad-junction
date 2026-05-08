@@ -110,7 +110,7 @@
   gap: 8px;
 }
 
-.footer__order-btn {
+a.footer__order-btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -124,6 +124,13 @@
   width: fit-content;
   margin-top: 2px;
   text-decoration: none;
+  font-weight: 700;
+  transition: all 0.2s ease;
+}
+
+a.footer__order-btn:hover {
+  background: #20160a;
+  color: #efe2b1;
 }
 
 .footer__touch > a {
@@ -235,7 +242,7 @@
     align-items: center;
   }
 
-  .footer__order-btn {
+  a.footer__order-btn {
     width: 80%;
     max-width: 280px;
     padding: 12px 24px;

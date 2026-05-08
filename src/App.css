@@ -9,15 +9,12 @@ html {
 }
 
 body {
-  font-family: var(--font-body);
   background-color: #ffffff;
   color: var(--text);
   overflow-x: hidden;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-heading);
-}
+/* Headings are styled globally in index.css */
 
 a {
   text-decoration: none;
@@ -31,7 +28,6 @@ img {
 
 button {
   cursor: pointer;
-  font-family: var(--font-body);
   border: none;
   outline: none;
 }

@@ -3,7 +3,7 @@
 ═══════════════════════════════════════════ */
 .ac-page {
   min-height: 100vh;
-  background: var(--primary-color);
+  background: #ffffff;
   font-family: var(--font-body);
   display: flex;
   flex-direction: column;
