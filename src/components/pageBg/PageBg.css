@@ -30,3 +30,39 @@
   pointer-events: none;
   z-index: -1;
 }
+
+/* ── Floating decorative images ── */
+@keyframes pg-float {
+  0%   { transform: translateY(0px) rotate(0deg); }
+  50%  { transform: translateY(-28px) rotate(3deg); }
+  100% { transform: translateY(0px) rotate(0deg); }
+}
+
+.pg-deco {
+  position: absolute;
+  width: 340px;
+  opacity: 0.08;
+  pointer-events: none;
+  z-index: 0;
+  animation: pg-float 7s ease-in-out infinite;
+  user-select: none;
+}
+
+.pg-deco--left {
+  left: -80px;
+  top: 18vh;
+  animation-delay: 0s;
+}
+
+.pg-deco--right {
+  right: -80px;
+  top: 55vh;
+  animation-delay: -3.5s;
+  transform-origin: center center;
+}
+
+@media (max-width: 768px) {
+  .pg-deco { width: 220px; opacity: 0.06; }
+  .pg-deco--left  { left: -60px; }
+  .pg-deco--right { right: -60px; }
+}
