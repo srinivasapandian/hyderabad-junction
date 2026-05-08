@@ -161,13 +161,7 @@ function Account({ onSignInClick }: AccountProps) {
           </div>
         </section>
 
-        <CtaStrip
-          overline={isLoggedIn ? "Ready to Order?" : "New Here?"}
-          heading={isLoggedIn ? "Order Your Favorites Online" : "Sign In to Unlock the Full Experience"}
-          btnLabel={isLoggedIn ? "Order Online" : "Get Started"}
-          btnHref={isLoggedIn ? `/order-online/${LOCATION_SLUG}/pickup` : undefined}
-          onBtnClick={isLoggedIn ? undefined : onSignInClick}
-        />
+
 
       </div>
 

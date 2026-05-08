@@ -653,14 +653,14 @@
 }
 
 .auth-country-dropdown {
-  background: #012220;
-  border-color: rgba(224, 192, 171, 0.15);
+  background: var(--primary-surface);
+  border-color: rgba(224, 192, 171, 0.25);
   box-shadow: 0 16px 48px rgba(0, 0, 0, 0.4);
 }
 
 .auth-country-dropdown__search {
-  background: rgba(0, 0, 0, 0.35);
-  border-bottom-color: rgba(224, 192, 171, 0.1);
+  background: rgba(0, 0, 0, 0.2);
+  border-bottom-color: rgba(224, 192, 171, 0.15);
   color: #ffffff;
 }
 
