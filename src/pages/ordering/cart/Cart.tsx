@@ -405,6 +405,7 @@ export default function CartPage({ onSignInClick }: CartPageProps) {
                       >
                         {line.itemName}
                       </button>
+                      <span className="cart-line__name-line" aria-hidden="true" />
                       {modTotal > 0 && (
                         <p className="cart-line__mod-total">+${modTotal.toFixed(2)} add-ons</p>
                       )}
