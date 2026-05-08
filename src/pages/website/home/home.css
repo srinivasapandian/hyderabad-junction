@@ -45,7 +45,7 @@
   right: 5.5%;
   text-align: center;
   color: #4e1f1d;
-  font-family: Georgia, 'Times New Roman', serif;
+  font-family: var(--heading);
 }
 
 .hj-hero-copy-right h1 {
@@ -78,7 +78,7 @@
   transform: translateX(-50%);
   width: min(42vw, 520px);
   color: #1f1a18;
-  font-family: Georgia, 'Times New Roman', serif;
+  font-family: var(--heading);
   text-align: center;
   z-index: 2;
   display: none;
@@ -99,7 +99,7 @@
   border-radius: 999px;
   background: #5d1f1f;
   color: #fff;
-  font-family: Georgia, 'Times New Roman', serif;
+  font-family: var(--heading);
   font-size: clamp(0.86rem, 1vw, 1.06rem);
   letter-spacing: 0.02em;
   padding: clamp(0.58rem, 0.8vw, 0.92rem) clamp(1.05rem, 1.85vw, 2.05rem);
@@ -146,7 +146,7 @@
 
   .hj-mobile-hero-top h1 {
     margin: 0;
-    font-family: Georgia, 'Times New Roman', serif;
+    font-family: var(--heading);
     font-size: clamp(1.4rem, 6.5vw, 2.1rem);
     line-height: 1.2;
     font-weight: 500;
@@ -192,7 +192,7 @@
     color: #2e100f;
     max-width: 100%;
     margin-bottom: 1.2rem;
-    font-family: 'Gentium Book Basic', serif;
+    font-family: var(--heading);
   }
 
   .hj-hero-btn {
@@ -267,7 +267,7 @@
   text-align: center;
   color: #151515;
   padding-top: 350px;
-  font-family: Georgia, 'Times New Roman', serif;
+  font-family: var(--heading);
 }
 
 .hj-flavor-center h2 {
@@ -276,7 +276,7 @@
   font-weight: 400;
   letter-spacing: 0.01em;
   color: #181312;
-  font-family: 'Gentium Book Basic', serif;
+  font-family: var(--heading);
 }
 
 .hj-flavor-center p {
@@ -285,7 +285,7 @@
   font-size: 20px;
   line-height: 1.35;
   color: #1f1a18;
-  font-family: 'Gentium Book Basic', serif;
+  font-family: var(--heading);
   font-weight: 400;
 }
 
@@ -296,7 +296,7 @@
   transform: skew(-21deg);
   background: #5d1f1f;
   color: #fff;
-  font-family: Georgia, 'Times New Roman', serif;
+  font-family: var(--heading);
   font-size: clamp(0.9rem, 1.1vw, 1.25rem);
   padding: 0.7rem 1.65rem;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.18);
@@ -325,7 +325,7 @@
   align-items: center;
   gap: 0.9rem;
   box-shadow: 0 8px 18px rgba(0, 0, 0, 0.14);
-  font-family: Georgia, 'Times New Roman', serif;
+  font-family: var(--heading);
 }
 
 .hj-customer-user-img {
@@ -365,7 +365,7 @@
   margin: 0 0 1rem;
   text-align: center;
   color: #fff;
-  font-family: 'Gentium Book Basic', serif;
+  font-family: var(--heading);
   font-size: clamp(1rem, 1.3vw, 1.4rem);
   font-weight: 500;
   letter-spacing: 0.03em;
@@ -405,7 +405,7 @@
   background-repeat: no-repeat;
   background-size: 100% 100%;
   color: #ffffff;
-  font-family: Georgia, 'Times New Roman', serif;
+  font-family: var(--heading);
   font-size: clamp(1.35rem, 2vw, 2.4rem);
   line-height: 1;
   padding: 0.85rem 2.85rem 0.85rem 2.25rem;
@@ -464,7 +464,7 @@
 
 .hj-menu-card-copy h3 {
   margin: 0 0 0.45rem;
-  font-family: 'Gentium Book Basic', serif;
+  font-family: var(--heading);
   color: #130f0e;
   font-size: 32px;
   font-weight: 400;
@@ -472,7 +472,7 @@
 
 .hj-menu-card-copy p {
   margin: 0 0 0.65rem;
-  font-family: Georgia, 'Times New Roman', serif;
+  font-family: var(--heading);
   color: #130f0e;
   font-size: clamp(0.95rem, 1.15vw, 1.3rem);
 }
@@ -483,7 +483,7 @@
   transform: skew(-21deg);
   background: #5d1f1f;
   color: #fff;
-  font-family: Georgia, 'Times New Roman', serif;
+  font-family: var(--heading);
   font-size: clamp(0.85rem, 1.05vw, 1.1rem);
   padding: 0.55rem 1.3rem;
   box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
@@ -556,7 +556,7 @@
 .hj-specials-desc {
   font-size: 1rem;
   color: #5d1f1f;
-  font-family: 'Gentium Book Basic', serif;
+  font-family: var(--heading);
 }
 
 .hj-specials-cards {
@@ -638,7 +638,7 @@
 .hj-service-card h3 {
   margin: 0 0 0.5rem;
   color: #fff;
-  font-family: Georgia, 'Times New Roman', serif;
+  font-family: var(--heading);
   font-size: clamp(1rem, 1.3vw, 1.5rem);
   font-weight: 500;
 }
@@ -646,7 +646,7 @@
 .hj-service-card p {
   margin: 0;
   color: #fff;
-  font-family: Georgia, 'Times New Roman', serif;
+  font-family: var(--heading);
   font-size: clamp(0.8rem, 0.95vw, 1rem);
   line-height: 1.2;
   max-width: 92%;
