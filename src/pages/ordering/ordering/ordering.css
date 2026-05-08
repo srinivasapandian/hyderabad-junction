@@ -4,7 +4,7 @@
 
 .mn-page {
   min-height: 100vh;
-  background: var(--primary-color);
+  background: #ffffff;
 }
 
 /* ═══════════════════════════════════════════
@@ -12,7 +12,7 @@
 ═══════════════════════════════════════════ */
 .mn-bg {
   position: relative;
-  background-color: var(--primary-color);
+  background-color: transparent;
 }
 
 /* Scrim not used */

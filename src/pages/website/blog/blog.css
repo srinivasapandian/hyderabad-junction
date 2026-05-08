@@ -1,6 +1,6 @@
 .blog-page {
   min-height: 100vh;
-  background: var(--primary-color);
+  background: #ffffff;
   display: flex;
   flex-direction: column;
 }

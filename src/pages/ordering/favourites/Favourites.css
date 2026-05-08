@@ -4,7 +4,7 @@
 
 .fav-page {
   min-height: 100vh;
-  background: var(--primary-color);
+  background: #ffffff;
   display: flex;
   flex-direction: column;
 }
@@ -28,7 +28,7 @@
   position: sticky;
   top: 100px;
   z-index: 20;
-  background: var(--primary-color);
+  background: #ffffff;
   padding-top: 1rem;
   padding-bottom: 1rem;
   padding-left: max(1.25rem, calc((100% - 1200px) / 2 + 1.25rem));
