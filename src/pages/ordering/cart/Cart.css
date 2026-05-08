@@ -114,7 +114,7 @@
   padding-left: max(1.5rem, calc((100% - 1200px) / 2 + 1.5rem));
   padding-right: max(1.5rem, calc((100% - 1200px) / 2 + 1.5rem));
   margin-bottom: 1rem;
-  border-bottom: 1px solid color-mix(in srgb, var(--secondary-color) 15%, transparent);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .cart-header__left {
@@ -126,7 +126,7 @@
 .cart-back {
   border: none;
   background: transparent;
-  color: var(--secondary-color);
+  color: var(--primary-color);
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -149,7 +149,7 @@
   font-family: var(--font-heading);
   font-size: 1.5rem;
   font-weight: 700;
-  color: var(--secondary-color);
+  color: var(--primary-color);
   display: inline-flex;
   align-items: center;
   gap: 0.55rem;
@@ -161,9 +161,9 @@
   height: 26px;
   padding: 0 0.45rem;
   border-radius: var(--radius-full);
-  background: rgba(224, 192, 171, 0.1);
-  border: 1px solid rgba(224, 192, 171, 0.28);
-  color: var(--secondary-color);
+  background: transparent;
+  border: 1.5px solid var(--primary-color);
+  color: var(--primary-color);
   font-family: var(--font-body);
   font-size: 0.82rem;
   font-weight: 700;
@@ -178,13 +178,13 @@
   font-weight: 600;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: color-mix(in srgb, var(--secondary-color) 50%, transparent);
+  color: rgba(0, 0, 0, 0.4);
   background: none;
   border: none;
   cursor: pointer;
   transition: color var(--transition);
 }
-.cart-clear:hover { color: var(--secondary-color); }
+.cart-clear:hover { color: var(--primary-color); }
 
 /* ── Lines ─────────────────────────────────────── */
 .cart-lines {

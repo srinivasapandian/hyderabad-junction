@@ -1,102 +1,127 @@
 /* ═══════════════════════════════════════════
    MENU ITEM CARD — SHIMMER SKELETON
+   Mirrors the transparent row card layout
 ═══════════════════════════════════════════ */
 
 .shim-card {
   display: flex;
-  flex-direction: column;
-  background: var(--primary-card);
-  border-radius: 14px;
-  overflow: hidden;
-  border: 1px solid rgba(224, 192, 171, 0.15);
-  height: 100%;
-}
-
-.shim-card-img {
-  width: 100%;
-  aspect-ratio: 16 / 10;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 20px;
+  padding: 16px 4px;
+  background: transparent;
+  border: none;
   border-radius: 0;
 }
 
-.shim-card-body {
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-  padding: 14px 14px 16px;
-  gap: 10px;
-  border-top: 1px solid rgba(224, 192, 171, 0.12);
+/* ── Image placeholder — matches mic-img-wrap ── */
+.shim-card-img {
+  flex-shrink: 0;
+  width: 110px;
+  height: 110px;
+  border-radius: 12px;
+  aspect-ratio: unset;
 }
 
+/* ── Content column ── */
+.shim-card-body {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 0;
+  border-top: none;
+}
+
+/* Name + price in same row */
 .shim-card-name-row {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   justify-content: space-between;
   gap: 10px;
 }
 
 .shim-card-name {
-  height: 14px;
-  width: 62%;
+  height: 15px;
+  width: 52%;
   border-radius: 6px;
 }
 
 .shim-card-price {
-  height: 14px;
-  width: 20%;
+  height: 15px;
+  width: 18%;
   border-radius: 6px;
   flex-shrink: 0;
 }
 
+/* Accent line below name */
+.shim-card-line {
+  height: 2px;
+  width: 100%;
+  border-radius: 2px;
+}
+
+/* Description lines */
 .shim-card-desc {
   height: 11px;
-  width: 90%;
+  width: 88%;
   border-radius: 6px;
 }
 
 .shim-card-desc--short {
-  width: 58%;
+  width: 55%;
 }
 
-@media (max-width: 640px) {
-  .shim-card-img  { aspect-ratio: 4 / 3; }
-  .shim-card-body { padding: 12px 10px; }
+/* Action row: small button placeholders */
+.shim-card-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 4px;
 }
 
-/* ═══════════════════════════════════════════
-   LIST VARIANT — mirrors .mic-card--list
-═══════════════════════════════════════════ */
-@media (max-width: 576px) {
-  .shim-card--list {
-    flex-direction: row;
-    align-items: stretch;
-    height: 140px;
+.shim-card-btn {
+  height: 26px;
+  width: 26px;
+  border-radius: 50%;
+}
+
+.shim-card-add {
+  height: 26px;
+  width: 62px;
+  border-radius: 999px;
+}
+
+/* ── Mobile ── */
+@media (max-width: 600px) {
+  .shim-card {
+    gap: 14px;
+    padding: 14px 4px;
   }
 
-  .shim-card--list .shim-card-img {
+  .shim-card-img {
     order: 2;
     flex-shrink: 0;
-    width: 42%;
-    max-width: 170px;
-    height: 100%;
-    aspect-ratio: auto;
+    width: 130px;
+    height: 130px;
   }
 
-  .shim-card--list .shim-card-body {
+  .shim-card-body {
     order: 1;
-    flex: 1;
-    min-width: 0;
-    border-top: none;
-    padding: 12px 12px 12px 14px;
     gap: 8px;
-    justify-content: flex-start;
   }
 
-  .shim-card--list .shim-card-name-row {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 6px;
+  .shim-card-name-row {
+    justify-content: space-between;
   }
 
-  .shim-card--list .shim-card-name  { width: 78%; }
-  .shim-card--list .shim-card-price { width: 32%; }
+  .shim-card-name  { width: 55%; height: 13px; }
+  .shim-card-price { width: 22%; height: 13px; }
+  .shim-card-desc  { height: 10px; }
+}
+
+@media (max-width: 420px) {
+  .shim-card-img { width: 110px; height: 110px; }
 }

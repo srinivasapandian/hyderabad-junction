@@ -141,12 +141,12 @@
   gap: 5px;
   padding: 3px 10px;
   border-radius: 999px;
-  border: 1px solid rgba(0, 0, 0, 0.15);
+  border: 1.5px solid var(--primary-color);
   background: transparent;
   font-family: var(--font-body);
   font-size: 0.72rem;
   font-weight: 600;
-  color: rgba(0, 0, 0, 0.5);
+  color: var(--primary-color);
   letter-spacing: 0.03em;
   cursor: pointer;
   transition: border-color 0.18s, color 0.18s, background 0.18s;
@@ -154,17 +154,16 @@
 }
 
 .mic-customise-tag img {
-  filter: brightness(0) opacity(0.45);
+  filter: brightness(0) saturate(100%) invert(20%) sepia(80%) saturate(600%) hue-rotate(330deg);
 }
 
 .mic-customise-tag:hover {
-  border-color: var(--primary-color);
-  color: var(--primary-color);
-  background: rgba(0, 0, 0, 0.03);
+  background: var(--primary-color);
+  color: #fff;
 }
 
 .mic-customise-tag:hover img {
-  filter: none;
+  filter: brightness(0) invert(1);
 }
 
 /* ── Actions row ── */
@@ -252,8 +251,8 @@
   width: 30px;
   height: 30px;
   border-radius: 50%;
-  background: rgba(0, 0, 0, 0.04);
-  border: 1px solid rgba(0, 0, 0, 0.12);
+  background: transparent;
+  border: 1.5px solid var(--primary-color);
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -261,13 +260,12 @@
   padding: 0;
   transition: background 0.18s, border-color 0.18s, transform 0.15s;
   flex-shrink: 0;
-  color: rgba(0, 0, 0, 0.4);
+  color: var(--primary-color);
   font-size: 0.78rem;
 }
 
 .mic-note-btn:hover {
-  background: rgba(0, 0, 0, 0.08);
-  border-color: rgba(0, 0, 0, 0.22);
+  background: var(--primary-color);
   transform: scale(1.1);
 }
 
@@ -287,7 +285,11 @@
   width: 13px;
   height: 13px;
   display: block;
-  filter: brightness(0) opacity(0.45);
+  filter: brightness(0) saturate(100%) invert(20%) sepia(80%) saturate(600%) hue-rotate(330deg);
+}
+
+.mic-note-btn:hover .mic-note-icon {
+  filter: brightness(0) invert(1);
 }
 
 .mic-note-indicator {
