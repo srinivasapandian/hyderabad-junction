@@ -102,7 +102,6 @@ function App(): React.JSX.Element {
           {/* ── Legacy redirects (backward compat) ── */}
           <Route path="/about"                   element={<Navigate to="/#about" replace />} />
           <Route path="/gallery"                 element={<Navigate to="/#gallery" replace />} />
-          <Route path="/contact"                 element={<Navigate to="/#contact" replace />} />
           <Route path="/menu"                    element={<Navigate to="/indian-restaurant-menu" replace />} />
           <Route path="/menu/:categorySlug"      element={<Navigate to="/indian-restaurant-menu/:categorySlug" replace />} />
           <Route path="/ordering"                element={<Navigate to={`/order-online/${LOCATION_SLUG}/pickup`} replace />} />

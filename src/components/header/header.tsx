@@ -73,7 +73,7 @@ function Header() {
           <Link to="/indian-restaurant-menu"  className={isActive('/indian-restaurant-menu')}  onClick={closeMenu}>Menu</Link>
           <a href="/#services"                className={isActive('/services')}                onClick={closeMenu}>Services</a>
           <a href="/#gallery"                className={isActive('/gallery')}                 onClick={closeMenu}>Gallery</a>
-          <a href="/#contact"               className={isActive('/contact')}                 onClick={closeMenu}>Contact Us</a>
+          <Link to="/contact"                 className={isActive('/contact')}                 onClick={closeMenu}>Contact Us</Link>
 
           {/* Mobile-only button group */}
           <div className="header-nav-mobile-btns">

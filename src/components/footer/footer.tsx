@@ -9,7 +9,7 @@ const QUICK_LINKS = [
   { label: 'Menu', to: '/indian-restaurant-menu' },
   { label: 'Blog', to: '/blog' },
   { label: 'Services', to: '/#services' },
-  { label: 'Contact Us', to: '/#contact' },
+  { label: 'Contact Us', to: '/contact' },
 ];
 
 const SERVICES = ['Dine-in', 'Take way', 'Delivery', 'Catering', 'Private Events'];
