@@ -7,7 +7,7 @@
   flex-direction: row;
   align-items: flex-start;
   gap: 20px;
-  padding: 16px 4px;
+  padding: 16px 8px;
   background: transparent;
   border: none;
   border-radius: 0;
@@ -16,6 +16,8 @@
   position: relative;
   overflow: visible;
   box-shadow: none;
+  min-width: 0;
+  width: 100%;
 }
 
 .mic-card:hover {
@@ -397,7 +399,7 @@
    RESPONSIVE
 ════════════════════════════════════ */
 @media (max-width: 900px) {
-  .mic-card     { gap: 16px; padding: 14px 4px; }
+  .mic-card     { gap: 16px; padding: 14px 8px; }
   .mic-img-wrap { width: 90px; height: 90px; }
   .mic-name     { font-size: 0.97rem; }
 }
@@ -408,7 +410,7 @@
     flex-direction: row;
     align-items: stretch;
     gap: 14px;
-    padding: 14px 4px;
+    padding: 14px 8px;
   }
 
   /* Content on left */
