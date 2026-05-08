@@ -3,12 +3,13 @@ import banner31 from '../../assets/banner/banner-31.jpg';
 import ohImg2   from '../../assets/images/openingHours/002.jpg';
 import ohImg3   from '../../assets/images/openingHours/003.png';
 import ohImg7   from '../../assets/images/openingHours/007.jpg';
+import event2   from '../../assets/event2.png';
 
 export const BANNER_IMAGES = {
   about:   banner11,
-  menu:    ohImg7,
+  menu:    event2,
   contact: banner31,
-  account: ohImg3,
+  account: event2,
   blog:    ohImg2,
 } as const;
 

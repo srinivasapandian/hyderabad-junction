@@ -2,8 +2,6 @@ import { useState, useEffect, useCallback } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import './menu.css';
-import PageBanner from '../../../components/pageBanner/PageBanner';
-import { BANNER_IMAGES } from '../../../components/pageBanner/bannerImages';
 import OrderingBar from '../../../components/orderingBar/OrderingBar';
 import CategoryFilter from '../../../components/categoryFilter/CategoryFilter';
 import MenuGrid from '../../../components/menuGrid/MenuGrid';
@@ -14,6 +12,8 @@ import ClosedBar from '../../../components/ClosedBar/ClosedBar';
 import ClosingSoonBar from '../../../components/ClosingSoonBar/ClosingSoonBar';
 
 import PageBg from '../../../components/pageBg/PageBg';
+import PageBanner from '../../../components/pageBanner/PageBanner';
+import { BANNER_IMAGES } from '../../../components/pageBanner/bannerImages';
 
 function Menu() {
   const dispatch = useDispatch();

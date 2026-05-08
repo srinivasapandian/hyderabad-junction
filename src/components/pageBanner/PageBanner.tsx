@@ -8,17 +8,26 @@ interface PageBannerProps {
 
 export default function PageBanner({ title, backgroundImage }: PageBannerProps) {
   return (
-    <section
-      className="page-banner"
-      style={{ backgroundImage: `url(${backgroundImage})` }}
-      aria-label={`${title} banner`}
-    >
-      <div className="page-banner__scrim" />
-      <nav className="page-banner__crumbs" aria-label="Breadcrumb">
-        <Link to="/" className="page-banner__crumb">Home</Link>
-        <span className="page-banner__slash" aria-hidden="true">/</span>
-        <span className="page-banner__crumb page-banner__crumb--active">{title}</span>
-      </nav>
+    <section className="page-banner" aria-label={`${title} banner`}>
+
+      {/* ── Left content ── */}
+      <div className="page-banner__left">
+        <div className="page-banner__content">
+          <p className="page-banner__eyebrow">Welcome to</p>
+          <h1 className="page-banner__heading">
+            <span className="page-banner__heading--script">Explore</span>
+            <span className="page-banner__heading--bold">{title}</span>
+          </h1>
+         
+        </div>
+      </div>
+
+      {/* ── Right image ── */}
+      <div className="page-banner__right">
+        <img src={backgroundImage} alt={title} className="page-banner__img" />
+        <div className="page-banner__img-scrim" />
+      </div>
+
     </section>
   );
 }
