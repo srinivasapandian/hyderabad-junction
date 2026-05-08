@@ -92,7 +92,7 @@
 .mn-card-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 0;
+  row-gap: 10px;
   column-gap: 48px;
 }
 

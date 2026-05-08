@@ -344,7 +344,10 @@
   letter-spacing: 0.01em;
 }
 
-.mic-desc--empty { display: none; }
+.mic-desc--empty {
+  visibility: hidden;
+  min-height: calc(0.82rem * 1.55 * 2);
+}
 
 /* Card-mode elements hidden in row layout */
 .mic-img-wrap       { display: none; }
