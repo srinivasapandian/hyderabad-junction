@@ -11,15 +11,7 @@
 
 /* ── Decorative blurred blobs ────────────── */
 .mn-blob {
-  position: absolute;
-  width: 300px;
-  height: 300px;
-  border-radius: 50%;
-  background: var(--primary-blob);
-  opacity: 1;
-  filter: blur(120px);
-  pointer-events: none;
-  z-index: 0;
+  display: none;
 }
 
 /* Positions are set via inline styles in MenuGrid.tsx (dynamic, ResizeObserver-driven) */

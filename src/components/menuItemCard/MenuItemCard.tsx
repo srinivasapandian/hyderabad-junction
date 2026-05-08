@@ -146,7 +146,8 @@ function MenuItemCard({ item, categorySlug = 'menu' }: MenuItemCardProps) {
             <span>{overlayLabel}{overlayTime ? ` ${overlayTime}` : ''}</span>
           </div>
         )}
-        {/* Heart button — top-right corner of image */}
+
+        {/* Heart — top-right of image */}
         {!showOverlay && (
           <button
             className={`mic-heart-btn${isFavourite ? ' active' : ''}`}
@@ -161,6 +162,34 @@ function MenuItemCard({ item, categorySlug = 'menu' }: MenuItemCardProps) {
           >
             <i className={isFavourite ? 'fa-solid fa-heart' : 'fa-regular fa-heart'} />
           </button>
+        )}
+
+        {/* Mobile-only: customise (bottom-left) + add/qty (bottom-right) inside image */}
+        {!showOverlay && (
+          <div className="mic-img-bottom" onClick={(e) => e.stopPropagation()}>
+            {hasModifiers ? (
+              <button
+                type="button"
+                className="mic-img-customise"
+                onClick={(e) => { e.stopPropagation(); handleCardClick(); }}
+                aria-label="Customise item"
+              >
+                <img src={customizationSvg} alt="" width={13} height={13} />
+              </button>
+            ) : <span />}
+
+            {isRestaurantClosed ? (
+              <button className="mic-add-btn" onClick={(e) => { e.stopPropagation(); handleCardClick(); }}>VIEW</button>
+            ) : qty === 0 ? (
+              <button className="mic-add-btn" onClick={handleAddClick}>ADD</button>
+            ) : (
+              <div className="mic-qty-ctrl">
+                <button className="mic-qty-btn" onClick={(e) => { e.stopPropagation(); dispatch(updateQtyAction(lineId, -1)); }} aria-label="Decrease">−</button>
+                <span className="mic-qty-count">{qty}</span>
+                <button className="mic-qty-btn" onClick={(e) => { e.stopPropagation(); hasModifiers ? setPopupOpen(true) : dispatch(updateQtyAction(lineId, 1)); }} aria-label="Increase">+</button>
+              </div>
+            )}
+          </div>
         )}
       </div>
 
@@ -182,9 +211,23 @@ function MenuItemCard({ item, categorySlug = 'menu' }: MenuItemCardProps) {
           : <p className="mic-desc mic-desc--empty" />
         }
 
-        {/* ── Actions row (customise tag + buttons) ── */}
+        {/* Note button — mobile: shown below description after add */}
+        {!showOverlay && !isRestaurantClosed && qty > 0 && (
+          <button
+            type="button"
+            className="mic-note-btn mic-note-btn--mobile"
+            onClick={(e) => { e.stopPropagation(); openNoteModal(e); }}
+            aria-label={hasNote ? 'Edit item note' : 'Add note'}
+          >
+            <img src={itemNoteSvg} alt="" className="mic-note-icon" />
+            {hasNote
+              ? <span className="mic-note-indicator" aria-hidden="true" />
+              : <span className="mic-note-plus" aria-hidden="true">+</span>}
+          </button>
+        )}
+
+        {/* ── Desktop actions row (customise + note + add) ── */}
         <div className="mic-actions" onClick={(e) => e.stopPropagation()}>
-          {/* Customisable pill */}
           {!showOverlay && hasModifiers ? (
             <button
               type="button"
@@ -198,8 +241,6 @@ function MenuItemCard({ item, categorySlug = 'menu' }: MenuItemCardProps) {
           ) : <span />}
 
           <div className="mic-btn-group">
-
-            {/* Unavailability badge */}
             {showOverlay && (
               <span className="mic-unavail-badge">
                 {overlayIcon}
@@ -207,11 +248,11 @@ function MenuItemCard({ item, categorySlug = 'menu' }: MenuItemCardProps) {
               </span>
             )}
 
-            {/* Note */}
+            {/* Note — desktop */}
             {!showOverlay && !isRestaurantClosed && qty > 0 && (
               <button
                 type="button"
-                className="mic-note-btn"
+                className="mic-note-btn mic-note-btn--desktop"
                 onClick={(e) => { e.stopPropagation(); openNoteModal(e); }}
                 aria-label={hasNote ? 'Edit item note' : 'Add note'}
               >
@@ -222,7 +263,7 @@ function MenuItemCard({ item, categorySlug = 'menu' }: MenuItemCardProps) {
               </button>
             )}
 
-            {/* Add / VIEW / Qty */}
+            {/* Add / VIEW / Qty — desktop */}
             {!showOverlay && (
               isRestaurantClosed ? (
                 <button className="mic-add-btn" onClick={(e) => { e.stopPropagation(); handleCardClick(); }}>VIEW</button>
