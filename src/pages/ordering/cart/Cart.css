@@ -320,7 +320,7 @@
   font-family: var(--font-heading);
   font-size: 1.05rem;
   font-weight: 600;
-  color: var(--secondary-color);
+  color: var(--primary-color);
   margin: 0;
   line-height: 1.2;
 }

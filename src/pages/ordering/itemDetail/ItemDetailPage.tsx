@@ -468,6 +468,14 @@ export default function ItemDetailPage() {
 
         <div className="idpspace"></div>
 
+        {/* ── Back button ── */}
+        <div className="idp__back-bar">
+          <button className="idp__back-btn" onClick={() => navigate(-1)} aria-label="Go back">
+            <i className="fa-solid fa-arrow-left" />
+            Back
+          </button>
+        </div>
+
         {/* ── Split layout ── */}
         <div className="idp__split">
 
