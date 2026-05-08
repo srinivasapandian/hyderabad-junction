@@ -146,7 +146,7 @@ export default function Contact() {
               </div>
               <div className="contact-info-content">
                 <h3>Our Location</h3>
-                <p>2443 Oak Ridge Omaha, QA 45065</p>
+                <p>6000 Cleveland Gibbs Rd, Suite 300, Northlake, Texas 76226</p>
               </div>
             </div>
           </div>
