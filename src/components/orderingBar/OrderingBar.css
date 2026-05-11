@@ -46,11 +46,29 @@
   color: #5a1712;
   cursor: pointer;
   transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 7px;
 }
 
 .ob-ot-btn.active {
   background: #5a1712;
   color: #fff;
+}
+
+.ob-ot-icon {
+  font-size: 1rem;
+}
+
+.ob-ot-delivery-icon {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+  filter: invert(13%) sepia(58%) saturate(900%) hue-rotate(330deg) brightness(60%);
+}
+
+.ob-ot-btn.active .ob-ot-delivery-icon {
+  filter: brightness(0) invert(1);
 }
 .ob-avail-section {
   display: flex;

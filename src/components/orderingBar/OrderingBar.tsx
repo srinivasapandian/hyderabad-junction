@@ -125,15 +125,17 @@ function OrderingBar({
           {!hideOrderType && (
             <div className="ob-order-type-toggle">
               <button
-                className={`ob-ot-btn${orderType === 'PICKUP' ? ' active' : ''}`}
-                onClick={() => onOrderTypeChange('PICKUP')}
+                className={`ob-ot-btn${orderType === 'Pickup' ? ' active' : ''}`}
+                onClick={() => onOrderTypeChange('Pickup')}
               >
+                <i className="fa-solid fa-store ob-ot-icon" />
                 Pickup
               </button>
               <button
-                className={`ob-ot-btn${orderType === 'DELIVERY' ? ' active' : ''}`}
-                onClick={() => onOrderTypeChange('DELIVERY')}
+                className={`ob-ot-btn${orderType === 'Delivery' ? ' active' : ''}`}
+                onClick={() => onOrderTypeChange('Delivery')}
               >
+                <img src={deliveryIcon} alt="" className="ob-ot-delivery-icon" />
                 Delivery
               </button>
             </div>
