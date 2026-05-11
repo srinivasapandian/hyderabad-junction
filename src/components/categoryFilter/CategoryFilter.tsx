@@ -37,52 +37,52 @@ function CategoryFilter({
       ref={filterRef as React.LegacyRef<HTMLDivElement>}
     >
       <div className="mn-filter-inner">
-
-        {onSearchChange !== undefined && (
-          <div className="mn-search-wrap">
-            <i className="fas fa-search mn-search-icon" />
-            <input
-              type="text"
-              className="mn-search-input"
-              placeholder="Craving something delicious? Search here..."
-              value={searchQuery ?? ''}
-              onChange={(e) => onSearchChange(e.target.value)}
-            />
-            {searchQuery && (
+        <div className="mn-maroon-bar">
+          <div className="mn-pills-container">
+            <div className="mn-pills" ref={pillsRef as React.LegacyRef<HTMLDivElement>}>
+              {/* "All" Category */}
               <button
-                className="mn-search-clear"
-                onClick={() => onSearchChange('')}
-                aria-label="Clear search"
+                data-id="all"
+                className={`mn-pill ${activeId === '' || activeId === 'all' ? 'active' : ''}`}
+                onClick={() => onSelect('all')}
               >
-                <i className="fas fa-times" />
+                All
+                <span className="mn-pill-count">
+                  {sectionCats.reduce((acc, cat) => acc + getCategoryCount(cat.id), 0)}
+                </span>
+                {activeId === 'all' && <div className="mn-pill-underline" />}
               </button>
-            )}
+
+              {hasExclusive && (
+                <button
+                  data-id="exclusive"
+                  className={`mn-pill${activeId === 'exclusive' ? ' active' : ''}`}
+                  onClick={() => onSelect('exclusive')}
+                >
+                  Today's Exclusive
+                  <span className="mn-pill-count">{getCategoryCount('exclusive')}</span>
+                  {activeId === 'exclusive' && <div className="mn-pill-underline" />}
+                </button>
+              )}
+
+              {sectionCats.map((cat) => (
+                <button
+                  key={cat.id}
+                  data-id={cat.id}
+                  className={`mn-pill${activeId === cat.id ? ' active' : ''}`}
+                  onClick={() => onSelect(cat.id)}
+                >
+                  {cat.name}
+                  <span className="mn-pill-count">{getCategoryCount(cat.id)}</span>
+                  {activeId === cat.id && <div className="mn-pill-underline" />}
+                </button>
+              ))}
+            </div>
           </div>
-        )}
-
-        <div className="mn-pills" ref={pillsRef as React.LegacyRef<HTMLDivElement>}>
-          {hasExclusive && (
-            <button
-              data-id="exclusive"
-              className={`mn-pill${activeId === 'exclusive' ? ' active' : ''}`}
-              onClick={() => onSelect('exclusive')}
-            >
-              Today's Exclusive
-            </button>
-          )}
-          {sectionCats.map((cat) => (
-            <button
-              key={cat.id}
-              data-id={cat.id}
-              className={`mn-pill${activeId === cat.id ? ' active' : ''}`}
-              onClick={() => onSelect(cat.id)}
-            >
-              {cat.name}
-              <span className="mn-pill-count">{getCategoryCount(cat.id)}</span>
-            </button>
-          ))}
+          <div className="mn-scroll-arrow right">
+            <i className="fa-solid fa-chevron-right" />
+          </div>
         </div>
-
       </div>
     </div>
   );

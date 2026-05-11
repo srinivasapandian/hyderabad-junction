@@ -52,6 +52,11 @@ function Menu() {
 
   // ── Category pill click → scroll + update URL ─────────────────────────
   const handleCategorySelect = useCallback((catId: string) => {
+    if (catId === 'all') {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      navigate(`/indian-restaurant-menu/all`, { replace: true });
+      return;
+    }
     scrollToSection(catId);
     const slug =
       catId === 'exclusive'

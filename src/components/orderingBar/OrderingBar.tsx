@@ -77,61 +77,40 @@ function OrderingBar({
   return (
     <div className={`ob-wrap${hideOrderType ? ' ob-wrap-menu' : ''}`}>
       <div className="ob-inner">
-
-        {/* Order-type toggle */}
-        {!hideOrderType && (
-          <div className="ob-type-group">
-            <button
-              className={`ob-type-btn${orderType === 'Pickup' ? ' active' : ''}`}
-              onClick={() => onOrderTypeChange('Pickup')}
-            >
-              <i className="fa-solid fa-store" />
-              Pickup
-            </button>
-            <button
-              className={`ob-type-btn${orderType === 'Delivery' ? ' active' : ''}`}
-              onClick={() => onOrderTypeChange('Delivery')}
-            >
-              <img src={deliveryIcon} alt="" className="ob-delivery-icon" />
-              Delivery
-            </button>
-          </div>
-        )}
-
-        {/* Available Now toggle */}
-        <div className="ob-avail-group">
-          <button
-            className={`ob-avail-btn${availableNow ? ' active' : ''}`}
-            onClick={() => onAvailableNowChange(true)}
-          >
-            Available Now
-          </button>
-          <button
-            className={`ob-avail-btn${!availableNow ? ' active' : ''}`}
-            onClick={() => onAvailableNowChange(false)}
-          >
-            All Items
-          </button>
+        
+        {/* Left: Available Items Toggle */}
+        <div className="ob-avail-section">
+          <span className="ob-avail-label">Available Items</span>
+          <label className="ob-switch">
+            <input 
+              type="checkbox" 
+              checked={availableNow}
+              onChange={(e) => onAvailableNowChange(e.target.checked)}
+            />
+            <span className="ob-slider" />
+          </label>
         </div>
 
-        {/* Search + dropdown */}
-        <div className="ob-search-wrap" ref={searchWrapRef}>
-          <i className="ob-search-icon fa-solid fa-magnifying-glass" />
-          <input
-            type="text"
-            className="ob-search"
-            placeholder="Search Menu"
-            value={searchQuery}
-            onChange={(e) => onSearchChange(e.target.value)}
-            onFocus={() => {
-              if (searchQuery.trim() && suggestions.length) setOpen(true);
-            }}
-          />
-          {searchQuery && (
-            <button className="ob-search-clear" onClick={handleClear} aria-label="Clear search">
-              <i className="fa-solid fa-xmark" />
-            </button>
-          )}
+        {/* Center: Search input */}
+        <div className="ob-search-section" ref={searchWrapRef}>
+          <div className="ob-search-pill">
+            <i className="ob-search-icon fa-solid fa-magnifying-glass" />
+            <input
+              type="text"
+              className="ob-search-input"
+              placeholder="Search Menu"
+              value={searchQuery}
+              onChange={(e) => onSearchChange(e.target.value)}
+              onFocus={() => {
+                if (searchQuery.trim() && suggestions.length) setOpen(true);
+              }}
+            />
+            {searchQuery && (
+              <button className="ob-search-clear" onClick={handleClear} aria-label="Clear search">
+                <i className="fa-solid fa-xmark" />
+              </button>
+            )}
+          </div>
 
           {/* Suggestions dropdown */}
           {open && (
@@ -161,6 +140,13 @@ function OrderingBar({
               )}
             </div>
           )}
+        </div>
+
+        {/* Right: Filter Button */}
+        <div className="ob-filter-section">
+          <button className="ob-filter-btn" aria-label="Filter menu">
+            <i className="fa-solid fa-sliders" />
+          </button>
         </div>
 
       </div>

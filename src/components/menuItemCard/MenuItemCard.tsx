@@ -126,156 +126,95 @@ function MenuItemCard({ item, categorySlug = 'menu' }: MenuItemCardProps) {
 
   return (
     <div
-      className={`mic-card mic-card--clickable${showOverlay ? ' mic-unavailable' : ''}`}
+      className={`mic-card-premium ${showOverlay ? 'mic-unavailable' : ''}`}
       onClick={handleCardClick}
-      role="button"
-      tabIndex={0}
-      onKeyDown={(e) => { if (e.key === 'Enter') handleCardClick(); }}
     >
-      {/* ── Food image ── */}
-      <div className="mic-img-wrap">
+      {/* LEFT: Image Section */}
+      <div className="mic-left-img">
         <img
           src={imageUrl || placeholderImg}
           alt={itemName}
-          className="mic-img"
+          className="mic-main-img"
           onError={(e) => { (e.currentTarget as HTMLImageElement).src = placeholderImg; }}
         />
         {showOverlay && (
-          <div className="mic-img-overlay">
+          <div className="mic-overlay">
             {overlayIcon}
-            <span>{overlayLabel}{overlayTime ? ` ${overlayTime}` : ''}</span>
+            <span>{overlayLabel}</span>
           </div>
         )}
-
-        {/* Heart — top-right of image */}
+        
+        {/* Favorite Icon on Image */}
         {!showOverlay && (
           <button
-            className={`mic-heart-btn${isFavourite ? ' active' : ''}`}
+            className={`mic-fav-btn ${isFavourite ? 'active' : ''}`}
             onClick={(e) => {
               e.stopPropagation();
               if (!isLoggedIn) return;
               if (isFavourite) dispatch(removeFavouriteRequest(itemId));
               else dispatch(addFavouriteRequest(itemId, item));
             }}
-            aria-label={isFavourite ? 'Remove from favourites' : 'Add to favourites'}
-            title={!isLoggedIn ? 'Login to save favourites' : undefined}
           >
             <i className={isFavourite ? 'fa-solid fa-heart' : 'fa-regular fa-heart'} />
           </button>
         )}
-
-        {/* Mobile-only: customise (bottom-left) + add/qty (bottom-right) inside image */}
-        {!showOverlay && (
-          <div className="mic-img-bottom" onClick={(e) => e.stopPropagation()}>
-            {hasModifiers ? (
-              <button
-                type="button"
-                className="mic-img-customise"
-                onClick={(e) => { e.stopPropagation(); handleCardClick(); }}
-                aria-label="Customise item"
-              >
-                <img src={customizationSvg} alt="" width={13} height={13} />
-              </button>
-            ) : <span />}
-
-            {isRestaurantClosed ? (
-              <button className="mic-add-btn" onClick={(e) => { e.stopPropagation(); handleCardClick(); }}>VIEW</button>
-            ) : qty === 0 ? (
-              <button className="mic-add-btn" onClick={handleAddClick}>ADD</button>
-            ) : (
-              <div className="mic-qty-ctrl">
-                <button className="mic-qty-btn" onClick={(e) => { e.stopPropagation(); dispatch(updateQtyAction(lineId, -1)); }} aria-label="Decrease">−</button>
-                <span className="mic-qty-count">{qty}</span>
-                <button className="mic-qty-btn" onClick={(e) => { e.stopPropagation(); hasModifiers ? setPopupOpen(true) : dispatch(updateQtyAction(lineId, 1)); }} aria-label="Increase">+</button>
-              </div>
-            )}
-          </div>
-        )}
       </div>
 
-      {/* ── Content ── */}
-      <div className="mic-content">
-
-        {/* Name + price + accent line */}
-        <div className="mic-header">
-          <div className="mic-name-row">
-            <h3 className="mic-name">{itemName}</h3>
-            <span className="mic-price">{currencySymbol}{safePrice.toFixed(2)}</span>
+      {/* RIGHT: Content Section */}
+      <div className="mic-right-content">
+        <div className="mic-content-top">
+          <div className="mic-name-price">
+            <h3 className="mic-item-name">{itemName}</h3>
+            <span className="mic-item-price">
+              <span className="mic-currency">{currencySymbol}</span>
+              {safePrice.toFixed(2)}
+            </span>
           </div>
-          <span className="mic-name-line" aria-hidden="true" />
+          
+          {description && (
+            <p className="mic-item-desc">{description}</p>
+          )}
         </div>
 
-        {/* Description */}
-        {description
-          ? <p className="mic-desc">{description}</p>
-          : <p className="mic-desc mic-desc--empty" />
-        }
-
-        {/* Note button — mobile: shown below description after add */}
-        {!showOverlay && !isRestaurantClosed && qty > 0 && (
-          <button
-            type="button"
-            className="mic-note-btn mic-note-btn--mobile"
-            onClick={(e) => { e.stopPropagation(); openNoteModal(e); }}
-            aria-label={hasNote ? 'Edit item note' : 'Add note'}
-          >
-            <img src={itemNoteSvg} alt="" className="mic-note-icon" />
-            {hasNote
-              ? <span className="mic-note-indicator" aria-hidden="true" />
-              : <span className="mic-note-plus" aria-hidden="true">+</span>}
-          </button>
-        )}
-
-        {/* ── Desktop actions row (customise + note + add) ── */}
-        <div className="mic-actions" onClick={(e) => e.stopPropagation()}>
-          {!showOverlay && hasModifiers ? (
-            <button
-              type="button"
-              className="mic-customise-tag"
-              onClick={(e) => { e.stopPropagation(); handleCardClick(); }}
-              aria-label="Customise item"
-            >
-              <img src={customizationSvg} alt="" width={11} height={11} />
-              Customisable
-            </button>
-          ) : <span />}
-
-          <div className="mic-btn-group">
-            {showOverlay && (
-              <span className="mic-unavail-badge">
-                {overlayIcon}
-                <span>{overlayLabel}{overlayTime ? ` ${overlayTime}` : ''}</span>
-              </span>
-            )}
-
-            {/* Note — desktop */}
-            {!showOverlay && !isRestaurantClosed && qty > 0 && (
-              <button
-                type="button"
-                className="mic-note-btn mic-note-btn--desktop"
-                onClick={(e) => { e.stopPropagation(); openNoteModal(e); }}
-                aria-label={hasNote ? 'Edit item note' : 'Add note'}
+        <div className="mic-content-bottom" onClick={(e) => e.stopPropagation()}>
+          <div className="mic-icons-group">
+            {hasModifiers && (
+              <button 
+                className="mic-action-icon-btn" 
+                onClick={(e) => { e.stopPropagation(); handleCardClick(); }}
+                title="Customize"
               >
-                <img src={itemNoteSvg} alt="" className="mic-note-icon" />
-                {hasNote
-                  ? <span className="mic-note-indicator" aria-hidden="true" />
-                  : <span className="mic-note-plus" aria-hidden="true">+</span>}
+                <img src={customizationSvg} alt="Customize" />
               </button>
             )}
+            
+            {qty > 0 && (
+              <button 
+                className="mic-action-icon-btn" 
+                onClick={(e) => { e.stopPropagation(); openNoteModal(e); }}
+                title="Add Note"
+              >
+                <img src={itemNoteSvg} alt="Note" />
+                {hasNote && <span className="mic-note-dot" />}
+              </button>
+            )}
+          </div>
 
-            {/* Add / VIEW / Qty — desktop */}
-            {!showOverlay && (
-              isRestaurantClosed ? (
-                <button className="mic-add-btn" onClick={(e) => { e.stopPropagation(); handleCardClick(); }}>VIEW</button>
-              ) : qty === 0 ? (
-                <button className="mic-add-btn" onClick={handleAddClick}>ADD</button>
+          <div className="mic-qty-section">
+            {!isRestaurantClosed ? (
+              qty === 0 ? (
+                <button className="mic-add-btn-premium" onClick={handleAddClick}>
+                  <i className="fa-solid fa-cart-plus" />
+                </button>
               ) : (
-                <div className="mic-qty-ctrl">
-                  <button className="mic-qty-btn" onClick={(e) => { e.stopPropagation(); dispatch(updateQtyAction(lineId, -1)); }} aria-label="Decrease">−</button>
+                <div className="mic-qty-ctrl-premium">
+                  <button className="mic-qty-btn" onClick={(e) => { e.stopPropagation(); dispatch(updateQtyAction(lineId, -1)); }}>−</button>
                   <span className="mic-qty-count">{qty}</span>
-                  <button className="mic-qty-btn" onClick={(e) => { e.stopPropagation(); hasModifiers ? setPopupOpen(true) : dispatch(updateQtyAction(lineId, 1)); }} aria-label="Increase">+</button>
+                  <button className="mic-qty-btn" onClick={(e) => { e.stopPropagation(); hasModifiers ? setPopupOpen(true) : dispatch(updateQtyAction(lineId, 1)); }}>+</button>
                 </div>
               )
+            ) : (
+              <button className="mic-view-btn" onClick={(e) => { e.stopPropagation(); handleCardClick(); }}>VIEW</button>
             )}
           </div>
         </div>

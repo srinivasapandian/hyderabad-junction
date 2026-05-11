@@ -157,9 +157,13 @@ function MenuGrid({
               {hasSubCats && Object.entries(group.subCategories).map(([subId, subData]) => (
                 <div key={subId} className="mn-sub-section">
                   <div className="mn-group-header">
-                    <CategoryTitle>{subData.name}</CategoryTitle>
-                    <span className="mn-item-count">{subData.items.length} items</span>
-                    <div className="mn-group-line" />
+                    <div className="mn-header-left">
+                      <span className="mn-header-title">{subData.name}</span>
+                    </div>
+                    <div className="mn-header-right">
+                      <span className="mn-item-count">{String(subData.items.length).padStart(2, '0')} ITEMS</span>
+                      <div className="mn-group-line" />
+                    </div>
                   </div>
                   <div className={gridClass}>
                     {subData.items.map((item) => (
@@ -173,9 +177,13 @@ function MenuGrid({
                 <div className="mn-sub-section">
                   {!hasSubCats && (
                     <div className="mn-group-header">
-                      <CategoryTitle>{cat.name}</CategoryTitle>
-                      <span className="mn-item-count">{group.direct.length} items</span>
-                      <div className="mn-group-line" />
+                      <div className="mn-header-left">
+                        <span className="mn-header-title">{cat.name}</span>
+                      </div>
+                      <div className="mn-header-right">
+                        <span className="mn-item-count">{String(group.direct.length).padStart(2, '0')} ITEMS</span>
+                        <div className="mn-group-line" />
+                      </div>
                     </div>
                   )}
                   <div className={gridClass}>

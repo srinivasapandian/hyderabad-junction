@@ -55,6 +55,11 @@ function Ordering() {
   // remounting the component (different route pattern would cause a remount
   // and kill the scroll before it completes).
   const handleCategorySelect = useCallback((catId: string) => {
+    if (catId === 'all') {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      window.history.replaceState(null, '', `/order-online/${LOCATION_SLUG}/${orderType.toLowerCase()}/all`);
+      return;
+    }
     scrollToSection(catId);
     const slug =
       catId === 'exclusive'

@@ -45,90 +45,93 @@
 .mn-group-header {
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 20px;
+  width: 100%;
 }
 
-/* .mn-group-title badge styles → CategoryTitle component */
+.mn-header-left {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.mn-header-title {
+  color: #5A1712;
+  font-family: var(--font-heading);
+  font-size: 1.8rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  white-space: nowrap;
+}
+
+.mn-header-right {
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
 
 .mn-item-count {
   font-family: var(--font-body);
-  font-size: 0.75rem;
-  color: rgba(0, 0, 0, 0.4);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #5A1712;
+  opacity: 0.6;
   white-space: nowrap;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.05em;
 }
 
 .mn-group-line {
-  flex: 1;
-  height: 3.5px;
-  background-image: url('../../assets/pattern/line-divider.png');
-  background-repeat: repeat-x;
-  background-position: center left;
-  background-size: auto 100%;
-  opacity: 0.5;
+  flex-grow: 1;
+  height: 2px;
+  background: #f0f0f0;
 }
 
-/* ── Card grid — 2 column row-style ── */
+/* ── Card grid ── */
 .mn-card-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  row-gap: 12px;
-  column-gap: 32px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  width: 100%;
 }
 
-/* ── Loading / Error states ── */
-.mn-state {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 18px;
-  padding: 80px 0;
-  color: var(--text-muted);
-  font-family: var(--font-body);
-  font-size: 1rem;
-  letter-spacing: 0.04em;
+/* ── Responsive ── */
+@media (max-width: 1100px) {
+  .mn-card-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
-.mn-state--error { color: var(--red); }
-
-.mn-spinner {
-  width: 40px;
-  height: 40px;
-  border: 3px solid var(--border);
-  border-top-color: var(--red);
-  border-radius: 50%;
-  animation: mn-spin 0.75s linear infinite;
-}
-
-@keyframes mn-spin {
-  to { transform: rotate(360deg); }
-}
-
-/* ═══════════════════════════════════════════
-   RESPONSIVE
-═══════════════════════════════════════════ */
-
-@media (max-width: 900px) {
-  .mn-container { padding: 0 24px; gap: 44px; }
-  .mn-main      { padding: 56px 0 80px; }
-}
-
-@media (max-width: 900px) {
-  .mn-card-grid { grid-template-columns: 1fr; column-gap: 0; }
-}
-
-@media (max-width: 640px) {
-  .mn-container { padding: 0 11px; gap: 36px; }
-  .mn-main      { padding: 44px 0 72px; }
-  .mn-group     { gap: 28px; }
-  .mn-group-header { gap: 10px; }
+@media (max-width: 768px) {
+  .mn-card-grid {
+    grid-template-columns: 1fr;
+  }
+  .mn-header-banner {
+    padding: 8px 30px 8px 15px;
+  }
+  .mn-header-title {
+    font-size: 1.2rem;
+  }
+  .mn-header-train {
+    font-size: 1.8rem;
+  }
+  .mn-item-count {
+    font-size: 0.9rem;
+  }
 }
 
 @media (max-width: 480px) {
-}
-
-@media (max-width: 360px) {
-  .mn-card-grid { column-gap: 8px; row-gap: 16px; }
+  .mn-container {
+    padding: 0 16px;
+  }
+  .mn-group-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  .mn-header-right {
+    width: 100%;
+  }
 }
 
