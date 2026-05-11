@@ -108,17 +108,36 @@ function OrderingBar({
     <div className={`ob-wrap${hideOrderType ? ' ob-wrap-menu' : ''}`}>
       <div className="ob-inner">
 
-        {/* Left: Available Items Toggle */}
-        <div className="ob-avail-section">
-          <span className="ob-avail-label">Available Items</span>
-          <label className="ob-switch">
-            <input
-              type="checkbox"
-              checked={availableNow}
-              onChange={(e) => onAvailableNowChange(e.target.checked)}
-            />
-            <span className="ob-slider" />
-          </label>
+        {/* Left: Toggles */}
+        <div className="ob-left-controls">
+          <div className="ob-avail-section">
+            <span className="ob-avail-label">Available Items</span>
+            <label className="ob-switch">
+              <input
+                type="checkbox"
+                checked={availableNow}
+                onChange={(e) => onAvailableNowChange(e.target.checked)}
+              />
+              <span className="ob-slider" />
+            </label>
+          </div>
+
+          {!hideOrderType && (
+            <div className="ob-order-type-toggle">
+              <button
+                className={`ob-ot-btn${orderType === 'PICKUP' ? ' active' : ''}`}
+                onClick={() => onOrderTypeChange('PICKUP')}
+              >
+                Pickup
+              </button>
+              <button
+                className={`ob-ot-btn${orderType === 'DELIVERY' ? ' active' : ''}`}
+                onClick={() => onOrderTypeChange('DELIVERY')}
+              >
+                Delivery
+              </button>
+            </div>
+          )}
         </div>
 
         {/* Center: Search input */}

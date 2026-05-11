@@ -83,18 +83,6 @@ function CategoryFilter({
           
           <div className="mn-pills-container">
             <div className="mn-pills" ref={pillsRef as React.LegacyRef<HTMLDivElement>}>
-              {/* "All" Category */}
-              <button
-                data-id="all"
-                className={`mn-pill ${activeId === '' || activeId === 'all' ? 'active' : ''}`}
-                onClick={() => onSelect('all')}
-              >
-                All
-                <span className="mn-pill-count">
-                  {sectionCats.reduce((acc, cat) => acc + getCategoryCount(cat.id), 0)}
-                </span>
-                {activeId === 'all' && <div className="mn-pill-underline" />}
-              </button>
 
               {hasExclusive && (
                 <button
@@ -103,8 +91,6 @@ function CategoryFilter({
                   onClick={() => onSelect('exclusive')}
                 >
                   Today's Exclusive
-                  <span className="mn-pill-count">{getCategoryCount('exclusive')}</span>
-                  {activeId === 'exclusive' && <div className="mn-pill-underline" />}
                 </button>
               )}
 
@@ -117,7 +103,6 @@ function CategoryFilter({
                 >
                   {cat.name}
                   <span className="mn-pill-count">{getCategoryCount(cat.id)}</span>
-                  {activeId === cat.id && <div className="mn-pill-underline" />}
                 </button>
               ))}
             </div>

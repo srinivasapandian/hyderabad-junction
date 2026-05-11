@@ -146,9 +146,7 @@
 
 @media (max-width: 768px) {
   .mn-filter-outer {
-    top: 155px;
-    /* Adjust for mobile stacked Row 1 */
-    padding: 10px 0;
+    display: none;
   }
 
   .mn-maroon-bar {

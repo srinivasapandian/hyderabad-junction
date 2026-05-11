@@ -19,6 +19,39 @@
 }
 
 /* ── Available Section ── */
+.ob-left-controls {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-shrink: 0;
+}
+
+.ob-order-type-toggle {
+  display: flex;
+  align-items: center;
+  background: #fff;
+  border: 1px solid #5a171244;
+  border-radius: 50px;
+  padding: 4px;
+}
+
+.ob-ot-btn {
+  padding: 6px 16px;
+  border-radius: 50px;
+  border: none;
+  background: transparent;
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #5a1712;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.ob-ot-btn.active {
+  background: #5a1712;
+  color: #fff;
+}
 .ob-avail-section {
   display: flex;
   align-items: center;
@@ -333,8 +366,10 @@ input:checked + .ob-slider:before {
     flex-wrap: wrap;
     gap: 12px;
   }
-  .ob-avail-section {
+  .ob-left-controls {
     order: 1;
+    width: 100%;
+    justify-content: space-between;
   }
   .ob-filter-section {
     order: 2;
