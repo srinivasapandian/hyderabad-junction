@@ -118,15 +118,28 @@
 .mn-scroll-arrow {
   color: #fff;
   font-size: 1.2rem;
-  padding-left: 20px;
   cursor: pointer;
   opacity: 0.8;
-  transition: opacity 0.3s;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 5;
+}
+
+.mn-scroll-arrow.left {
+  padding-right: 20px;
+}
+
+.mn-scroll-arrow.right {
+  padding-left: 20px;
 }
 
 .mn-scroll-arrow:hover {
   opacity: 1;
+  transform: scale(1.1);
 }
+
 
 /* ── Responsive ── */
 @media (max-width: 992px) {

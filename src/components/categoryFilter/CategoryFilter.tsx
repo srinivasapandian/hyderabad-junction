@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './CategoryFilter.css';
 import CategoryFilterShimmer from '../../shimmer/CategoryFilterShimmer/CategoryFilterShimmer';
 import type { Category } from '../../types';
@@ -26,11 +26,48 @@ function CategoryFilter({
   onSelect,
   filterRef,
   pillsRef,
-  searchQuery,
-  onSearchChange,
   withOrderBar = false,
 }: CategoryFilterProps) {
+  const [showLeftArrow, setShowLeftArrow] = useState(false);
+  const [showRightArrow, setShowRightArrow] = useState(false);
+
+  const checkScroll = () => {
+    if (pillsRef && pillsRef.current) {
+      const { scrollLeft, scrollWidth, clientWidth } = pillsRef.current;
+      setShowLeftArrow(scrollLeft > 20);
+      setShowRightArrow(scrollLeft < scrollWidth - clientWidth - 20);
+    }
+  };
+
+  useEffect(() => {
+    const el = pillsRef?.current;
+    if (el) {
+      el.addEventListener('scroll', checkScroll);
+      checkScroll();
+      // Re-check after a short delay to account for rendering
+      const timer = setTimeout(checkScroll, 100);
+      window.addEventListener('resize', checkScroll);
+      return () => {
+        el.removeEventListener('scroll', checkScroll);
+        window.removeEventListener('resize', checkScroll);
+        clearTimeout(timer);
+      };
+    }
+  }, [pillsRef, sectionCats, loading]);
+
+  const handleScroll = (direction: 'left' | 'right') => {
+    if (pillsRef && pillsRef.current) {
+      const container = pillsRef.current;
+      const scrollAmount = container.clientWidth * 0.6;
+      container.scrollBy({
+        left: direction === 'left' ? -scrollAmount : scrollAmount,
+        behavior: 'smooth',
+      });
+    }
+  };
+
   if (loading) return <CategoryFilterShimmer filterRef={filterRef} />;
+
   return (
     <div
       className={`mn-filter-outer${withOrderBar ? ' mn-filter-outer--with-ob' : ''}`}
@@ -38,6 +75,12 @@ function CategoryFilter({
     >
       <div className="mn-filter-inner">
         <div className="mn-maroon-bar">
+          {showLeftArrow && (
+            <div className="mn-scroll-arrow left" onClick={() => handleScroll('left')}>
+              <i className="fa-solid fa-chevron-left" />
+            </div>
+          )}
+          
           <div className="mn-pills-container">
             <div className="mn-pills" ref={pillsRef as React.LegacyRef<HTMLDivElement>}>
               {/* "All" Category */}
@@ -79,9 +122,12 @@ function CategoryFilter({
               ))}
             </div>
           </div>
-          <div className="mn-scroll-arrow right">
-            <i className="fa-solid fa-chevron-right" />
-          </div>
+
+          {showRightArrow && (
+            <div className="mn-scroll-arrow right" onClick={() => handleScroll('right')}>
+              <i className="fa-solid fa-chevron-right" />
+            </div>
+          )}
         </div>
       </div>
     </div>
@@ -89,3 +135,4 @@ function CategoryFilter({
 }
 
 export default CategoryFilter;
+
