@@ -3,23 +3,27 @@
   flex-direction: row;
   flex-wrap: nowrap;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   gap: 0;
   position: relative;
   font-family: 'Blinka Serif', serif;
   font-size: 1.15rem;
   font-weight: 700;
-  color: var(--white-color);
-  background-image: url('../../assets/style.png');
-  background-repeat: no-repeat;
-  background-size: 100% 100%;
+  color: white;
   border: none;
   outline: none;
-  padding: 12px 28px 12px 38px;
   text-transform: uppercase;
   letter-spacing: 0.1em;
   white-space: nowrap;
   margin: 0;
+}
+
+.category-title-text {
+  display: inline-block;
+  background-image: url('../../assets/style.png');
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  padding: 12px 28px 12px 38px;
   min-width: 140px;
   text-align: center;
   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
@@ -28,32 +32,33 @@
 .category-train {
   width: clamp(50px, 6vw, 85px);
   height: auto;
-  margin-left: -15px;
+  margin-left: -7px;
   flex-shrink: 0;
-  position: relative;
-  z-index: 2;
+  transform: translateY(-14px);
 }
 
 @media (max-width: 640px) {
   .category-title {
     font-size: 0.95rem;
+  }
+  .category-title-text {
     padding: 12px 32px 12px 40px;
     min-width: 140px;
   }
   .category-train {
     width: 45px;
-    margin-left: -10px;
   }
 }
 
 @media (max-width: 480px) {
   .category-title {
     font-size: 0.82rem;
+  }
+  .category-title-text {
     padding: 10px 24px 10px 32px;
     min-width: 120px;
   }
   .category-train {
     width: 38px;
-    margin-left: -8px;
   }
 }
