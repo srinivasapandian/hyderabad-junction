@@ -158,7 +158,7 @@ function MenuGrid({
                 <div key={subId} className="mn-sub-section">
                   <div className="mn-group-header">
                     <div className="mn-header-left">
-                      <span className="mn-header-title">{subData.name}</span>
+                      <CategoryTitle className="mn-header-banner">{subData.name}</CategoryTitle>
                     </div>
                     <div className="mn-header-right">
                       <span className="mn-item-count">{String(subData.items.length).padStart(2, '0')} ITEMS</span>
@@ -178,7 +178,7 @@ function MenuGrid({
                   {!hasSubCats && (
                     <div className="mn-group-header">
                       <div className="mn-header-left">
-                        <span className="mn-header-title">{cat.name}</span>
+                        <CategoryTitle className="mn-header-banner">{cat.name}</CategoryTitle>
                       </div>
                       <div className="mn-header-right">
                         <span className="mn-item-count">{String(group.direct.length).padStart(2, '0')} ITEMS</span>

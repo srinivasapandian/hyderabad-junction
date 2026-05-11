@@ -218,7 +218,8 @@
     display: block;
     object-fit: cover;
     object-position: center;
-    opacity: 1; /* Reset opacity for direct content image */
+    opacity: 1;
+    /* Reset opacity for direct content image */
   }
 
 }
@@ -386,9 +387,11 @@
 
 .hj-section-title-wrap {
   display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
   align-items: center;
   justify-content: center;
-  gap: 0.35rem;
+  gap: 0;
   min-height: clamp(56px, 7.4vw, 98px);
   padding: 0.2rem 0.7rem;
   margin-bottom: 1.2rem;
@@ -403,14 +406,19 @@
   font-family: var(--heading);
   font-size: clamp(1.35rem, 2vw, 2.4rem);
   line-height: 1;
-  padding: 0.85rem 2.85rem 0.85rem 2.25rem;
-  min-width: clamp(190px, 23vw, 320px);
+  padding: 0.75rem 2rem 0.75rem 1.6rem;
+  min-width: clamp(140px, 18vw, 260px);
   text-align: center;
+  flex-shrink: 0;
 }
 
 .hj-ribbon-train {
   width: clamp(62px, 7vw, 108px);
   height: auto;
+  margin-left: -12px;
+  position: relative;
+  z-index: 2;
+  flex-shrink: 0;
 }
 
 /* ──────────────────────────────────────────
@@ -1082,6 +1090,11 @@
 
   .hj-ribbon {
     padding: 0.62rem 1.8rem;
+  }
+
+  .hj-ribbon-train {
+    width: 60px;
+    margin-left: -8px;
   }
 
   .hj-menu-card {

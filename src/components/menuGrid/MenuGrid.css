@@ -55,15 +55,7 @@
   gap: 15px;
 }
 
-.mn-header-title {
-  color: #5A1712;
-  font-family: var(--font-heading);
-  font-size: 1.8rem;
-  font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  white-space: nowrap;
-}
+/* .mn-header-title is now handled by CategoryTitle component */
 
 .mn-header-right {
   flex-grow: 1;
@@ -107,15 +99,7 @@
   .mn-card-grid {
     grid-template-columns: 1fr;
   }
-  .mn-header-banner {
-    padding: 8px 30px 8px 15px;
-  }
-  .mn-header-title {
-    font-size: 1.2rem;
-  }
-  .mn-header-train {
-    font-size: 1.8rem;
-  }
+  /* .mn-header-banner and train are handled by CategoryTitle */
   .mn-item-count {
     font-size: 0.9rem;
   }
