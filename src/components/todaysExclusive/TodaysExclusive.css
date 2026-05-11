@@ -36,16 +36,17 @@
 
 /* ── Slide (card wrapper) ── */
 .te-slide {
-  flex: 0 0 280px;
-  height: 200px;
+  flex: 0 0 350px;
+  height: auto;
   scroll-snap-align: start;
 }
 
 /* ── Responsive ── */
-@media (max-width: 640px) {
+@media (max-width: 768px) {
   .te-slider { gap: 12px; }
-  .te-slider { gap: 12px; }
+  .te-slide { flex: 0 0 320px; }
 }
 
 @media (max-width: 480px) {
+  .te-slide { flex: 0 0 280px; }
 }

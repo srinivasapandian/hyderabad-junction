@@ -1,254 +1,276 @@
-﻿/* ═══════════════════════════════════════
-   EXCLUSIVE ITEM CARD — menu dark theme
-═══════════════════════════════════════ */
+/* ═══════════════════════════════════════
+   EXCLUSIVE ITEM CARD — PREMIUM CLAUDE UI
+   ═══════════════════════════════════════ */
 
 .eic-card {
   position: relative;
   width: 100%;
-  height: 100%;
-  border-radius: 14px;
-  overflow: hidden;
-  /* background: var(--surface); */
-  border: 1px solid var(--primary-blob);
-  transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
+  display: flex;
+  gap: 16px;
+  background: var(--white-color, #ffffff);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: 24px;
+  padding: 12px;
+  transition: transform 0.25s cubic-bezier(0.2, 1, 0.3, 1), box-shadow 0.25s ease;
   cursor: pointer;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
 }
 
 .eic-card:hover {
-  transform: translateY(-1px);
-  border: 1px solid rgba(224, 192, 171, 0.15);
-  border-color: rgba(224, 192, 171, 0.45);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
 }
 
-/* ── Image ── */
+/* ── Left: Image Box ── */
+.eic-img-box {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  flex-shrink: 0;
+  border-radius: 20px;
+  overflow: hidden;
+  background: #f0f0f0;
+}
+
 .eic-img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   display: block;
+  transition: transform 0.4s ease;
 }
 
-/* ── Overlay sits at the top of the image ── */
-.eic-overlay {
+.eic-card:hover .eic-img {
+  transform: scale(1.08);
+}
+
+.eic-wishlist-btn {
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  padding: 14px 14px 28px;
-  background: none;
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-  text-align: left;
-}
-
-/* ── Name + Price row ── */
-.eic-name-price {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
-  align-items: start;
-  gap: 10px;
-}
-
-.eic-name {
-  font-family: var(--font-accent);
-  font-size: 0.88rem;
-  font-weight: 700;
-  color: var(--white-color);
-  line-height: 1.35;
-  min-width: 0;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-}
-
-.eic-price {
-  font-family: var(--font-accent);
-  font-size: 0.88rem;
-  font-weight: 700;
-  color: var(--secondary-color);
-  white-space: nowrap;
-  flex-shrink: 0;
-}
-
-/* ── ADD button ── */
-.eic-add-btn {
-  position: absolute;
-  bottom: 10px;
-  right: 10px;
-  height: 26px;
-  padding: 0 14px;
-  border-radius: 20px;
-  background: var(--secondary-color);
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
+  top: 10px;
+  left: 10px;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.9);
   border: none;
-  cursor: pointer;
-  font-family: var(--font-body);
-  font-size: 0.7rem;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  color: var(--primary-color);
-  transition: background var(--transition);
-}
-
-.eic-add-btn:hover {
-  /* background: var(--btn-grad-hover); */
-}
-
-/* ── Quantity spinner ── */
-.eic-qty-ctrl {
-  position: absolute;
-  bottom: 10px;
-  right: 10px;
-  height: 26px;
-  display: flex;
-  align-items: center;
-  border-radius: 20px;
-  background: var(--secondary-color);
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
-  overflow: hidden;
-}
-
-.eic-qty-btn {
-  width: 26px;
-  height: 26px;
-  border: none;
-  background: transparent;
-  cursor: pointer;
-  color: var(--primary-color);
-  font-size: 1rem;
-  font-weight: 700;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: background var(--transition);
-  flex-shrink: 0;
-}
-
-.eic-qty-btn:hover {
-  background: rgba(0, 0, 0, 0.12);
-}
-
-.eic-qty-count {
-  font-family: var(--font-accent);
-  font-size: 0.8rem;
-  font-weight: 700;
-  color: var(--primary-color);
-  min-width: 20px;
-  text-align: center;
-  line-height: 1;
-}
-
-/* ── Description ── */
-.eic-desc {
-  font-family: var(--font-accent);
-  font-size: 0.72rem;
-  color: rgba(255, 255, 255, 0.7);
-  line-height: 1.5;
-  margin: 0;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-}
-
-
-/* ── Badges stack (bottom-left) — note on top, modifier below ── */
-.eic-badges {
-  position: absolute;
-  bottom: 10px;
-  left: 10px;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 8px;
+  color: #3c1b12; /* Dark maroonish */
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease, background 0.2s ease;
+  padding: 0;
   z-index: 2;
 }
 
+.eic-wishlist-btn:hover {
+  transform: scale(1.1);
+  background: #ffffff;
+}
+
+/* ── Right: Content ── */
+.eic-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 4px 4px 4px 0;
+}
+
+.eic-top-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.eic-name {
+  font-family: var(--font-serif, 'Georgia', serif);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #2c3e50; /* Dark slate blue/gray */
+  margin: 0;
+  line-height: 1.2;
+}
+
+.eic-price {
+  font-family: var(--font-body);
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #cd4143; /* Red from image */
+  white-space: nowrap;
+}
+
+/* ── Bottom Row ── */
+.eic-bottom-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.eic-badges {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
 .eic-modifier-badge {
-  position: static;
-  width: 20px;
-  height: 20px;
-  border-radius: 4px;
-  background: var(--primary-color, #013531);
-  border: none;
+  background: #f8f1ed;
+  border-radius: 8px;
+  width: 24px;
+  height: 24px;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--secondary-color);
-  pointer-events: none;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
 
-/* Dot on the note icon — signals that this line has a user note */
-.eic-note-indicator {
-  position: absolute;
-  top: -3px;
-  right: -3px;
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: var(--red);
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.35);
-}
-
-/* ── Item-Note button (shown only when item is in cart) ── */
 .eic-note-btn {
   position: relative;
-  width: 20px;
-  height: 20px;
-  border-radius: 4px;
-  background: var(--secondary-color);
+  width: 24px;
+  height: 24px;
+  border-radius: 8px;
+  background: #f8f1ed;
   border: none;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 0;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
-  transition: transform 0.18s ease;
-}
-
-.eic-note-btn:hover {
-  transform: translateY(-1px);
 }
 
 .eic-note-icon {
-  width: 12px;
-  height: 13px;
-  display: block;
-  filter: brightness(0);
+  width: 14px;
+  height: 14px;
+  opacity: 0.7;
 }
 
 .eic-note-plus {
   position: absolute;
-  top: -3px;
-  right: -3px;
-  width: 8px;
-  height: 8px;
+  top: -4px;
+  right: -4px;
+  width: 10px;
+  height: 10px;
+  background: var(--red);
+  color: white;
+  font-size: 8px;
   border-radius: 50%;
-  background: var(--red, #cd4143);
-  color: var(--white-color);
-  font-size: 0.4rem;
-  font-weight: 700;
-  line-height: 1;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.35);
 }
 
-@media screen and (max-width : 576px) {
+/* ── Action Area ── */
+.eic-action-area {
+  margin-left: auto;
+}
+
+.eic-cart-round-btn {
+  position: relative;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #4a1414; /* Dark maroon from image */
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  cursor: pointer;
+  transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 4px 12px rgba(74, 20, 20, 0.3);
+}
+
+.eic-cart-round-btn:hover {
+  transform: scale(1.05);
+  background: #5d1f1f;
+  box-shadow: 0 6px 16px rgba(74, 20, 20, 0.4);
+}
+
+.eic-plus-mini {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 10px;
+  font-weight: 900;
+  line-height: 1;
+}
+
+/* ── Qty Pill ── */
+.eic-qty-pill {
+  display: flex;
+  align-items: center;
+  background: #f8f1ed;
+  border-radius: 30px;
+  padding: 4px;
+  gap: 12px;
+}
+
+.eic-qty-pill-btn {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: white;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #4a1414;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.eic-qty-pill-btn:hover {
+  background: #eeeeee;
+}
+
+.eic-qty-pill-count {
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: #4a1414;
+  min-width: 14px;
+  text-align: center;
+}
+
+/* ── View Button (for closed status) ── */
+.eic-view-btn {
+  padding: 8px 16px;
+  border-radius: 20px;
+  background: #4a1414;
+  color: white;
+  border: none;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  cursor: pointer;
+}
+
+/* ── Mobile Responsive ── */
+@media screen and (max-width: 480px) {
+  .eic-card {
+    gap: 12px;
+    padding: 10px;
+    border-radius: 20px;
+  }
+
+  .eic-img-box {
+    width: 100px;
+    height: 100px;
+    border-radius: 16px;
+  }
+
   .eic-name {
-    font-size: 0.77em;
-    font-weight: 500;
+    font-size: 1.1rem;
   }
 
   .eic-price {
-    font-size: 0.75em;
-    font-weight: 500;
+    font-size: 1.1rem;
+  }
+
+  .eic-cart-round-btn {
+    width: 38px;
+    height: 38px;
   }
 }

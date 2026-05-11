@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
+import { Heart, ShoppingCart } from 'lucide-react';
 import './ExclusiveItemCard.css';
 import placeholderImg from '../../assets/placeHolderMedia.jpg';
 import customizationSvg from '../../assets/svg/customization.svg';
@@ -81,77 +82,82 @@ function ExclusiveItemCard({ item }: ExclusiveItemCardProps) {
       tabIndex={0}
       onKeyDown={(e) => { if (e.key === 'Enter') handleCardClick(); }}
     >
-      {/* ── Full image ── */}
-      <img
-        src={imageUrl || placeholderImg}
-        alt={itemName}
-        className="eic-img"
-        loading="lazy"
-      />
-
-      {/* ── Overlay: name + price + description ── */}
-      <div className="eic-overlay">
-        <div className="eic-name-price">
-          <span className="eic-name">{itemName}</span>
-          <span className="eic-price">${Number(price).toFixed(2)}</span>
-        </div>
-        {description && (
-          <p className="eic-desc">{description}</p>
-        )}
+      {/* ── Left: Image Section ── */}
+      <div className="eic-img-box">
+        <img
+          src={imageUrl || placeholderImg}
+          alt={itemName}
+          className="eic-img"
+          loading="lazy"
+        />
+        <button className="eic-wishlist-btn" onClick={(e) => e.stopPropagation()}>
+          <Heart size={16} strokeWidth={2.5} />
+        </button>
       </div>
 
-      {/* ── Badges — note btn hidden when closed, modifier badge stays ── */}
-      {((!isRestaurantClosed && qty > 0) || hasModifiers) && (
-        <div className="eic-badges">
-          {!isRestaurantClosed && qty > 0 && (
-            <button
-              type="button"
-              className="eic-note-btn"
-              onClick={openNoteModal}
-              aria-label={hasNote ? 'Edit item note' : 'Add note to this item'}
-            >
-              <img src={itemNoteSvg} alt="" className="eic-note-icon" />
-              {hasNote
-                ? <span className="eic-note-indicator" aria-hidden="true" />
-                : <span className="eic-note-plus" aria-hidden="true">+</span>}
-            </button>
-          )}
-          {hasModifiers && (
-            <span className="eic-modifier-badge" aria-label="Customisable item">
-              <img src={customizationSvg} alt="" width={14} height={14} />
-            </span>
-          )}
+      {/* ── Right: Content Section ── */}
+      <div className="eic-content">
+        <div className="eic-top-info">
+          <h3 className="eic-name">{itemName}</h3>
+          <span className="eic-price">${Number(price).toFixed(2)}</span>
         </div>
-      )}
 
-      {/* ── VIEW / Add / Quantity spinner ── */}
-      {isRestaurantClosed ? (
-        <button className="eic-add-btn" onClick={(e) => { e.stopPropagation(); handleCardClick(); }}>
-          VIEW
-        </button>
-      ) : qty === 0 ? (
-        <button className="eic-add-btn" onClick={handleAddClick}>
-          ADD
-        </button>
-      ) : (
-        <div className="eic-qty-ctrl">
-          <button
-            className="eic-qty-btn"
-            onClick={(e) => { e.stopPropagation(); dispatch(updateQtyAction(lineId, -1)); }}
-            aria-label="Decrease quantity"
-          >
-            −
-          </button>
-          <span className="eic-qty-count">{qty}</span>
-          <button
-            className="eic-qty-btn"
-            onClick={(e) => { e.stopPropagation(); hasModifiers ? setPopupOpen(true) : dispatch(updateQtyAction(lineId, 1)); }}
-            aria-label="Increase quantity"
-          >
-            +
-          </button>
+        <div className="eic-bottom-row">
+          {/* Badges — note btn hidden when closed, modifier badge stays */}
+          {((!isRestaurantClosed && qty > 0) || hasModifiers) && (
+            <div className="eic-badges">
+              {!isRestaurantClosed && qty > 0 && (
+                <button
+                  type="button"
+                  className="eic-note-btn"
+                  onClick={openNoteModal}
+                  aria-label={hasNote ? 'Edit item note' : 'Add note to this item'}
+                >
+                  <img src={itemNoteSvg} alt="" className="eic-note-icon" />
+                  {hasNote
+                    ? <span className="eic-note-indicator" aria-hidden="true" />
+                    : <span className="eic-note-plus" aria-hidden="true">+</span>}
+                </button>
+              )}
+              {hasModifiers && (
+                <span className="eic-modifier-badge" aria-label="Customisable item">
+                  <img src={customizationSvg} alt="" width={12} height={12} />
+                </span>
+              )}
+            </div>
+          )}
+
+          {/* VIEW / Add / Quantity spinner */}
+          <div className="eic-action-area">
+            {isRestaurantClosed ? (
+              <button className="eic-view-btn" onClick={(e) => { e.stopPropagation(); handleCardClick(); }}>
+                VIEW
+              </button>
+            ) : qty === 0 ? (
+              <button className="eic-cart-round-btn" onClick={handleAddClick}>
+                <ShoppingCart size={18} fill="white" />
+                <span className="eic-plus-mini">+</span>
+              </button>
+            ) : (
+              <div className="eic-qty-pill">
+                <button
+                  className="eic-qty-pill-btn"
+                  onClick={(e) => { e.stopPropagation(); dispatch(updateQtyAction(lineId, -1)); }}
+                >
+                  −
+                </button>
+                <span className="eic-qty-pill-count">{qty}</span>
+                <button
+                  className="eic-qty-pill-btn"
+                  onClick={(e) => { e.stopPropagation(); hasModifiers ? setPopupOpen(true) : dispatch(updateQtyAction(lineId, 1)); }}
+                >
+                  +
+                </button>
+              </div>
+            )}
+          </div>
         </div>
-      )}
+      </div>
 
       <ItemNoteModal
         isOpen={noteOpen}
