@@ -1018,8 +1018,7 @@
   }
 
   .hj-google-panel {
-    display: none;
-    /* Hide google grid on mobile to save space */
+    display: block;
   }
 
   .hj-flavor-main-card {
