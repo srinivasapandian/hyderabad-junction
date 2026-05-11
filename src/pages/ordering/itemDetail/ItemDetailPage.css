@@ -1,4 +1,4 @@
-﻿/* ══════════════════════════════════════════════════════════
+/* ══════════════════════════════════════════════════════════
    ITEM DETAIL PAGE — DARK BRAND THEME
    Desktop : split (left detail · right image)
    Mobile  : hero image top → details → sticky bar
@@ -144,12 +144,11 @@
   font-size: 0.72rem;
 }
 
-/* Name + Price inline row */
+/* Name + Price row */
 .idp__name-price-row {
   display: flex;
-  align-items: baseline;
+  align-items: flex-start;
   gap: 16px;
-  flex-wrap: wrap;
 }
 
 /* Name */
@@ -177,7 +176,6 @@
 .idp__desc-wrap {
   display: flex;
   flex-direction: column;
-  gap: 2px;
 }
 
 .idp__desc {
@@ -186,19 +184,23 @@
   color: rgba(0, 0, 0, 0.55);
   line-height: 1.8;
   margin: 0;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
+}
+
+.idp__desc--clamped {
+  max-height: calc(2 * 1.8em);
   overflow: hidden;
 }
 
-.idp__desc--expanded {
-  display: block;
-  overflow: visible;
-  -webkit-line-clamp: unset;
+.idp__desc--clamped::before {
+  content: "";
+  float: right;
+  height: 1.8em;
+  width: 0;
 }
 
 .idp__desc-more {
+  float: right;
+  clear: right;
   background: none;
   border: none;
   color: var(--secondary-color);
@@ -207,8 +209,23 @@
   font-weight: 700;
   cursor: pointer;
   padding: 0;
-  text-align: left;
-  width: fit-content;
+  line-height: 1.8;
+}
+
+.idp__desc-more::before {
+  content: "...";
+}
+
+.idp__desc-less {
+  display: inline;
+  background: none;
+  border: none;
+  color: var(--secondary-color);
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  font-weight: 700;
+  cursor: pointer;
+  padding: 0 0 0 6px;
 }
 
 /* Price */
@@ -1021,8 +1038,6 @@
 
 @media (max-width: 768px) {
   .idp__name-price-row {
-    align-items: center;
-    justify-content: space-between;
     gap: 12px;
   }
 
@@ -1033,7 +1048,8 @@
 
   .idp__price {
     font-size: 1.45rem;
-    margin-left: auto;
+    flex: 1 1 0;
+    flex-shrink: 0;
   }
 
   .idp__cart-block {
@@ -1094,6 +1110,18 @@
 
   .idp__desc {
     font-size: 0.9rem;
+    line-height: 1.65;
+  }
+
+  .idp__desc--clamped {
+    max-height: calc(2 * 1.65em);
+  }
+
+  .idp__desc--clamped::before {
+    height: 1.65em;
+  }
+
+  .idp__desc-more {
     line-height: 1.65;
   }
 

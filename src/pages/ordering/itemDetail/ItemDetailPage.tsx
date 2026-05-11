@@ -511,18 +511,27 @@ export default function ItemDetailPage() {
             <div className="idp__desc-note-wrap">
               {description && (
                 <div className="idp__desc-wrap">
-                  <p ref={descRef} className={`idp__desc${descExpanded ? ' idp__desc--expanded' : ''}`}>
+                  <p ref={descRef} className={`idp__desc${!descExpanded ? ' idp__desc--clamped' : ''}`}>
+                    {descOverflows && !descExpanded && (
+                      <button
+                        className="idp__desc-more"
+                        onClick={() => setDescExpanded(true)}
+                        type="button"
+                      >
+                        more
+                      </button>
+                    )}
                     {description}
+                    {descExpanded && (
+                      <button
+                        className="idp__desc-less"
+                        onClick={() => setDescExpanded(false)}
+                        type="button"
+                      >
+                        less
+                      </button>
+                    )}
                   </p>
-                  {descOverflows && !descExpanded && (
-                    <button
-                      className="idp__desc-more"
-                      onClick={() => setDescExpanded(true)}
-                      type="button"
-                    >
-                      more
-                    </button>
-                  )}
                 </div>
               )}
 

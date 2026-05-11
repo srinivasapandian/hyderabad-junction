@@ -30,3 +30,28 @@ export function getCustomerAppViewType(slugData: SlugData | null): CustomerAppVi
   // ! List as Default
   return String(raw).toUpperCase() === 'GRID' ? 'GRID' : 'LIST';
 }
+
+export function resolvePaymentOptions(slugData: SlugData | null) {
+  const result = { showPayAtStore: false, showPayOnDelivery: false };
+  const classDataRaw = slugData?.paymentProvider?.classData;
+  if (!classDataRaw) return result;
+
+  try {
+    const parsed = JSON.parse(classDataRaw);
+    const options = parsed?.paymentOptions || [];
+    result.showPayAtStore = options.includes('PAY_AT_STORE');
+    result.showPayOnDelivery = options.includes('PAY_ON_DELIVERY');
+  } catch {
+    /* ignore parse errors */
+  }
+  return result;
+}
+
+export function getCodLimitForOrderType(slugData: SlugData | null, orderTypeId: string | undefined): number | null {
+  if (!orderTypeId) return null;
+  const orderTypes = slugData?.orderTypes || slugData?.body?.orderTypes || [];
+  const type = orderTypes.find((t: any) => String(t.id) === String(orderTypeId));
+  if (!type || type.codLimit === undefined || type.codLimit === null) return null;
+  return Number(type.codLimit);
+}
+

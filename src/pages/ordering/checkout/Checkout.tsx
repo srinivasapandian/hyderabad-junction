@@ -19,7 +19,7 @@ import { fetchAddressRequest, deliveryQuoteRequest, clearDeliveryQuote } from '.
 import { fetchTotalsRequest, clearTotals } from '../../../redux/totals/totalsActions';
 import { paymentTenderTypes, resolvePaymentCurrencyFromSlug } from '../../../constants/paymentConstants';
 import PageBg from '../../../components/pageBg/PageBg';
-import { LOCATION_SLUG, getMatchedBranchByMerchantSlug } from '../../../utils/branchConfig';
+import { LOCATION_SLUG, getMatchedBranchByMerchantSlug, resolvePaymentOptions, getCodLimitForOrderType } from '../../../utils/branchConfig';
 import { getEtaInTimeZone } from '../../../hooks/getEtaInTimeZone';
 import './Checkout.css';
 
@@ -456,6 +456,21 @@ export default function CheckoutPage({ onSignInClick }: CheckoutPageProps) {
   })();
 
   const cartItemCount = cartLines.reduce((n: number, l: any) => n + l.qty, 0);
+
+  const { showPayAtStore, showPayOnDelivery } = resolvePaymentOptions(slugData);
+  const codLimit = getCodLimitForOrderType(slugData, orderTypeId);
+  const isCodLimitExceeded = codLimit !== null && parseFloat(grandTotalVal) >= codLimit;
+  const showOfflinePayment = (orderType === 'Delivery' ? showPayOnDelivery : showPayAtStore) && !isCodLimitExceeded;
+
+  useEffect(() => {
+    if (!showOfflinePayment && paymentMethod !== CARD_PAYMENT_OPTION) {
+      setPaymentMethod(CARD_PAYMENT_OPTION);
+      setShowCardForm(true);
+      setCardForm((prev) => ({ ...prev, recaptchaToken: '' }));
+      recaptchaWidgetIdRef.current = null;
+    }
+  }, [showOfflinePayment]); // eslint-disable-line react-hooks/exhaustive-deps
+
   const paymentOption = orderType === 'Delivery' ? 'pay_on_delivery' : 'pay_at_store';
   const paymentLabel  = orderType === 'Delivery' ? 'Pay on Delivery' : 'Pay at Store';
   const isCardPayment = paymentMethod === CARD_PAYMENT_OPTION;
@@ -465,6 +480,15 @@ export default function CheckoutPage({ onSignInClick }: CheckoutPageProps) {
     if (checked) {
       setPaymentMethod(option);
       setLocalError(null);
+
+      if (option === CARD_PAYMENT_OPTION) {
+        setShowCardForm(true);
+        setCardForm((prev) => ({ ...prev, recaptchaToken: '' }));
+        if (window.grecaptcha && recaptchaWidgetIdRef.current !== null) {
+          window.grecaptcha.reset(recaptchaWidgetIdRef.current);
+        }
+        recaptchaWidgetIdRef.current = null;
+      }
       return;
     }
 
@@ -837,15 +861,17 @@ export default function CheckoutPage({ onSignInClick }: CheckoutPageProps) {
               </p>
 
               <div className="checkout-payment__options-row">
-                <label className={`checkout-payment__option${paymentMethod === paymentOption ? ' is-selected' : ''}`}>
-                  <input
-                    type="checkbox"
-                    checked={paymentMethod === paymentOption}
-                    onChange={(e) => handlePaymentToggle(paymentOption, e.target.checked)}
-                  />
-                  <span className="checkout-payment__check" />
-                  <span className="checkout-payment__label">{paymentLabel}</span>
-                </label>
+                {showOfflinePayment && (
+                  <label className={`checkout-payment__option${paymentMethod === paymentOption ? ' is-selected' : ''}`}>
+                    <input
+                      type="checkbox"
+                      checked={paymentMethod === paymentOption}
+                      onChange={(e) => handlePaymentToggle(paymentOption, e.target.checked)}
+                    />
+                    <span className="checkout-payment__check" />
+                    <span className="checkout-payment__label">{paymentLabel}</span>
+                  </label>
+                )}
 
                 <label className={`checkout-payment__option${isCardPayment ? ' is-selected' : ''}`}>
                   <input
@@ -857,15 +883,6 @@ export default function CheckoutPage({ onSignInClick }: CheckoutPageProps) {
                   <span className="checkout-payment__label">Card</span>
                 </label>
               </div>
-
-              <button
-                type="button"
-                className="checkout-card-add-btn"
-                onClick={handleOpenCardForm}
-                disabled={!isCardPayment}
-              >
-                Add New Card
-              </button>
 
               {isCardPayment && showCardForm && (
                 <div className="checkout-card-form">

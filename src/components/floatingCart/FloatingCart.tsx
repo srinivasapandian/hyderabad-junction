@@ -16,7 +16,7 @@ function isBottomNavHidden(pathname: string) {
 export default function FloatingCart(): React.JSX.Element | null {
   const navigate       = useNavigate();
   const cartLines      = useSelector((s: RootState) => s.cart.cartLines);
-  const totalItemCount = cartLines.reduce((sum, l) => sum + l.qty, 0);
+  const totalItemCount = cartLines.length;
   // const { pathname } = useLocation();
   // const hiddenOnMobile = !isBottomNavHidden(pathname);
 
