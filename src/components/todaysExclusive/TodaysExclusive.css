@@ -44,17 +44,22 @@
 
 /* ── Slide (card wrapper) ── */
 .te-slide {
-  flex: 0 0 350px;
-  height: auto;
+  flex: 0 0 420px;
   scroll-snap-align: start;
+  display: flex;
+}
+
+.te-slide .eic-card {
+  flex: 1;
+  min-height: 130px;
 }
 
 /* ── Responsive ── */
 @media (max-width: 768px) {
   .te-slider { gap: 12px; }
-  .te-slide { flex: 0 0 320px; }
+  .te-slide { flex: 0 0 360px; }
 }
 
 @media (max-width: 480px) {
-  .te-slide { flex: 0 0 280px; }
+  .te-slide { flex: 0 0 300px; }
 }
