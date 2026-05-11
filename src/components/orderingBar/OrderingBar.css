@@ -160,7 +160,7 @@ input:checked + .ob-slider:before {
 .ob-filter-btn--active {
   background: #5a1712;
   border-color: #5a1712;
-  color: #FFD700;
+  color: #fff;
 }
 
 /* ── Category Dropdown ── */
