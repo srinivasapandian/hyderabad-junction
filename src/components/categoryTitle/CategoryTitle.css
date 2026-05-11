@@ -47,6 +47,7 @@
   }
   .category-train {
     width: 45px;
+    transform: translateY(-8px);
   }
 }
 
@@ -60,5 +61,6 @@
   }
   .category-train {
     width: 38px;
+    transform: translateY(-6px);
   }
 }

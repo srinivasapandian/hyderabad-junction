@@ -138,6 +138,7 @@ input:checked + .ob-slider:before {
 /* ── Filter Section ── */
 .ob-filter-section {
   flex-shrink: 0;
+  position: relative;
 }
 
 .ob-filter-btn {
@@ -155,9 +156,123 @@ input:checked + .ob-slider:before {
   transition: all 0.3s ease;
 }
 
-.ob-filter-btn:hover {
-  background: #5a171208;
+.ob-filter-btn:hover,
+.ob-filter-btn--active {
+  background: #5a1712;
   border-color: #5a1712;
+  color: #FFD700;
+}
+
+/* ── Category Dropdown ── */
+.ob-cat-dropdown {
+  position: absolute;
+  top: calc(100% + 12px);
+  right: 0;
+  width: 280px;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 12px 40px rgba(90, 23, 18, 0.18);
+  border: 1px solid #5a171220;
+  overflow: hidden;
+  z-index: 200;
+  animation: ob-dropdown-in 0.18s ease;
+}
+
+@keyframes ob-dropdown-in {
+  from { opacity: 0; transform: translateY(-8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.ob-cat-header {
+  background: #5a1712;
+  padding: 14px 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: white;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.ob-cat-header-icon {
+  font-size: 1rem;
+  color: white;
+}
+
+.ob-cat-list {
+  max-height: 360px;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #5a171230 transparent;
+}
+
+.ob-cat-list::-webkit-scrollbar {
+  width: 4px;
+}
+.ob-cat-list::-webkit-scrollbar-thumb {
+  background: #5a171230;
+  border-radius: 4px;
+}
+
+.ob-cat-row {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 13px 20px;
+  background: none;
+  border: none;
+  border-bottom: 1px solid #f5f0ef;
+  cursor: pointer;
+  transition: background 0.2s;
+  text-align: left;
+  gap: 8px;
+}
+
+.ob-cat-row:last-child {
+  border-bottom: none;
+}
+
+.ob-cat-row:hover {
+  background: #5a17120a;
+}
+
+.ob-cat-row--active {
+  background: #5a17120f;
+}
+
+.ob-cat-row--active .ob-cat-name {
+  color: #5a1712;
+  font-weight: 700;
+}
+
+.ob-cat-row--active .ob-cat-arrow {
+  color: #5a171255;
+}
+
+.ob-cat-name {
+  flex: 1;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #3a1008;
+}
+
+.ob-cat-count {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #5a1712;
+  opacity: 0.7;
+  white-space: nowrap;
+}
+
+.ob-cat-arrow {
+  font-size: 0.7rem;
+  color: #5a171255;
+  flex-shrink: 0;
 }
 
 /* ── Suggestions ── */

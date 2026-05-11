@@ -78,6 +78,11 @@ function Menu() {
           searchQuery={searchQuery}
           onSearchChange={setSearchQuery}
           hideOrderType
+          sectionCats={sectionCats}
+          hasExclusive={hasExclusive}
+          getCategoryCount={getCategoryCount}
+          onCategorySelect={handleCategorySelect}
+          activeId={activeId}
         />
         <CategoryFilter
           loading={loading}
