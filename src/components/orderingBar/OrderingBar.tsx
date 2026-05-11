@@ -212,19 +212,6 @@ function OrderingBar({
               </div>
 
               <div className="ob-cat-list">
-                {/* All */}
-                <button
-                  className={`ob-cat-row${activeId === '' || activeId === 'all' ? ' ob-cat-row--active' : ''}`}
-                  onClick={() => handleCategoryClick('all')}
-                >
-                  <span className="ob-cat-name">All</span>
-                  {getCategoryCount && (
-                    <span className="ob-cat-count">
-                      ({sectionCats.reduce((acc, cat) => acc + getCategoryCount(cat.id), 0)})
-                    </span>
-                  )}
-                  <i className="fa-solid fa-chevron-right ob-cat-arrow" />
-                </button>
 
                 {/* Today's Exclusive */}
                 {hasExclusive && (

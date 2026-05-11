@@ -35,7 +35,7 @@ function getBlobStyle(index: number): React.CSSProperties {
   const top = `${index * BLOB_STEP_VH}vh`;
   const pos = BLOB_PATTERN[index % BLOB_PATTERN.length];
   if (pos === 'center') return { top, left: '50%', transform: 'translateX(-50%)' };
-  if (pos === 'right')  return { top, right: '-150px' };
+  if (pos === 'right') return { top, right: '-150px' };
   return { top, left: '-120px' };
 }
 
@@ -145,7 +145,7 @@ function MenuGrid({
 
           const categorySlug = toSlug(cat.name);
           const hasSubCats = Object.keys(group.subCategories).length > 0;
-          const hasDirect  = group.direct.length > 0;
+          const hasDirect = group.direct.length > 0;
 
           return (
             <section

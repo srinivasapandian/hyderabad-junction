@@ -103,13 +103,14 @@ export function useMenuData(orderType: string = 'Pickup', options: UseMenuDataOp
   const hasExclusive = filteredExclusive.length > 0;
 
   const getCategoryCount = useCallback((catId: string): number => {
+    if (catId === 'exclusive') return filteredExclusive.length;
     const group = filteredGrouped[catId];
     if (!group) return 0;
     const subCount = Object.values(group.subCategories).reduce(
       (sum, sub) => sum + sub.items.length, 0
     );
     return group.direct.length + subCount;
-  }, [filteredGrouped]);
+  }, [filteredExclusive.length, filteredGrouped]);
 
   // ── Section lookup maps ──────────────────────────────────────────────
   const { sectionToCat, catFirstSection } = useMemo(() => {

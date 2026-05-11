@@ -408,13 +408,42 @@ input:checked + .ob-slider:before {
 
 @media (max-width: 480px) {
   .ob-inner {
-    padding: 0 16px;
+    padding: 0 12px;
   }
   .ob-avail-label {
-    font-size: 0.8rem;
+    font-size: 0.75rem;
   }
   .ob-avail-section {
-    padding: 6px 12px;
+    padding: 4px 8px;
+    gap: 8px;
+  }
+  .ob-switch {
+    width: 36px;
+    height: 20px;
+  }
+  .ob-slider:before {
+    height: 14px;
+    width: 14px;
+    left: 3px;
+    bottom: 3px;
+  }
+  input:checked + .ob-slider:before {
+    transform: translateX(16px);
+  }
+  .ob-order-type-toggle {
+    padding: 3px;
+  }
+  .ob-ot-btn {
+    padding: 4px 10px;
+    font-size: 0.75rem;
+    gap: 4px;
+  }
+  .ob-ot-icon {
+    font-size: 0.8rem;
+  }
+  .ob-ot-delivery-icon {
+    width: 14px;
+    height: 14px;
   }
   .ob-wrap {
     top: 80px;

@@ -91,6 +91,7 @@ function CategoryFilter({
                   onClick={() => onSelect('exclusive')}
                 >
                   Today's Exclusive
+                  <span className="mn-pill-count">{getCategoryCount('exclusive')}</span>
                 </button>
               )}
 
