@@ -52,20 +52,20 @@ function MenuItemCard({ item, categorySlug = 'menu' }: MenuItemCardProps) {
 
   const itemId = String(item.id || item.itemId || '');
 
-  const cartLines    = useSelector((s: RootState) => s.cart.cartLines);
+  const cartLines = useSelector((s: RootState) => s.cart.cartLines);
   const favouriteIds = useSelector((s: RootState) => s.favourites.ids);
-  const isLoggedIn   = useSelector((s: RootState) => s.auth.isLoggedIn);
-  const viewType       = useSelector((s: RootState) => getCustomerAppViewType(s.slug.data));
+  const isLoggedIn = useSelector((s: RootState) => s.auth.isLoggedIn);
+  const viewType = useSelector((s: RootState) => getCustomerAppViewType(s.slug.data));
   const currencySymbol = useSelector((s: RootState) => getCurrencySymbol(s.slug.data));
-  const isListView     = viewType === 'LIST';
+  const isListView = viewType === 'LIST';
 
   const isRestaurantClosed = useIsRestaurantClosed();
 
   const isFavourite = favouriteIds.includes(itemId);
   const allCartLines = cartLines.filter((l) => l.itemId === itemId);
   const firstCartLine = allCartLines[0] ?? null;
-  const qty     = allCartLines.reduce((sum, l) => sum + l.qty, 0);
-  const lineId  = firstCartLine?.lineId ?? itemId;
+  const qty = allCartLines.reduce((sum, l) => sum + l.qty, 0);
+  const lineId = firstCartLine?.lineId ?? itemId;
   const comment = firstCartLine?.comment ?? '';
   const hasNote = comment.trim().length > 0;
 
@@ -79,7 +79,7 @@ function MenuItemCard({ item, categorySlug = 'menu' }: MenuItemCardProps) {
   const closeNoteModal = () => setNoteOpen(false);
   const saveNote = (next: string) => dispatch(setLineCommentAction(lineId, next));
 
-  const imageUrl  = getImageUrl(itemImage, itemType);
+  const imageUrl = getImageUrl(itemImage, itemType);
   const safePrice = parsePrice(price) ?? 0;
 
   const { isTemporarilyUnavailable, isOutOfStock, isUnAvailableUntil } =
@@ -90,14 +90,14 @@ function MenuItemCard({ item, categorySlug = 'menu' }: MenuItemCardProps) {
   let overlayTime: string | false | null = null;
 
   if (isUnAvailableUntil) {
-    overlayIcon  = <i className="fa-regular fa-clock mic-unavail-icon" />;
+    overlayIcon = <i className="fa-regular fa-clock mic-unavail-icon" />;
     overlayLabel = 'Will be available at';
-    overlayTime  = isUnAvailableUntil;
+    overlayTime = isUnAvailableUntil;
   } else if (isOutOfStock) {
-    overlayIcon  = <i className="fa-solid fa-ban mic-unavail-icon" />;
+    overlayIcon = <i className="fa-solid fa-ban mic-unavail-icon" />;
     overlayLabel = 'Out of Stock';
   } else if (isTemporarilyUnavailable) {
-    overlayIcon  = <i className="fa-solid fa-circle-xmark mic-unavail-icon" />;
+    overlayIcon = <i className="fa-solid fa-circle-xmark mic-unavail-icon" />;
     overlayLabel = 'Temporarily Unavailable';
   }
 
@@ -143,7 +143,7 @@ function MenuItemCard({ item, categorySlug = 'menu' }: MenuItemCardProps) {
             <span>{overlayLabel}</span>
           </div>
         )}
-        
+
         {/* Favorite Icon on Image */}
         {!showOverlay && (
           <button
@@ -170,7 +170,7 @@ function MenuItemCard({ item, categorySlug = 'menu' }: MenuItemCardProps) {
               {safePrice.toFixed(2)}
             </span>
           </div>
-          
+
           {description && (
             <p className="mic-item-desc">{description}</p>
           )}
@@ -179,18 +179,18 @@ function MenuItemCard({ item, categorySlug = 'menu' }: MenuItemCardProps) {
         <div className="mic-content-bottom" onClick={(e) => e.stopPropagation()}>
           <div className="mic-icons-group">
             {hasModifiers && (
-              <button 
-                className="mic-action-icon-btn" 
+              <button
+                className="mic-action-icon-btn"
                 onClick={(e) => { e.stopPropagation(); handleCardClick(); }}
                 title="Customize"
               >
                 <img src={customizationSvg} alt="Customize" />
               </button>
             )}
-            
+
             {qty > 0 && (
-              <button 
-                className="mic-action-icon-btn" 
+              <button
+                className="mic-action-icon-btn"
                 onClick={(e) => { e.stopPropagation(); openNoteModal(e); }}
                 title="Add Note"
               >

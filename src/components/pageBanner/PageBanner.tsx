@@ -18,7 +18,7 @@ export default function PageBanner({ title, backgroundImage }: PageBannerProps) 
             <span className="page-banner__heading--script">Explore the Journey</span>
             <span className="page-banner__heading--bold">{title}</span>
           </h1>
-         
+
         </div>
       </div>
 

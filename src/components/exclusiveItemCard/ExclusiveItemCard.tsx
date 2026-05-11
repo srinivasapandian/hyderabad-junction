@@ -31,12 +31,12 @@ function ExclusiveItemCard({ item }: ExclusiveItemCardProps) {
   const dispatch = useDispatch();
 
   const { itemName, price, description, itemImage, itemType } = item;
-  const itemId   = String(item.id || item.itemId || '');
+  const itemId = String(item.id || item.itemId || '');
   const cartLines = useSelector((s: RootState) => s.cart.cartLines);
   const allCartLines = cartLines.filter((l: CartLine) => l.itemId === itemId);
   const firstCartLine = allCartLines[0] ?? null;
-  const qty     = allCartLines.reduce((sum: number, l: CartLine) => sum + l.qty, 0);
-  const lineId  = firstCartLine?.lineId ?? itemId;
+  const qty = allCartLines.reduce((sum: number, l: CartLine) => sum + l.qty, 0);
+  const lineId = firstCartLine?.lineId ?? itemId;
   const comment = firstCartLine?.comment ?? '';
   const hasNote = comment.trim().length > 0;
 
@@ -98,7 +98,10 @@ function ExclusiveItemCard({ item }: ExclusiveItemCardProps) {
       {/* ── Right: Content Section ── */}
       <div className="eic-content">
         <div className="eic-top-info">
-          <h3 className="eic-name">{itemName}</h3>
+          <div className="eic-name-desc-group">
+            <h3 className="eic-name">{itemName}</h3>
+            {description && <p className="eic-desc">{description}</p>}
+          </div>
           <span className="eic-price">${Number(price).toFixed(2)}</span>
         </div>
 
