@@ -1,6 +1,7 @@
 .mn-filter-outer {
   position: sticky;
-  top: 171px; /* 98px + 73px (OrderingBar approx height) */
+  top: 171px;
+  /* 98px + 73px (OrderingBar approx height) */
   z-index: 40;
   background: #fff;
   padding: 15px 0;
@@ -37,13 +38,15 @@
   align-items: center;
   gap: 30px;
   overflow-x: auto;
-  scrollbar-width: none; /* Firefox */
+  scrollbar-width: none;
+  /* Firefox */
   padding: 10px 0;
   width: 100%;
 }
 
 .mn-pills::-webkit-scrollbar {
-  display: none; /* Chrome/Safari */
+  display: none;
+  /* Chrome/Safari */
 }
 
 .mn-pill {
@@ -94,25 +97,18 @@
 /* Gold Underline Effect */
 .mn-pill-underline {
   position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 2px;
-  background: #f1c40f; /* Gold */
-  border-radius: 2px;
-  transform: translateY(4px);
-}
-
-.mn-pill.active::after {
-  content: '';
-  position: absolute;
-  bottom: -4px;
+  bottom: -10px;
   left: 50%;
   transform: translateX(-50%);
-  width: 20px;
-  height: 2px;
-  background: #f1c40f;
-  box-shadow: 0 0 8px #f1c40f;
+  width: 100%;
+  height: 15px;
+  background: url('../../assets/design.png') no-repeat center center;
+  background-size: contain;
+}
+
+/* Removed gold dot effect to use design.png instead */
+.mn-pill.active::after {
+  display: none;
 }
 
 .mn-scroll-arrow {
@@ -150,13 +146,16 @@
 
 @media (max-width: 768px) {
   .mn-filter-outer {
-    top: 155px; /* Adjust for mobile stacked Row 1 */
+    top: 155px;
+    /* Adjust for mobile stacked Row 1 */
     padding: 10px 0;
   }
+
   .mn-maroon-bar {
     height: 60px;
     padding: 0 20px;
   }
+
   .mn-pill {
     font-size: 0.9rem;
   }
@@ -166,12 +165,15 @@
   .mn-filter-inner {
     padding: 0 12px;
   }
+
   .mn-maroon-bar {
     padding: 0 15px;
   }
+
   .mn-pills {
     gap: 20px;
   }
+
   .mn-filter-outer {
     top: 140px;
   }
