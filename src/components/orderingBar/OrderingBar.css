@@ -371,13 +371,13 @@ input:checked + .ob-slider:before {
     width: 100%;
     justify-content: space-between;
   }
-  .ob-filter-section {
-    order: 2;
-  }
   .ob-search-section {
-    order: 3;
-    flex-basis: 100%;
+    order: 2;
+    flex: 1;
     max-width: none;
+  }
+  .ob-filter-section {
+    order: 3;
   }
   .ob-search-pill {
     height: 42px;
