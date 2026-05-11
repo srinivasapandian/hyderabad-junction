@@ -1,5 +1,6 @@
 import ExclusiveItemCard from '../exclusiveItemCard/ExclusiveItemCard';
 import CategoryTitle from '../categoryTitle/CategoryTitle';
+import design2 from '../../assets/design2.png';
 import './TodaysExclusive.css';
 import type { MenuItem } from '../../types';
 
@@ -16,6 +17,7 @@ function TodaysExclusive({ items }: TodaysExclusiveProps) {
       <div className="te-header">
         <CategoryTitle>Today's Exclusive</CategoryTitle>
       </div>
+      <img src={design2} alt="" aria-hidden="true" className="te-design" />
 
       {/* ── Horizontal slider ── */}
       <div className="te-slider">

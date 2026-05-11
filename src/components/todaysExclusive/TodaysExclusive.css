@@ -17,6 +17,14 @@
 
 /* .te-title badge styles → CategoryTitle component */
 
+/* ── Decorative design below header ── */
+.te-design {
+  display: block;
+  width: 120px;
+  height: auto;
+  margin-top: -16px;
+}
+
 
 /* ── Slider ── */
 .te-slider {
