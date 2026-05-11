@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 import deliveryIcon from '../../assets/svg/delivery.svg';
 import placeholderImg from '../../assets/placeHolderMedia.jpg';
 import './OrderingBar.css';
-import type { OrderType, RootState, MenuItem } from '../../types';
+import type { OrderType, RootState, MenuItem, Category } from '../../types';
 import { toSlug } from '../../utils/slugify';
 
 const MEDIA_CDN = (import.meta.env.VITE_IMAGE_URL as string)?.replace(/\/$/, '') ?? '';
@@ -20,6 +20,12 @@ interface OrderingBarProps {
   searchQuery: string;
   onSearchChange: (query: string) => void;
   hideOrderType?: boolean;
+  // Optional category dropdown props
+  sectionCats?: Category[];
+  hasExclusive?: boolean;
+  getCategoryCount?: (catId: string) => number;
+  onCategorySelect?: (catId: string) => void;
+  activeId?: string;
 }
 
 function OrderingBar({
@@ -30,12 +36,19 @@ function OrderingBar({
   searchQuery,
   onSearchChange,
   hideOrderType = false,
+  sectionCats = [],
+  hasExclusive = false,
+  getCategoryCount,
+  onCategorySelect,
+  activeId = '',
 }: OrderingBarProps) {
   const navigate  = useNavigate();
   const allItems  = useSelector((s: RootState) => s.menu.data?.menu ?? []);
 
   const searchWrapRef  = useRef<HTMLDivElement>(null);
+  const filterWrapRef  = useRef<HTMLDivElement>(null);
   const [open, setOpen] = useState(false);
+  const [filterOpen, setFilterOpen] = useState(false);
 
   const suggestions: MenuItem[] = searchQuery.trim()
     ? allItems
@@ -45,16 +58,26 @@ function OrderingBar({
         .slice(0, 30)
     : [];
 
-  // Open whenever the query has a value (shows empty state if no results)
   useEffect(() => {
     setOpen(searchQuery.trim().length > 0);
   }, [searchQuery]);
 
-  // Close when clicking outside the search wrapper
+  // Close search dropdown when clicking outside
   useEffect(() => {
     const handler = (e: MouseEvent) => {
       if (searchWrapRef.current && !searchWrapRef.current.contains(e.target as Node)) {
         setOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', handler);
+    return () => document.removeEventListener('mousedown', handler);
+  }, []);
+
+  // Close filter dropdown when clicking outside
+  useEffect(() => {
+    const handler = (e: MouseEvent) => {
+      if (filterWrapRef.current && !filterWrapRef.current.contains(e.target as Node)) {
+        setFilterOpen(false);
       }
     };
     document.addEventListener('mousedown', handler);
@@ -74,16 +97,23 @@ function OrderingBar({
     setOpen(false);
   };
 
+  const handleCategoryClick = (catId: string) => {
+    onCategorySelect?.(catId);
+    setFilterOpen(false);
+  };
+
+  const hasCategoryDropdown = sectionCats.length > 0 || hasExclusive;
+
   return (
     <div className={`ob-wrap${hideOrderType ? ' ob-wrap-menu' : ''}`}>
       <div className="ob-inner">
-        
+
         {/* Left: Available Items Toggle */}
         <div className="ob-avail-section">
           <span className="ob-avail-label">Available Items</span>
           <label className="ob-switch">
-            <input 
-              type="checkbox" 
+            <input
+              type="checkbox"
               checked={availableNow}
               onChange={(e) => onAvailableNowChange(e.target.checked)}
             />
@@ -143,10 +173,69 @@ function OrderingBar({
         </div>
 
         {/* Right: Filter Button */}
-        <div className="ob-filter-section">
-          <button className="ob-filter-btn" aria-label="Filter menu">
+        <div className="ob-filter-section" ref={filterWrapRef}>
+          <button
+            className={`ob-filter-btn${filterOpen ? ' ob-filter-btn--active' : ''}`}
+            aria-label="Filter menu"
+            onClick={() => hasCategoryDropdown && setFilterOpen((v) => !v)}
+          >
             <i className="fa-solid fa-sliders" />
           </button>
+
+          {/* Category dropdown */}
+          {filterOpen && hasCategoryDropdown && (
+            <div className="ob-cat-dropdown">
+              <div className="ob-cat-header">
+                <i className="fa-solid fa-bars ob-cat-header-icon" />
+                <span>Categories</span>
+              </div>
+
+              <div className="ob-cat-list">
+                {/* All */}
+                <button
+                  className={`ob-cat-row${activeId === '' || activeId === 'all' ? ' ob-cat-row--active' : ''}`}
+                  onClick={() => handleCategoryClick('all')}
+                >
+                  <span className="ob-cat-name">All</span>
+                  {getCategoryCount && (
+                    <span className="ob-cat-count">
+                      ({sectionCats.reduce((acc, cat) => acc + getCategoryCount(cat.id), 0)})
+                    </span>
+                  )}
+                  <i className="fa-solid fa-chevron-right ob-cat-arrow" />
+                </button>
+
+                {/* Today's Exclusive */}
+                {hasExclusive && (
+                  <button
+                    className={`ob-cat-row${activeId === 'exclusive' ? ' ob-cat-row--active' : ''}`}
+                    onClick={() => handleCategoryClick('exclusive')}
+                  >
+                    <span className="ob-cat-name">Today's Exclusive</span>
+                    {getCategoryCount && (
+                      <span className="ob-cat-count">({getCategoryCount('exclusive')})</span>
+                    )}
+                    <i className="fa-solid fa-chevron-right ob-cat-arrow" />
+                  </button>
+                )}
+
+                {/* Other categories */}
+                {sectionCats.map((cat) => (
+                  <button
+                    key={cat.id}
+                    className={`ob-cat-row${activeId === cat.id ? ' ob-cat-row--active' : ''}`}
+                    onClick={() => handleCategoryClick(cat.id)}
+                  >
+                    <span className="ob-cat-name">{cat.name}</span>
+                    {getCategoryCount && (
+                      <span className="ob-cat-count">({getCategoryCount(cat.id)})</span>
+                    )}
+                    <i className="fa-solid fa-chevron-right ob-cat-arrow" />
+                  </button>
+                ))}
+              </div>
+            </div>
+          )}
         </div>
 
       </div>
