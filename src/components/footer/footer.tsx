@@ -6,18 +6,18 @@ import './footer.css';
 const QUICK_LINKS = [
   { label: 'Home', to: '/' },
   { label: 'About Us', to: '/#about' },
-  { label: 'Menu', to: '/indian-restaurant-menu' },
-  { label: 'Blog', to: '/blog' },
+  { label: 'Menu', to: '/#menu' },
   { label: 'Services', to: '/#services' },
-  { label: 'Contact Us', to: '/contact' },
+  { label: 'Gallery', to: '/#gallery' },
+  { label: 'Contact Us', to: '/#contact' },
 ];
 
-const SERVICES = ['Dine-in', 'Take way', 'Delivery', 'Catering', 'Private Events'];
-const NEWS = ['Offer', 'Updates', 'announcements'];
+const SERVICES = ['Dine-in', 'Takeaway', 'Private Events', 'Family Dining', 'Party Orders'];
+const NEWS = ['Offers', 'Updates', 'Announcements'];
 
 function Footer() {
   return (
-    <footer className="footer">
+    <footer className="footer" id="contact">
       <div className="footer__star-strip" aria-hidden="true" />
 
       <div className="footer__brand-row container">
@@ -71,16 +71,8 @@ function Footer() {
         </div>
       </div>
 
-      <div className="footer__legal container">
-        <Link to="/privacy-policy">Privacy Policy</Link>
-        <span>|</span>
-        <Link to="/terms-of-use">Terms &amp; Conditions</Link>
-        <span>|</span>
-        <Link to="/cancellation-refund-policy">Refund Policy</Link>
-      </div>
-
       <div className="footer__powered container">
-        <span>Â© POWER BY</span>
+        <span>© POWER BY</span>
         <a href="https://www.maghil.com/" target="_blank" rel="noopener noreferrer">
           maghil
         </a>
