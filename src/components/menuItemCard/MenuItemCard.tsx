@@ -117,22 +117,24 @@ function MenuItemCard({ item, categorySlug = 'menu' }: MenuItemCardProps) {
       onClick={handleCardClick}
     >
       {/* LEFT: Image Section */}
-      <div className="mic-left-img">
-        <img
-          src={imageUrl || placeholderImg}
-          alt={itemName}
-          className="mic-main-img"
-          onError={(e) => { (e.currentTarget as HTMLImageElement).src = placeholderImg; }}
-        />
-        {showOverlay && (
-          <div className="mic-overlay">
-            {overlayIcon}
-            <span>{overlayLabel}</span>
-          </div>
-        )}
+      {imageUrl && (
+        <div className="mic-left-img">
+          <img
+            src={imageUrl}
+            alt={itemName}
+            className="mic-main-img"
+            onError={(e) => { (e.currentTarget as HTMLImageElement).style.display = 'none'; }}
+          />
+          {showOverlay && (
+            <div className="mic-overlay">
+              {overlayIcon}
+              <span>{overlayLabel}</span>
+            </div>
+          )}
 
-        {/* Favourite button hidden — ordering not active */}
-      </div>
+          {/* Favourite button hidden — ordering not active */}
+        </div>
+      )}
 
       {/* RIGHT: Content Section */}
       <div className="mic-right-content">

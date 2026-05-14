@@ -41,8 +41,8 @@ export function useMenuData(orderType: string = 'Pickup', options: UseMenuDataOp
     [rawMenuData]
   );
 
-  const categories     = menuData?.categories     || [];
-  const grouped        = menuData?.grouped        || {};
+  const categories = menuData?.categories || [];
+  const grouped = menuData?.grouped || {};
   const exclusiveItems = menuData?.exclusiveItems || [];
 
   const normalizedQuery = searchQuery.trim().toLowerCase();
@@ -114,30 +114,30 @@ export function useMenuData(orderType: string = 'Pickup', options: UseMenuDataOp
 
   // ── Section lookup maps ──────────────────────────────────────────────
   const { sectionToCat, catFirstSection } = useMemo(() => {
-    const sectionToCat: Record<string, string>    = {};
+    const sectionToCat: Record<string, string> = {};
     const catFirstSection: Record<string, string> = {};
     if (hasExclusive) {
-      sectionToCat['exclusive']    = 'exclusive';
+      sectionToCat['exclusive'] = 'exclusive';
       catFirstSection['exclusive'] = 'exclusive';
     }
     sectionCats.forEach((cat) => {
-      sectionToCat[cat.id]    = cat.id;
+      sectionToCat[cat.id] = cat.id;
       catFirstSection[cat.id] = cat.id;
     });
     return { sectionToCat, catFirstSection };
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [sectionCats.map((c) => c.id).join(','), hasExclusive]);
 
   // ── State ────────────────────────────────────────────────────────────
   const [activeId, setActiveId] = useState('');
 
   // ── Refs ─────────────────────────────────────────────────────────────
-  const filterRef         = useRef<HTMLDivElement | null>(null);
-  const pillsRef          = useRef<HTMLDivElement | null>(null);
-  const sectionRefs       = useRef<Record<string, HTMLElement>>({});
-  const observerRef       = useRef<IntersectionObserver | null>(null);
-  const intersectingRef   = useRef<Set<string>>(new Set());
-  const programmaticRef   = useRef<boolean>(false);
+  const filterRef = useRef<HTMLDivElement | null>(null);
+  const pillsRef = useRef<HTMLDivElement | null>(null);
+  const sectionRefs = useRef<Record<string, HTMLElement>>({});
+  const observerRef = useRef<IntersectionObserver | null>(null);
+  const intersectingRef = useRef<Set<string>>(new Set());
+  const programmaticRef = useRef<boolean>(false);
 
   // ── Fetch menu on mount (skip if data already cached for same order type) ──
   useEffect(() => {
@@ -157,7 +157,7 @@ export function useMenuData(orderType: string = 'Pickup', options: UseMenuDataOp
     if (!activeId || !ids.includes(activeId)) {
       setActiveId(ids[0]);
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [hasExclusive, sectionCats.map((c) => c.id).join(',')]);
 
   // ── Dynamic header height ────────────────────────────────────────────
@@ -227,7 +227,7 @@ export function useMenuData(orderType: string = 'Pickup', options: UseMenuDataOp
     });
 
     return () => observerRef.current?.disconnect();
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [sectionCats.map((c) => c.id).join(','), hasExclusive]);
 
   // ── Click pill → scroll to section ──────────────────────────────────
@@ -236,10 +236,10 @@ export function useMenuData(orderType: string = 'Pickup', options: UseMenuDataOp
     const sectionId = catFirstSection[catId] || catId;
     const el = sectionRefs.current[sectionId];
     if (!el) return;
-    const headerH  = getHeaderHeight();
-    const obBar    = document.querySelector('.ob-wrap') as HTMLElement | null;
-    const obH      = obBar ? obBar.offsetHeight : 0;
-    const filterH  = (filterRef.current?.offsetHeight || 48) + headerH + obH + 16;
+    const headerH = getHeaderHeight();
+    const obBar = document.querySelector('.ob-wrap') as HTMLElement | null;
+    const obH = obBar ? obBar.offsetHeight : 0;
+    const filterH = (filterRef.current?.offsetHeight || 48) + headerH + obH + 16;
     const top = el.getBoundingClientRect().top + window.scrollY - filterH;
 
     // Guard: suppress observer updates during programmatic scroll
@@ -251,10 +251,10 @@ export function useMenuData(orderType: string = 'Pickup', options: UseMenuDataOp
   return {
     loading,
     error,
-    sectionCats:    loading ? [] : sectionCats,
-    grouped:        loading ? {} : filteredGrouped,
+    sectionCats: loading ? [] : sectionCats,
+    grouped: loading ? {} : filteredGrouped,
     exclusiveItems: loading ? [] : filteredExclusive,
-    hasExclusive:   loading ? false : hasExclusive,
+    hasExclusive: loading ? false : hasExclusive,
     getCategoryCount,
     activeId,
     filterRef,

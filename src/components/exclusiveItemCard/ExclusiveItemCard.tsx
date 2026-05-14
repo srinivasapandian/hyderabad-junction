@@ -70,15 +70,18 @@ function ExclusiveItemCard({ item }: ExclusiveItemCardProps) {
       onKeyDown={(e) => { if (e.key === 'Enter') handleCardClick(); }}
     >
       {/* ── Left: Image Section ── */}
-      <div className="eic-img-box">
-        <img
-          src={imageUrl || placeholderImg}
-          alt={itemName}
-          className="eic-img"
-          loading="lazy"
-        />
-        {/* Wishlist button hidden — ordering not active */}
-      </div>
+      {imageUrl && (
+        <div className="eic-img-box">
+          <img
+            src={imageUrl}
+            alt={itemName}
+            className="eic-img"
+            loading="lazy"
+            onError={(e) => { (e.currentTarget as HTMLImageElement).style.display = 'none'; }}
+          />
+          {/* Wishlist button hidden — ordering not active */}
+        </div>
+      )}
 
       {/* ── Right: Content Section ── */}
       <div className="eic-content">

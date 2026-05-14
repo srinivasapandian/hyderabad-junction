@@ -54,8 +54,8 @@
   border: none;
   color: rgba(255, 255, 255, 0.7);
   font-family: var(--font-body);
-  font-size: 1rem;
-  font-weight: 500;
+  font-size: 0.85rem;
+  font-weight: 600;
   white-space: nowrap;
   cursor: pointer;
   display: flex;
@@ -78,10 +78,10 @@
 .mn-pill-count {
   background: #fff;
   color: #5a1712;
-  font-size: 0.7rem;
+  font-size: 0.65rem;
   font-weight: 800;
-  width: 22px;
-  height: 22px;
+  width: 18px;
+  height: 18px;
   border-radius: 50%;
   display: flex;
   align-items: center;

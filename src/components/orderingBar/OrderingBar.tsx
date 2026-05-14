@@ -169,7 +169,7 @@ function OrderingBar({
               {suggestions.length > 0 ? (
                 suggestions.map((item) => {
                   const itemId = String(item.id ?? item.itemId ?? '');
-                  const imgSrc = getImageUrl(item.itemImage, item.itemType) ?? placeholderImg;
+                  const imgSrc = getImageUrl(item.itemImage, item.itemType);
                   return (
                     <button
                       key={itemId}
@@ -177,7 +177,9 @@ function OrderingBar({
                       onMouseDown={(e) => e.preventDefault()}
                       onClick={() => handleSuggestionClick(item)}
                     >
-                      <img src={imgSrc} alt={item.itemName} className="ob-suggestion-img" />
+                      {imgSrc && (
+                        <img src={imgSrc} alt={item.itemName} className="ob-suggestion-img" onError={(e) => { (e.currentTarget as HTMLImageElement).style.display = 'none'; }} />
+                      )}
                       <span className="ob-suggestion-name">{item.itemName}</span>
                     </button>
                   );

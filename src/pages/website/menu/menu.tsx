@@ -47,7 +47,7 @@ function Menu() {
     }
     const matched = sectionCats.find((cat) => toSlug(cat.name) === urlCategorySlug);
     if (matched) scrollToSection(matched.id);
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [urlCategorySlug, loading]);
 
   // ── Category pill click → scroll + update URL ─────────────────────────
@@ -67,7 +67,7 @@ function Menu() {
         <div className="mn-bg-scrim" />
         <OrderingBar
           orderType="Pickup"
-          onOrderTypeChange={() => {}}
+          onOrderTypeChange={() => { }}
           availableNow={availableNow}
           onAvailableNowChange={setAvailableNow}
           searchQuery={searchQuery}
