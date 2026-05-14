@@ -102,7 +102,9 @@ export default function ClosingSoonBar({ orderType }: ClosingSoonBarProps): Reac
   const { isClosingSoon, closingCase, closingTime, timeZone } = useIsClosingSoon(orderType);
 
   const hasActiveOrders = activeOrders.length > 0;
-  const aobHeight       = hasActiveOrders ? AOB_HEIGHT : 0;
+  // const aobHeight       = hasActiveOrders ? AOB_HEIGHT : 0;
+
+  return null; // Disabled as per user request
 
   return (
     <AnimatePresence>

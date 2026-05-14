@@ -5,6 +5,7 @@ import { useSelector } from 'react-redux';
 import './InfoSection.css';
 import type { RootState, WorkingHour } from '../../types';
 import { LOCATION_SLUG, isReservationEnabledByBranch } from '../../utils/branchConfig';
+import ComingSoonModal from '../comingSoonModal/ComingSoonModal';
 
 const DAY_ORDER = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
 
@@ -35,6 +36,7 @@ function buildHoursDisplay(hours: WorkingHour[]): { day: string; time: string }[
 export default function InfoSection() {
   const slugData = useSelector((s: RootState) => s.slug.data);
   const [hoursTab, setHoursTab] = useState<'store' | 'online'>('store');
+  const [comingSoonOpen, setComingSoonOpen] = useState(false);
   const isReservationEnabled = isReservationEnabledByBranch(slugData);
 
   const storeHours  = slugData?.workingHours  as WorkingHour[] | undefined;
@@ -57,13 +59,23 @@ export default function InfoSection() {
         {/* Left side: Order Online button */}
         <div className="info__btns">
           {isReservationEnabled && (
-            <Link to="/reservation" className="info__btn info__btn--outline">
+            <button
+              type="button"
+              className="info__btn info__btn--outline"
+              onClick={() => setComingSoonOpen(true)}
+            >
               Reserve a Table
-            </Link>
+            </button>
+            /* <Link to="/reservation" className="info__btn info__btn--outline">Reserve a Table</Link> */
           )}
-          <Link to={`/order-online/${LOCATION_SLUG}/pickup`} className="info__btn info__btn--filled">
+          <button
+            type="button"
+            className="info__btn info__btn--filled"
+            onClick={() => setComingSoonOpen(true)}
+          >
             Order Online
-          </Link>
+          </button>
+          {/* <Link to={`/order-online/${LOCATION_SLUG}/pickup`} className="info__btn info__btn--filled">Order Online</Link> */}
         </div>
 
         {/* Right side: Business hours */}
@@ -107,6 +119,7 @@ export default function InfoSection() {
         </motion.div>
 
       </div>
+      <ComingSoonModal isOpen={comingSoonOpen} onClose={() => setComingSoonOpen(false)} />
     </section>
   );
 }

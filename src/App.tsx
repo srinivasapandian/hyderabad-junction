@@ -9,22 +9,22 @@ import Home from './pages/website/home/Home';
 import Menu from './pages/website/menu/menu';
 import Ordering from './pages/ordering/ordering/ordering';
 import Contact from './pages/website/contact/contact';
-import Account from './pages/ordering/account/Account';
-import Cart from './pages/ordering/cart/Cart';
-import MenuCategoryRouter from './pages/website/menuCategory/MenuCategoryRouter';
+// import Account from './pages/ordering/account/Account';
+// import Cart from './pages/ordering/cart/Cart';
+// import MenuCategoryRouter from './pages/website/menuCategory/MenuCategoryRouter';
 import AuthModal from './components/authModal/AuthModal';
 import FloatingCart from './components/floatingCart/FloatingCart';
 import ScrollToTop from './components/scrollToTop/ScrollToTop';
-import Checkout from './pages/ordering/checkout/Checkout';
-import Orders from './pages/ordering/orders/Orders';
-import OrderTracking from './pages/ordering/order-tracking/OrderTracking';
-import Favourites    from './pages/ordering/favourites/Favourites';
-import SavedAddress  from './pages/ordering/savedAddress/SavedAddress';
+// import Checkout from './pages/ordering/checkout/Checkout';
+// import Orders from './pages/ordering/orders/Orders';
+// import OrderTracking from './pages/ordering/order-tracking/OrderTracking';
+// import Favourites    from './pages/ordering/favourites/Favourites';
+// import SavedAddress  from './pages/ordering/savedAddress/SavedAddress';
 import ActiveOrdersBar from './components/ActiveOrdersBar/ActiveOrdersBar';
 import { getSlugRequest } from './redux/slug/slugActions';
 import './App.css';
-import ReservationPage from './pages/ordering/reservation/Reservation';
-import ItemDetailPage from './pages/ordering/itemDetail/ItemDetailPage';
+// import ReservationPage from './pages/ordering/reservation/Reservation';
+// import ItemDetailPage from './pages/ordering/itemDetail/ItemDetailPage';
 import PoliciesLayout from './pages/ordering/policies/PoliciesLayout';
 import PolicyPage from './pages/ordering/policies/PolicyPage';
 import { POLICY_TABS } from './utils/policiesConfig';
@@ -65,8 +65,8 @@ function App(): React.JSX.Element {
 
           {/* ── Menu ── */}
           <Route path="/indian-restaurant-menu"             element={<Menu />} />
-          <Route path="/indian-restaurant-menu/:categorySlug"        element={<MenuCategoryRouter />} />
-          <Route path="/indian-restaurant-menu/:categorySlug/:itemSlug" element={<ItemDetailPage />} />
+          <Route path="/indian-restaurant-menu/:categorySlug"        element={<Navigate to="/" replace />} /> {/* <MenuCategoryRouter /> */}
+          <Route path="/indian-restaurant-menu/:categorySlug/:itemSlug" element={<Navigate to="/" replace />} /> {/* <ItemDetailPage /> */}
 
           {/* ── Ordering ── */}
           <Route path={`/order-online/${LOCATION_SLUG}`}                          element={<Navigate to={`/order-online/${LOCATION_SLUG}/pickup`} replace />} />
@@ -76,17 +76,14 @@ function App(): React.JSX.Element {
           {/* ── Static pages ── */}
           <Route path="/about-us"      element={<Navigate to="/#about" replace />} />
           <Route path="/contact"       element={<Contact />} />
-          <Route path="/account"       element={<Account onSignInClick={openAuthModal} />} />
-          <Route path="/cart"          element={<Cart onSignInClick={openAuthModal} />} />
-          <Route path="/checkout"      element={<Checkout onSignInClick={openAuthModal} />} />
-          <Route path="/orders"        element={<Orders onSignInClick={openAuthModal} />} />
-          <Route path="/order-tracking" element={<OrderTracking />} />
-          <Route path="/favourites"     element={<Favourites />} />
-          <Route path="/saved-address"  element={<SavedAddress onSignInClick={openAuthModal} />} />
-          <Route
-            path="/reservation"
-            element={isReservationEnabled ? <ReservationPage /> : <Navigate to="/" replace />}
-          />
+          <Route path="/account"       element={<Navigate to="/" replace />} /> {/* <Account onSignInClick={openAuthModal} /> */}
+          <Route path="/cart"          element={<Navigate to="/" replace />} /> {/* <Cart onSignInClick={openAuthModal} /> */}
+          <Route path="/checkout"      element={<Navigate to="/" replace />} /> {/* <Checkout onSignInClick={openAuthModal} /> */}
+          <Route path="/orders"        element={<Navigate to="/" replace />} /> {/* <Orders onSignInClick={openAuthModal} /> */}
+          <Route path="/order-tracking" element={<Navigate to="/" replace />} /> {/* <OrderTracking /> */}
+          <Route path="/favourites"     element={<Navigate to="/" replace />} /> {/* <Favourites /> */}
+          <Route path="/saved-address"  element={<Navigate to="/" replace />} /> {/* <SavedAddress onSignInClick={openAuthModal} /> */}
+          <Route path="/reservation"    element={<Navigate to="/" replace />} /> {/* {isReservationEnabled ? <ReservationPage /> : <Navigate to="/" replace />} */}
 
           {/* ── Terms & Policies ── */}
           <Route element={<PoliciesLayout />}>
@@ -99,10 +96,10 @@ function App(): React.JSX.Element {
           <Route path="/about"                   element={<Navigate to="/#about" replace />} />
           <Route path="/gallery"                 element={<Navigate to="/#gallery" replace />} />
           <Route path="/menu"                    element={<Navigate to="/indian-restaurant-menu" replace />} />
-          <Route path="/menu/:categorySlug"      element={<Navigate to="/indian-restaurant-menu/:categorySlug" replace />} />
-          <Route path="/ordering"                element={<Navigate to={`/order-online/${LOCATION_SLUG}/pickup`} replace />} />
-          <Route path="/ordering/:orderType"     element={<Navigate to={`/order-online/${LOCATION_SLUG}/:orderType`} replace />} />
-          <Route path="/item-detail"             element={<ItemDetailPage />} />
+          <Route path="/menu/:categorySlug"      element={<Navigate to="/" replace />} /> {/* <Navigate to="/indian-restaurant-menu/:categorySlug" replace /> */}
+          <Route path="/ordering"                element={<Navigate to="/" replace />} /> {/* <Navigate to={`/order-online/${LOCATION_SLUG}/pickup`} replace /> */}
+          <Route path="/ordering/:orderType"     element={<Navigate to="/" replace />} /> {/* <Navigate to={`/order-online/${LOCATION_SLUG}/:orderType`} replace /> */}
+          <Route path="/item-detail"             element={<Navigate to="/" replace />} /> {/* <ItemDetailPage /> */}
         </Route>
       </Routes>
       <FloatingCart />

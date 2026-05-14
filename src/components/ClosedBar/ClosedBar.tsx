@@ -112,8 +112,11 @@ export default function ClosedBar(): React.JSX.Element {
   const shouldShow      = restaurantClosed && !!nextSessionTime && !!nextSession?.nextSessionDay;
   const day             = nextSession?.nextSessionDay ?? '';
   const hasActiveOrders = activeOrders.length > 0;
-  const aobHeight       = hasActiveOrders ? AOB_HEIGHT : 0;
+  // const aobHeight       = hasActiveOrders ? AOB_HEIGHT : 0;
 
+  return null; // Disabled as per user request
+
+  /* eslint-disable no-unreachable */
   return (
     <AnimatePresence>
       {shouldShow && (
