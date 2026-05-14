@@ -20,6 +20,8 @@ interface OrderingBarProps {
   searchQuery: string;
   onSearchChange: (query: string) => void;
   hideOrderType?: boolean;
+  hideAvailableToggle?: boolean;
+  onSuggestionSelect?: (item: MenuItem) => void;
   // Optional category dropdown props
   sectionCats?: Category[];
   hasExclusive?: boolean;
@@ -36,6 +38,8 @@ function OrderingBar({
   searchQuery,
   onSearchChange,
   hideOrderType = false,
+  hideAvailableToggle = false,
+  onSuggestionSelect,
   sectionCats = [],
   hasExclusive = false,
   getCategoryCount,
@@ -85,11 +89,16 @@ function OrderingBar({
   }, []);
 
   const handleSuggestionClick = (item: MenuItem) => {
-    const catSlug  = toSlug((item.categoryName ?? item.category) || 'menu');
-    const itemSlug = toSlug(item.itemName);
-    navigate(`/indian-restaurant-menu/${catSlug}/${itemSlug}`, { state: { item } });
-    onSearchChange('');
-    setOpen(false);
+    if (onSuggestionSelect) {
+      onSuggestionSelect(item);
+      setOpen(false);
+    } else {
+      const catSlug  = toSlug((item.categoryName ?? item.category) || 'menu');
+      const itemSlug = toSlug(item.itemName);
+      navigate(`/indian-restaurant-menu/${catSlug}/${itemSlug}`, { state: { item } });
+      onSearchChange('');
+      setOpen(false);
+    }
   };
 
   const handleClear = () => {
@@ -110,17 +119,19 @@ function OrderingBar({
 
         {/* Left: Toggles */}
         <div className="ob-left-controls">
-          <div className="ob-avail-section">
-            <span className="ob-avail-label">Available Items</span>
-            <label className="ob-switch">
-              <input
-                type="checkbox"
-                checked={availableNow}
-                onChange={(e) => onAvailableNowChange(e.target.checked)}
-              />
-              <span className="ob-slider" />
-            </label>
-          </div>
+          {!hideAvailableToggle && (
+            <div className="ob-avail-section">
+              <span className="ob-avail-label">Available Items</span>
+              <label className="ob-switch">
+                <input
+                  type="checkbox"
+                  checked={availableNow}
+                  onChange={(e) => onAvailableNowChange(e.target.checked)}
+                />
+                <span className="ob-slider" />
+              </label>
+            </div>
+          )}
 
           {!hideOrderType && (
             <div className="ob-order-type-toggle">

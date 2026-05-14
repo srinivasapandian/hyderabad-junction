@@ -10,6 +10,7 @@ import { setOrderTypeAction } from '../../../redux/cart/cartReducer';
 import { toSlug } from '../../../utils/slugify';
 import ClosedBar from '../../../components/ClosedBar/ClosedBar';
 import ClosingSoonBar from '../../../components/ClosingSoonBar/ClosingSoonBar';
+import type { MenuItem } from '../../../types';
 
 import PageBg from '../../../components/pageBg/PageBg';
 import PageBanner from '../../../components/pageBanner/PageBanner';
@@ -54,6 +55,21 @@ function Menu() {
     scrollToSection(catId);
   }, [scrollToSection]);
 
+  // ── Search suggestion click → find item's category and scroll to it
+  const handleSuggestionSelect = useCallback((item: MenuItem) => {
+    const itemId = String(item.id ?? item.itemId ?? '');
+    const catEntry = Object.entries(grouped).find(([, group]) => {
+      if (group.direct.some((i) => String(i.id ?? i.itemId) === itemId)) return true;
+      return Object.values(group.subCategories).some((sub) =>
+        sub.items.some((i) => String(i.id ?? i.itemId) === itemId)
+      );
+    });
+    if (catEntry) {
+      scrollToSection(catEntry[0]);
+    }
+    setSearchQuery('');
+  }, [grouped, scrollToSection]);
+
   return (
     <PageBg className="mn-page">
       <PageBanner title="Our Menu" backgroundImage={BANNER_IMAGES.menu} />
@@ -67,10 +83,12 @@ function Menu() {
           searchQuery={searchQuery}
           onSearchChange={setSearchQuery}
           hideOrderType
+          hideAvailableToggle
           sectionCats={sectionCats}
           hasExclusive={hasExclusive}
           getCategoryCount={getCategoryCount}
           onCategorySelect={handleCategorySelect}
+          onSuggestionSelect={handleSuggestionSelect}
           activeId={activeId}
         />
         <CategoryFilter
