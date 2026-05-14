@@ -8,6 +8,11 @@
   margin-top: 86px;
 }
 
+/* Ensure sections have spacing when scrolled to via hash fragments */
+#home, #about, #menu, #services, #gallery {
+  scroll-margin-top: 100px;
+}
+
 @media (max-width: 991px) {
   .hj-home {
     margin-top: 76px;

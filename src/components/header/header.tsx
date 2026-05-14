@@ -17,7 +17,7 @@ function isBottomNavHidden(pathname) {
 function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [comingSoonOpen, setComingSoonOpen] = useState(false);
-  const { pathname } = useLocation();
+  const { pathname, hash } = useLocation();
   const navigate = useNavigate();
   // const showBottomNav = !isBottomNavHidden(pathname);
   const slugData = useSelector((s: RootState) => s.slug.data);
@@ -30,8 +30,11 @@ function Header() {
     return () => document.body.classList.remove('menu-open');
   }, [menuOpen]);
 
-  const isActive = (path: string): string => {
-    if (path === '/') return pathname === '/' ? 'active' : '';
+  const isActive = (path: string, hashMatch?: string): string => {
+    if (hashMatch) {
+      return (pathname === path && hash === hashMatch) ? 'active' : '';
+    }
+    if (path === '/') return (pathname === '/' && (!hash || hash === '#home')) ? 'active' : '';
     return pathname === path || pathname.startsWith(`${path}/`) ? 'active' : '';
   };
 
@@ -68,10 +71,10 @@ function Header() {
         <nav className={`header-nav ${menuOpen ? 'open' : ''}`}>
           {/* Plain nav links — desktop + mobile */}
           <Link to="/"                        className={isActive('/')}                        onClick={closeMenu}>Home</Link>
-          <a href="/#about"                   className={isActive('/about-us')}                onClick={closeMenu}>About Us</a>
+          <Link to="/#about"                  className={isActive('/', '#about')}              onClick={closeMenu}>About Us</Link>
           <Link to="/indian-restaurant-menu"  className={isActive('/indian-restaurant-menu')}  onClick={closeMenu}>Menu</Link>
-          <a href="/#services"                className={isActive('/services')}                onClick={closeMenu}>Services</a>
-          <a href="/#gallery"                className={isActive('/gallery')}                 onClick={closeMenu}>Gallery</a>
+          <Link to="/#services"               className={isActive('/', '#services')}           onClick={closeMenu}>Services</Link>
+          <Link to="/#gallery"                className={isActive('/', '#gallery')}            onClick={closeMenu}>Gallery</Link>
           <Link to="/contact"                 className={isActive('/contact')}                 onClick={closeMenu}>Contact Us</Link>
 
           {/* Mobile-only button group */}
