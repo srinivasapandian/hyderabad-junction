@@ -1,9 +1,9 @@
-.mic-card-premium {
+﻿.mic-card-premium {
   display: flex;
   flex-direction: row;
   align-items: stretch;
   gap: 12px;
-  background: #fff;
+  background: #E0C0AB;
   border: 1px solid #f0f0f0;
   border-radius: 12px;
   padding: 10px;
@@ -11,6 +11,7 @@
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   box-shadow: 0 4px 6px rgba(0,0,0,0.02);
   position: relative;
+ 
 }
 
 .mic-card-premium:hover {
@@ -111,7 +112,7 @@
   font-family: var(--font-heading);
   font-size: 0.95rem;
   font-weight: 700;
-  color: #2c3e50;
+   color: #6F1719;
   margin: 0;
   display: -webkit-box;
   -webkit-line-clamp: 2;

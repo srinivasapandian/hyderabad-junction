@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import './menu.css';
 import OrderingBar from '../../../components/orderingBar/OrderingBar';
@@ -17,7 +17,6 @@ import { BANNER_IMAGES } from '../../../components/pageBanner/bannerImages';
 
 function Menu() {
   const dispatch = useDispatch();
-  const navigate = useNavigate();
   const { categorySlug: urlCategorySlug } = useParams<{ categorySlug: string }>();
 
   const [availableNow, setAvailableNow] = useState<boolean>(true);
@@ -50,15 +49,10 @@ function Menu() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [urlCategorySlug, loading]);
 
-  // ── Category pill click → scroll + update URL ─────────────────────────
+  // ── Category pill click → scroll only (no navigation — /menu/:slug hits MenuCategoryRouter)
   const handleCategorySelect = useCallback((catId: string) => {
     scrollToSection(catId);
-    const slug =
-      catId === 'exclusive'
-        ? 'todays-exclusive'
-        : toSlug(sectionCats.find((c) => c.id === catId)?.name || catId);
-    navigate(`/indian-restaurant-menu/${slug}`, { replace: true });
-  }, [scrollToSection, sectionCats, navigate]);
+  }, [scrollToSection]);
 
   return (
     <PageBg className="mn-page">
