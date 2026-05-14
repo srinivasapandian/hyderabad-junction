@@ -3,7 +3,6 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import './header.css';
 import logoImg from '../../assets/logo.png';
-import { isReservationEnabledByBranch } from '../../utils/branchConfig';
 import type { RootState } from '../../types';
 import ComingSoonModal from '../comingSoonModal/ComingSoonModal';
 
@@ -22,7 +21,6 @@ function Header() {
   const navigate = useNavigate();
   // const showBottomNav = !isBottomNavHidden(pathname);
   const slugData = useSelector((s: RootState) => s.slug.data);
-  const isReservationEnabled = isReservationEnabledByBranch(slugData);
 
   const closeMenu = () => setMenuOpen(false);
   const openComingSoon = () => { closeMenu(); setComingSoonOpen(true); };
@@ -78,14 +76,7 @@ function Header() {
 
           {/* Mobile-only button group */}
           <div className="header-nav-mobile-btns">
-            {isReservationEnabled && (
-              <button
-                className="header-nav-mobile-btn header-nav-mobile-btn--outline"
-                onClick={openComingSoon}
-              >
-                Reserve a Table
-              </button>
-            )}
+
             <button
               className="header-nav-mobile-btn header-nav-mobile-btn--filled"
               onClick={openComingSoon}
@@ -96,14 +87,7 @@ function Header() {
         </nav>
 
         <div className="header-right-wrap">
-          {isReservationEnabled && (
-            <button
-              className="header-reservation-btn"
-              onClick={openComingSoon}
-            >
-              RESERVE A TABLE
-            </button>
-          )}
+
           <button
             className="header-order-btn"
             onClick={openComingSoon}

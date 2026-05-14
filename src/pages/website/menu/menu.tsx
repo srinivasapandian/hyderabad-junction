@@ -83,7 +83,6 @@ function Menu() {
           searchQuery={searchQuery}
           onSearchChange={setSearchQuery}
           hideOrderType
-          hideAvailableToggle
           sectionCats={sectionCats}
           hasExclusive={hasExclusive}
           getCategoryCount={getCategoryCount}

@@ -190,6 +190,14 @@
   transform: skew(-21deg) translateY(-1px);
 }
 
+.header-reservation-btn:disabled,
+.header-nav-mobile-btn--outline:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  filter: grayscale(1);
+  pointer-events: none;
+}
+
 .header-right-divider {
   width: 1px;
   height: 34px;

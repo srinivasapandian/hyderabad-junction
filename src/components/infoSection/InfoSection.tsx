@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import './InfoSection.css';
 import type { RootState, WorkingHour } from '../../types';
-import { LOCATION_SLUG, isReservationEnabledByBranch } from '../../utils/branchConfig';
+import { LOCATION_SLUG } from '../../utils/branchConfig';
 import ComingSoonModal from '../comingSoonModal/ComingSoonModal';
 
 const DAY_ORDER = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
@@ -37,7 +37,6 @@ export default function InfoSection() {
   const slugData = useSelector((s: RootState) => s.slug.data);
   const [hoursTab, setHoursTab] = useState<'store' | 'online'>('store');
   const [comingSoonOpen, setComingSoonOpen] = useState(false);
-  const isReservationEnabled = isReservationEnabledByBranch(slugData);
 
   const storeHours  = slugData?.workingHours  as WorkingHour[] | undefined;
   const onlineHours = slugData?.onlineWorkingHours as WorkingHour[] | undefined;
@@ -58,16 +57,7 @@ export default function InfoSection() {
 
         {/* Left side: Order Online button */}
         <div className="info__btns">
-          {isReservationEnabled && (
-            <button
-              type="button"
-              className="info__btn info__btn--outline"
-              onClick={() => setComingSoonOpen(true)}
-            >
-              Reserve a Table
-            </button>
-            /* <Link to="/reservation" className="info__btn info__btn--outline">Reserve a Table</Link> */
-          )}
+
           <button
             type="button"
             className="info__btn info__btn--filled"

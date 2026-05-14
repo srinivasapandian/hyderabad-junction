@@ -1,4 +1,4 @@
-﻿.info {
+.info {
   background: var(--primary-card);
   padding: 56px;
   color: var(--primary-color);
@@ -63,6 +63,13 @@
   background: var(--primary-color);
   color: var(--white-color);
   transform: skew(-21deg) translateY(-2px);
+}
+
+.info__btn--outline:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  filter: grayscale(1);
+  pointer-events: none;
 }
 
 /* Right side: Hours */
