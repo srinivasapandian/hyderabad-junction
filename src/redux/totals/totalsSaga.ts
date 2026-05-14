@@ -24,50 +24,9 @@ function resolveToken(auth: AuthState): string {
   }
 }
 
-function* handleFetchTotals(action: ReduxAction): SagaIterator {
-  try {
-    // Debounce: if another FETCH_TOTALS_REQUEST arrives within 400ms, this one is cancelled
-    yield delay(400);
-
-    const cartLines: CartLine[]  = (yield select((s: RootState) => s.cart.cartLines)) as CartLine[];
-    const orderType: string  = (yield select((s: RootState) => s.cart.orderType)) as string;
-    const slugData: Parameters<typeof buildTotalsPayload>[2]   = (yield select((s: RootState) => s.slug.data)) as Parameters<typeof buildTotalsPayload>[2];
-    const auth: AuthState       = (yield select((s: RootState) => s.auth)) as AuthState;
-    const customerId: string = auth?.customerId || auth?.user?.customerId || '';
-    const token: string      = resolveToken(auth);
-
-    const availableLines = cartLines.filter((l) => !l.unavailable);
-
-    if (!availableLines.length) {
-      yield put({ type: CLEAR_TOTALS });
-      return;
-    }
-
-    const selectedAddressId: string | null = (yield select((s: RootState) => s.address.selectedAddressId)) as string | null;
-    const deliveryFee: number | null = (action.payload as { deliveryFee?: number | null })?.deliveryFee ?? null;
-    const payload  = buildTotalsPayload(availableLines, orderType, slugData, customerId, selectedAddressId, deliveryFee);
-    const response: { data: Record<string, unknown> } = (yield call(getOrderTotalsApi, payload, token)) as { data: Record<string, unknown> };
-
-    // Response is already decrypted by getOrderTotalsApi
-    const inner = (response.data ?? {}) as Record<string, unknown>;
-    const totalsArr =
-      Array.isArray(inner?.orderTotals) ? inner.orderTotals
-        : Array.isArray(inner?.totals) ? inner.totals
-          : null;
-    const grandFromTotals = totalsArr?.find((t: Record<string, unknown>) => t.code === '5')?.value ?? null;
-    const grandTotal      = inner?.orderTotal ?? grandFromTotals ?? null;
-
-    yield put({
-      type: FETCH_TOTALS_SUCCESS,
-      payload: { totals: totalsArr, grandTotal },
-    });
-  } catch (error) {
-    const err = error as AxiosError;
-    yield put({
-      type: FETCH_TOTALS_FAILURE,
-      payload: err?.response?.data || err.message,
-    });
-  }
+// API disabled — clears totals without network request
+function* handleFetchTotals(_action: ReduxAction): SagaIterator {
+  yield put({ type: CLEAR_TOTALS });
 }
 
 export default function* totalsSaga(): SagaIterator {

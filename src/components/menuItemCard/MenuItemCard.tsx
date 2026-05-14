@@ -108,20 +108,7 @@ function MenuItemCard({ item, categorySlug = 'menu' }: MenuItemCardProps) {
   const itemDetailPath = `/indian-restaurant-menu/${categorySlug}/${itemSlug}`;
 
   const handleCardClick = () => {
-    if (hasModifiers && qty > 0) {
-      setPopupOpen(true);
-      return;
-    }
     navigate(itemDetailPath, { state: { item } });
-  };
-
-  const handleAddClick = (e: React.MouseEvent<HTMLButtonElement>) => {
-    e.stopPropagation();
-    if (hasModifiers) {
-      handleCardClick();
-    } else {
-      dispatch(addToCartAction(item));
-    }
   };
 
   return (
@@ -144,20 +131,7 @@ function MenuItemCard({ item, categorySlug = 'menu' }: MenuItemCardProps) {
           </div>
         )}
 
-        {/* Favorite Icon on Image */}
-        {!showOverlay && (
-          <button
-            className={`mic-fav-btn ${isFavourite ? 'active' : ''}`}
-            onClick={(e) => {
-              e.stopPropagation();
-              if (!isLoggedIn) return;
-              if (isFavourite) dispatch(removeFavouriteRequest(itemId));
-              else dispatch(addFavouriteRequest(itemId, item));
-            }}
-          >
-            <i className={isFavourite ? 'fa-solid fa-heart' : 'fa-regular fa-heart'} />
-          </button>
-        )}
+        {/* Favourite button hidden — ordering not active */}
       </div>
 
       {/* RIGHT: Content Section */}
@@ -165,10 +139,7 @@ function MenuItemCard({ item, categorySlug = 'menu' }: MenuItemCardProps) {
         <div className="mic-content-top">
           <div className="mic-name-price">
             <h3 className="mic-item-name">{itemName}</h3>
-            <span className="mic-item-price">
-              <span className="mic-currency">{currencySymbol}</span>
-              {safePrice.toFixed(2)}
-            </span>
+            {/* Price hidden — ordering not active */}
           </div>
 
           {description && (
@@ -176,81 +147,10 @@ function MenuItemCard({ item, categorySlug = 'menu' }: MenuItemCardProps) {
           )}
         </div>
 
-        <div className="mic-content-bottom" onClick={(e) => e.stopPropagation()}>
-          <div className="mic-icons-group">
-            {hasModifiers && (
-              <button
-                className="mic-action-icon-btn"
-                onClick={(e) => { e.stopPropagation(); handleCardClick(); }}
-                title="Customize"
-              >
-                <img src={customizationSvg} alt="Customize" />
-              </button>
-            )}
-
-            {qty > 0 && (
-              <button
-                className="mic-action-icon-btn"
-                onClick={(e) => { e.stopPropagation(); openNoteModal(e); }}
-                title="Add Note"
-              >
-                <img src={itemNoteSvg} alt="Note" />
-                {hasNote && <span className="mic-note-dot" />}
-              </button>
-            )}
-          </div>
-
-          <div className="mic-qty-section">
-            {!isRestaurantClosed ? (
-              qty === 0 ? (
-                <button className="mic-add-btn-premium" onClick={handleAddClick}>
-                  <i className="fa-solid fa-cart-plus" />
-                </button>
-              ) : (
-                <div className="mic-qty-ctrl-premium">
-                  <button className="mic-qty-btn" onClick={(e) => { e.stopPropagation(); dispatch(updateQtyAction(lineId, -1)); }}>−</button>
-                  <span className="mic-qty-count">{qty}</span>
-                  <button className="mic-qty-btn" onClick={(e) => { e.stopPropagation(); hasModifiers ? setPopupOpen(true) : dispatch(updateQtyAction(lineId, 1)); }}>+</button>
-                </div>
-              )
-            ) : (
-              <button className="mic-view-btn" onClick={(e) => { e.stopPropagation(); handleCardClick(); }}>VIEW</button>
-            )}
-          </div>
-        </div>
+        {/* Cart controls hidden — ordering not active */}
       </div>
 
-      <ItemNoteModal
-        isOpen={noteOpen}
-        initialValue={comment}
-        itemName={itemName}
-        onClose={closeNoteModal}
-        onSave={saveNote}
-      />
-
-      {popupOpen && allCartLines.length > 0 && (
-        <CustomizationPopup
-          lines={allCartLines}
-          onClose={() => setPopupOpen(false)}
-          onQtyChange={(lid, delta) => {
-            dispatch(updateQtyAction(lid, delta));
-            const remaining = allCartLines.filter((l: CartLine) => l.lineId !== lid);
-            const target = allCartLines.find((l: CartLine) => l.lineId === lid);
-            if (target && target.qty + delta <= 0 && remaining.length === 0) {
-              setPopupOpen(false);
-            }
-          }}
-          onEdit={(line) => {
-            setPopupOpen(false);
-            const lineItem = (line as any)._item || item;
-            navigate(itemDetailPath, { state: { item: lineItem, editLineId: line.lineId } });
-          }}
-          onNewCustomization={() => {
-            setPopupOpen(false);
-            navigate(itemDetailPath, { state: { item, forceNewLine: true } });
-          }}
-        />
-      )}
+      {/* Note modal and customization popup hidden — ordering not active */}
     </div>
   );
 }

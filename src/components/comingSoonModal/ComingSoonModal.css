@@ -1,0 +1,161 @@
+/* ═══════════════════════════════════════════
+   COMING SOON MODAL
+═══════════════════════════════════════════ */
+
+.csm-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.72);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  z-index: 9500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+}
+
+.csm-modal {
+  position: relative;
+  background: #fff;
+  border-radius: 20px;
+  padding: 48px 40px 40px;
+  max-width: 440px;
+  width: 100%;
+  text-align: center;
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.3), 0 4px 16px rgba(0, 0, 0, 0.12);
+  border-top: 4px solid var(--primary-color);
+}
+
+/* ── Close X ─────────────────────────────── */
+.csm-close-x {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  color: #888;
+  transition: background 0.15s, color 0.15s;
+}
+
+.csm-close-x:hover {
+  background: #f2f2f2;
+  color: #333;
+}
+
+.csm-close-x svg {
+  width: 16px;
+  height: 16px;
+}
+
+/* ── Icon ─────────────────────────────────── */
+.csm-icon {
+  width: 68px;
+  height: 68px;
+  border-radius: 50%;
+  background: rgba(111, 23, 25, 0.07);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+  color: var(--primary-color);
+}
+
+.csm-icon svg {
+  width: 34px;
+  height: 34px;
+}
+
+/* ── Title ───────────────────────────────── */
+.csm-title {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: var(--primary-color);
+  margin-bottom: 12px;
+  letter-spacing: -0.01em;
+  line-height: 1.1;
+}
+
+/* ── Message ─────────────────────────────── */
+.csm-message {
+  font-size: 0.96rem;
+  color: #5a5a5a;
+  line-height: 1.65;
+  margin-bottom: 32px;
+  max-width: 320px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ── Actions ─────────────────────────────── */
+.csm-actions {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+}
+
+.csm-btn {
+  padding: 12px 32px;
+  border-radius: 10px;
+  font-size: 0.88rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  min-width: 110px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  font-family: var(--font-body, inherit);
+}
+
+.csm-btn--secondary {
+  background: transparent;
+  border: 1.5px solid #d0d0d0;
+  color: #555;
+}
+
+.csm-btn--secondary:hover {
+  border-color: #999;
+  color: #222;
+  background: #f6f6f6;
+}
+
+.csm-btn--primary {
+  background: var(--primary-color);
+  border: 1.5px solid var(--primary-color);
+  color: #fff;
+}
+
+.csm-btn--primary:hover {
+  background: #5a1215;
+  border-color: #5a1215;
+  box-shadow: 0 4px 14px rgba(111, 23, 25, 0.35);
+}
+
+/* ── Mobile ──────────────────────────────── */
+@media (max-width: 480px) {
+  .csm-modal {
+    padding: 42px 22px 32px;
+    border-radius: 16px;
+  }
+
+  .csm-title {
+    font-size: 1.5rem;
+  }
+
+  .csm-actions {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .csm-btn {
+    width: 100%;
+    padding: 13px 20px;
+  }
+}

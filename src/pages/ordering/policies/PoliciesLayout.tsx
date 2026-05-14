@@ -19,22 +19,10 @@ export default function PoliciesLayout() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const controller = new AbortController();
-
-    fetch(POLICIES_URL, { signal: controller.signal })
-      .then((res) => {
-        if (!res.ok) throw new Error(`Request failed (${res.status})`);
-        return res.json() as Promise<PoliciesPayload>;
-      })
-      .then((payload) => setData(payload))
-      .catch((err) => {
-        if (err.name !== 'AbortError') {
-          setData(localPolicies as PoliciesPayload);
-        }
-      })
-      .finally(() => setLoading(false));
-
-    return () => controller.abort();
+    // Remote fetch disabled — using bundled local policies data (no network request)
+    // POLICIES_URL preserved for future re-enablement: fetch(POLICIES_URL, { signal })
+    setData(localPolicies as PoliciesPayload);
+    setLoading(false);
   }, []);
 
   useEffect(() => {

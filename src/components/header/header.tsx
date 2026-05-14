@@ -3,8 +3,9 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import './header.css';
 import logoImg from '../../assets/logo.png';
-import { isReservationEnabledByBranch, LOCATION_SLUG } from '../../utils/branchConfig';
+import { isReservationEnabledByBranch } from '../../utils/branchConfig';
 import type { RootState } from '../../types';
+import ComingSoonModal from '../comingSoonModal/ComingSoonModal';
 
 /* Retained for future bottom-nav re-enablement
 function isBottomNavHidden(pathname) {
@@ -16,6 +17,7 @@ function isBottomNavHidden(pathname) {
 
 function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [comingSoonOpen, setComingSoonOpen] = useState(false);
   const { pathname } = useLocation();
   const navigate = useNavigate();
   // const showBottomNav = !isBottomNavHidden(pathname);
@@ -30,6 +32,7 @@ function Header() {
   );
 
   const closeMenu = () => setMenuOpen(false);
+  const openComingSoon = () => { closeMenu(); setComingSoonOpen(true); };
 
   useEffect(() => {
     document.body.classList.toggle('menu-open', menuOpen);
@@ -90,52 +93,42 @@ function Header() {
               {isLoggedIn ? 'My Account' : 'Sign In'}
             </Link>
             {isReservationEnabled && (
-              <Link
-                to="/reservation"
-                className={`header-nav-mobile-btn header-nav-mobile-btn--outline${pathname === '/reservation' ? ' active' : ''}`}
-                onClick={closeMenu}
+              <button
+                className="header-nav-mobile-btn header-nav-mobile-btn--outline"
+                onClick={openComingSoon}
               >
                 Reserve a Table
-              </Link>
+              </button>
             )}
-            <Link
-              to={`/order-online/${LOCATION_SLUG}/pickup`}
-              className={`header-nav-mobile-btn header-nav-mobile-btn--filled${pathname.startsWith('/order-online') ? ' active' : ''}`}
-              onClick={closeMenu}
+            <button
+              className="header-nav-mobile-btn header-nav-mobile-btn--filled"
+              onClick={openComingSoon}
             >
               Order Online
-            </Link>
+            </button>
           </div>
         </nav>
 
         <div className="header-right-wrap">
           {isReservationEnabled && (
-            <Link
-              to="/reservation"
-              className={`header-reservation-btn${pathname === '/reservation' ? ' active' : ''}`}
+            <button
+              className="header-reservation-btn"
+              onClick={openComingSoon}
             >
               RESERVE A TABLE
-            </Link>
+            </button>
           )}
-          <Link
-            to={`/order-online/${LOCATION_SLUG}/pickup`}
-            className={`header-order-btn${pathname.startsWith('/order-online') ? ' active' : ''}`}
+          <button
+            className="header-order-btn"
+            onClick={openComingSoon}
           >
             ORDER ONLINE
-          </Link>
-          <span className="header-right-divider" aria-hidden="true" />
-          <button
-            className={`header-user-btn${pathname === '/account' ? ' active' : ''}${isLoggedIn ? ' logged-in' : ''}`}
-            aria-label={isLoggedIn ? `Account: ${displayName}` : 'Sign In'}
-            onClick={() => { navigate('/account'); closeMenu(); }}
-          >
-            <span className="header-user-btn__icon">
-              <i className="fa-solid fa-user" />
-            </span>
-            <span className="header-user-btn__label">{isLoggedIn ? displayName : 'User'}</span>
           </button>
+          {/* User button hidden — auth not active */}
         </div>
       </div>
+
+      <ComingSoonModal isOpen={comingSoonOpen} onClose={() => setComingSoonOpen(false)} />
     </header>
   );
 }

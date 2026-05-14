@@ -20,74 +20,19 @@ const persistAuth = (data: PersistedAuth): void => {
   } catch (_) {}
 };
 
-function* requestOtpSaga(action: ReduxAction): SagaIterator {
-  try {
-    const { mobilePhone } = action.payload as { mobilePhone: string };
-    yield call(requestOtpApi, mobilePhone);
-    yield put(requestOtpSuccess());
-  } catch (error: unknown) {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const err = error as any;
-    yield put(requestOtpFailure(
-      err?.response?.data?.message || err.message || 'Failed to send OTP'
-    ));
-  }
+function* requestOtpSaga(_action: ReduxAction): SagaIterator {
+  // API disabled — safe fallback, no network request
+  yield put(requestOtpFailure('This feature is coming soon. Please check back later.'));
 }
 
-function* verifyOtpSaga(action: ReduxAction): SagaIterator {
-  try {
-    const { mobilePhone, otp } = action.payload as { mobilePhone: string; otp: string };
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const response: { data: any } = yield call(verifyOtpApi, mobilePhone, otp);
-
-    const data = response.data;
-    const payload = data?.body || data || {};
-    const customer = payload?.customerDetails || payload?.customer || {};
-    const accessToken = payload?.access_token || customer?.access_token || '';
-
-    const customerId = customer?.customerId || payload?.customerId || '';
-    // New user = no customerId in verify-otp response
-    const isNewUser = !customerId;
-
-    const user: User = { mobilePhone, customerId, access_token: accessToken, ...customer };
-
-    if (!isNewUser) {
-      persistAuth({ isLoggedIn: true, customerId, user });
-    }
-
-    yield put(verifyOtpSuccess({ customerId, isNewUser, user }));
-  } catch (error: unknown) {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const err = error as any;
-    yield put(verifyOtpFailure(
-      err?.response?.data?.message || err.message || 'Invalid OTP'
-    ));
-  }
+function* verifyOtpSaga(_action: ReduxAction): SagaIterator {
+  // API disabled — safe fallback, no network request
+  yield put(verifyOtpFailure('This feature is coming soon. Please check back later.'));
 }
 
-function* registerUserSaga(action: ReduxAction): SagaIterator {
-  try {
-    const { token, ...userData } = action.payload as Record<string, unknown> & { token: string };
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const response: { data: any } = yield call(registerUserApi, userData, token);
-
-    const body = response.data?.body || response.data || {};
-    const customerDetails = body.customerDetails || {};
-    const accessToken = body?.access_token || customerDetails?.access_token || '';
-
-    const user: User = { ...userData, ...customerDetails, access_token: accessToken };
-    const customerId: string = customerDetails.customerId || userData.customerId || '';
-
-    persistAuth({ isLoggedIn: true, customerId, user });
-
-    yield put(registerUserSuccess(user));
-  } catch (error: unknown) {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const err = error as any;
-    yield put(registerUserFailure(
-      err?.response?.data?.message || err.message || 'Registration failed'
-    ));
-  }
+function* registerUserSaga(_action: ReduxAction): SagaIterator {
+  // API disabled — safe fallback, no network request
+  yield put(registerUserFailure('This feature is coming soon. Please check back later.'));
 }
 
 // Clear all user-specific state on logout

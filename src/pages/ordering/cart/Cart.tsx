@@ -280,30 +280,10 @@ export default function CartPage({ onSignInClick }: CartPageProps) {
     };
   }
 
-  // ── Debounced totals fetch ────────────────────────────────────────────────
+  // ── Debounced totals fetch — API disabled, returns null without network request ──
   useEffect(() => {
-    if (availableLines.length === 0) { setTotals(null); setGrandTotal(null); return; }
-
-    if (debounceRef.current) clearTimeout(debounceRef.current);
-    debounceRef.current = setTimeout(() => {
-      getOrderTotalsApi(buildTotalsPayload(), userToken)
-        .then((res: any) => { // eslint-disable-line @typescript-eslint/no-explicit-any
-          try {
-            const inner = res.data ?? {};
-            const totalsArr =
-              Array.isArray(inner?.orderTotals) ? inner.orderTotals
-                : Array.isArray(inner?.totals)  ? inner.totals
-                  : null;
-            setTotals(totalsArr);
-            const grandFromTotals = totalsArr?.find((t: OrderTotal) => t.code === '5')?.value ?? null;
-            setGrandTotal(inner?.orderTotal ?? grandFromTotals ?? null);
-          } catch {
-            setTotals(null); setGrandTotal(null);
-          }
-        })
-        .catch(() => { setTotals(null); setGrandTotal(null); });
-    }, 400);
-
+    setTotals(null);
+    setGrandTotal(null);
     return () => clearTimeout(debounceRef.current ?? undefined);
   }, [cartLines, orderType]); // eslint-disable-line
 

@@ -34,105 +34,30 @@ function* resolveContext(): Generator<any, { customerId: string; locationId: str
 }
 
 // ── Fetch ─────────────────────────────────────────────────────────────────────
+// API disabled — returns empty list without network request
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 function* handleFetchFavourites(): Generator<any, void, any> {
-  try {
-    const { customerId, locationId, token } = yield* resolveContext();
-    if (!customerId || !locationId) return;
-
-    const res: { data: Record<string, unknown> }  = yield call(fetchFavouritesApi, customerId, locationId, token);
-    const data = res.data ?? {};
-    const list: MenuItem[] =
-      Array.isArray(data)            ? data :
-      Array.isArray((data as Record<string, unknown>).body)       ? (data as Record<string, unknown>).body as MenuItem[] :
-      Array.isArray((data as Record<string, unknown>).favourites) ? (data as Record<string, unknown>).favourites as MenuItem[] :
-      Array.isArray((data as Record<string, unknown>).favorites)  ? (data as Record<string, unknown>).favorites as MenuItem[] :
-      Array.isArray((data as Record<string, unknown>).data)       ? (data as Record<string, unknown>).data as MenuItem[] :
-      [];
-
-    yield put(loadFavouritesAction(list));
-  } catch {
-    // Silently ignore — user can still toggle favourites manually
-  }
+  yield put(loadFavouritesAction([]));
 }
 
 // ── Add ───────────────────────────────────────────────────────────────────────
+// API disabled — local toggle only, no network request
 function* handleAddFavourite(action: ReduxAction): SagaIterator {
   const { itemId, item } = action.payload as { itemId: string; item?: MenuItem };
-
-  const { customerId, locationId, token } = yield* resolveContext();
-
-  // Guest user: store locally only (persisted via redux-persist)
-  if (!customerId || !locationId) {
-    yield put(toggleFavouriteAction(itemId, item));
-    return;
-  }
-
-  // Logged-in user: optimistic update then API
-  try {
-    yield put(toggleFavouriteAction(itemId, item));
-    yield call(addFavouriteApi, itemId, locationId, customerId, token);
-    yield* handleFetchFavourites();
-  } catch {
-    // Rollback optimistic update
-    yield put(toggleFavouriteAction(itemId, item));
-  }
+  yield put(toggleFavouriteAction(itemId, item));
 }
 
 // ── Remove ────────────────────────────────────────────────────────────────────
+// API disabled — local toggle only, no network request
 function* handleRemoveFavourite(action: ReduxAction): SagaIterator {
   const { itemId } = action.payload as { itemId: string };
-
-  const { customerId, locationId, token } = yield* resolveContext();
-
-  // Guest user: remove locally only
-  if (!customerId || !locationId) {
-    yield put(toggleFavouriteAction(itemId));
-    return;
-  }
-
-  // Logged-in user: optimistic update then API
-  try {
-    yield put(toggleFavouriteAction(itemId));
-    yield call(removeFavouriteApi, itemId, locationId, customerId, token);
-    yield* handleFetchFavourites();
-  } catch {
-    // Rollback optimistic update — re-toggle back
-    const items: Record<string, MenuItem> = (yield select((s: RootState) => s.favourites.items)) as Record<string, MenuItem>;
-    yield put(toggleFavouriteAction(itemId, items[itemId]));
-  }
+  yield put(toggleFavouriteAction(itemId));
 }
 
 // ── Sync guest favourites to server on login ──────────────────────────────────
+// API disabled — no-op, local state is preserved
 function* handleLoginSync(): SagaIterator {
-  // Capture local guest favourites before server fetch overwrites them
-  const guestIds: string[]   = (yield select((s: RootState) => s.favourites.ids)) as string[];
-  const guestItems: Record<string, MenuItem> = (yield select((s: RootState) => s.favourites.items)) as Record<string, MenuItem>;
-
-  // Fetch server favourites (replaces local state)
-  yield* handleFetchFavourites();
-
-  if (!guestIds.length) return;
-
-  const serverIds: string[] = (yield select((s: RootState) => s.favourites.ids)) as string[];
-  const toSync    = guestIds.filter((id: string) => !serverIds.includes(id));
-
-  if (!toSync.length) return;
-
-  const { customerId, locationId, token } = yield* resolveContext();
-  if (!customerId || !locationId) return;
-
-  // Push each guest favourite that isn't already on the server
-  for (const itemId of toSync) {
-    try {
-      yield call(addFavouriteApi, itemId, locationId, customerId, token);
-    } catch {
-      // Keep it in local state even if the API call fails
-    }
-  }
-
-  // Final sync so the store reflects the true server state
-  yield* handleFetchFavourites();
+  // Intentionally empty — API calls disabled
 }
 
 // ── Root ──────────────────────────────────────────────────────────────────────

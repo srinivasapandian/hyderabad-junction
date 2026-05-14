@@ -503,7 +503,7 @@ export default function ItemDetailPage() {
             {/* Name + Price inline */}
             <div className="idp__name-price-row">
               <h1 className="idp__name">{itemName}</h1>
-              <span className="idp__price">{currencySymbol}{safePrice.toFixed(2)}</span>
+              {/* Price hidden — ordering not active */}
             </div>
             <div className="idp__name-rule" />
 
@@ -535,8 +535,8 @@ export default function ItemDetailPage() {
                 </div>
               )}
 
-              {/* Item note — hidden entirely when restaurant is closed */}
-              {!isRestaurantClosed && (
+              {/* Item note — hidden, ordering not active */}
+              {false && !isRestaurantClosed && (
                 <div className="idp__note-row">
                   <button
                     type="button"
@@ -569,69 +569,15 @@ export default function ItemDetailPage() {
                   groups={customGroups}
                   selectedModifiers={selectedModifiers}
                   onUpdate={setSelectedModifiers}
-                  disabled={isItemBlocked}
-                  infoOnly={isRestaurantClosed}
+                  disabled={false}
+                  infoOnly={false}
                   currencySymbol={currencySymbol}
                 />
-                {/* Validation — hidden when closed or item blocked */}
-                {!isItemBlocked && !isRestaurantClosed && !modifierValidation.valid && (
-                  <div className="idp__mod-validation">
-                    <i className="fa-solid fa-circle-info" />
-                    <span>{modifierValidation.messages[0]}</span>
-                  </div>
-                )}
+                {/* Validation hidden — ordering not active */}
               </motion.div>
             )}
 
-            {/* ── Cart block (desktop) — hidden when restaurant is closed ── */}
-            {!isRestaurantClosed && (
-              <div className="idp__cart-block">
-                {isItemBlocked ? (
-                  <div className="idp__cart-disabled">
-                    <i className="fa-regular fa-clock" />
-                    <span>{availTime ? `Opens at ${availTime}` : 'Unavailable'}</span>
-                  </div>
-                ) : (
-                  <>
-                    <div className="idp__qty-row">
-                      <button
-                        className="idp__qty-btn"
-                        onClick={() => setLocalQty((q) => Math.max(cartQty > 0 ? 0 : 1, q - 1))}
-                        type="button"
-                        disabled={localQty <= (cartQty > 0 ? 0 : 1)}
-                      >-</button>
-                      <div className="idp__qty-info">
-                        <span className="idp__qty-num">{localQty}</span>
-                      </div>
-                      <button
-                        className="idp__qty-btn"
-                        onClick={() => setLocalQty((q) => q + 1)}
-                        type="button"
-                      >+</button>
-                    </div>
-                    <button
-                      className={`idp__add-btn${isAddDisabled ? ' idp__add-btn--disabled' : ''}`}
-                      onClick={handleConfirmAdd}
-                      type="button"
-                      disabled={isAddDisabled}
-                    >
-                      {addBtnLabel}
-                    </button>
-                  </>
-                )}
-
-                {isLoggedIn && (
-                  <button
-                    className={`idp__fav-btn${isFav ? ' idp__fav-btn--on' : ''}`}
-                    onClick={handleFav}
-                    type="button"
-                    aria-label="Toggle favourite"
-                  >
-                    <i className={isFav ? 'fa-solid fa-heart' : 'fa-regular fa-heart'} />
-                  </button>
-                )}
-              </div>
-            )}
+            {/* Cart block and favourites hidden — ordering not active */}
 
           </motion.div>
 
@@ -650,17 +596,7 @@ export default function ItemDetailPage() {
                 <i className="fa-solid fa-chevron-left" />
               </button>
 
-              {/* Fav on image — only visible when logged in */}
-              {isLoggedIn && (
-                <button
-                  className={`idp__img-fav${isFav ? ' idp__img-fav--on' : ''}`}
-                  onClick={handleFav}
-                  type="button"
-                  aria-label="Toggle favourite"
-                >
-                  <i className={isFav ? 'fa-solid fa-heart' : 'fa-regular fa-heart'} />
-                </button>
-              )}
+              {/* Fav on image hidden — ordering not active */}
 
               {/* Item-specific unavailability scrim — not shown for closed restaurant */}
               {isItemBlocked && (
@@ -674,33 +610,7 @@ export default function ItemDetailPage() {
               )}
             </div>
 
-            {/* Mobile qty + add bar (below image) — hidden when closed or item blocked */}
-            {!isItemBlocked && !isRestaurantClosed && (
-              <div className="idp__img-bar">
-                <div className="idp__img-spinner">
-                  <button
-                    className="idp__img-spin-btn"
-                    onClick={() => setLocalQty((q) => Math.max(cartQty > 0 ? 0 : 1, q - 1))}
-                    type="button"
-                    disabled={localQty <= (cartQty > 0 ? 0 : 1)}
-                  >-</button>
-                  <span className="idp__img-spin-val">{localQty}</span>
-                  <button
-                    className="idp__img-spin-btn"
-                    onClick={() => setLocalQty((q) => q + 1)}
-                    type="button"
-                  >+</button>
-                </div>
-                <button
-                  className={`idp__img-add-btn${isAddDisabled ? ' idp__img-add-btn--disabled' : ''}`}
-                  onClick={handleConfirmAdd}
-                  type="button"
-                  disabled={isAddDisabled}
-                >
-                  {addBtnLabel}
-                </button>
-              </div>
-            )}
+            {/* Mobile cart bar hidden — ordering not active */}
           </motion.div>
 
         </div>{/* /split */}

@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { Link, Navigate, useParams } from 'react-router-dom';
 import PageBanner from '../../../components/pageBanner/PageBanner';
 import PageBg from '../../../components/pageBg/PageBg';
@@ -8,12 +8,13 @@ import {
   menuLandingPagesBySlug,
 } from '../../../data/menuLandingPages';
 import heroBg from '../../../assets/images/new/optimized/hero-bg.jpg';
-import { LOCATION_SLUG } from '../../../utils/branchConfig';
+import ComingSoonModal from '../../../components/comingSoonModal/ComingSoonModal';
 import './menuCategory.css';
 
 function MenuCategoryPage() {
   const { categorySlug } = useParams<{ categorySlug: string }>();
   const page = menuLandingPagesBySlug[categorySlug!];
+  const [comingSoonOpen, setComingSoonOpen] = useState(false);
 
   useEffect(() => {
     if (!page) return undefined;
@@ -79,9 +80,13 @@ function MenuCategoryPage() {
               </div>
 
               <div className="menu-category-actions">
-                <Link to={`/order-online/${LOCATION_SLUG}/pickup`} className="menu-category-btn menu-category-btn--primary">
+                <button
+                  type="button"
+                  className="menu-category-btn menu-category-btn--primary"
+                  onClick={() => setComingSoonOpen(true)}
+                >
                   Order Online
-                </Link>
+                </button>
                 <Link to="/contact" className="menu-category-btn menu-category-btn--secondary">
                   Visit Us
                 </Link>
@@ -140,6 +145,7 @@ function MenuCategoryPage() {
         </section>
       </div>
 
+      <ComingSoonModal isOpen={comingSoonOpen} onClose={() => setComingSoonOpen(false)} />
     </PageBg>
   );
 }

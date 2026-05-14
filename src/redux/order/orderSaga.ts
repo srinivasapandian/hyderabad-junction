@@ -41,7 +41,12 @@ function resolveToken(auth: any): string {
   );
 }
 
-function* handlePlaceOrder(action: ReduxAction): SagaIterator {
+// API disabled — safe failure without network request
+function* handlePlaceOrder(_action: ReduxAction): SagaIterator {
+  yield put(placeOrderFailure('This feature is coming soon. Please check back later.'));
+}
+
+function* _handlePlaceOrder_disabled(action: ReduxAction): SagaIterator {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const {
     orderPayload,
@@ -182,77 +187,15 @@ function* handlePlaceOrder(action: ReduxAction): SagaIterator {
 }
 
 // ── Customer Orders — fetch all past orders ───────────────────────────────────
+// API disabled — returns empty list without network request
 function* handleFetchCustomerOrders(): SagaIterator {
-  try {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const auth: any       = yield select((s: RootState) => s.auth || {});
-    const token: string      = resolveToken(auth);
-    const customerId: string = auth?.customerId || auth?.user?.customerId || '';
-    const locationId: string = yield select((s: RootState) => s.slug.data?.id || '');
-
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const response: any = yield call(fetchCustomerOrdersApi, customerId, locationId, token);
-    const data = response.data;
-    const orders = Array.isArray(data) ? data
-      : Array.isArray(data?.body)      ? data.body
-      : data?.orders || data?.orderList || [];
-
-    yield put(fetchCustomerOrdersSuccess(orders));
-  } catch (error: unknown) {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const err = error as any;
-    yield put(fetchCustomerOrdersFailure(err?.response?.data?.message || err.message));
-  }
+  yield put(fetchCustomerOrdersSuccess([]));
 }
 
 // ── Order Tracking — fetch order details + restaurant info ────────────────────
-function* handleFetchOrderTracking(action: ReduxAction): SagaIterator {
-  const { orderId, locationId } = action.payload as { orderId: string; locationId: string };
-  try {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const auth: any  = yield select((s: RootState) => s.auth || {});
-    const token: string = resolveToken(auth);
-
-    // Fetch order details and restaurant details in parallel
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const [orderRes, restaurantRes]: any[] = yield all([
-      call(fetchOrderDetailsApi, orderId, token),
-      locationId ? call(fetchRestaurantDetailsApi, locationId, token) : call(() => ({ data: null })),
-    ]);
-
-    // Merge fresh data with existing to preserve items/totals/ETA if API returns empty
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const existing: any = yield select((s: RootState) => s.order.trackingOrder);
-    const fresh    = orderRes.data?.body || orderRes.data || {};
-
-    const orderData = fresh?.orderId ? {
-      ...fresh,
-      items:      fresh.items?.length  ? fresh.items  : (existing?.items  || []),
-      totals:     fresh.totals?.length ? fresh.totals : (existing?.totals || []),
-      orderTotal: fresh.orderTotal     || existing?.orderTotal || 0,
-      etaDate:    fresh.etaDate        || existing?.etaDate    || null,
-      etaTime:    fresh.etaTime        || existing?.etaTime    || null,
-    } : existing;
-
-    const restaurantDetails = restaurantRes.data?.body || restaurantRes.data || null;
-
-    yield put(fetchOrderTrackingSuccess({ orderData, restaurantDetails }));
-
-    // ── Sync active orders bar immediately with fresh status ──────────────
-    if (orderData?.orderId) {
-      if (isOrderCompleted(orderData)) {
-        // Terminal state (delivered / picked-up / cancelled) → remove from bar
-        yield put(removeActiveOrderAction(orderData.orderId));
-      } else {
-        // Still in progress → update the pill with fresh status + ETA
-        yield put(updateSingleActiveOrderAction(orderData));
-      }
-    }
-  } catch (err: unknown) {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const error = err as any;
-    yield put(fetchOrderTrackingFailure(error?.message || 'Failed to load order details.'));
-  }
+// API disabled — safe failure without network request
+function* handleFetchOrderTracking(_action: ReduxAction): SagaIterator {
+  yield put(fetchOrderTrackingFailure('This feature is coming soon.'));
 }
 
 export default function* orderSaga(): SagaIterator {

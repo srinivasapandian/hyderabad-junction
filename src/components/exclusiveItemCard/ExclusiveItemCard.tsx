@@ -58,20 +58,7 @@ function ExclusiveItemCard({ item }: ExclusiveItemCardProps) {
   const itemDetailPath = `/indian-restaurant-menu/todays-exclusive/${toSlug(itemName)}`;
 
   const handleCardClick = () => {
-    if (hasModifiers && qty > 0) {
-      setPopupOpen(true);
-      return;
-    }
     navigate(itemDetailPath, { state: { item } });
-  };
-
-  const handleAddClick = (e: React.MouseEvent<HTMLButtonElement>) => {
-    e.stopPropagation();
-    if (hasModifiers) {
-      handleCardClick();
-    } else {
-      dispatch(addToCartAction(item));
-    }
   };
 
   return (
@@ -90,9 +77,7 @@ function ExclusiveItemCard({ item }: ExclusiveItemCardProps) {
           className="eic-img"
           loading="lazy"
         />
-        <button className="eic-wishlist-btn" onClick={(e) => e.stopPropagation()}>
-          <Heart size={16} strokeWidth={2.5} />
-        </button>
+        {/* Wishlist button hidden — ordering not active */}
       </div>
 
       {/* ── Right: Content Section ── */}
@@ -102,97 +87,20 @@ function ExclusiveItemCard({ item }: ExclusiveItemCardProps) {
             <h3 className="eic-name">{itemName}</h3>
             {description && <p className="eic-desc">{description}</p>}
           </div>
-          <span className="eic-price">${Number(price).toFixed(2)}</span>
+          {/* Price hidden — ordering not active */}
         </div>
 
         <div className="eic-bottom-row">
-          {/* Badges — note btn hidden when closed, modifier badge stays */}
-          {((!isRestaurantClosed && qty > 0) || hasModifiers) && (
-            <div className="eic-badges">
-              {!isRestaurantClosed && qty > 0 && (
-                <button
-                  type="button"
-                  className="eic-note-btn"
-                  onClick={openNoteModal}
-                  aria-label={hasNote ? 'Edit item note' : 'Add note to this item'}
-                >
-                  <img src={itemNoteSvg} alt="" className="eic-note-icon" />
-                  {hasNote
-                    ? <span className="eic-note-indicator" aria-hidden="true" />
-                    : <span className="eic-note-plus" aria-hidden="true">+</span>}
-                </button>
-              )}
-              {hasModifiers && (
-                <span className="eic-modifier-badge" aria-label="Customisable item">
-                  <img src={customizationSvg} alt="" width={12} height={12} />
-                </span>
-              )}
-            </div>
-          )}
-
-          {/* VIEW / Add / Quantity spinner */}
+          {/* Cart controls hidden — ordering not active */}
           <div className="eic-action-area">
-            {isRestaurantClosed ? (
-              <button className="eic-view-btn" onClick={(e) => { e.stopPropagation(); handleCardClick(); }}>
-                VIEW
-              </button>
-            ) : qty === 0 ? (
-              <button className="eic-cart-round-btn" onClick={handleAddClick}>
-                <ShoppingCart size={18} fill="white" />
-                <span className="eic-plus-mini">+</span>
-              </button>
-            ) : (
-              <div className="eic-qty-pill">
-                <button
-                  className="eic-qty-pill-btn"
-                  onClick={(e) => { e.stopPropagation(); dispatch(updateQtyAction(lineId, -1)); }}
-                >
-                  −
-                </button>
-                <span className="eic-qty-pill-count">{qty}</span>
-                <button
-                  className="eic-qty-pill-btn"
-                  onClick={(e) => { e.stopPropagation(); hasModifiers ? setPopupOpen(true) : dispatch(updateQtyAction(lineId, 1)); }}
-                >
-                  +
-                </button>
-              </div>
-            )}
+            <button className="eic-view-btn" onClick={(e) => { e.stopPropagation(); handleCardClick(); }}>
+              VIEW
+            </button>
           </div>
         </div>
       </div>
 
-      <ItemNoteModal
-        isOpen={noteOpen}
-        initialValue={comment}
-        itemName={itemName}
-        onClose={closeNoteModal}
-        onSave={saveNote}
-      />
-
-      {popupOpen && allCartLines.length > 0 && (
-        <CustomizationPopup
-          lines={allCartLines}
-          onClose={() => setPopupOpen(false)}
-          onQtyChange={(lid, delta) => {
-            dispatch(updateQtyAction(lid, delta));
-            const remaining = allCartLines.filter((l: CartLine) => l.lineId !== lid);
-            const target = allCartLines.find((l: CartLine) => l.lineId === lid);
-            if (target && target.qty + delta <= 0 && remaining.length === 0) {
-              setPopupOpen(false);
-            }
-          }}
-          onEdit={(line) => {
-            setPopupOpen(false);
-            const lineItem = (line as any)._item || item;
-            navigate(itemDetailPath, { state: { item: lineItem, editLineId: line.lineId } });
-          }}
-          onNewCustomization={() => {
-            setPopupOpen(false);
-            navigate(itemDetailPath, { state: { item, forceNewLine: true } });
-          }}
-        />
-      )}
+      {/* Note modal and customization popup hidden — ordering not active */}
     </div>
   );
 }

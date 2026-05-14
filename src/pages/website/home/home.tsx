@@ -8,7 +8,8 @@ import { useInView } from '../../../hooks/useInView';
 import ExclusiveItemCard from '../../../components/exclusiveItemCard/ExclusiveItemCard';
 import { getMenuRequest } from '../../../redux/menu/menuActions';
 import { transformMenuResponse } from '../../../utils/menuTransformer';
-import { isReservationEnabledByBranch, LOCATION_SLUG } from '../../../utils/branchConfig';
+import { isReservationEnabledByBranch } from '../../../utils/branchConfig';
+import ComingSoonModal from '../../../components/comingSoonModal/ComingSoonModal';
 
 const DAY_ORDER = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
 
@@ -104,6 +105,8 @@ function Home(_props: HomeProps) {
   // ── State ─────────────────────────────────────────────────────────────────
 
   const [galleryIndex, setGalleryIndex] = useState<number | null>(null);
+  const [comingSoonOpen, setComingSoonOpen] = useState(false);
+  const openComingSoon = () => setComingSoonOpen(true);
 
   // ── Scroll refs ───────────────────────────────────────────────────────────
 
@@ -221,7 +224,7 @@ function Home(_props: HomeProps) {
 
         <div className="hj-hero-copy-left" aria-label="Hero description">
           <p>From aromatic biryanis to refreshing sides and indulgent desserts — every dish is made with passion and authenticity.</p>
-          <Link to={`/order-online/${LOCATION_SLUG}/pickup`} className="hj-hero-btn">EXPLORE MENU</Link>
+          <button type="button" className="hj-hero-btn" onClick={openComingSoon}>EXPLORE MENU</button>
         </div>
 
         {/* Mobile decorative bottom image */}
@@ -258,7 +261,7 @@ function Home(_props: HomeProps) {
             Our chefs combine traditional recipes with fresh ingredients to create dishes that
             celebrate flavor, culture, and hospitality.
           </p>
-          <Link to={`/order-online/${LOCATION_SLUG}/pickup`} className="hj-story-btn">OUR STORY</Link>
+          <button type="button" className="hj-story-btn" onClick={openComingSoon}>OUR STORY</button>
         </motion.div>
 
         <motion.aside
@@ -450,6 +453,8 @@ function Home(_props: HomeProps) {
         </motion.div>
 
       </section>
+
+      <ComingSoonModal isOpen={comingSoonOpen} onClose={() => setComingSoonOpen(false)} />
 
       {/* Gallery lightbox */}
       <AnimatePresence>
