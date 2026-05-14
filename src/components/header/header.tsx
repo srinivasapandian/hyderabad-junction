@@ -21,15 +21,8 @@ function Header() {
   const { pathname } = useLocation();
   const navigate = useNavigate();
   // const showBottomNav = !isBottomNavHidden(pathname);
-  const { isLoggedIn, user, mobilePhone } = useSelector((s: RootState) => s.auth);
   const slugData = useSelector((s: RootState) => s.slug.data);
   const isReservationEnabled = isReservationEnabledByBranch(slugData);
-  const displayName = (
-    user?.name?.trim()
-    || [user?.firstName, user?.lastName].filter(Boolean).join(' ').trim()
-    || mobilePhone
-    || 'User'
-  );
 
   const closeMenu = () => setMenuOpen(false);
   const openComingSoon = () => { closeMenu(); setComingSoonOpen(true); };
@@ -85,13 +78,6 @@ function Header() {
 
           {/* Mobile-only button group */}
           <div className="header-nav-mobile-btns">
-            <Link
-              to="/account"
-              className={`header-nav-mobile-btn header-nav-mobile-btn--outline${pathname === '/account' ? ' active' : ''}`}
-              onClick={closeMenu}
-            >
-              {isLoggedIn ? 'My Account' : 'Sign In'}
-            </Link>
             {isReservationEnabled && (
               <button
                 className="header-nav-mobile-btn header-nav-mobile-btn--outline"
