@@ -83,13 +83,19 @@
 /* ── Card grid ── */
 .mn-card-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 24px;
   width: 100%;
 }
 
 /* ── Responsive ── */
 @media (max-width: 1100px) {
+  .mn-card-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
   .mn-card-grid {
     grid-template-columns: repeat(2, 1fr);
   }

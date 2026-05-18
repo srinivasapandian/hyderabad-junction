@@ -1,35 +1,59 @@
-/* ── Arch Card Outer Wrapper ── */
+/* ── Outer wrapper (dome + body stacked vertically) ── */
 .mic-arch-outer {
   width: 100%;
   display: flex;
-  justify-content: center;
-}
-
-/* ── Arch Card (masked to arch silhouette) ── */
-.mic-arch-card {
-  position: relative;
-  background: #5A1712;
-  width: 100%;
-  aspect-ratio: 449 / 511;
-  display: flex;
   flex-direction: column;
-  overflow: hidden;
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  cursor: pointer;
+  transition: transform 0.25s ease;
 }
 
-.mic-arch-card:hover {
+.mic-arch-outer:hover {
   transform: translateY(-4px);
 }
 
-/* ── Image Section (~57% of card height) ── */
+/* ── Dome image — sits above the card body ── */
+.mic-dome-top {
+  width: 100%;
+  height: auto;
+  display: block;
+  flex-shrink: 0;
+  /* pull down 1px to close any sub-pixel gap with the body */
+  margin-bottom: -1px;
+  position: relative;
+  z-index: 1;
+}
+
+/* ── Card body (rectangle below the dome) ── */
+.mic-arch-body {
+  background: #5A1712;
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
+}
+
+/* ── Food image section ── */
 .mic-arch-image-wrap {
+  width: 100%;
+  padding: 0 10px;
+  box-sizing: border-box;
+  flex-shrink: 0;
+}
+
+.mic-arch-image-inner {
   position: relative;
   width: 100%;
-  flex: 0 0 57%;
+  padding-top: 62%;       /* fixed height ratio — never grows with image content */
   overflow: hidden;
+  border-radius: 8px;
 }
 
 .mic-arch-img {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -37,23 +61,15 @@
   transition: transform 0.4s ease;
 }
 
-.mic-arch-card:hover .mic-arch-img {
+.mic-arch-outer:hover .mic-arch-img {
   transform: scale(1.05);
-}
-
-.mic-arch-img-placeholder {
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(160deg, #7A2828 0%, #4a1010 100%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 /* Unavailability overlay */
 .mic-arch-overlay {
   position: absolute;
   inset: 0;
+  top: 0;
   background: rgba(0, 0, 0, 0.62);
   display: flex;
   align-items: center;
@@ -66,13 +82,13 @@
   padding: 10px;
 }
 
-/* Heart / Favourite Button */
+/* Heart / Favourite button */
 .mic-arch-heart {
   position: absolute;
-  bottom: 10px;
-  right: 10px;
-  width: 32px;
-  height: 32px;
+  bottom: 8px;
+  right: 8px;
+  width: 30px;
+  height: 30px;
   background: rgba(255, 255, 255, 0.88);
   border: none;
   border-radius: 50%;
@@ -80,7 +96,7 @@
   align-items: center;
   justify-content: center;
   color: #5A1712;
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   cursor: pointer;
   transition: background 0.2s, transform 0.2s;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.18);
@@ -91,9 +107,10 @@
   background: #fff;
 }
 
-/* ── Name & Price Row ── */
+/* ── Name & Price — same row ── */
 .mic-arch-info {
   display: flex;
+  flex-direction: row;
   justify-content: space-between;
   align-items: center;
   padding: 12px 16px 4px;
@@ -103,10 +120,11 @@
 
 .mic-arch-name {
   font-family: var(--font-heading, serif);
-  font-size: 1rem;
+  font-size: 0.95rem;
   font-weight: 700;
   color: #fff;
   flex: 1;
+  min-width: 0;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -114,7 +132,7 @@
 
 .mic-arch-price {
   font-family: var(--font-heading, serif);
-  font-size: 1rem;
+  font-size: 0.95rem;
   font-weight: 800;
   color: #fff;
   white-space: nowrap;
@@ -124,14 +142,14 @@
 /* ── Spacer ── */
 .mic-arch-spacer {
   flex: 1;
-  min-height: 0;
+  min-height: 20px;
 }
 
 /* ── Footer with VIEW button ── */
 .mic-arch-footer {
   display: flex;
   justify-content: center;
-  padding-bottom: 22px;
+  padding-bottom: 20px;
   flex-shrink: 0;
 }
 
@@ -139,9 +157,9 @@
   background: transparent;
   border: 1.5px solid #D4A84B;
   color: #D4A84B;
-  padding: 6px 36px;
+  padding: 6px 32px;
   border-radius: 20px;
-  font-size: 0.78rem;
+  font-size: 0.75rem;
   font-weight: 700;
   letter-spacing: 1.5px;
   cursor: pointer;
@@ -153,36 +171,31 @@
   color: #5A1712;
 }
 
-/* ── Responsive ── */
-@media (max-width: 1100px) {
-  .mic-arch-name {
-    font-size: 0.9rem;
-  }
-  .mic-arch-price {
-    font-size: 0.9rem;
-  }
-}
-
-/* Mobile — 2-column arch cards */
+/* ── Mobile — 2 columns ── */
 @media (max-width: 768px) {
+  .mic-arch-image-wrap {
+    padding: 0 8px;
+  }
+
+  .mic-arch-image-inner {
+    border-radius: 6px;
+  }
+
   .mic-arch-info {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 2px;
-    padding: 8px 10px 2px;
+    padding: 8px 12px 2px;
+    gap: 4px;
   }
 
   .mic-arch-name {
-    font-size: 0.82rem;
-    white-space: normal;
-    overflow: visible;
-    text-overflow: unset;
-    line-height: 1.3;
-    width: 100%;
+    font-size: 0.78rem;
   }
 
   .mic-arch-price {
-    font-size: 0.82rem;
+    font-size: 0.78rem;
+  }
+
+  .mic-arch-spacer {
+    min-height: 10px;
   }
 
   .mic-arch-footer {
@@ -190,32 +203,14 @@
   }
 
   .mic-arch-view-btn {
-    padding: 5px 20px;
-    font-size: 0.7rem;
+    padding: 4px 18px;
+    font-size: 0.68rem;
     letter-spacing: 1px;
   }
 
   .mic-arch-heart {
-    width: 26px;
-    height: 26px;
-    font-size: 0.75rem;
-    bottom: 6px;
-    right: 6px;
-  }
-}
-
-@media (max-width: 480px) {
-  .mic-arch-name {
-    font-size: 0.78rem;
-  }
-  .mic-arch-price {
-    font-size: 0.78rem;
-  }
-  .mic-arch-footer {
-    padding-bottom: 12px;
-  }
-  .mic-arch-view-btn {
-    padding: 4px 16px;
-    font-size: 0.68rem;
+    width: 24px;
+    height: 24px;
+    font-size: 0.72rem;
   }
 }
