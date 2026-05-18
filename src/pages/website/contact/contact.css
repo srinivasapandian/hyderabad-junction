@@ -93,24 +93,24 @@
   display: inline-block;
   margin-top: 10px;
   border: 0;
-  transform: skew(-21deg);
+  border-radius: 50px;
   background: var(--primary-color);
   color: var(--white-color);
   font-family: var(--heading);
   font-size: 16px;
   font-weight: 700;
-  padding: 0.8rem 2.2rem;
+  padding: 0.8rem 2.4rem;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.18);
   cursor: pointer;
   transition: all var(--transition);
   width: fit-content;
-  align-self: center;
+  align-items: center;
 }
 
 .contact-submit-btn:hover {
   background: var(--primary-hover);
   color: var(--white-color);
-  transform: skew(-21deg) translateY(-2px);
+  transform: translateY(-2px);
   box-shadow: 0 12px 20px rgba(0, 0, 0, 0.24);
 }
 
@@ -118,7 +118,7 @@
   background: var(--primary-hover);
   opacity: 0.6;
   cursor: not-allowed;
-  transform: skew(-21deg);
+  transform: none;
 }
 
 /* --- Right Column: Info Cards --- */

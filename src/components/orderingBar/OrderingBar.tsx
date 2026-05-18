@@ -120,16 +120,19 @@ function OrderingBar({
         {/* Left: Toggles */}
         <div className="ob-left-controls">
           {!hideAvailableToggle && (
-            <div className="ob-avail-section">
-              <span className="ob-avail-label">Available Items</span>
-              <label className="ob-switch">
-                <input
-                  type="checkbox"
-                  checked={availableNow}
-                  onChange={(e) => onAvailableNowChange(e.target.checked)}
-                />
-                <span className="ob-slider" />
-              </label>
+            <div className="ob-avail-toggle">
+              <button
+                className={`ob-avail-btn${availableNow ? ' active' : ''}`}
+                onClick={() => onAvailableNowChange(true)}
+              >
+                Available Now
+              </button>
+              <button
+                className={`ob-avail-btn${!availableNow ? ' active' : ''}`}
+                onClick={() => onAvailableNowChange(false)}
+              >
+                All Items
+              </button>
             </div>
           )}
 
