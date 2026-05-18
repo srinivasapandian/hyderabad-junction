@@ -45,15 +45,12 @@
 .mic-arch-image-inner {
   position: relative;
   width: 100%;
-  padding-top: 62%;       /* fixed height ratio — never grows with image content */
+  height: 160px;
   overflow: hidden;
   border-radius: 8px;
 }
 
 .mic-arch-img {
-  position: absolute;
-  top: 0;
-  left: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -178,6 +175,7 @@
   }
 
   .mic-arch-image-inner {
+    height: 110px;
     border-radius: 6px;
   }
 
