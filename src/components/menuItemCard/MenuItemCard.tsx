@@ -1,10 +1,9 @@
-import React, { useState, useCallback } from 'react';
+import React from 'react';
 import './MenuItemCard.css';
 import { getItemUnavailability } from '../../utils/menuTransformer';
 import type { MenuItem } from '../../types';
 import domeImg from '../../assets/dome.png';
 import fallbackImg from '../../assets/placeHolderMedia.jpg';
-import MenuItemModal from '../menuItemModal/MenuItemModal';
 
 const MEDIA_CDN = (import.meta.env.VITE_IMAGE_URL as string)?.replace(/\/$/, '') ?? '';
 
@@ -29,8 +28,6 @@ interface MenuItemCardProps {
 function MenuItemCard({ item }: MenuItemCardProps) {
   const { itemName, itemImage, itemType, price, description, categoryName } = item;
 
-  const [modalOpen, setModalOpen] = useState(false);
-
   const parsedPrice = parsePrice(price);
   const imageUrl = getImageUrl(itemImage, itemType);
   const resolvedImage = imageUrl ?? fallbackImg;
@@ -45,12 +42,8 @@ function MenuItemCard({ item }: MenuItemCardProps) {
     ? 'Coming Soon'
     : 'Temporarily Unavailable';
 
-  const openModal = useCallback(() => setModalOpen(true), []);
-  const closeModal = useCallback(() => setModalOpen(false), []);
-
   return (
-    <>
-      <div className="mic-arch-outer" onClick={openModal}>
+    <div className="mic-arch-outer">
 
         {/* Dome image — transparent sides reveal page bg, creating the arch shape */}
         <img src={domeImg} className="mic-dome-top" alt="" aria-hidden />
@@ -72,13 +65,6 @@ function MenuItemCard({ item }: MenuItemCardProps) {
                   <span>{overlayLabel}</span>
                 </div>
               )}
-              <button
-                className="mic-arch-heart"
-                aria-label="Add to favourites"
-                onClick={(e) => e.stopPropagation()}
-              >
-                <i className="fa-regular fa-heart" />
-              </button>
             </div>
           </div>
 
@@ -94,28 +80,11 @@ function MenuItemCard({ item }: MenuItemCardProps) {
 
           {/* VIEW Button */}
           <div className="mic-arch-footer">
-            <button
-              className="mic-arch-view-btn"
-              onClick={(e) => { e.stopPropagation(); openModal(); }}
-            >
-              VIEW
-            </button>
+            <button className="mic-arch-view-btn">VIEW</button>
           </div>
 
         </div>
-      </div>
-
-      {modalOpen && (
-        <MenuItemModal
-          itemName={itemName}
-          categoryName={categoryName ?? ''}
-          price={parsedPrice !== null ? `$${parsedPrice.toFixed(2)}` : ''}
-          description={description ?? ''}
-          imageUrl={resolvedImage}
-          onClose={closeModal}
-        />
-      )}
-    </>
+    </div>
   );
 }
 

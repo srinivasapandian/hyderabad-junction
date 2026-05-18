@@ -14,8 +14,6 @@
   display: none;
 }
 
-/* Positions are set via inline styles in MenuGrid.tsx (dynamic, ResizeObserver-driven) */
-
 .mn-container {
   position: relative;
   z-index: 1;
@@ -55,8 +53,6 @@
   gap: 15px;
 }
 
-/* .mn-header-title is now handled by CategoryTitle component */
-
 .mn-header-right {
   flex-grow: 1;
   display: flex;
@@ -80,7 +76,7 @@
   background: #f0f0f0;
 }
 
-/* ── Card grid ── */
+/* ── Card grid — 4 columns, cards never stretch to row height ── */
 .mn-card-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -93,12 +89,7 @@
 @media (max-width: 1100px) {
   .mn-card-grid {
     grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-@media (max-width: 768px) {
-  .mn-card-grid {
-    grid-template-columns: repeat(2, 1fr);
+    align-items: start;
   }
 }
 
@@ -106,8 +97,9 @@
   .mn-card-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 12px;
+    align-items: start;
   }
-  /* .mn-header-banner and train are handled by CategoryTitle */
+
   .mn-item-count {
     font-size: 0.9rem;
   }
@@ -117,16 +109,19 @@
   .mn-container {
     padding: 0 10px;
   }
+
   .mn-card-grid {
     gap: 8px;
+    align-items: start;
   }
+
   .mn-group-header {
     flex-direction: column;
     align-items: flex-start;
     gap: 10px;
   }
+
   .mn-header-right {
     width: 100%;
   }
 }
-
