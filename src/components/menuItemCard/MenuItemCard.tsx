@@ -2,6 +2,7 @@ import React from 'react';
 import './MenuItemCard.css';
 import { getItemUnavailability } from '../../utils/menuTransformer';
 import type { MenuItem } from '../../types';
+import menuArchMask from '../../assets/menu-design.png';
 
 const MEDIA_CDN = (import.meta.env.VITE_IMAGE_URL as string)?.replace(/\/$/, '') ?? '';
 
@@ -24,75 +25,72 @@ interface MenuItemCardProps {
 }
 
 function MenuItemCard({ item }: MenuItemCardProps) {
-  const {
-    itemName,
-    description,
-    itemImage,
-    itemType,
-    price,
-  } = item;
+  const { itemName, itemImage, itemType, price } = item;
 
   const parsedPrice = parsePrice(price);
-
   const imageUrl = getImageUrl(itemImage, itemType);
 
   const { isTemporarilyUnavailable, isOutOfStock, isUnAvailableUntil } =
     getItemUnavailability(item);
 
-  let overlayIcon: React.ReactNode = null;
-  let overlayLabel: string | null = null;
+  const showOverlay = isUnAvailableUntil || isOutOfStock || isTemporarilyUnavailable;
 
-  if (isUnAvailableUntil) {
-    overlayIcon = <i className="fa-regular fa-clock mic-unavail-icon" />;
-    overlayLabel = 'Will be available at';
-  } else if (isOutOfStock) {
-    overlayIcon = <i className="fa-solid fa-ban mic-unavail-icon" />;
-    overlayLabel = 'Out of Stock';
-  } else if (isTemporarilyUnavailable) {
-    overlayIcon = <i className="fa-solid fa-circle-xmark mic-unavail-icon" />;
-    overlayLabel = 'Temporarily Unavailable';
-  }
+  const overlayLabel = isOutOfStock
+    ? 'Out of Stock'
+    : isUnAvailableUntil
+    ? 'Coming Soon'
+    : 'Temporarily Unavailable';
 
-  const showOverlay = !!overlayLabel;
+  const archMaskStyle: React.CSSProperties = {
+    WebkitMaskImage: `url(${menuArchMask})`,
+    maskImage: `url(${menuArchMask})`,
+    WebkitMaskSize: '100% 100%',
+    maskSize: '100% 100%',
+    WebkitMaskRepeat: 'no-repeat',
+    maskRepeat: 'no-repeat',
+  };
 
   return (
-    <div
-      className={`mic-card-premium ${showOverlay ? 'mic-unavailable' : ''}`}
-    >
-      {/* LEFT: Image Section */}
-      {imageUrl && (
-        <div className="mic-left-img">
-          <img
-            src={imageUrl}
-            alt={itemName}
-            className="mic-main-img"
-            onError={(e) => { (e.currentTarget as HTMLImageElement).style.display = 'none'; }}
-          />
+    <div className="mic-arch-outer">
+      <div className="mic-arch-card" style={archMaskStyle}>
+
+        {/* Food Image */}
+        <div className="mic-arch-image-wrap">
+          {imageUrl ? (
+            <img
+              src={imageUrl}
+              alt={itemName}
+              className="mic-arch-img"
+              onError={(e) => { (e.currentTarget as HTMLImageElement).style.display = 'none'; }}
+            />
+          ) : (
+            <div className="mic-arch-img-placeholder" />
+          )}
           {showOverlay && (
-            <div className="mic-overlay">
-              {overlayIcon}
+            <div className="mic-arch-overlay">
               <span>{overlayLabel}</span>
             </div>
           )}
+          <button className="mic-arch-heart" aria-label="Add to favourites">
+            <i className="fa-regular fa-heart" />
+          </button>
         </div>
-      )}
 
-      {/* RIGHT: Content Section */}
-      <div className="mic-right-content">
-        <div className="mic-content-top">
-          <div className="mic-name-price">
-            <h3 className="mic-item-name">{itemName}</h3>
-            {parsedPrice !== null && (
-              <span className="mic-item-price">
-                <span className="mic-currency">$</span>{parsedPrice.toFixed(2)}
-              </span>
-            )}
-          </div>
-
-          {description && (
-            <p className="mic-item-desc">{description}</p>
+        {/* Name & Price */}
+        <div className="mic-arch-info">
+          <span className="mic-arch-name">{itemName}</span>
+          {parsedPrice !== null && (
+            <span className="mic-arch-price">${parsedPrice.toFixed(2)}</span>
           )}
         </div>
+
+        <div className="mic-arch-spacer" />
+
+        {/* VIEW Button */}
+        <div className="mic-arch-footer">
+          <button className="mic-arch-view-btn">VIEW</button>
+        </div>
+
       </div>
     </div>
   );

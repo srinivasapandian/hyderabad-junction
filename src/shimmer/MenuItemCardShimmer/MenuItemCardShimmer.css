@@ -1,85 +1,49 @@
-.shim-card {
-  display: flex;
-  flex-direction: row;
-  align-items: stretch;
-  gap: 15px;
-  background: #fff;
-  border: 1px solid #f0f0f0;
-  border-radius: 16px;
-  padding: 12px;
-}
-
-.shim-card-img {
-  flex-shrink: 0;
-  width: 120px;
-  height: 120px;
+.shim-arch-card {
+  width: 100%;
+  aspect-ratio: 449 / 511;
+  background: #e0d0c8;
   border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
 }
 
-.shim-card-body {
-  flex-grow: 1;
+.shim-arch-img {
+  width: 100%;
+  flex: 0 0 57%;
+  border-radius: 0;
+}
+
+.shim-arch-body {
+  flex: 1;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: 4px 0;
-  min-width: 0;
+  padding: 12px 16px 22px;
 }
 
-.shim-card-name-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: 10px;
-}
-
-.shim-card-name {
-  height: 18px;
-  width: 60%;
-  border-radius: 4px;
-}
-
-.shim-card-price {
-  height: 18px;
-  width: 25%;
-  border-radius: 4px;
-}
-
-.shim-card-desc {
-  height: 12px;
-  width: 90%;
-  margin-top: 10px;
-  border-radius: 4px;
-}
-
-.shim-card-desc--short {
-  height: 12px;
-  width: 60%;
-  margin-top: 6px;
-  border-radius: 4px;
-}
-
-.shim-card-actions {
+.shim-arch-name-row {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: auto;
+  gap: 10px;
 }
 
-.shim-card-btn {
-  height: 24px;
-  width: 24px;
-  border-radius: 50%;
+.shim-arch-name {
+  height: 16px;
+  width: 55%;
+  border-radius: 4px;
 }
 
-.shim-card-add {
-  height: 32px;
-  width: 32px;
-  border-radius: 50%;
+.shim-arch-price {
+  height: 16px;
+  width: 22%;
+  border-radius: 4px;
 }
 
-@media (max-width: 480px) {
-  .shim-card-img {
-    width: 90px;
-    height: 90px;
-  }
+.shim-arch-btn {
+  height: 28px;
+  width: 90px;
+  border-radius: 14px;
+  align-self: center;
 }
