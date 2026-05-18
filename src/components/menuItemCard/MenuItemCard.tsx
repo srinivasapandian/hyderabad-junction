@@ -3,6 +3,7 @@ import './MenuItemCard.css';
 import { getItemUnavailability } from '../../utils/menuTransformer';
 import type { MenuItem } from '../../types';
 import menuArchMask from '../../assets/menu-design.png';
+import fallbackImg from '../../assets/placeHolderMedia.jpg';
 
 const MEDIA_CDN = (import.meta.env.VITE_IMAGE_URL as string)?.replace(/\/$/, '') ?? '';
 
@@ -56,16 +57,12 @@ function MenuItemCard({ item }: MenuItemCardProps) {
 
         {/* Food Image */}
         <div className="mic-arch-image-wrap">
-          {imageUrl ? (
-            <img
-              src={imageUrl}
-              alt={itemName}
-              className="mic-arch-img"
-              onError={(e) => { (e.currentTarget as HTMLImageElement).style.display = 'none'; }}
-            />
-          ) : (
-            <div className="mic-arch-img-placeholder" />
-          )}
+          <img
+            src={imageUrl ?? fallbackImg}
+            alt={itemName}
+            className="mic-arch-img"
+            onError={(e) => { (e.currentTarget as HTMLImageElement).src = fallbackImg; }}
+          />
           {showOverlay && (
             <div className="mic-arch-overlay">
               <span>{overlayLabel}</span>

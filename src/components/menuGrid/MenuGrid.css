@@ -97,7 +97,8 @@
 
 @media (max-width: 768px) {
   .mn-card-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
   }
   /* .mn-header-banner and train are handled by CategoryTitle */
   .mn-item-count {
@@ -107,7 +108,10 @@
 
 @media (max-width: 480px) {
   .mn-container {
-    padding: 0 16px;
+    padding: 0 10px;
+  }
+  .mn-card-grid {
+    gap: 8px;
   }
   .mn-group-header {
     flex-direction: column;
