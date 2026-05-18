@@ -11,15 +11,9 @@ export function getMatchedBranchByMerchantSlug(slugData: SlugData | null, mercha
   return slugData?.branch?.find((b) => b?.locationSlug?.trim().toLowerCase() === slug) ?? null;
 }
 
-export function isReservationEnabled(branch: Branch | null | undefined): boolean {
-  if (!branch) return false;
-  const isRes = branch.serviceDisable?.isReservation ?? branch.disabledServices?.isReservation;
-  return isTruthy(isRes);
-}
-
 export function isReservationEnabledByBranch(slugData: SlugData | null, merchantSlug: string = MERCHANT_SLUG): boolean {
   const branch = getMatchedBranchByMerchantSlug(slugData, merchantSlug);
-  return isReservationEnabled(branch);
+  return isTruthy(branch?.serviceDisable?.isReservation);
 }
 
 export function getCurrencySymbol(slugData: SlugData | null): string {
