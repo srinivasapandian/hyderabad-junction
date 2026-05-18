@@ -84,7 +84,7 @@ function MenuItemCard({ item }: MenuItemCardProps) {
             <h3 className="mic-item-name">{itemName}</h3>
             {parsedPrice !== null && (
               <span className="mic-item-price">
-                <span className="mic-currency">£</span>{parsedPrice.toFixed(2)}
+                <span className="mic-currency">$</span>{parsedPrice.toFixed(2)}
               </span>
             )}
           </div>
