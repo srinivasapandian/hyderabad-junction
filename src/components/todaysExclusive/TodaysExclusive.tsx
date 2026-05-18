@@ -1,6 +1,5 @@
-import ExclusiveItemCard from '../exclusiveItemCard/ExclusiveItemCard';
+import MenuItemCard from '../menuItemCard/MenuItemCard';
 import CategoryTitle from '../categoryTitle/CategoryTitle';
-import design2 from '../../assets/design2.png';
 import './TodaysExclusive.css';
 import type { MenuItem } from '../../types';
 
@@ -13,18 +12,19 @@ function TodaysExclusive({ items }: TodaysExclusiveProps) {
 
   return (
     <div className="te-wrap">
-      {/* ── Header ── */}
-      <div className="te-header">
-        <CategoryTitle>Today's Exclusive</CategoryTitle>
+      <div className="mn-group-header">
+        <div className="mn-header-left">
+          <CategoryTitle className="mn-header-banner">Today's Exclusive</CategoryTitle>
+        </div>
+        <div className="mn-header-right">
+          <span className="mn-item-count">{String(items.length).padStart(2, '0')} ITEMS</span>
+          <div className="mn-group-line" />
+        </div>
       </div>
-      <img src={design2} alt="" aria-hidden="true" className="te-design" />
 
-      {/* ── Horizontal slider ── */}
-      <div className="te-slider">
+      <div className="mn-card-grid">
         {items.map((item) => (
-          <div key={item.id} className="te-slide">
-            <ExclusiveItemCard item={item} />
-          </div>
+          <MenuItemCard key={item.id} item={item} categorySlug="todays-exclusive" />
         ))}
       </div>
     </div>

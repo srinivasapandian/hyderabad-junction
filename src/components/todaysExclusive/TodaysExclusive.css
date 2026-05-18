@@ -1,65 +1,9 @@
 /* ═══════════════════════════════════════
-   TODAY'S EXCLUSIVE SLIDER
+   TODAY'S EXCLUSIVE
 ═══════════════════════════════════════ */
 
 .te-wrap {
   display: flex;
   flex-direction: column;
   gap: 24px;
-}
-
-/* ── Header ── */
-.te-header {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-}
-
-/* .te-title badge styles → CategoryTitle component */
-
-/* ── Decorative design below header ── */
-.te-design {
-  display: block;
-  width: 120px;
-  height: auto;
-  margin-top: -16px;
-}
-
-
-/* ── Slider ── */
-.te-slider {
-  display: flex;
-  gap: 18px;
-  overflow-x: auto;
-  padding-bottom: 8px;
-  padding-top: 4px;
-  scrollbar-width: none;
-  -webkit-overflow-scrolling: touch;
-  scroll-snap-type: x mandatory;
-}
-
-.te-slider::-webkit-scrollbar {
-  display: none;
-}
-
-/* ── Slide (card wrapper) ── */
-.te-slide {
-  flex: 0 0 420px;
-  scroll-snap-align: start;
-  display: flex;
-}
-
-.te-slide .eic-card {
-  flex: 1;
-  min-height: 130px;
-}
-
-/* ── Responsive ── */
-@media (max-width: 768px) {
-  .te-slider { gap: 12px; }
-  .te-slide { flex: 0 0 360px; }
-}
-
-@media (max-width: 480px) {
-  .te-slide { flex: 0 0 300px; }
 }
