@@ -2,7 +2,7 @@ import React from 'react';
 import './MenuItemCard.css';
 import { getItemUnavailability } from '../../utils/menuTransformer';
 import type { MenuItem } from '../../types';
-import domeImg from '../../assets/dome.png';
+import menuDesign from '../../assets/menu-design.png';
 import fallbackImg from '../../assets/placeHolderMedia.jpg';
 
 const MEDIA_CDN = (import.meta.env.VITE_IMAGE_URL as string)?.replace(/\/$/, '') ?? '';
@@ -26,7 +26,7 @@ interface MenuItemCardProps {
 }
 
 function MenuItemCard({ item }: MenuItemCardProps) {
-  const { itemName, itemImage, itemType, price, description, categoryName } = item;
+  const { itemName, itemImage, itemType, price } = item;
 
   const parsedPrice = parsePrice(price);
   const imageUrl = getImageUrl(itemImage, itemType);
@@ -42,48 +42,51 @@ function MenuItemCard({ item }: MenuItemCardProps) {
     ? 'Coming Soon'
     : 'Temporarily Unavailable';
 
+  const maskStyle: React.CSSProperties = {
+    WebkitMaskImage: `url(${menuDesign})`,
+    maskImage: `url(${menuDesign})`,
+    WebkitMaskSize: '100% 100%',
+    maskSize: '100% 100%',
+    WebkitMaskRepeat: 'no-repeat',
+    maskRepeat: 'no-repeat',
+  };
+
   return (
-    <div className="mic-arch-outer">
+    <div className="mic-card" style={maskStyle}>
 
-        {/* Dome image — transparent sides reveal page bg, creating the arch shape */}
-        <img src={domeImg} className="mic-dome-top" alt="" aria-hidden />
+      {/* Space for the arch dome at the top */}
+      <div className="mic-top-space" />
 
-        {/* Card body — plain rectangle below the dome */}
-        <div className="mic-arch-body">
-
-          {/* Food image */}
-          <div className="mic-arch-image-wrap">
-            <div className="mic-arch-image-inner">
-              <img
-                src={resolvedImage}
-                alt={itemName}
-                className="mic-arch-img"
-                onError={(e) => { (e.currentTarget as HTMLImageElement).src = fallbackImg; }}
-              />
-              {showOverlay && (
-                <div className="mic-arch-overlay">
-                  <span>{overlayLabel}</span>
-                </div>
-              )}
-            </div>
+      {/* Food image */}
+      <div className="mic-img-wrap">
+        <img
+          src={resolvedImage}
+          alt={itemName}
+          className="mic-img"
+          onError={(e) => { (e.currentTarget as HTMLImageElement).src = fallbackImg; }}
+        />
+        {showOverlay && (
+          <div className="mic-overlay">
+            <span>{overlayLabel}</span>
           </div>
+        )}
+      </div>
 
-          {/* Name & Price — same row */}
-          <div className="mic-arch-info">
-            <span className="mic-arch-name">{itemName}</span>
-            {parsedPrice !== null && (
-              <span className="mic-arch-price">${parsedPrice.toFixed(2)}</span>
-            )}
-          </div>
+      {/* Name & Price */}
+      <div className="mic-info">
+        <span className="mic-name">{itemName}</span>
+        {parsedPrice !== null && (
+          <span className="mic-price">${parsedPrice.toFixed(2)}</span>
+        )}
+      </div>
 
-          <div className="mic-arch-spacer" />
+      <div className="mic-spacer" />
 
-          {/* VIEW Button */}
-          <div className="mic-arch-footer">
-            <button className="mic-arch-view-btn">VIEW</button>
-          </div>
+      {/* VIEW button */}
+      <div className="mic-footer">
+        <button className="mic-view-btn">VIEW</button>
+      </div>
 
-        </div>
     </div>
   );
 }

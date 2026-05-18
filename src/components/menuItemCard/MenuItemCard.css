@@ -1,126 +1,81 @@
-/* ── Outer wrapper (dome + body stacked vertically) ── */
-.mic-arch-outer {
+/* ── Card masked to menu-design.png arch shape ── */
+.mic-card {
+  position: relative;
+  background: #5A1712;
   width: 100%;
+  aspect-ratio: 449 / 511;
   display: flex;
   flex-direction: column;
+  align-items: stretch;
+  overflow: hidden;
   transition: transform 0.25s ease;
 }
 
-.mic-arch-outer:hover {
+.mic-card:hover {
   transform: translateY(-4px);
 }
 
-/* ── Dome image — sits above the card body ── */
-.mic-dome-top {
-  width: 100%;
-  height: auto;
-  display: block;
-  flex-shrink: 0;
-  /* pull down 1px to close any sub-pixel gap with the body */
-  margin-bottom: -1px;
-  position: relative;
-  z-index: 1;
+/* ── Top space — lets the arch dome show ── */
+.mic-top-space {
+  flex: 0 0 37%;
 }
 
-/* ── Card body (rectangle below the dome) ── */
-.mic-arch-body {
-  background: #5A1712;
-  display: flex;
-  flex-direction: column;
-  border-radius: 0 0 10px 10px;
-  overflow: hidden;
+/* ── Image section ── */
+.mic-img-wrap {
   position: relative;
-  z-index: 1;
-}
-
-/* ── Food image section ── */
-.mic-arch-image-wrap {
-  width: 100%;
-  padding: 0 10px;
-  box-sizing: border-box;
-  flex-shrink: 0;
-  overflow: hidden;
-}
-
-.mic-arch-image-inner {
-  position: relative;
-  width: 100%;
-  height: 160px;
-  max-height: 160px;
+  flex: 0 0 auto;
+  margin: 0 12px;
+  margin-top: 4px;
+  height: 0;
+  padding-bottom: 38%;
   overflow: hidden;
   border-radius: 8px;
   flex-shrink: 0;
 }
 
-.mic-arch-img {
+.mic-img {
+  position: absolute;
+  inset: 0;
   width: 100%;
-  height: 160px;
-  max-height: 160px;
+  height: 100%;
   object-fit: cover;
   display: block;
   transition: transform 0.4s ease;
 }
 
-.mic-arch-outer:hover .mic-arch-img {
-  transform: scale(1.05);
+.mic-card:hover .mic-img {
+  transform: scale(1.04);
 }
 
 /* Unavailability overlay */
-.mic-arch-overlay {
+.mic-overlay {
   position: absolute;
   inset: 0;
-  top: 0;
   background: rgba(0, 0, 0, 0.62);
   display: flex;
   align-items: center;
   justify-content: center;
   color: #fff;
-  font-size: 0.78rem;
+  font-size: 0.75rem;
   font-weight: 700;
-  letter-spacing: 0.5px;
   text-align: center;
-  padding: 10px;
+  padding: 8px;
 }
 
-/* Heart / Favourite button */
-.mic-arch-heart {
-  position: absolute;
-  bottom: 8px;
-  right: 8px;
-  width: 30px;
-  height: 30px;
-  background: rgba(255, 255, 255, 0.88);
-  border: none;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #5A1712;
-  font-size: 0.85rem;
-  cursor: pointer;
-  transition: background 0.2s, transform 0.2s;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.18);
-}
-
-.mic-arch-heart:hover {
-  transform: scale(1.15);
-  background: #fff;
-}
-
-/* ── Name & Price — same row ── */
-.mic-arch-info {
+/* ── Name & Price ── */
+.mic-info {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  padding: 12px 16px 4px;
-  gap: 8px;
+  padding: 8px 14px 2px;
+  gap: 6px;
   flex-shrink: 0;
 }
 
-.mic-arch-name {
+.mic-name {
   font-family: var(--font-heading, serif);
-  font-size: 0.9rem;
+  font-size: 0.88rem;
   font-weight: 700;
   color: #fff;
   flex: 1;
@@ -131,9 +86,9 @@
   text-overflow: ellipsis;
 }
 
-.mic-arch-price {
+.mic-price {
   font-family: var(--font-heading, serif);
-  font-size: 0.9rem;
+  font-size: 0.88rem;
   font-weight: 800;
   color: #fff;
   white-space: nowrap;
@@ -142,84 +97,62 @@
 }
 
 /* ── Spacer ── */
-.mic-arch-spacer {
+.mic-spacer {
   flex: 1;
-  min-height: 20px;
+  min-height: 4px;
 }
 
-/* ── Footer with VIEW button ── */
-.mic-arch-footer {
+/* ── VIEW button ── */
+.mic-footer {
   display: flex;
   justify-content: center;
-  padding-bottom: 20px;
+  padding-bottom: 14%;
   flex-shrink: 0;
 }
 
-.mic-arch-view-btn {
+.mic-view-btn {
   background: transparent;
   border: 1.5px solid #D4A84B;
   color: #D4A84B;
-  padding: 6px 32px;
+  padding: 5px 28px;
   border-radius: 20px;
-  font-size: 0.75rem;
+  font-size: 0.72rem;
   font-weight: 700;
   letter-spacing: 1.5px;
-  cursor: pointer;
+  cursor: default;
   transition: background 0.2s, color 0.2s;
 }
 
-.mic-arch-view-btn:hover {
-  background: #D4A84B;
-  color: #5A1712;
-}
-
-/* ── Mobile — 2 columns ── */
+/* ── Mobile ── */
 @media (max-width: 768px) {
-  .mic-arch-image-wrap {
-    padding: 0 8px;
+  .mic-img-wrap {
+    margin: 0 8px;
+    padding-bottom: 38%;
   }
 
-  .mic-arch-image-inner {
-    height: 110px;
-    max-height: 110px;
-    border-radius: 6px;
+  .mic-top-space {
+    flex: 0 0 35%;
   }
 
-  .mic-arch-img {
-    height: 110px;
-    max-height: 110px;
+  .mic-info {
+    padding: 6px 10px 2px;
   }
 
-  .mic-arch-info {
-    padding: 8px 12px 2px;
-    gap: 4px;
-  }
-
-  .mic-arch-name {
-    font-size: 0.78rem;
-  }
-
-  .mic-arch-price {
-    font-size: 0.78rem;
-  }
-
-  .mic-arch-spacer {
-    min-height: 10px;
-  }
-
-  .mic-arch-footer {
-    padding-bottom: 14px;
-  }
-
-  .mic-arch-view-btn {
-    padding: 4px 18px;
-    font-size: 0.68rem;
-    letter-spacing: 1px;
-  }
-
-  .mic-arch-heart {
-    width: 24px;
-    height: 24px;
+  .mic-name {
     font-size: 0.72rem;
+  }
+
+  .mic-price {
+    font-size: 0.72rem;
+  }
+
+  .mic-footer {
+    padding-bottom: 12%;
+  }
+
+  .mic-view-btn {
+    padding: 4px 16px;
+    font-size: 0.62rem;
+    letter-spacing: 1px;
   }
 }
