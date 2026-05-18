@@ -36,7 +36,7 @@
   text-decoration: none;
   cursor: pointer;
   transition: all 0.3s ease;
-  transform: skew(-21deg);
+  border-radius: 999px;
 }
 
 .info__btn--filled {
@@ -49,7 +49,7 @@
 .info__btn--filled:hover {
   background: var(--primary-surface);
   border-color: var(--primary-surface);
-  transform: skew(-21deg) translateY(-2px);
+  transform: translateY(-2px);
   box-shadow: 0 8px 20px rgba(111, 23, 25, 0.3);
 }
 
@@ -62,7 +62,7 @@
 .info__btn--outline:hover {
   background: var(--primary-color);
   color: var(--white-color);
-  transform: skew(-21deg) translateY(-2px);
+  transform: translateY(-2px);
 }
 
 .info__btn--outline:disabled {
