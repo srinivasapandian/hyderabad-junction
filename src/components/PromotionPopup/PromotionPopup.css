@@ -1,0 +1,182 @@
+.promo-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(8px);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.promo-modal {
+  position: relative;
+  width: 100%;
+  max-width: 520px; /* Reduced from 600px */
+  background: #ffffff;
+  border-radius: 40px;
+  overflow: visible;
+  box-shadow: 0 30px 60px -12px rgba(0, 0, 0, 0.4);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.promo-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: #333;
+  z-index: 10;
+  transition: transform 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px;
+}
+
+.promo-close:hover {
+  transform: rotate(90deg);
+}
+
+.promo-image-top {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -55%);
+  display: flex;
+  justify-content: center;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.promo-image-top img {
+  width: 90%; /* Larger percentage of the smaller card */
+  max-width: 440px;
+  height: auto;
+  filter: drop-shadow(0 15px 25px rgba(0,0,0,0.3));
+}
+
+.promo-content {
+  padding: 120px 40px 30px; /* Reduced side and bottom padding */
+  width: 100%;
+}
+
+.promo-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 36px; /* Reduced from 44px */
+  font-weight: 700;
+  color: #000;
+  margin-bottom: 15px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.promo-description {
+  font-family: 'Inter', sans-serif;
+  font-size: 20px; /* Increased from 16px */
+  font-weight: 500;
+  line-height: 1.5;
+  color: #4a4a4a;
+  margin-bottom: 25px;
+  max-width: 100%;
+}
+
+.promo-footer {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+}
+
+.promo-btn {
+  background: var(--primary-color);
+  color: #fff;
+  border: none;
+  padding: 12px 28px;
+  border-radius: var(--radius-full);
+  font-size: 13px; /* Slightly smaller font */
+  font-weight: 600;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  text-transform: uppercase;
+}
+
+.promo-btn:hover {
+  background: var(--primary-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+}
+
+.promo-decoration {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 140px; /* Reduced from 200px */
+  height: auto;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.promo-decoration img {
+  width: 100%;
+  height: auto;
+  border-bottom-left-radius: 40px;
+  transform: rotate(0deg); 
+  display: block;
+}
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+  .promo-modal {
+    max-width: 92%;
+    border-radius: 30px;
+  }
+  
+  .promo-close {
+    top: 15px;
+    right: 15px;
+  }
+
+  .promo-image-top img {
+    width: 70%;
+    max-width: 280px;
+  }
+
+  .promo-content {
+    padding: 90px 25px 30px; /* Adjusted padding for mobile */
+  }
+  
+  .promo-title {
+    font-size: 24px; /* Smaller title */
+    margin-bottom: 10px;
+  }
+  
+  .promo-description {
+    font-size: 16px; /* Slightly smaller description */
+    margin-bottom: 20px;
+  }
+
+  .promo-btn {
+    padding: 10px 24px;
+    font-size: 12px;
+  }
+  
+  .promo-decoration {
+    width: 100px; /* Smaller decoration on mobile */
+  }
+
+  .promo-decoration img {
+    border-bottom-left-radius: 30px;
+  }
+}

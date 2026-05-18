@@ -22,6 +22,7 @@ import ScrollToTop from './components/scrollToTop/ScrollToTop';
 // import SavedAddress  from './pages/ordering/savedAddress/SavedAddress';
 import ActiveOrdersBar from './components/ActiveOrdersBar/ActiveOrdersBar';
 import { getSlugRequest } from './redux/slug/slugActions';
+import PromotionPopup from './components/PromotionPopup/PromotionPopup';
 import './App.css';
 // import ReservationPage from './pages/ordering/reservation/Reservation';
 // import ItemDetailPage from './pages/ordering/itemDetail/ItemDetailPage';
@@ -59,6 +60,7 @@ function App(): React.JSX.Element {
   return (
     <BrowserRouter>
       <ScrollToTop />
+      <PromotionPopup />
       <Routes>
         <Route element={<Layout />}>
           <Route path="/"                                   element={<Home onSignInClick={openAuthModal} />} />
