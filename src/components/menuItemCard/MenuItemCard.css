@@ -1,4 +1,4 @@
-.mic-card-premium {
+﻿.mic-card-premium {
   display: flex;
   flex-direction: row;
   align-items: stretch;
@@ -116,7 +116,7 @@
 }
 
 .mic-item-price {
-  color: #C62828;
+  color: #5a1712;
   font-weight: 800;
   font-size: 0.95rem;
   white-space: nowrap;

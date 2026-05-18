@@ -29,7 +29,10 @@ function MenuItemCard({ item }: MenuItemCardProps) {
     description,
     itemImage,
     itemType,
+    price,
   } = item;
+
+  const parsedPrice = parsePrice(price);
 
   const imageUrl = getImageUrl(itemImage, itemType);
 
@@ -79,6 +82,11 @@ function MenuItemCard({ item }: MenuItemCardProps) {
         <div className="mic-content-top">
           <div className="mic-name-price">
             <h3 className="mic-item-name">{itemName}</h3>
+            {parsedPrice !== null && (
+              <span className="mic-item-price">
+                <span className="mic-currency">£</span>{parsedPrice.toFixed(2)}
+              </span>
+            )}
           </div>
 
           {description && (
