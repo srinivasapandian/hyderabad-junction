@@ -23,7 +23,7 @@ import ScrollToTop from './components/scrollToTop/ScrollToTop';
 import ActiveOrdersBar from './components/ActiveOrdersBar/ActiveOrdersBar';
 import { getSlugRequest } from './redux/slug/slugActions';
 import './App.css';
-// import ReservationPage from './pages/ordering/reservation/Reservation';
+import ReservationPage from './pages/ordering/reservation/Reservation';
 // import ItemDetailPage from './pages/ordering/itemDetail/ItemDetailPage';
 import PoliciesLayout from './pages/ordering/policies/PoliciesLayout';
 import PolicyPage from './pages/ordering/policies/PolicyPage';
@@ -45,9 +45,11 @@ function Layout(): React.JSX.Element {
 
 function App(): React.JSX.Element {
   const dispatch = useDispatch();
-  const slugData = useSelector((s: RootState) => s.slug.data);
+  const slugState = useSelector((s: RootState) => s.slug);
+  const { data: slugData, loading: slugLoading } = slugState;
   const [authModalOpen, setAuthModalOpen] = useState<boolean>(false);
   const isReservationEnabled = isReservationEnabledByBranch(slugData);
+  const allowReservation = slugLoading || !slugData || isReservationEnabled;
 
   const openAuthModal  = () => setAuthModalOpen(true);
   const closeAuthModal = () => setAuthModalOpen(false);
@@ -83,7 +85,7 @@ function App(): React.JSX.Element {
           <Route path="/order-tracking" element={<Navigate to="/" replace />} /> {/* <OrderTracking /> */}
           <Route path="/favourites"     element={<Navigate to="/" replace />} /> {/* <Favourites /> */}
           <Route path="/saved-address"  element={<Navigate to="/" replace />} /> {/* <SavedAddress onSignInClick={openAuthModal} /> */}
-          <Route path="/reservation"    element={<Navigate to="/" replace />} /> {/* {isReservationEnabled ? <ReservationPage /> : <Navigate to="/" replace />} */}
+          <Route path="/reservation"    element={allowReservation ? <ReservationPage /> : <Navigate to="/" replace />} />
 
           {/* ── Terms & Policies ── */}
           <Route element={<PoliciesLayout />}>
