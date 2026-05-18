@@ -1,0 +1,158 @@
+/* ── Full-page takeover overlay ── */
+.mim-page {
+  position: fixed;
+  inset: 0;
+  z-index: 500;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  overflow: hidden;
+
+  background-color: #faf3f0;
+  background-image: url('../../assets/pattern.png');
+  background-repeat: repeat;
+  background-size: 400px;
+
+  animation: mim-enter 0.28s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@keyframes mim-enter {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Left — details ── */
+.mim-left {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
+  padding: 60px 40px 60px 80px;
+  min-width: 0;
+}
+
+/* Back button */
+.mim-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: none;
+  border: none;
+  color: #5A1712;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  padding: 0;
+  margin-bottom: 4px;
+  transition: gap 0.2s;
+  align-self: flex-start;
+}
+
+.mim-back:hover { gap: 12px; }
+
+/* Category pill */
+.mim-category {
+  display: inline-block;
+  border: 1.5px solid #5A1712;
+  color: #5A1712;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 4px 14px;
+  border-radius: 20px;
+  align-self: flex-start;
+}
+
+/* Name + price on the same row */
+.mim-name-price-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.mim-name {
+  font-family: var(--font-heading, serif);
+  font-size: clamp(1.6rem, 2.8vw, 2.4rem);
+  font-weight: 700;
+  color: #5A1712;
+  margin: 0;
+  line-height: 1.2;
+  flex: 1;
+}
+
+.mim-price {
+  font-family: var(--font-heading, serif);
+  font-size: clamp(1.4rem, 2.4vw, 2.2rem);
+  font-weight: 800;
+  color: #5A1712;
+  margin: 0;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+/* Description */
+.mim-desc {
+  font-size: 0.92rem;
+  color: #7f6a60;
+  line-height: 1.7;
+  margin: 0;
+  max-width: 460px;
+}
+
+/* ── Right — image (floating with padding + rounded corners) ── */
+.mim-right {
+  flex: 0 0 44%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 60px 40px 20px;
+}
+
+.mim-img {
+  width: 100%;
+  max-width: 520px;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 20px;
+  display: block;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.14);
+}
+
+/* ── Mobile ── */
+@media (max-width: 768px) {
+  .mim-page {
+    flex-direction: column;
+    align-items: stretch;
+    overflow-y: auto;
+  }
+
+  .mim-right {
+    flex: none;
+    padding: 0 20px 10px;
+    order: -1;
+  }
+
+  .mim-img {
+    aspect-ratio: 4 / 3;
+    border-radius: 14px;
+    max-width: 100%;
+  }
+
+  .mim-left {
+    padding: 20px 24px 48px;
+    gap: 16px;
+    justify-content: flex-start;
+  }
+
+  .mim-name-price-row {
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .mim-name  { font-size: 1.5rem; }
+  .mim-price { font-size: 1.25rem; }
+}
