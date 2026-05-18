@@ -11,6 +11,8 @@ interface ContactForm {
   message: string;
 }
 
+const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+
 export default function Contact() {
   const [form, setForm] = useState<ContactForm>({
     name: '',
@@ -18,22 +20,37 @@ export default function Contact() {
     subject: '',
     message: ''
   });
+  const [emailError, setEmailError] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSent, setIsSent] = useState(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setForm(prev => ({ ...prev, [name]: value }));
+    if (name === 'email') {
+      setEmailError(value && !EMAIL_REGEX.test(value) ? 'Please enter a valid email address.' : '');
+    }
+  };
+
+  const handleEmailBlur = () => {
+    if (form.email && !EMAIL_REGEX.test(form.email)) {
+      setEmailError('Please enter a valid email address.');
+    }
   };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    if (!EMAIL_REGEX.test(form.email)) {
+      setEmailError('Please enter a valid email address.');
+      return;
+    }
     setIsSubmitting(true);
     // Simulate API call
     setTimeout(() => {
       setIsSubmitting(false);
       setIsSent(true);
       setForm({ name: '', email: '', subject: '', message: '' });
+      setEmailError('');
     }, 1500);
   };
 
@@ -81,8 +98,11 @@ export default function Contact() {
                     placeholder="example@gmail.com"
                     value={form.email}
                     onChange={handleChange}
+                    onBlur={handleEmailBlur}
                     required
+                    style={emailError ? { borderColor: '#c0392b' } : undefined}
                   />
+                  {emailError && <span className="contact-field-error">{emailError}</span>}
                 </div>
 
                 <div className="contact-form-group">

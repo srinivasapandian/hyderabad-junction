@@ -244,8 +244,8 @@ function Home(_props: HomeProps) {
           animate={flavorInView ? { opacity: 1, x: 0 } : {}}
           transition={{ duration: 0.6 }}
         >
-          <img src={menu1} alt="Naan and curry" className="hj-flavor-side-card" />
-          <img src={menu2} alt="Signature curry" className="hj-flavor-side-card" />
+          <div className="hj-flavor-side-card"><img src={menu1} alt="Naan and curry" /></div>
+          <div className="hj-flavor-side-card"><img src={menu2} alt="Signature curry" /></div>
         </motion.div>
 
         <motion.div
@@ -254,7 +254,7 @@ function Home(_props: HomeProps) {
           animate={flavorInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.1 }}
         >
-          <img src={menu3} alt="Biryani platter" className="hj-flavor-main-card" />
+          <div className="hj-flavor-main-card"><img src={menu3} alt="Biryani platter" /></div>
           <h2>OUR PASSION FOR FLAVOR</h2>
           <p>
             We bring the authentic taste of South Indian non-vegetarian cuisine to the USA.

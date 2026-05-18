@@ -103,13 +103,15 @@
   text-transform: none;
   color: var(--white-color);
   padding: 6px 14px;
+  padding-bottom: 10px;
   white-space: nowrap;
-  transition: color 0.2s ease, border-color 0.2s ease;
+  transition: color 0.2s ease;
   text-decoration: none;
   display: inline-flex;
   align-items: center;
-  border: 1.5px solid transparent;
-  border-radius: 6px;
+  border: none;
+  border-radius: 0;
+  position: relative;
 }
 
 .header-nav>a:hover {
@@ -117,9 +119,23 @@
 }
 
 .header-nav>a.active {
-  color: var(--white-color);
-  border-color: rgba(255, 255, 255, 0.6);
+  color: var(--brand-gold);
   background: transparent;
+}
+
+.header-nav>a.active::after {
+  content: '';
+  display: block;
+  position: absolute;
+  bottom: -2px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 48px;
+  height: 14px;
+  background-image: url('../../assets/design2.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 /* Mobile button group — hidden on desktop */
@@ -135,16 +151,17 @@
   flex-shrink: 0;
 }
 
-/* ORDER NOW — filled secondary pill (primary CTA) */
+/* ORDER ONLINE — outlined gold pill */
 .header-order-btn {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  padding: 10px 18px;
-  border: 1.5px solid var(--secondary-color);
-  transform: skew(-21deg);
-  background: var(--secondary-color);
-  color: var(--primary-color);
+  padding: 10px 22px;
+  border: 1.5px solid var(--brand-gold);
+  border-radius: 999px;
+  transform: none;
+  background: transparent;
+  color: var(--brand-gold);
   font-family: var(--font-body);
   font-size: 0.8rem;
   font-weight: 700;
@@ -152,15 +169,15 @@
   text-transform: uppercase;
   text-decoration: none;
   white-space: nowrap;
-  transition: background 0.2s, border-color 0.2s, transform 0.2s, color 0.2s;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
 }
 
 .header-order-btn:hover,
 .header-order-btn.active {
-  background: var(--brand-gold-light);
-  border-color: var(--brand-gold-light);
+  background: var(--brand-gold);
   color: var(--primary-color);
-  transform: skew(-21deg) translateY(-1px);
+  transform: none;
 }
 
 /* RESERVE A TABLE — outlined secondary pill (secondary CTA) */
@@ -498,6 +515,10 @@
     color: var(--secondary-color);
     border-left: 3px solid var(--secondary-color);
     padding-left: 25px;
+  }
+
+  .header-nav > a.active::after {
+    display: none;
   }
 
   /* Mobile button group */
