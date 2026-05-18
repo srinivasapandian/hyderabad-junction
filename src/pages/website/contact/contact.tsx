@@ -126,17 +126,7 @@ export default function Contact() {
               </div>
               <div className="contact-info-content">
                 <h3>Phone Number</h3>
-                <p><a href="tel:+1000000000">+1 000-000-0000</a></p>
-              </div>
-            </div>
-
-            <div className="contact-info-card">
-              <div className="contact-info-icon">
-                <i className="fa-solid fa-envelope"></i>
-              </div>
-              <div className="contact-info-content">
-                <h3>Email Address</h3>
-                <p><a href="mailto:info@thehyderabadjunction.com">info@thehyderabadjunction.com</a></p>
+                <p><a href="tel:+18174640033">+1-817-464-0033</a></p>
               </div>
             </div>
 

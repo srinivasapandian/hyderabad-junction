@@ -110,6 +110,13 @@
   gap: 8px;
 }
 
+.footer__address {
+  font-family: var(--font-serif);
+  font-size: 0.88rem;
+  line-height: 1.4;
+  color: var(--footer-gold-8);
+}
+
 a.footer__order-btn {
   display: inline-flex;
   align-items: center;

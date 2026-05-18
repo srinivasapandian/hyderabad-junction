@@ -1,4 +1,4 @@
-﻿.contact-page {
+.contact-page {
   padding: 0 0 80px;
   min-height: 100vh;
 }
@@ -144,7 +144,8 @@
 .contact-info-icon {
   width: 50px;
   height: 50px;
-  background: rgba(111, 23, 25, 0.1); /* Soft primary color */
+  background: rgba(111, 23, 25, 0.1);
+  /* Soft primary color */
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -230,7 +231,7 @@
     grid-template-columns: 1fr;
     gap: 40px;
   }
-  
+
   .contact-info-section {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -242,15 +243,15 @@
   .contact-page {
     padding: 40px 0;
   }
-  
+
   .contact-title {
     font-size: 36px;
   }
-  
+
   .contact-info-section {
     grid-template-columns: 1fr;
   }
-  
+
   .contact-container {
     padding: 0 20px;
   }

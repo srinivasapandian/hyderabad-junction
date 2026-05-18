@@ -51,10 +51,22 @@
       {
         "heading": "6. Disclaimers and Limitation of Liability",
         "blocks": [
-          { "type": "paragraph", "text": "The Restaurant is solely responsible for food safety, preparation, and service." },
-          { "type": "paragraph", "text": "The Technology Provider disclaims all liability for errors in orders, allergen information, or delivery delays." },
-          { "type": "paragraph", "text": "The Platform and its services are provided \u201cAS IS\u201d and \u201cAS AVAILABLE\u201d without warranties of any kind, either express or implied, including implied warranties of merchantability, fitness for a particular purpose, or non-infringement." },
-          { "type": "paragraph", "text": "To the maximum extent permitted by law, neither the Restaurant nor the Technology Provider shall be liable for indirect, incidental, or consequential damages." }
+          {
+            "type": "paragraph",
+            "text": "The Restaurant is solely responsible for food safety, preparation, and service."
+          },
+          {
+            "type": "paragraph",
+            "text": "The Technology Provider disclaims all liability for errors in orders, allergen information, or delivery delays."
+          },
+          {
+            "type": "paragraph",
+            "text": "The Platform and its services are provided \u201cAS IS\u201d and \u201cAS AVAILABLE\u201d without warranties of any kind, either express or implied, including implied warranties of merchantability, fitness for a particular purpose, or non-infringement."
+          },
+          {
+            "type": "paragraph",
+            "text": "To the maximum extent permitted by law, neither the Restaurant nor the Technology Provider shall be liable for indirect, incidental, or consequential damages."
+          }
         ]
       },
       {
@@ -102,7 +114,10 @@
       {
         "heading": "2. Refund Policy",
         "blocks": [
-          { "type": "paragraph", "text": "Refunds may be provided under the following circumstances:" },
+          {
+            "type": "paragraph",
+            "text": "Refunds may be provided under the following circumstances:"
+          },
           {
             "type": "list",
             "items": [
@@ -119,7 +134,10 @@
       {
         "heading": "3. Non-Refundable Scenarios",
         "blocks": [
-          { "type": "paragraph", "text": "Refunds are typically not issued for:" },
+          {
+            "type": "paragraph",
+            "text": "Refunds are typically not issued for:"
+          },
           {
             "type": "list",
             "items": [
@@ -168,7 +186,10 @@
       {
         "heading": "1. Information Collected",
         "blocks": [
-          { "type": "paragraph", "text": "We collect the following information:" },
+          {
+            "type": "paragraph",
+            "text": "We collect the following information:"
+          },
           {
             "type": "list",
             "items": [
@@ -183,7 +204,10 @@
       {
         "heading": "2. Use of Information",
         "blocks": [
-          { "type": "paragraph", "text": "Your data is used to:" },
+          {
+            "type": "paragraph",
+            "text": "Your data is used to:"
+          },
           {
             "type": "list",
             "items": [
@@ -199,7 +223,10 @@
       {
         "heading": "3. Data Sharing",
         "blocks": [
-          { "type": "paragraph", "text": "Your information may be shared with:" },
+          {
+            "type": "paragraph",
+            "text": "Your information may be shared with:"
+          },
           {
             "type": "list",
             "items": [
@@ -209,7 +236,10 @@
               "Legal authorities if required by law"
             ]
           },
-          { "type": "paragraph", "text": "We do not sell your personal data." }
+          {
+            "type": "paragraph",
+            "text": "We do not sell your personal data."
+          }
         ]
       },
       {
