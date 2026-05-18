@@ -5,20 +5,24 @@ function ScrollToTop(): null {
   const { pathname, search, hash } = useLocation();
 
   useEffect(() => {
+    if ('scrollRestoration' in history) {
+      history.scrollRestoration = 'manual';
+    }
+  }, []);
+
+  useEffect(() => {
     if (!hash) {
       window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
     } else {
-      // Use a small delay to allow the component to render and IDs to be available
       const id = hash.replace('#', '');
-      const element = document.getElementById(id);
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
-      } else {
-        // Fallback: if element not found immediately, wait a bit
-        setTimeout(() => {
-          const el = document.getElementById(id);
-          if (el) el.scrollIntoView({ behavior: 'smooth' });
-        }, 100);
+      const tryScroll = () => {
+        const el = document.getElementById(id);
+        if (el) { el.scrollIntoView({ behavior: 'smooth' }); return true; }
+        return false;
+      };
+      if (!tryScroll()) {
+        const t1 = setTimeout(() => { if (!tryScroll()) setTimeout(tryScroll, 300); }, 100);
+        return () => clearTimeout(t1);
       }
     }
   }, [pathname, search, hash]);

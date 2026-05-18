@@ -181,7 +181,6 @@ body {
 html {
   -webkit-text-size-adjust: 100%;
   text-size-adjust: 100%;
-  scroll-behavior: smooth;
 }
 
 /* Fix for sticky header overlapping section anchors */
