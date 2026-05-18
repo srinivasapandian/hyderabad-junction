@@ -259,6 +259,8 @@
   margin-top: min(110px, 11vh);
   height: 28vh;
   overflow: hidden;
+  padding: 0;
+  line-height: 0;
 }
 
 .hj-flavor-side-card img,
@@ -267,6 +269,8 @@
   height: 200%;
   object-fit: cover;
   display: block;
+  margin: 0;
+  padding: 0;
 }
 
 .hj-flavor-main-card {
