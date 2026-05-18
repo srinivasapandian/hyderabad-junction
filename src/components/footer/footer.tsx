@@ -1,4 +1,7 @@
 import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { isReservationEnabledByBranch } from '../../utils/branchConfig';
+import type { RootState } from '../../types';
 import logoImg from '../../assets/logo.png';
 import trainImg from '../../assets/train.png';
 import './footer.css';
@@ -15,6 +18,13 @@ const SERVICES = ['Dine-in', 'Take way', 'Delivery'];
 const NEWS = ['Offer', 'Updates', 'announcements'];
 
 function Footer() {
+  const slugData = useSelector((s: RootState) => s.slug.data);
+  const isReservationEnabled = isReservationEnabledByBranch(slugData);
+
+  const quickLinks = [
+    ...QUICK_LINKS,
+    ...(isReservationEnabled ? [{ label: 'Reservation', to: '/reservation' }] : []),
+  ];
   return (
     <footer className="footer">
       <div className="footer__star-strip" aria-hidden="true" />
@@ -37,7 +47,7 @@ function Footer() {
         <div className="footer__col">
           <h3>QUICK LINK</h3>
           <ul>
-            {QUICK_LINKS.map((item) => (
+            {quickLinks.map((item) => (
               <li key={item.label}>
                 <Link to={item.to}>{item.label}</Link>
               </li>
