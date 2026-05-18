@@ -1,14 +1,14 @@
 {
   "termsOfUse": {
     "effectiveDate": "October 1, 2025",
-    "intro": "Welcome to the online ordering platform Maghil, provided on behalf of and under the brand of Amudham Cafe, San Jose and operated by its technology partner Maghil Etabl Inc. (\u201cTechnology Provider,\u201d \u201cwe,\u201d \u201cus,\u201d or \u201cour\u201d). By using this Platform to browse menus, place pickup or delivery orders, or make card payments, you agree to these Terms of Use.",
+    "intro": "Welcome to the online ordering platform Maghil, provided on behalf of and under the brand of hyderabad Junction, Northlake and operated by its technology partner Maghil Etabl Inc. (\u201cTechnology Provider,\u201d \u201cwe,\u201d \u201cus,\u201d or \u201cour\u201d). By using this Platform to browse menus, place pickup or delivery orders, or make card payments, you agree to these Terms of Use.",
     "sections": [
       {
         "heading": "1. Platform Provider and Scope",
         "blocks": [
           {
             "type": "paragraph",
-            "text": "While the Platform is branded and operated under Amudham Cafe, San Jose, the technology, infrastructure, and payment processing are provided by [Maghil Inc.], a registered technology vendor acting on behalf of the Restaurant."
+            "text": "While the Platform is branded and operated under hyderabad Junction, Northlake, the technology, infrastructure, and payment processing are provided by [Maghil Inc.], a registered technology vendor acting on behalf of the Restaurant."
           }
         ]
       },
@@ -35,7 +35,7 @@
         "blocks": [
           {
             "type": "paragraph",
-            "text": "Orders placed through the Platform are transmitted to Amudham Cafe, San Jose, who is solely responsible for fulfilling the order. You acknowledge that the Technology Provider is not the merchant of record and does not prepare or deliver food."
+            "text": "Orders placed through the Platform are transmitted to hyderabad Junction, Northlake, who is solely responsible for fulfilling the order. You acknowledge that the Technology Provider is not the merchant of record and does not prepare or deliver food."
           }
         ]
       },
@@ -100,14 +100,14 @@
   },
   "cancellationRefundPolicy": {
     "effectiveDate": "October 1, 2025",
-    "intro": "This Cancellation and Refund Policy applies to orders placed by customers through this online ordering platform powered by Maghil Inc on behalf of Amudham Cafe, San Jose.",
+    "intro": "This Cancellation and Refund Policy applies to orders placed by customers through this online ordering platform powered by Maghil Inc on behalf of hyderabad Junction, Northlake.",
     "sections": [
       {
         "heading": "1. Order Confirmations",
         "blocks": [
           {
             "type": "paragraph",
-            "text": "Orders are transmitted directly to Amudham Cafe, San Jose upon confirmation. Cancellation requests must be made immediately after placing the order by contacting the restaurant directly. The ability to cancel is subject to the restaurant\u2019s acceptance and preparation status."
+            "text": "Orders are transmitted directly to hyderabad Junction, Northlake upon confirmation. Cancellation requests must be made immediately after placing the order by contacting the restaurant directly. The ability to cancel is subject to the restaurant\u2019s acceptance and preparation status."
           }
         ]
       },
@@ -127,7 +127,7 @@
           },
           {
             "type": "paragraph",
-            "text": "Refunds are issued by Amudham Cafe, San Jose or its authorized designee. Inquiries may be routed through the Platform, but final decision rests with the Restaurant."
+            "text": "Refunds are issued by hyderabad Junction, Northlake or its authorized designee. Inquiries may be routed through the Platform, but final decision rests with the Restaurant."
           }
         ]
       },
@@ -153,7 +153,7 @@
         "blocks": [
           {
             "type": "paragraph",
-            "text": "Contact Amudham Cafe, San Jose directly or use the contact link on your digital receipt. Refunds, if approved, will be returned to your original payment method within 5\u201310 business days."
+            "text": "Contact hyderabad Junction, Northlake directly or use the contact link on your digital receipt. Refunds, if approved, will be returned to your original payment method within 5\u201310 business days."
           }
         ]
       },
@@ -181,7 +181,7 @@
   },
   "privacyPolicy": {
     "effectiveDate": "October 1, 2025",
-    "intro": "This Privacy Policy explains how personal information is collected, used, and shared when you interact with the online food ordering platform operated under the Amudham Cafe, San Jose brand and powered by Maghil Inc.",
+    "intro": "This Privacy Policy explains how personal information is collected, used, and shared when you interact with the online food ordering platform operated under the hyderabad Junction, Northlake brand and powered by Maghil Inc.",
     "sections": [
       {
         "heading": "1. Information Collected",
@@ -230,7 +230,7 @@
           {
             "type": "list",
             "items": [
-              "Amudham Cafe, San Jose to fulfill your order",
+              "hyderabad Junction, Northlake to fulfill your order",
               "Third-party payment processors and delivery services",
               "Technology Provider (Maghil Inc.) for platform maintenance",
               "Legal authorities if required by law"
