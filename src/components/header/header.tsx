@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import { isReservationEnabledByBranch } from '../../utils/branchConfig';
 import './header.css';
 import logoImg from '../../assets/logo.png';
 import type { RootState } from '../../types';
@@ -22,7 +21,6 @@ function Header() {
   const navigate = useNavigate();
   // const showBottomNav = !isBottomNavHidden(pathname);
   const slugData = useSelector((s: RootState) => s.slug.data);
-  const isReservationEnabled = isReservationEnabledByBranch(slugData);
 
   const closeMenu = () => setMenuOpen(false);
   const openComingSoon = () => { closeMenu(); setComingSoonOpen(true); };
@@ -81,15 +79,6 @@ function Header() {
 
           {/* Mobile-only button group */}
           <div className="header-nav-mobile-btns">
-            {isReservationEnabled && (
-              <Link
-                to="/reservation"
-                className={`header-nav-mobile-btn header-nav-mobile-btn--outline ${isActive('/reservation')}`}
-                onClick={closeMenu}
-              >
-                Reserve a Table
-              </Link>
-            )}
 
             <button
               className="header-nav-mobile-btn header-nav-mobile-btn--filled"
@@ -101,14 +90,6 @@ function Header() {
         </nav>
 
         <div className="header-right-wrap">
-          {isReservationEnabled && (
-            <Link
-              to="/reservation"
-              className={`header-reservation-btn ${isActive('/reservation')}`}
-            >
-              RESERVE A TABLE
-            </Link>
-          )}
 
           <button
             className="header-order-btn"
