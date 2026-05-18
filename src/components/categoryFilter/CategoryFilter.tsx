@@ -90,8 +90,11 @@ function CategoryFilter({
                   className={`mn-pill${activeId === 'exclusive' ? ' active' : ''}`}
                   onClick={() => onSelect('exclusive')}
                 >
-                  Today's Exclusive
-                  <span className="mn-pill-count">{getCategoryCount('exclusive')}</span>
+                  <span className="mn-pill-content">
+                    Today's Exclusive
+                    <span className="mn-pill-count">{getCategoryCount('exclusive')}</span>
+                  </span>
+                  <span className="mn-pill-underline"></span>
                 </button>
               )}
 
@@ -102,8 +105,11 @@ function CategoryFilter({
                   className={`mn-pill${activeId === cat.id ? ' active' : ''}`}
                   onClick={() => onSelect(cat.id)}
                 >
-                  {cat.name}
-                  <span className="mn-pill-count">{getCategoryCount(cat.id)}</span>
+                  <span className="mn-pill-content">
+                    {cat.name}
+                    <span className="mn-pill-count">{getCategoryCount(cat.id)}</span>
+                  </span>
+                  <span className="mn-pill-underline"></span>
                 </button>
               ))}
             </div>
