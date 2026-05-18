@@ -7,12 +7,11 @@ const QUICK_LINKS = [
   { label: 'Home', to: '/' },
   { label: 'About Us', to: '/#about' },
   { label: 'Menu', to: '/indian-restaurant-menu' },
-  { label: 'Blog', to: '/blog' },
   { label: 'Services', to: '/#services' },
   { label: 'Contact Us', to: '/contact' },
 ];
 
-const SERVICES = ['Dine-in', 'Take way', 'Delivery', 'Catering', 'Private Events'];
+const SERVICES = ['Dine-in', 'Take way', 'Delivery'];
 const NEWS = ['Offer', 'Updates', 'announcements'];
 
 function Footer() {
@@ -66,8 +65,12 @@ function Footer() {
 
         <div className="footer__col footer__touch">
           <h3>GET IN TOUCH</h3>
-          <a href="mailto:info@thehyderabadjunction.com">@info@thehyderabadjunction.com</a>
-          <a href="tel:+1000000000">+1 000-000-0000</a>
+          <span className="footer__address">
+            6000 Cleveland Gibbs Rd, Suite 300,
+            <br />
+            Northlake, Texas 76226
+          </span>
+          <a href="tel:+18174640033">+1-817-464-0033</a>
         </div>
       </div>
 
