@@ -1,4 +1,4 @@
-﻿.mic-card-premium {
+.mic-card-premium {
   display: flex;
   flex-direction: row;
   align-items: stretch;
@@ -6,10 +6,15 @@
   background: #E0C0AB;
   border: 1px solid #f0f0f0;
   border-radius: 12px;
-  padding: 10px;
+  padding: 12px 16px;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   box-shadow: 0 4px 6px rgba(0,0,0,0.02);
   position: relative;
+}
+
+/* Elegant and spacious padding for text-only menu cards */
+.mic-card-premium.mic-no-image {
+  padding: 14px 20px;
 }
 
 .mic-card-premium:hover {
@@ -258,7 +263,10 @@
 
 @media (max-width: 480px) {
   .mic-card-premium {
-    padding: 8px;
+    padding: 10px 14px;
+  }
+  .mic-card-premium.mic-no-image {
+    padding: 14px 18px;
   }
   .mic-left-img {
     width: 80px;

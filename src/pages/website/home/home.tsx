@@ -264,17 +264,13 @@ function Home(_props: HomeProps) {
             Our chefs combine traditional recipes with fresh ingredients to create dishes that
             celebrate flavor, culture, and hospitality.
           </p>
-          <a
-            href="#about"
+          <Link
+            to="/indian-restaurant-menu"
             className="hj-story-btn"
             style={{ textDecoration: 'none', display: 'inline-flex', alignItems: 'center', justifyContent: 'center' }}
-            onClick={(e) => {
-              e.preventDefault();
-              document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' });
-            }}
           >
-            OUR STORY
-          </a>
+            EXPLORE MENU
+          </Link>
         </motion.div>
 
         <motion.aside

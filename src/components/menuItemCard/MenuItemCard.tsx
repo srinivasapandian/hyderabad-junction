@@ -57,7 +57,7 @@ function MenuItemCard({ item }: MenuItemCardProps) {
 
   return (
     <div
-      className={`mic-card-premium ${showOverlay ? 'mic-unavailable' : ''}`}
+      className={`mic-card-premium ${showOverlay ? 'mic-unavailable' : ''} ${!imageUrl ? 'mic-no-image' : ''}`}
     >
       {/* LEFT: Image Section */}
       {imageUrl && (
