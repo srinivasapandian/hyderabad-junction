@@ -9,7 +9,6 @@ import ExclusiveItemCard from '../../../components/exclusiveItemCard/ExclusiveIt
 import { getMenuRequest } from '../../../redux/menu/menuActions';
 import { transformMenuResponse } from '../../../utils/menuTransformer';
 import { isReservationEnabledByBranch } from '../../../utils/branchConfig';
-import ComingSoonModal from '../../../components/comingSoonModal/ComingSoonModal';
 
 const DAY_ORDER = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
 
@@ -105,8 +104,6 @@ function Home(_props: HomeProps) {
   // ── State ─────────────────────────────────────────────────────────────────
 
   const [galleryIndex, setGalleryIndex] = useState<number | null>(null);
-  const [comingSoonOpen, setComingSoonOpen] = useState(false);
-  const openComingSoon = () => setComingSoonOpen(true);
 
   // ── Scroll refs ───────────────────────────────────────────────────────────
 
@@ -224,7 +221,13 @@ function Home(_props: HomeProps) {
 
         <div className="hj-hero-copy-left" aria-label="Hero description">
           <p>From aromatic biryanis to refreshing sides and indulgent desserts — every dish is made with passion and authenticity.</p>
-          <button type="button" className="hj-hero-btn" onClick={openComingSoon}>EXPLORE MENU</button>
+          <a
+            href="https://hyd-jn.maghil.com/restaurant/hyderabad-junction-tx/menu/Pickup"
+            className="hj-hero-btn"
+            style={{ textDecoration: 'none', display: 'inline-flex', alignItems: 'center', justifyContent: 'center' }}
+          >
+            EXPLORE MENU
+          </a>
         </div>
 
         {/* Mobile decorative bottom image */}
@@ -261,7 +264,17 @@ function Home(_props: HomeProps) {
             Our chefs combine traditional recipes with fresh ingredients to create dishes that
             celebrate flavor, culture, and hospitality.
           </p>
-          <button type="button" className="hj-story-btn" onClick={openComingSoon}>OUR STORY</button>
+          <a
+            href="#about"
+            className="hj-story-btn"
+            style={{ textDecoration: 'none', display: 'inline-flex', alignItems: 'center', justifyContent: 'center' }}
+            onClick={(e) => {
+              e.preventDefault();
+              document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' });
+            }}
+          >
+            OUR STORY
+          </a>
         </motion.div>
 
         <motion.aside
@@ -454,7 +467,7 @@ function Home(_props: HomeProps) {
 
       </section>
 
-      <ComingSoonModal isOpen={comingSoonOpen} onClose={() => setComingSoonOpen(false)} />
+
 
       {/* Gallery lightbox */}
       <AnimatePresence>

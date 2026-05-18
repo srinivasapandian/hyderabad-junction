@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { useNavigate } from 'react-router-dom';
-import { LOCATION_SLUG } from '../../utils/branchConfig';
 import './PromotionPopup.css';
 
 // Importing assets
@@ -10,7 +8,6 @@ import popupImage2 from '../../assets/popupimage2.png';
 
 const PromotionPopup: React.FC = () => {
   const [isVisible, setIsVisible] = useState(false);
-  const navigate = useNavigate();
 
   useEffect(() => {
     // Check if the popup has been shown in this session
@@ -32,12 +29,7 @@ const PromotionPopup: React.FC = () => {
 
   const handleExplore = () => {
     handleClose();
-    // Navigate to order online page or menu page
-    if (LOCATION_SLUG) {
-      navigate(`/order-online/${LOCATION_SLUG}/pickup`);
-    } else {
-      navigate('/indian-restaurant-menu');
-    }
+    window.location.href = "https://hyd-jn.maghil.com/restaurant/hyderabad-junction-tx/menu/Pickup";
   };
 
   return (

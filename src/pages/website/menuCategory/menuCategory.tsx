@@ -8,13 +8,11 @@ import {
   menuLandingPagesBySlug,
 } from '../../../data/menuLandingPages';
 import heroBg from '../../../assets/images/new/optimized/hero-bg.jpg';
-import ComingSoonModal from '../../../components/comingSoonModal/ComingSoonModal';
 import './menuCategory.css';
 
 function MenuCategoryPage() {
   const { categorySlug } = useParams<{ categorySlug: string }>();
   const page = menuLandingPagesBySlug[categorySlug!];
-  const [comingSoonOpen, setComingSoonOpen] = useState(false);
 
   useEffect(() => {
     if (!page) return undefined;
@@ -80,13 +78,13 @@ function MenuCategoryPage() {
               </div>
 
               <div className="menu-category-actions">
-                <button
-                  type="button"
+                <a
+                  href="https://hyd-jn.maghil.com/restaurant/hyderabad-junction-tx/menu/Pickup"
                   className="menu-category-btn menu-category-btn--primary"
-                  onClick={() => setComingSoonOpen(true)}
+                  style={{ textDecoration: 'none', display: 'inline-flex', alignItems: 'center', justifyContent: 'center' }}
                 >
                   Order Online
-                </button>
+                </a>
                 <Link to="/contact" className="menu-category-btn menu-category-btn--secondary">
                   Visit Us
                 </Link>
@@ -144,8 +142,6 @@ function MenuCategoryPage() {
           </div>
         </section>
       </div>
-
-      <ComingSoonModal isOpen={comingSoonOpen} onClose={() => setComingSoonOpen(false)} />
     </PageBg>
   );
 }

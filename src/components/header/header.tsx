@@ -1,10 +1,9 @@
 import { useState, useEffect } from 'react';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import './header.css';
 import logoImg from '../../assets/logo.png';
 import type { RootState } from '../../types';
-import ComingSoonModal from '../comingSoonModal/ComingSoonModal';
 
 /* Retained for future bottom-nav re-enablement
 function isBottomNavHidden(pathname) {
@@ -16,14 +15,11 @@ function isBottomNavHidden(pathname) {
 
 function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [comingSoonOpen, setComingSoonOpen] = useState(false);
   const { pathname, hash } = useLocation();
-  const navigate = useNavigate();
   // const showBottomNav = !isBottomNavHidden(pathname);
   const slugData = useSelector((s: RootState) => s.slug.data);
 
   const closeMenu = () => setMenuOpen(false);
-  const openComingSoon = () => { closeMenu(); setComingSoonOpen(true); };
 
   useEffect(() => {
     document.body.classList.toggle('menu-open', menuOpen);
@@ -79,29 +75,26 @@ function Header() {
 
           {/* Mobile-only button group */}
           <div className="header-nav-mobile-btns">
-
-            <button
+            <a
+              href="https://hyd-jn.maghil.com/restaurant/hyderabad-junction-tx/menu/Pickup"
               className="header-nav-mobile-btn header-nav-mobile-btn--filled"
-              onClick={openComingSoon}
+              onClick={closeMenu}
             >
               Order Online
-            </button>
+            </a>
           </div>
         </nav>
 
         <div className="header-right-wrap">
-
-          <button
+          <a
+            href="https://hyd-jn.maghil.com/restaurant/hyderabad-junction-tx/menu/Pickup"
             className="header-order-btn"
-            onClick={openComingSoon}
           >
             ORDER ONLINE
-          </button>
+          </a>
           {/* User button hidden — auth not active */}
         </div>
       </div>
-
-      <ComingSoonModal isOpen={comingSoonOpen} onClose={() => setComingSoonOpen(false)} />
     </header>
   );
 }

@@ -1,11 +1,8 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import './InfoSection.css';
 import type { RootState, WorkingHour } from '../../types';
-import { LOCATION_SLUG } from '../../utils/branchConfig';
-import ComingSoonModal from '../comingSoonModal/ComingSoonModal';
 
 const DAY_ORDER = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
 
@@ -36,7 +33,6 @@ function buildHoursDisplay(hours: WorkingHour[]): { day: string; time: string }[
 export default function InfoSection() {
   const slugData = useSelector((s: RootState) => s.slug.data);
   const [hoursTab, setHoursTab] = useState<'store' | 'online'>('store');
-  const [comingSoonOpen, setComingSoonOpen] = useState(false);
 
   const storeHours  = slugData?.workingHours  as WorkingHour[] | undefined;
   const onlineHours = slugData?.onlineWorkingHours as WorkingHour[] | undefined;
@@ -57,15 +53,13 @@ export default function InfoSection() {
 
         {/* Left side: Order Online button */}
         <div className="info__btns">
-
-          <button
-            type="button"
+          <a
+            href="https://hyd-jn.maghil.com/restaurant/hyderabad-junction-tx/menu/Pickup"
             className="info__btn info__btn--filled"
-            onClick={() => setComingSoonOpen(true)}
+            style={{ textDecoration: 'none', display: 'inline-flex', alignItems: 'center', justifyContent: 'center' }}
           >
             Order Online
-          </button>
-          {/* <Link to={`/order-online/${LOCATION_SLUG}/pickup`} className="info__btn info__btn--filled">Order Online</Link> */}
+          </a>
         </div>
 
         {/* Right side: Business hours */}
@@ -109,7 +103,6 @@ export default function InfoSection() {
         </motion.div>
 
       </div>
-      <ComingSoonModal isOpen={comingSoonOpen} onClose={() => setComingSoonOpen(false)} />
     </section>
   );
 }
