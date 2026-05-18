@@ -8,6 +8,7 @@ const QUICK_LINKS = [
   { label: 'About Us', to: '/#about' },
   { label: 'Menu', to: '/indian-restaurant-menu' },
   { label: 'Services', to: '/#services' },
+  { label: 'Gallery', to: '/gallery' },
   { label: 'Contact Us', to: '/contact' },
 ];
 
