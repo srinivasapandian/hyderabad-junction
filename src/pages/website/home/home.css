@@ -331,6 +331,7 @@
 .hj-flavor-right {
   display: grid;
   gap: 0.85rem;
+  margin-top: min(110px, 11vh);
 }
 
 .hj-customer-pill {
@@ -373,10 +374,18 @@
 }
 
 .hj-google-panel {
-  background: var(--primary-card);
-  border-radius: 2rem;
-  padding: 1rem 1rem;
-  box-shadow: 0 12px 22px rgba(0, 0, 0, 0.16);
+  background: none;
+  border-radius: 0;
+  padding: 0;
+  box-shadow: none;
+}
+
+.hj-about-gallery-img {
+  width: 100%;
+  height: clamp(580px, 55vh, 520px);
+  object-fit: cover;
+  border-radius: 1.2rem;
+  display: block;
 }
 
 .hj-google-panel h3 {

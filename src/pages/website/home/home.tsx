@@ -209,7 +209,7 @@ function Home(_props: HomeProps) {
 
           <div className="hj-hero-copy-right" aria-label="Hero heading">
             <h1>
-              SERVED HOTT
+              SERVED HOT
               <br />
               <span>TRAVELLED FAR,</span>
               <br />
@@ -280,21 +280,8 @@ function Home(_props: HomeProps) {
           animate={flavorInView ? { opacity: 1, x: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.2 }}
         >
-          <div className="hj-customer-pill">
-            <img src={userImg} alt="" aria-hidden="true" className="hj-customer-user-img" />
-            <div className="hj-customer-copy">
-              <img src={starImg} alt="" aria-hidden="true" className="hj-customer-star-img" />
-              <p>1k + Customers</p>
-            </div>
-          </div>
-
           <div className="hj-google-panel">
-            <h3>GOOGLE IMAGES</h3>
-            <div className="hj-google-grid">
-              {GOOGLE_IMAGES.map((img, index) => (
-                <img key={index} src={img} alt={`Google gallery ${index + 1}`} />
-              ))}
-            </div>
+            <img src={gallery2} alt="Elegant Dining Space" className="hj-about-gallery-img" />
           </div>
         </motion.aside>
 
