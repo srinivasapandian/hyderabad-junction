@@ -77,10 +77,10 @@ const MENU_CARDS = [
 ];
 
 const SERVICE_CARDS = [
-  { title: 'DINE IN', image: service1, desc: 'Expert chefs preparing authentic and flavorful dishes.' },
-  { title: 'HOME DELIVERY', image: service2, desc: 'Expert chefs preparing authentic and flavorful dishes.' },
-  { title: 'FRESHLY SERVED', image: service3, desc: 'Expert chefs preparing authentic and flavorful dishes.' },
-  { title: 'EVENT HOSTING', image: service4, desc: 'Expert chefs preparing authentic and flavorful dishes.' },
+  { title: 'DINE IN', image: service1, desc: 'Enjoy a warm and inviting dining experience.Savor every bite in a cozy atmosphere.' },
+  { title: 'HOME DELIVERY', image: service2, desc: 'Fresh flavors delivered right to your doorstep.Enjoy restaurant-quality meals at home.' },
+  { title: 'FRESHLY SERVED', image: service3, desc: 'Prepared fresh with quality ingredients every day.Taste the goodness in every serving.' },
+  { title: 'EVENT HOSTING', image: service4, desc: 'Create unforgettable moments with our event services.Perfect food and ambiance for every celebration.' },
 ];
 
 const GALLERY_IMAGES = [
