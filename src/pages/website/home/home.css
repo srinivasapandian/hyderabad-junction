@@ -263,6 +263,11 @@
   line-height: 0;
 }
 
+.hj-flavor-left .hj-flavor-side-card:nth-child(2) {
+  height: 48vh;
+  margin-top: 0;
+}
+
 .hj-flavor-side-card img,
 .hj-flavor-main-card img {
   width: 100%;
@@ -271,6 +276,14 @@
   display: block;
   margin: 0;
   padding: 0;
+}
+
+.hj-flavor-left .hj-flavor-side-card:nth-child(2) img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: center !important;
+  transform: scale(1.4);
 }
 
 .hj-flavor-main-card {
