@@ -191,9 +191,7 @@ function OrderingBar({
                       onMouseDown={(e) => e.preventDefault()}
                       onClick={() => handleSuggestionClick(item)}
                     >
-                      {imgSrc && (
-                        <img src={imgSrc} alt={item.itemName} className="ob-suggestion-img" onError={(e) => { (e.currentTarget as HTMLImageElement).style.display = 'none'; }} />
-                      )}
+                      <img src={imgSrc || placeholderImg} alt={item.itemName} className="ob-suggestion-img" onError={(e) => { (e.currentTarget as HTMLImageElement).src = placeholderImg; }} />
                       <span className="ob-suggestion-name">{item.itemName}</span>
                     </button>
                   );

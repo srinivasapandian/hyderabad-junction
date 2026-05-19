@@ -582,44 +582,42 @@ export default function ItemDetailPage() {
           </motion.div>
 
           {/* ═══ RIGHT — image ═══ */}
-          {getImageUrl(item.itemImage, item.itemType) && (
-            <motion.div className="idp__right" {...fu(0.12)}>
-              <div className="idp__img-frame">
-                <img 
-                  src={getImageUrl(item.itemImage, item.itemType) || ''} 
-                  alt={itemName} 
-                  className="idp__img" 
-                  loading="eager" 
-                  onError={(e) => { (e.currentTarget as HTMLImageElement).style.display = 'none'; }}
-                />
+          <motion.div className="idp__right" {...fu(0.12)}>
+            <div className="idp__img-frame">
+              <img 
+                src={imageSrc} 
+                alt={itemName} 
+                className="idp__img" 
+                loading="eager" 
+                onError={(e) => { (e.currentTarget as HTMLImageElement).src = placeholderImg; }}
+              />
 
-                {/* Mobile back button */}
-                <button
-                  className="idp__img-back"
-                  onClick={() => navigate(-1)}
-                  type="button"
-                  aria-label="Go back"
-                >
-                  <i className="fa-solid fa-chevron-left" />
-                </button>
+              {/* Mobile back button */}
+              <button
+                className="idp__img-back"
+                onClick={() => navigate(-1)}
+                type="button"
+                aria-label="Go back"
+              >
+                <i className="fa-solid fa-chevron-left" />
+              </button>
 
-                {/* Fav on image hidden — ordering not active */}
+              {/* Fav on image hidden — ordering not active */}
 
-                {/* Item-specific unavailability scrim — not shown for closed restaurant */}
-                {isItemBlocked && (
-                  <div className="idp__img-scrim">
-                    {availTime && <i className="fa-regular fa-clock" />}
-                    <span className="idp__img-scrim-label">
-                      {availTime ? 'Will be available at' : 'Currently unavailable'}
-                    </span>
-                    {availTime && <span className="idp__img-scrim-time">{availTime}</span>}
-                  </div>
-                )}
-              </div>
+              {/* Item-specific unavailability scrim — not shown for closed restaurant */}
+              {isItemBlocked && (
+                <div className="idp__img-scrim">
+                  {availTime && <i className="fa-regular fa-clock" />}
+                  <span className="idp__img-scrim-label">
+                    {availTime ? 'Will be available at' : 'Currently unavailable'}
+                  </span>
+                  {availTime && <span className="idp__img-scrim-time">{availTime}</span>}
+                </div>
+              )}
+            </div>
 
-              {/* Mobile cart bar hidden — ordering not active */}
-            </motion.div>
-          )}
+            {/* Mobile cart bar hidden — ordering not active */}
+          </motion.div>
 
         </div>{/* /split */}
 

@@ -2,6 +2,7 @@ import React from 'react';
 import './MenuItemCard.css';
 import { getItemUnavailability } from '../../utils/menuTransformer';
 import type { MenuItem } from '../../types';
+import placeholderImg from '../../assets/placeHolderMedia.jpg';
 
 const MEDIA_CDN = (import.meta.env.VITE_IMAGE_URL as string)?.replace(/\/$/, '') ?? '';
 
@@ -57,25 +58,23 @@ function MenuItemCard({ item }: MenuItemCardProps) {
 
   return (
     <div
-      className={`mic-card-premium ${showOverlay ? 'mic-unavailable' : ''} ${!imageUrl ? 'mic-no-image' : ''}`}
+      className={`mic-card-premium ${showOverlay ? 'mic-unavailable' : ''}`}
     >
       {/* LEFT: Image Section */}
-      {imageUrl && (
-        <div className="mic-left-img">
-          <img
-            src={imageUrl}
-            alt={itemName}
-            className="mic-main-img"
-            onError={(e) => { (e.currentTarget as HTMLImageElement).style.display = 'none'; }}
-          />
-          {showOverlay && (
-            <div className="mic-overlay">
-              {overlayIcon}
-              <span>{overlayLabel}</span>
-            </div>
-          )}
-        </div>
-      )}
+      <div className="mic-left-img">
+        <img
+          src={imageUrl || placeholderImg}
+          alt={itemName}
+          className="mic-main-img"
+          onError={(e) => { (e.currentTarget as HTMLImageElement).src = placeholderImg; }}
+        />
+        {showOverlay && (
+          <div className="mic-overlay">
+            {overlayIcon}
+            <span>{overlayLabel}</span>
+          </div>
+        )}
+      </div>
 
       {/* RIGHT: Content Section */}
       <div className="mic-right-content">

@@ -35,6 +35,7 @@ import designImg from '../../../assets/design.png';
 import menu1 from '../../../assets/menu1.png';
 import menu2 from '../../../assets/menu2.png';
 import menu3 from '../../../assets/menu3.png';
+import menu4 from '../../../assets/menu4.jpg';
 import appetizersImg from '../../../assets/appitizers.png';
 import entreesImg from '../../../assets/entrees.png';
 import dessertsImg from '../../../assets/desserts.png';
@@ -281,7 +282,7 @@ function Home(_props: HomeProps) {
           transition={{ duration: 0.6, delay: 0.2 }}
         >
           <div className="hj-google-panel">
-            <img src={gallery2} alt="Elegant Dining Space" className="hj-about-gallery-img" />
+            <img src={menu4} alt="Elegant Dining Space" className="hj-about-gallery-img" />
           </div>
         </motion.aside>
 

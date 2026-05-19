@@ -371,15 +371,13 @@ export default function CartPage({ onSignInClick }: CartPageProps) {
 
                   {/* Top row — image, name, price, qty, remove */}
                   <div className="cart-line__top">
-                    {getImageUrl(line.itemImage, line.itemType) && (
-                      <img
-                        src={getImageUrl(line.itemImage, line.itemType) || ''}
-                        alt={line.itemName}
-                        className="cart-line__img"
-                        loading="lazy"
-                        onError={(e) => { (e.currentTarget as HTMLImageElement).style.display = 'none'; }}
-                      />
-                    )}
+                    <img
+                      src={getImageUrl(line.itemImage, line.itemType) || placeholderImg}
+                      alt={line.itemName}
+                      className="cart-line__img"
+                      loading="lazy"
+                      onError={(e) => { (e.currentTarget as HTMLImageElement).src = placeholderImg; }}
+                    />
                     <div className="cart-line__info">
                       <button
                         className="cart-line__name cart-line__name--edit"

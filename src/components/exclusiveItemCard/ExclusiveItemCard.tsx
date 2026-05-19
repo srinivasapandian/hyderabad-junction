@@ -1,6 +1,7 @@
 import React from 'react';
 import './ExclusiveItemCard.css';
 import type { MenuItem } from '../../types';
+import placeholderImg from '../../assets/placeHolderMedia.jpg';
 
 const MEDIA_CDN = (import.meta.env.VITE_IMAGE_URL as string)?.replace(/\/$/, '') ?? '';
 
@@ -22,17 +23,15 @@ function ExclusiveItemCard({ item }: ExclusiveItemCardProps) {
   return (
     <div className="eic-card">
       {/* ── Left: Image Section ── */}
-      {imageUrl && (
-        <div className="eic-img-box">
-          <img
-            src={imageUrl}
-            alt={itemName}
-            className="eic-img"
-            loading="lazy"
-            onError={(e) => { (e.currentTarget as HTMLImageElement).style.display = 'none'; }}
-          />
-        </div>
-      )}
+      <div className="eic-img-box">
+        <img
+          src={imageUrl || placeholderImg}
+          alt={itemName}
+          className="eic-img"
+          loading="lazy"
+          onError={(e) => { (e.currentTarget as HTMLImageElement).src = placeholderImg; }}
+        />
+      </div>
 
       {/* ── Right: Content Section ── */}
       <div className="eic-content">
