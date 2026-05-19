@@ -58,23 +58,25 @@ function MenuItemCard({ item }: MenuItemCardProps) {
 
   return (
     <div
-      className={`mic-card-premium ${showOverlay ? 'mic-unavailable' : ''}`}
+      className={`mic-card-premium ${showOverlay ? 'mic-unavailable' : ''} ${!imageUrl ? 'mic-no-image' : ''}`}
     >
       {/* LEFT: Image Section */}
-      <div className="mic-left-img">
-        <img
-          src={imageUrl || placeholderImg}
-          alt={itemName}
-          className="mic-main-img"
-          onError={(e) => { (e.currentTarget as HTMLImageElement).src = placeholderImg; }}
-        />
-        {showOverlay && (
-          <div className="mic-overlay">
-            {overlayIcon}
-            <span>{overlayLabel}</span>
-          </div>
-        )}
-      </div>
+      {imageUrl && (
+        <div className="mic-left-img">
+          <img
+            src={imageUrl}
+            alt={itemName}
+            className="mic-main-img"
+            onError={(e) => { (e.currentTarget as HTMLImageElement).style.display = 'none'; }}
+          />
+          {showOverlay && (
+            <div className="mic-overlay">
+              {overlayIcon}
+              <span>{overlayLabel}</span>
+            </div>
+          )}
+        </div>
+      )}
 
       {/* RIGHT: Content Section */}
       <div className="mic-right-content">
