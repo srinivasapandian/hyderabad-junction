@@ -209,7 +209,7 @@ function Home(_props: HomeProps) {
 
           <div className="hj-hero-copy-right" aria-label="Hero heading">
             <h1>
-              SERVED HOT
+              SERVED HOTT
               <br />
               <span>TRAVELLED FAR,</span>
               <br />
